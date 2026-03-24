@@ -1,0 +1,31 @@
+{
+  "name": "silhouette",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A guided micro-reset agent for young adults who feel stuck",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "ingest": "tsx scripts/ingest-docs.ts",
+    "test-tools": "tsx scripts/test-tools.ts"
+  },
+  "dependencies": {
+    "langchain": "^0.3.0",
+    "@langchain/openai": "^0.4.0",
+    "@langchain/community": "^0.3.0",
+    "@langchain/core": "^0.3.0",
+    "@tavily/core": "^0.0.7",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.19.0"
+  }
+}
