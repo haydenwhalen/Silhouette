@@ -1,21 +1,26 @@
-// Script: test-tools
-// Quick smoke test for each tool to verify they work independently.
-//
-// Run with: npm run test-tools
-
-import { validateConfig } from "../src/lib/config";
+import { calculatorTool } from "../src/tools/calculator";
 
 async function main() {
-  validateConfig();
+  console.log("=== Calculator Tool Tests ===\n");
 
-  console.log("--- Calculator ---");
-  console.log("TODO: Test calculator with a sample expression");
+  const tests = [
+    "2000 / 250",
+    "15 * 5",
+    "180 / 6",
+    "(3 * 60) + 45",
+    "100 * 0.125",
+    "abc + 1",        // should produce a clear error
+    "10 / 0",         // Infinity — should produce an error
+  ];
 
-  console.log("\n--- Web Search ---");
-  console.log("TODO: Test web search with a sample query");
+  for (const expr of tests) {
+    const result = await calculatorTool.invoke({ expression: expr });
+    console.log(`  ${expr}  →  ${result}\n`);
+  }
 
-  console.log("\n--- Knowledge Base ---");
-  console.log("TODO: Test RAG retrieval with a sample stuck-moment query");
+  console.log("=== Calculator tool schema ===");
+  console.log("Name:", calculatorTool.name);
+  console.log("Description:", calculatorTool.description);
 }
 
 main().catch(console.error);
