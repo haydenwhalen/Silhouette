@@ -1,149 +1,226 @@
-# Silhouette — MVP Definition
+# Silhouette — Phase 1: Assignment MVP
 
-> This file defines what version 1 of Silhouette is, what it does, and what it deliberately does not do.
-> When in doubt about scope, default to this document.
-
----
-
-## MVP Goal
-
-Prove that a low-friction, guided reset experience can help a young adult move from a specific stuck moment to a slightly more hopeful, slightly more actionable state — through one curated, context-matched resource and one small next step.
-
-The MVP does not need to be feature-rich. It needs to be tight, believable, and good at its one job.
+> This file defines the Phase 1 prototype of Silhouette, built as a BYU multi-tool AI agent course project.
+> It describes what this version is, what it proves, what it does not prove, and how it connects to the long-term product vision.
 
 ---
 
-## MVP Wedge
+## Why the MVP Is Intentionally Narrow
 
-Young adults in transition-heavy seasons who are caught in a short-term overwhelm-and-avoidance loop — overwhelmed, emotionally foggy, avoiding something meaningful — and need a fast, practical reset in under 5 minutes.
+Silhouette's long-term vision is a scalable hybrid recommendation platform with personalized ranking, external discovery, feedback loops, and a curated content graph. That system cannot be built in a semester.
 
-This wedge is narrow enough to build well in version 1 and broad enough to include college students, recent graduates, and early-career adults without being limited to any single life stage.
+The Phase 1 MVP exists to validate one thing: **the core micro-reset loop works.** A user in a stuck moment can describe how they feel, receive one relevant resource with an explanation, and get one concrete next step — and that experience feels meaningfully better than asking ChatGPT or browsing YouTube.
 
----
-
-## Supported Stuck Moments
-
-The MVP will support the following three primary stuck moments, plus one optional fourth moment if capacity allows.
-
-### Moment 1: The Avoidance Spiral (Primary)
-**What is happening:** The user has something meaningful to do and has been putting it off. The longer they avoid it, the worse they feel about themselves, and the harder it becomes to start.
-**Core need:** Break the freeze. Give them permission to start small and one tiny action that gets them back in.
-**Silhouette output:** One resource about avoidance, re-entry, or momentum + one micro first step (e.g., "open the document and write one sentence").
-
-### Moment 2: The Post-Doomscroll Slump (Primary)
-**What is happening:** The user spent too long on their phone and now feels numb, drained, or worse than before.
-**Core need:** Interrupt the cycle without judgment. Redirect toward something real without requiring a lot of energy.
-**Silhouette output:** One short, honest resource about reclaiming a moment + one small physical or mental redirect action.
-
-### Moment 3: The "I'm Behind In Life" Paralysis (Primary)
-**What is happening:** The user has a heavy, foggy sense that they are not where they should be by now — in career, habits, relationships, or direction. No single triggering event, just accumulated weight.
-**Core need:** Reduce noise. Name the feeling. Return to one concrete thing that matters today.
-**Silhouette output:** One grounding, perspective-restoring resource + one clarity action (e.g., "name one thing you actually care about right now").
-
-### Moment 4: The Comparison Crash (Optional, if time allows)
-**What is happening:** The user compared themselves to someone else — on social media, in conversation, or in their own head — and now feels deflated and inadequate.
-**Core need:** A quiet perspective reset that restores belief in their own path without being preachy.
-**Silhouette output:** One identity-grounding resource about comparison or self-worth + one reconnecting action.
+Everything else — personalization, external discovery, ranking sophistication, scale — is deliberately deferred. Phase 1 is a proof of concept for the interaction model, not a proof of the full platform.
 
 ---
 
-## Basic User Workflow
+## Role of the BYU Class Prototype
+
+The assignment version was built for a BYU course on multi-tool AI agents. The course required:
+
+- A LangChain.js ReAct agent
+- At least three tools: calculator, web search, and RAG over at least 5 real documents
+- Source attribution in responses
+- Conversation memory
+- A web UI
+- Structured logging of tool calls
+
+Silhouette was designed to satisfy these requirements authentically — every required component has a natural role in the product:
+
+- **RAG** is the core value tool (resource retrieval from the curated library).
+- **Web search** is the fallback discovery mechanism.
+- **Calculator** supports making next steps concrete (time breakdowns, progress estimates).
+- **Memory** enables coherent multi-turn conversations.
+- **The web UI** is the product interface.
+
+The assignment constraints aligned with the product needs. Phase 1 is not a demo stitched together for a rubric — it is the first functional version of a real product idea, scoped to what can be built and validated in a course timeline.
+
+---
+
+## What Phase 1 Proves
+
+1. **The intake loop works.** Users can describe their stuck moment in a few sentences, and the agent can ask useful clarifying questions.
+2. **Emotional-state classification is feasible.** The agent can internally identify which stuck pattern the user is experiencing and use that to guide retrieval.
+3. **RAG retrieval over a curated library produces relevant results.** A small, well-tagged knowledge base can surface resources that feel matched to the user's moment.
+4. **The one-resource-plus-one-step format is a valid unit of value.** Users receive something concrete instead of a generic pep talk.
+5. **Source attribution builds trust.** Explaining why a resource was chosen and who created it makes the recommendation feel credible.
+6. **The experience feels different from ChatGPT.** Guided intake plus curated retrieval plus explained recommendation is a distinct experience from open-ended prompting.
+7. **Safety routing is implementable.** The agent can detect crisis signals and respond appropriately without continuing the normal flow.
+
+---
+
+## What Phase 1 Does Not Prove
+
+1. **Personalization.** Phase 1 has no user profiles, preference learning, or cross-session memory. Every session starts cold.
+2. **Recommendation ranking quality at scale.** With 5 documents and basic similarity search, retrieval is functional but not optimized. There is no reranking, no emotional-fit scoring, no format or duration matching.
+3. **External discovery quality.** Web search is available as a fallback but has no quality filters, trust scoring, or normalized schema.
+4. **Retention and return behavior.** Phase 1 cannot measure whether users return for the next stuck moment.
+5. **Action follow-through.** There is no mechanism to track whether users actually take the suggested next step.
+6. **Library coverage.** Five documents across 3–4 stuck moments is enough to demonstrate the loop, not enough to serve users reliably.
+7. **Business viability.** Phase 1 validates the interaction model, not the business model.
+
+---
+
+## Current Tools
+
+### Tool 1: `knowledge_base_rag`
+
+Performs vector similarity search over a curated set of documents and returns the most relevant chunks with source metadata (title, author, type, URL). This is the core value tool — it is how Silhouette finds the right resource for the user's stuck moment.
+
+### Tool 2: `web_search`
+
+Searches the public web via Tavily for relevant resources. Used as a fallback when RAG results are weak or when the user asks for something outside the curated library. Web search supplements the internal library but is not the primary retrieval path.
+
+### Tool 3: `calculator`
+
+Evaluates mathematical expressions. Used to make next steps concrete and quantified — breaking tasks into time blocks, estimating commitments, showing that a first step is smaller than it feels.
+
+---
+
+## Current User Flow
 
 ```
-1. User opens Silhouette
-2. Agent greets the user and asks a short, low-effort intake question
-   ("What's going on for you right now?" or a simple multiple-choice prompt)
-3. Agent asks 1–2 follow-up questions to clarify the stuck moment
-4. Agent classifies the stuck pattern (internally — not shown to user as a label)
-5. Agent retrieves one resource from the curated knowledge base via RAG
-6. Agent presents:
-   - the resource (title, type, brief excerpt or description)
-   - a short "why this" explanation
-   - one concrete next step
-7. User can ask a follow-up question or request a different resource
-8. Session ends when the user has what they need
+1. User opens the web UI.
+2. Silhouette greets the user and asks a low-effort intake question.
+3. User describes their stuck moment in 1–3 sentences.
+4. Agent may ask one clarifying follow-up.
+5. Agent internally classifies the stuck pattern.
+6. Agent calls knowledge_base_rag to retrieve a matching resource.
+7. If RAG results are strong:
+   → Agent presents the resource, a "why this" explanation, and one next step.
+   → If the next step benefits from a number, agent calls calculator.
+8. If RAG results are weak:
+   → Agent calls web_search for a supplemental resource.
+   → Agent presents the best result with honest framing.
+9. User can ask a follow-up, request a different resource, or end the session.
+10. Memory keeps the conversation coherent across turns.
 ```
 
-The entire session from opening to output should take under 3 minutes.
+The entire session takes under 3 minutes.
+
+---
+
+## Supported Stuck Moments (Phase 1)
+
+Phase 1 supports three primary stuck moments, with an optional fourth.
+
+### 1. The Avoidance Spiral
+
+The user has something meaningful to do and has been avoiding it. The avoidance creates compounding guilt and shame.
+
+**Output:** One resource about avoidance or re-entry + one micro first step (e.g., "open the document and write one sentence").
+
+### 2. The Post-Doomscroll Slump
+
+The user spent too long on their phone and now feels numb, drained, or worse.
+
+**Output:** One short resource about reclaiming a moment + one small physical or mental redirect action.
+
+### 3. The "I'm Behind in Life" Paralysis
+
+A heavy, foggy sense of falling behind — no single trigger, just accumulated weight.
+
+**Output:** One grounding, perspective-restoring resource + one clarity action (e.g., "name one thing you actually care about right now").
+
+### 4. The Comparison Crash (Optional)
+
+The user compared themselves to someone and now feels deflated and inadequate.
+
+**Output:** One identity-grounding resource + one reconnecting action.
+
+---
+
+## Current Knowledge Base
+
+Phase 1 includes 5 curated source documents:
+
+1. *Overwhelmed by Suffering? Here's How to Act Anyway* — Greater Good Magazine
+2. *Why We Avoid Our Feelings* — on avoidance and emotional processing
+3. *Am I Doing Enough?* — on the "behind in life" feeling
+4. *Why Do We Feel Lonely?* — on loneliness and disconnection
+5. *The Case for Self-Compassion* — on self-compassion and recovery
+
+Documents are chunked (800 tokens, 150 overlap), embedded with OpenAI `text-embedding-3-small`, and stored in an in-memory vector store. Each chunk carries metadata: title, author, publisher, URL, and tags.
 
 ---
 
 ## MVP Output Format
 
-Each Silhouette session should produce exactly this:
+Each session produces exactly this:
 
 **One resource**, including:
-- title and source (e.g., "Mel Robbins — 4-minute clip from The Mel Robbins Podcast")
-- a 1–2 sentence description of what it covers
-- a short "why this fits your moment" explanation
+
+- Title and source (e.g., "Elizabeth Svoboda — *Overwhelmed by Suffering?*, Greater Good Magazine")
+- A 1–2 sentence description of what it covers
+- A short "why this fits your moment" explanation
 
 **One next step**, including:
-- a single action described in one sentence
-- the action should be completable in 5–15 minutes
-- the action should feel realistic for someone with low energy
 
-**Optional:** a one-sentence acknowledgment of how the user feels before delivering the output.
+- A single action described in one sentence
+- Completable in 5–15 minutes
+- Realistic for someone with low energy
 
----
-
-## Must-Have Features
-
-- Guided conversational intake (3–5 turns maximum)
-- Stuck moment classification (internal, not shown to user)
-- RAG retrieval from a curated, tagged knowledge base
-- One resource output with explanation
-- One next step output
-- Multi-turn conversation memory within the session
-- Safety routing: if the user describes a crisis state, Silhouette responds clearly and redirects to appropriate resources without continuing the reset flow
-- Simple web UI with a chat interface
+**Optional:** A one-sentence acknowledgment of how the user feels before delivering the output.
 
 ---
 
-## Nice-to-Have (Post-MVP)
+## Limitations of Phase 1
 
-- User preference for resource type (podcast clip, short article, transcript, etc.)
-- "Show me something different" option for alternate resource retrieval
-- Streaming response display in the UI
-- Persistent vector store (documents survive server restarts)
-- Session rating or feedback signal
-- Expanded stuck moment coverage (Moment 4 and beyond)
-- Mobile-friendly responsive design
-
----
-
-## Explicit Non-Goals for V1
-
-- No user accounts or session persistence across visits
-- No daily streaks, habit tracking, or gamification
-- No browsable content library
-- No diagnosis, clinical framing, or mental health assessment
-- No crisis response beyond a clear boundary message and resource redirect
-- No push notifications or re-engagement features
-- No social or multi-user features
-- No attempt to cover the "motivation drought" pattern (too diffuse and too close to therapeutic territory for V1)
-- No mobile app
+| Limitation | Impact | Addressed in |
+|---|---|---|
+| In-memory vector store (resets on restart) | Documents must be re-ingested on every server start | Phase 2 |
+| No persistent user profiles or preferences | Every session is a cold start; no personalization | Phase 2 |
+| 5 documents only | Library coverage is minimal; many stuck moments will get weak matches | Phase 2 |
+| Basic similarity search only | No reranking, no emotional-fit scoring, no metadata filtering | Phase 2–3 |
+| No feedback mechanism | Cannot learn from user ratings or follow-through | Phase 2 |
+| No external quality filters | Web search fallback returns unfiltered results | Phase 3 |
+| Session-scoped memory only | No cross-session context; user must re-describe their state every visit | Phase 2 |
+| No streaming responses | Responses arrive all at once, which can feel slow | Phase 2 |
+| No mobile-responsive design | UI is desktop-first | Phase 2 |
 
 ---
 
-## Why This Is Narrow Enough for Version 1
+## What Must Come Next After Phase 1
 
-The MVP asks the agent to do one thing well: identify a stuck moment and match it to one resource plus one action.
+### Phase 2 — Stronger internal library + basic personalization
 
-That requires:
-- a small, curated knowledge base (3 stuck moments × 10–15 quality sources each = roughly 30–45 sources to start)
-- 3–5 agent tools (intake, classification, RAG retrieval, response formatting, safety routing)
-- one simple web UI
-- conversation memory within a single session
+- Expand the curated knowledge base to 30–50+ resources across all stuck moment categories.
+- Add richer metadata: emotional-state tags, format tags, duration, tone, safety/suitability, licensing info.
+- Implement persistent vector store (documents survive server restarts).
+- Add basic user preferences (format, tone, length) via lightweight onboarding.
+- Add session-end feedback signal (relevance rating, action follow-through).
+- Implement streaming responses.
+- Mobile-responsive UI.
 
-This is achievable as a solo student project within the course timeline. The scope is constrained by design. Version 1 is not trying to help everyone feel better about everything. It is trying to reliably help a young adult stuck in three specific moments move from frozen to slightly moving.
+### Phase 3 — Hybrid retrieval
+
+- Add external discovery with quality filters, allow/deny lists, and trust scoring.
+- Normalize external results into the same schema as internal resources.
+- Clearly distinguish curated vs. external recommendations in the UI.
+- Implement metadata-filtered retrieval (not just similarity search).
+- Add reranking based on emotional fit, format preference, and duration.
+
+### Phase 4 — Scalable platform
+
+- Build ingestion pipeline for new content (discovery, cleaning, auto-tagging, embedding, review).
+- Implement learning-to-rank from user feedback and behavior signals.
+- Develop embedding-based personalization from usage history.
+- Explore creator partnerships and licensed content.
+- Establish business model (freemium, premium personalization, B2B partnerships).
 
 ---
 
-## MVP Decision Filter
+## How the MVP Ladders Into the Business Vision
 
-Before adding any feature or expanding scope, ask:
-1. Does this help the user go from stuck to slightly moving in under 5 minutes?
-2. Does this stay within the three supported stuck moments?
-3. Does this keep activation energy low?
+Phase 1 validates the core loop: intake → classification → retrieval → explanation → action.
 
-If the answer to any of these is no, it does not belong in the MVP.
+If users report that the recommended resource felt relevant, that they understood why it was chosen, and that they attempted the next step — then the interaction model is validated, and the remaining work is improving the recommendation engine underneath it.
+
+Every subsequent phase makes the same loop better:
+
+- Phase 2 makes retrieval more precise through richer metadata and early personalization.
+- Phase 3 makes coverage broader through hybrid search with quality controls.
+- Phase 4 makes the entire system smarter through feedback-driven ranking and scale.
+
+The MVP is the simplest credible version of the loop. The business is built by making the loop progressively harder to replicate.
