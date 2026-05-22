@@ -327,6 +327,36 @@ This table maps which approved and candidate sources address which stuck states.
 
 ---
 
+## Section 2.5: Resonance-to-Source Map
+
+The state-to-source map above answers: which sources cover which stuck states? This map answers a different question: which sources serve which *kinds of users*?
+
+Two sources can both be strong for Direction Collapse and still fail for different users — because one delivers reframe/intellectual content and the other delivers story/vulnerable content. Without this map, there is no principled basis for choosing between them based on who the user is. See `user_resonance_model.md` for the full definition of insight types and voice registers.
+
+| Source | Primary Insight Type(s) | Voice Register |
+|---|---|---|
+| Tim Ferriss Show | Story, Reframe *(varies heavily by guest)* | Intellectual/Measured |
+| Diary of a CEO | Story | Warm/Affirming |
+| School of Greatness | Story, Permission | Warm/Affirming |
+| Knowledge Project | Reframe | Intellectual/Measured |
+| How I Built This | Story | Intellectual/Measured |
+| Modern Wisdom | Reframe, Story *(varies by guest)* | Intellectual/Measured |
+| Feel Better Live More | Story, Permission | Warm/Affirming |
+| Huberman Lab | Mechanism | Expert/Scientific |
+| Hidden Brain | Mechanism, Story | Expert/Scientific |
+| David Goggins appearances | Story, Permission | Direct/Challenging |
+| Matthew McConaughey appearances | Story | Vulnerable/Personal |
+| Naval Ravikant appearances | Reframe | Intellectual/Measured |
+| Ryan Holiday appearances | Reframe | Intellectual/Measured |
+| Cal Newport appearances | Reframe | Intellectual/Measured |
+| Mark Manson appearances | Reframe, Permission | Direct/Challenging |
+
+**Note on multi-resonance sources:** Tim Ferriss Show and Modern Wisdom vary by guest — Naval on Tim Ferriss is reframe/intellectual; McConaughey on Tim Ferriss is story/vulnerable. For these shows, resonance tags must be applied at the episode or guest level, not at the source level. Source-level resonance classifications above describe the show's default tone and host register.
+
+**Resonance gap visible in this map:** Intellectual/Measured is overrepresented relative to Warm/Affirming and Vulnerable/Personal. This is acceptable for the MVP but should be monitored — users who need permission or story content in an affirming register are underserved by the current candidate list. Feel Better Live More, School of Greatness, and McConaughey appearances are the primary coverage; Diary of a CEO also addresses this register for some episodes.
+
+---
+
 ## Section 3: Deprioritized and Excluded Sources
 
 ### Deprioritized — Not Excluded, But Not MVP

@@ -274,6 +274,10 @@ These are planning targets, not hard gates. A state with 18 genuinely distinct, 
 
 The corpus should draw from multiple source types and multiple speaker perspectives. Over-indexing on a single creator's worldview — even a high-quality one — would mean the product returns variations on the same perspective for every session. The goal is a diverse library of credible voices who have navigated the stuck states from genuinely different angles.
 
+Diversity must also include **resonance diversity** — not just speaker diversity. Two sources can both be strong for Direction Collapse and still fail for different users because one delivers reframe/intellectual content and the other delivers story/vulnerable content. If the Direction Collapse corpus is dominated by one resonance profile (e.g., all reframe/intellectual: Newport, Naval, Ryan Holiday), users who need story or permission content for the same state will consistently receive a near-miss.
+
+For each MVP state, the corpus should include sources from at least two distinct insight types and two distinct voice registers. The resonance-to-source map in `source_candidates.md` and the full resonance taxonomy in `user_resonance_model.md` provide the vocabulary for evaluating this.
+
 ### Attribution Is Non-Negotiable
 
 Every chunk in the corpus must carry full attribution. Attribution is both the ethical requirement and the product's core differentiator.

@@ -505,6 +505,18 @@ Every chunk ingested into the Silhouette corpus should be tagged with:
 
 The stuck-state taxonomy defined here is the controlled vocabulary. Do not invent new tags ad hoc during ingestion. If content doesn't clearly map to one of the six states, that is signal either that the content isn't high enough quality for the corpus, or that the taxonomy needs revisiting — document the case and decide deliberately rather than creating ad hoc tags.
 
+A fifth required tag — `voice_register` — is defined in `user_resonance_model.md`. Every corpus chunk must also carry this tag at ingestion time. The controlled vocabulary for voice register is: direct/challenging, warm/affirming, intellectual/measured, vulnerable/personal, expert/scientific.
+
+### Resonance Profile
+
+The User Problem Model defines the *stuck state* — what topic of insight to retrieve. It does not define the *form* of content that will land for a specific user in that state.
+
+Two users in Direction Collapse may need completely different insight types and voice registers to experience a genuine shift. A user who receives analytical content well will not be moved by a vulnerable personal narrative. A user who needs emotional permission before any reframe can land will not be moved by an intellectual argument. Knowing the state is not enough to make a good retrieval decision.
+
+The layer that defines what form of content lands for a given user is the **User Resonance Model**, defined in `user_resonance_model.md`. The User Problem Model and the Resonance Model are orthogonal: state tells the system *what* to retrieve; resonance tells it *how* to deliver it. Retrieval quality depends on both.
+
+When designing the intake flow: collect enough signal to infer both the user's stuck state and their basic resonance profile. When designing retrieval: the retrieval query must support filtering by both state and resonance dimensions. State detection alone is not sufficient.
+
 ---
 
 ## Appendix: Quick Reference

@@ -238,6 +238,8 @@ Secondary stuck states (if any):
 
 Primary insight types this source produces: [reframe / permission / mechanism / story — check all that apply]
 
+Primary voice register: [direct/challenging / warm/affirming / intellectual/measured / vulnerable/personal / expert/scientific — select primary; note secondary if the source meaningfully spans two]
+
 Notes on strengths:
 Notes on weaknesses:
 Notes on episode-level curation guidance (if approved):
