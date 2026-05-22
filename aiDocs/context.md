@@ -1,194 +1,120 @@
 # Silhouette — Project Context
 
-> This file orients AI tools, collaborators, and stakeholders to the Silhouette project.
-> Read this before making any product, technical, or content decisions.
+> Orients collaborators and AI tools to what Silhouette is, who it is for, and what decisions are already locked.
 
 ---
 
 ## What Silhouette Is
 
-Silhouette is a hybrid recommendation and retrieval platform that helps people navigate recurring "stuck moments" — episodes of overwhelm, avoidance, burnout, low confidence, or directionlessness — by surfacing the right resource at the right time and pairing it with one concrete next step.
+Silhouette is a **personalized insight retrieval** product for young professionals who feel stuck, unclear, or low on motivation.
 
-The core product belief: when someone is stuck, they do not need more content. They need the *right* content, matched to their exact emotional state and context, delivered with low friction and a clear path forward. Silhouette exists to close the gap between "I feel stuck" and "I know what to do next."
+A user describes their situation in 2–3 sentences. Silhouette asks **one clarifying question**. Then it returns **one specific insight** — a real quote, curated passage, or key line from a podcast or interview — matched to that moment, plus one sentence on why it applies. No playlist. No course. No AI-generated advice.
 
-Silhouette is not a wellness app, a therapy tool, or a content library. It is a guided micro-reset system — a focused intervention designed for the moment of stuckness itself, not for ongoing habit-building or general self-improvement.
+**Product category:** Context-aware insight retrieval. Not meditation, journaling, coaching, or mental health.
 
----
-
-## Why the Problem Matters
-
-Young adults and early-career professionals experience recurring cycles of overwhelm, avoidance, and lost momentum. These are not rare events — they are structural features of modern life during high-transition periods.
-
-The evidence is consistent:
-
-- Procrastination affects 50–70% of students and is increasingly understood as an emotion-regulation failure, not a time-management problem.
-- Over 80% of Gen Z workers report burnout symptoms. Among knowledge workers in their 20s and early 30s, the rate is similarly high.
-- More than 55% of college students report academic burnout, with the highest rates in the first year and during demanding programs.
-- The self-help content market exceeds $13 billion annually, yet most users churn quickly because the tools are not designed for the specific moment of stuckness.
-
-The problem is not a lack of helpful content. The internet is saturated with podcasts, articles, videos, and AI tools that could theoretically help. The problem is that in a low-energy, avoidant state, users cannot efficiently find, evaluate, and act on the right resource. Discovery is fragmented, relevance is low, and actionability is almost zero.
+**Core belief:** The right insight from the right person can close the gap between "I'm stuck" and "I have a new way to think about this" in seconds. Today that gap often takes 20–40 minutes of unfocused searching — or never closes.
 
 ---
 
-## Who the Broad Audience Is
+## Target User
 
-Silhouette's addressable audience includes anyone who experiences recurring stuck moments and is capable of taking action but struggles to initiate. This spans:
+**Who:** Young professionals, roughly **22–32**, early-to-mid career. College educated. Employed and functional — not in clinical crisis — but in a **gray zone**: low motivation, unclear direction, sense that something is off.
 
-- College students in demanding programs
-- Recent graduates navigating early independence
-- Early-career knowledge workers managing ambition alongside burnout
-- Creative professionals dealing with blocks and self-doubt
-- Anyone in a transition-heavy season of life — career change, relocation, post-setback rebuilding
+**Life season:** Post-achievement plateau. Graduated, got a job, built stability — but disconnected from purpose, progress, or identity beyond job title. Days feel repetitive; social life may be thin. In a rut and knows it.
 
-The common thread is not a demographic. It is a behavioral pattern: repeated episodes of stuckness, existing self-improvement intent, comfort with digital tools, and a gap between wanting to act and actually acting.
+**Fit signals:**
 
----
+- Already consumes self-improvement content (podcasts, YouTube, newsletters) but without direction
+- Overwhelmed by volume of advice; does not know what to prioritize
+- Tried journaling, habit trackers, or meditation apps and dropped them (sustained commitment, not a single answer)
+- In a hard moment, wants a **fast answer** — not a program or 12-step framework
 
-## Who the Initial Wedge Is
-
-The strongest first wedge is **early-career knowledge workers in their 20s to early 30s** — ambitious, digitally native, already consuming self-help and productivity content (podcasts, YouTube, newsletters, Reddit, ChatGPT), but regularly hitting walls of overwhelm, avoidance, or burnout.
-
-This wedge is strong because:
-
-- They experience stuck moments frequently and repeatedly.
-- They already seek digital solutions, so acquisition is natural.
-- They have strong self-improvement behavior, so they will engage with a purposeful tool.
-- They can articulate their emotional states with reasonable accuracy.
-- They are underserved: existing tools either require too much activation energy or are too generic.
-
-A second plausible wedge is **students in demanding academic programs** — high achievers who cycle between productivity and avoidance, and whose stuck moments cluster around deadlines, comparison, and identity pressure.
-
-High-risk clinical users (active suicidal ideation, severe depression, crisis states) are explicitly not the initial focus. Silhouette is designed for functional stuckness, not clinical intervention.
+**Why this wedge (not "anyone in a rut"):** A specific cohort allows one content library, one tone, one set of use cases. Sources like School of Greatness, Huberman Lab, and Dan Martell already speak to this audience.
 
 ---
 
-## What Recurring Stuck Moments Are
+## Core Problem
 
-A "stuck moment" is a short-duration episode where a person feels unable to act on something that matters to them. It is not a personality trait, a diagnosis, or a permanent state. It is a temporary emotional-behavioral loop — and it recurs.
+**Pain:** In a low-energy, unclear season, the user cannot effectively search for what they need. Finding the right insight requires clarity they do not have. Helpful content exists; **discovery cost is too high at the moment they need it most.**
 
-Stuck moments share common features:
+**Stuck moment (typical):** Sunday night before another identical week. After a bad workday when they feel they should be further along. Late night when it seems everyone else has figured something out. They open YouTube, Reddit, or a podcast app and leave ~30 minutes later roughly unchanged.
 
-- The person knows they should act but cannot initiate.
-- Emotional friction (shame, fear, overwhelm, numbness) exceeds available activation energy.
-- The moment is usually triggered by a specific context: a deadline, a social comparison, a period of doomscrolling, or an accumulated sense of falling behind.
-- The person is still fundamentally capable of acting — they are stuck, not broken.
+**Job Silhouette does:** Close that gap **immediately** with one human-sourced, situation-matched insight.
 
-Silhouette's initial taxonomy of stuck moments:
+---
 
-| Stuck Moment | Description |
+## Why Current Alternatives Fail
+
+| Alternative | Gap |
 |---|---|
-| **Overwhelm** | Too many inputs, obligations, or decisions. The person feels paralyzed by volume. |
-| **Avoidance / Procrastination with guilt** | The person has something specific to do and has been avoiding it. The delay creates compounding shame. |
-| **Low confidence / Imposter feelings** | The person doubts their ability or belonging. They hesitate to act because they feel inadequate. |
-| **Directionlessness** | No clear next step or priority. A foggy sense of "I don't know what I'm doing with my life." |
-| **Burnout** | Chronic depletion. The person has been pushing too hard and has hit a wall. |
-| **Post-rejection** | A specific setback — a failed application, a breakup, a criticism — has deflated them. |
-| **Loneliness** | Social isolation or disconnection. The person feels unseen or unsupported. |
-
-These categories are treated as soft clusters, not rigid diagnoses. Users should be able to correct or refine how Silhouette classifies their moment.
+| **ChatGPT / general AI** | Answer is AI-generated, not a named human who lived something similar. "What Dan Martell said about this" ≠ chatbot advice. |
+| **YouTube** | User must know what to search; high effort, low signal-to-noise. |
+| **Podcasts** | Right episode exists; no app indexes by emotional/situational context. |
+| **Journaling apps** | Inward-facing; no outside perspective or curated wisdom. |
+| **Headspace / Calm** | Stress/sleep/regulation — not purpose, direction, or getting unstuck. |
+| **Books / generic self-help** | Non-contextual; activation energy too high when motivation is low. |
 
 ---
 
-## What Current Substitutes Exist and Why They Fall Short
+## Value Proposition
 
-When stuck, people reach for whatever is available. None of the current options are built for the stuck moment itself.
+**Uniquely:** Takes specific emotional/situational input → returns one high-quality, **human-sourced** insight with no search effort.
 
-| Substitute | What it does | Why it falls short for stuck moments |
-|---|---|---|
-| **YouTube / podcasts** | Long-form perspective and motivation | Not curated to the moment; requires browsing energy the user does not have |
-| **Reddit** | Peer stories and advice | Inconsistent quality; can amplify comparison and doomscrolling |
-| **ChatGPT / general AI** | Broad advice, planning, pep talks | Generic unless the user already knows exactly what to ask; no curated library; no emotional-state matching |
-| **Journaling apps** | Emotional offloading and reflection | Reflection-first, not action-first; requires writing energy; rarely produces a concrete next step |
-| **Mental wellness apps** | Mood tracking, CBT exercises, habit programs | Course-based and ongoing; high activation energy; assumes the user already has momentum |
-| **AI companions** | Emotional support and conversation | Passive; lacks direction toward action; no resource curation |
-| **Self-help books / newsletters** | Ideas and frameworks | Not moment-specific; consuming a book is the opposite of a micro-reset |
-| **Doomscrolling** | Avoidance and distraction | Leaves users feeling worse; the most common actual substitute |
+**Why use it:** In a hard moment, one concrete useful thing from a real person who navigated something similar — in under two minutes.
 
-The pattern across all substitutes: they either require too much energy (browsing, writing, maintaining a streak), are too generic (not matched to the specific stuck moment), or lack actionability (no concrete next step).
+**Differentiators:**
 
----
-
-## Why a Hybrid Resource-Matching Model Is Compelling
-
-Silhouette's core technical thesis is that a hybrid recommendation and retrieval system — combining an internal curated library with external discovery — is the right architecture for this problem.
-
-**Why internal curation matters:**
-
-- Quality control: every resource in the internal library has been vetted for tone, relevance, and actionability.
-- Metadata richness: internal resources carry structured tags (emotional state, format, duration, tone, creator, licensing status) that enable precise matching.
-- Consistency: the user experience depends on reliably high-quality recommendations. Unfiltered external results introduce noise.
-- Legal safety: internal resources can be properly licensed, annotated, and attributed.
-
-**Why external discovery matters:**
-
-- Breadth: no curated library can cover every stuck moment, every context, every preference.
-- Freshness: new content is published constantly; users benefit from recent, relevant resources.
-- Diversity: external search can surface perspectives and creators the internal library has not yet indexed.
-
-**Why hybrid is better than either alone:**
-
-- Internal-only is too narrow at scale. Users will hit moments the library does not cover well.
-- External-only is too noisy. Unfiltered web results for emotional queries return generic, low-quality, or off-tone content.
-- Hybrid allows Silhouette to lead with quality (internal) and extend with breadth (external), clearly distinguishing between curated recommendations and supplemental discoveries.
-
-Research on recommender systems confirms that users in overwhelmed states prefer curated, explained recommendations over open-ended exploration. A single well-chosen resource with a clear reason outperforms a library of options with no guidance.
+1. Starts from emotional state, not topic browse
+2. One targeted insight — not a list, course, or feed
+3. Real curated sources — not generated text
+4. Removes discovery burden when burden is highest
 
 ---
 
 ## What Silhouette Is Not
 
-- **Not therapy or clinical intervention.** Silhouette helps with functional stuckness, not diagnosable mental health conditions.
-- **Not a crisis response tool.** If a user signals crisis, Silhouette acknowledges it, declines to continue as a support tool, and directs to appropriate resources.
-- **Not a content library or search engine.** Users do not browse. The system surfaces one resource matched to their moment.
-- **Not a habit tracker or streak-based app.** Usage is episodic by design.
-- **Not a journaling or self-reflection platform.** The focus is action, not introspection.
-- **Not a general-purpose chatbot.** Silhouette has a specific job: micro-reset for stuck moments.
-- **Not a generic "AI wellness app."** The value is in the recommendation system, not in the conversation itself.
+- **Not therapy or mental health.** No diagnosis, treatment, or clinical framing.
+- **Not crisis intervention.** Target is rut/low motivation — not acute crisis, suicidal ideation, or severe depression.
+- **Not a wellness platform.** No meditation, sleep, fitness, habit tracking.
+- **Not a content feed.** Not Spotify for self-improvement; one thing per session.
+- **Not an AI coach or open-ended chatbot.** Retrieval product, not sustained dialogue or emotional support across sessions.
+- **Not for everyone in a rut.** Scoped to young professionals in **career, purpose, and motivation** ruts until the wedge is proven.
 
 ---
 
-## Key Strategic Assumptions
+## Strategic Decisions (Locked)
 
-1. **Stuck moments are recurring and classifiable.** Users experience the same types of stuckness repeatedly, and those types can be clustered into soft categories that improve retrieval.
-2. **One resource plus one step is the right unit of value.** Users in stuck moments prefer a single explained recommendation over a list of options.
-3. **Episodic usage is a valid engagement model.** Success is measured per session, not per day. Users return when they are stuck again, not on a schedule.
-4. **Recommendation quality is the moat.** The system's long-term value comes from matching precision — the ability to surface the right resource for the right person in the right moment.
-5. **A curated internal library is a defensible asset.** The combination of vetted content, rich metadata, and emotional-state tagging creates a proprietary content graph that improves over time.
-6. **Personalization improves outcomes.** Learning a user's format preferences, tone affinity, and action style allows the system to improve recommendations across sessions.
-7. **Trust is non-negotiable.** Users sharing vulnerable emotional states must trust that Silhouette will not exploit that data, serve disguised ads, or sell emotional profiles.
-
----
-
-## Major Legal and Trust Constraints
-
-Silhouette operates in a space where content rights and user trust are existential concerns.
-
-**Content rights:**
-
-- Third-party content (articles, transcripts, videos) should be stored as metadata and short non-substitutive annotations, not full text, unless explicitly licensed.
-- Full text storage is reserved for in-house content, licensed material, or content with clear reuse permissions.
-- The system should link out to original creators and platforms, not replace them.
-- Creator trust matters: Silhouette should be a distribution partner, not a content extractor.
-
-**User trust:**
-
-- Emotional-state data is sensitive. It must never be sold, used for ad targeting, or shared with third parties.
-- Sponsored content must never be disguised as organic recommendations. If monetization involves partnerships, it must be transparent.
-- The product must avoid emotional exploitation — creating dependency, exaggerating problems, or withholding value to drive engagement.
-
-**Safety:**
-
-- Crisis detection must be reliable and respectful. When triggered, the system exits the normal flow and directs to real resources (988 Suicide and Crisis Lifeline, Crisis Text Line, etc.).
-- Silhouette must not diagnose, label clinical conditions, or imply therapeutic capability.
+- **One insight per session** for MVP — not ranked lists.
+- **Curated corpus** — start with 3–5 high-signal sources; avoid broad scrape before retrieval quality is proven.
+- **Emotional/situational context** is the primary retrieval signal — not topic keywords alone.
+- **One clarifying question** is a retrieval feature — disambiguates vague input; design it deliberately.
+- **Real named human sources** — core differentiator vs. ChatGPT.
+- **"Did this land?" feedback** — required to evaluate retrieval; treat as MVP-critical (see implementation status in `mvp.md`).
+- **Content licensing:** MVP uses attributed quotes and summaries; full clip serving needs rights before scale.
+- **Optimize single session quality** — not daily active users or streak mechanics.
+- **No cross-session personalization in MVP** — stateless single session first; assignment may use session memory only for clarifying-turn flow within one visit.
 
 ---
 
-## How the Assignment MVP Fits Into the Bigger Picture
+## Assignment Prototype vs. Product Direction
 
-Silhouette began as a class project for a BYU multi-tool AI agent course. The assignment required a LangChain.js ReAct agent with calculator, web search, and RAG tools, conversation memory, and a web UI.
+The BYU course required a LangChain.js multi-tool agent (calculator, web search, RAG), conversation memory, web UI, and structured logging. That stack is the **delivery vehicle** for the insight-retrieval loop above.
 
-The assignment MVP (Phase 1) is an internal-only prototype that validates the core interaction loop: understand the stuck moment, retrieve one resource, deliver one next step. It uses a small curated knowledge base, in-memory vector search, and session-scoped memory.
+The **assignment MVP** must prove one thing: users in the target state get a genuine **"aha moment"** — insight feels specific, well-matched, and useful. Everything else (personalization, scale, hybrid ranking) is deferred until that is true.
 
-Phase 1 is intentionally narrow. It does not prove personalization, scale, ranking quality, or business viability. It proves that the fundamental micro-reset experience can be delivered through a conversational agent backed by curated retrieval — and that it feels meaningfully different from asking ChatGPT the same question.
+Current prototype corpus: 5 Greater Good Science Center articles (`docs/sources/`). Strategic target corpus: School of Greatness, Huberman Lab, Dan Martell, and similar — to be ingested as retrieval is validated.
 
-The full product vision extends well beyond the assignment. Silhouette's long-term direction is a scalable hybrid recommendation platform with rich metadata, emotional-state-aware ranking, personalization, external discovery, and a trust-centered business model. The assignment MVP is the foundation, not the ceiling.
+---
+
+## Open Validation Questions
+
+1. Can retrieval reliably produce a well-matched insight for real users in real rut states?
+2. Is one insight enough, or do users want 2–3 options?
+3. Right starting corpus and chunk granularity for retrieval?
+4. How do users actually phrase input — vague vs. specific?
+5. Does "real human source" matter vs. AI-generated in the moment?
+6. Licensing path for audio/video clips at scale?
+7. Will new users describe emotional state without prior trust?
+8. Is session-only memory enough, or is cross-session history needed for usefulness?
+9. What does success look like for an intermittent use case (repeat over months vs. referrals)?
+10. B2B (wellness, HR, coaches) — evaluate separately; not MVP scope.
