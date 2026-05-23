@@ -2,9 +2,7 @@
 
 > **Summary:** This document defines how Silhouette takes a vague user input — "I feel stuck," "I don't know what I want," "nothing feels right" — and converts it into a structured retrieval query that Component 3 (Retrieval Philosophy) can use. It specifies the user-facing input experience, the internal state classification logic, the confidence scoring model, the clarifying question strategy, the resonance signal capture approach, safety and scope routing, the full RetrievalQuery object produced, and how the intake changes across sessions. It does not specify UI implementation, production code, a classifier architecture, or final legal/safety copy. It is the design layer between what the user says and what the retrieval engine receives.
 
-> **Revision note (v2):** This document was reviewed and refined after initial drafting. Key improvements: (1) minimum evidence requirements added to state classification and confidence scoring; (2) resonance terminology clarified — first-session resonance is a hypothesis, not a preference; (3) pair-specific clarifying questions now include handling for "both," "I don't know," and new-ambiguity answers; (4) RetrievalQuery schema split into retrieval fields vs. session log fields; (5) safety borderline section strengthened with in-scope intensity vs. out-of-scope clinical examples; (6) evaluation plan strengthened with inter-rater agreement and intake-to-retrieval handoff testing.
-
-> **How to use this document:** Read after `user_problem_model.md`, `user_resonance_model.md`, and `retrieval_philosophy.md`. The state taxonomy, confidence model, resonance dimensions, and query structure defined in those documents are the inputs this component works from. Every design decision here is traceable back to those documents or forward to the retrieval engine's needs. If a design choice adds user burden without improving the RetrievalQuery, it is wrong. If a design choice improves the experience but leaves the query underdetermined, it is also wrong.
+> **How to use this document:** Read after `user_problem_model.md`, `user_resonance_model.md`, and `retrieval_philosophy.md`. The state taxonomy, confidence model, resonance dimensions, and query structure defined in those documents are the inputs this component works from. Every design decision here is traceable back to those documents or forward to the retrieval engine's needs. If a design choice in this document cannot be traced to either, question it.
 
 ---
 
@@ -18,25 +16,19 @@ Concretely, this component defines:
 
 - The exact prompt the user sees when they open Silhouette
 - How the system interprets and classifies what the user writes
-- How the system decides whether it has enough evidence to retrieve or needs to ask more
+- How the system decides whether it has enough signal to retrieve or needs to ask more
 - What the one clarifying question looks like, when it appears, and why
-- How early resonance signals are captured from the user's language without over-committing
+- How early resonance signals are captured from the user's language
 - How inputs outside Silhouette's intended scope are identified and routed
-- The full `RetrievalQuery` object produced at the end of intake
-
-### The Central Constraint
-
-Intake's job is **minimum viable understanding**, not full understanding. The system needs to learn enough about the user's current moment to retrieve a strong first insight — not to fully profile who they are. Every signal captured must earn its place by improving the retrieval query. Deeper personalization is learned progressively over time through feedback signals, not front-loaded into the first session.
-
-This is the primary correction to the most common failure mode in intake design: treating the intake as a diagnostic tool and over-questioning in pursuit of certainty that cannot be achieved from 2–3 sentences.
+- The full `RetrievalQuery` object produced at the end of intake — what goes into the retrieval engine
 
 ### What This Component Is Not
 
 - **Not the retrieval engine.** Intake produces the query. Retrieval executes it. These are separate components.
 - **Not the corpus or ingestion system.** This component does not touch the content library.
 - **Not the final UI design.** This document defines information architecture and interaction logic, not visual design or front-end implementation.
-- **Not a therapy intake form.** The user is asked one open prompt. If needed, one clarifying question. Not a structured assessment, questionnaire, or clinical screening.
-- **Not a full personality profile.** Intake captures what is needed to retrieve well today. It does not attempt to fully understand who the user is.
+- **Not a therapy intake form.** The user is asked one open prompt. If needed, one clarifying question. Not a structured assessment, a questionnaire, or a clinical screening.
+- **Not a full personality profile.** Intake captures what is needed to retrieve well today. It does not attempt to fully understand who the user is across all contexts and times.
 
 ### Where This Component Sits in the Architecture
 
@@ -49,16 +41,17 @@ Retrieval Philosophy   →  defines the RetrievalQuery structure intake must pro
         ↓
 Retrieval Engine       →  receives the RetrievalQuery and executes matching
         ↓
-(future) User Profile / Personalization  ←  receives session signals from intake
+(future) User Profile / Personalization  ←  receives feedback and session signals from intake
 (future) Response Presentation           ←  receives the intake context to frame the result
-(future) Trust / Safety Architecture    ←  defines the specific safety response copy
 ```
+
+Every decision in this document is constrained above by the state taxonomy, resonance model, and query schema — and constrained below by what the retrieval engine needs to function. If a design choice adds burden to the user without improving the RetrievalQuery, it is wrong. If a design choice improves the user's experience but leaves the query underdetermined, it is also wrong.
 
 ---
 
 ## 2. Design Principles
 
-These principles govern every specific decision in this document.
+These principles govern every specific decision in this document. When a later section makes a choice that seems surprising, it is traceable to one of these.
 
 ### 1. Ask only what is needed to retrieve well.
 Every question asked of the user must have a direct effect on the RetrievalQuery. If the answer would not change which insight is retrieved, the question should not be asked. This is the strongest filter on over-questioning.
@@ -73,34 +66,31 @@ Silhouette needs to know what is true right now — what the user is experiencin
 A single precisely-targeted question that resolves genuine ambiguity is more valuable than three broader questions. The clarifying question design should optimize for precision, not coverage.
 
 ### 5. Intake should feel like being understood, not screened.
-The difference between a good clarifying question and a bad one: a bad question feels like the system is collecting information. A good question feels like the system has already been listening and wants to understand one more thing.
+The difference between a good clarifying question and a bad one is often this: a bad question feels like the system is collecting information. A good question feels like the system has already been listening and wants to understand one more thing.
 
-### 6. Classify on evidence, not impression.
-State classification must be based on at least two independent, state-specific signals in the input — not on a single phrase, a general emotional tone, or a "vibes-based" read of the input. High confidence requires evidence. Moderate confidence requires a probable leading state. Low confidence means insufficient evidence. This prevents the system from committing to a state based on language that is genuinely ambiguous across multiple states.
+### 6. Classify carefully, not overconfidently.
+State classification from 2–3 sentences is inherently uncertain. The system should represent that uncertainty accurately rather than committing to a state with false confidence. Moderate confidence with a clarifying question produces better retrieval than high-confidence misclassification.
 
 ### 7. Ambiguity should trigger clarification, not a guess.
-When two states are genuinely indistinguishable from the initial input, ask. Guessing at moderate confidence with the 70/30 retrieval strategy is appropriate. Guessing at low confidence without sufficient evidence is a retrieval failure that erodes trust.
+When two states are genuinely indistinguishable from the initial input, ask. When the corpus is small and the wrong state produces a useless result, ask. Guessing at moderate confidence is appropriate for retrieval. Guessing at low confidence is a retrieval failure.
 
 ### 8. Safety and scope routing happen before retrieval — always.
-No input proceeds to state classification until it has passed a safety check. This is non-negotiable.
+No input proceeds to retrieval until it has passed a safety check. This is non-negotiable and cannot be deferred.
 
-### 9. Resonance is a hypothesis in the first session — not a preference.
-A single intake message carries weak, unreliable resonance signal. First-session resonance inference produces a hypothesis to test against state defaults, not a confirmed preference to apply as a filter. Resonance preferences are established from engagement history across multiple sessions, not inferred from one message.
+### 9. Resonance is a hypothesis in the first session.
+A single intake message carries weak resonance signal. Treat first-session resonance as a hypothesis worth testing, not a truth to commit to. The state-default resonance profiles from Component 3 exist precisely because first-session resonance inference is unreliable.
 
-### 10. Resonance exclusions are the most important first-session resonance output.
-When evidence suggests a specific register would be harmful (e.g., direct/challenging for a user who is openly ashamed and fragile), exclusion is more important than preference. A wrong exclusion causes harm. A missed preference just means falling back to the state default — which is a reasonable fallback.
+### 10. User burden should stay minimal.
+The total time from opening Silhouette to receiving an insight should be under two minutes. Intake takes 30–45 seconds. Anything that extends this without a proportional retrieval quality gain is wrong.
 
-### 11. User burden should stay minimal.
-Total time from opening Silhouette to receiving an insight should be under two minutes. Intake takes 30–45 seconds. Anything that extends this without a proportional retrieval quality gain is wrong.
+### 11. Preserve trust by admitting uncertainty.
+If the system cannot confidently classify, say so through the clarifying question — not by returning a weakly-matched insight as if confident. Users trust a system that acknowledges what it doesn't know over one that guesses silently.
 
-### 12. Preserve trust by admitting uncertainty.
-Returning a weakly-matched insight with false confidence destroys trust faster than saying "tell me a bit more." Users trust a system that acknowledges uncertainty over one that guesses silently.
+### 12. Spare input is a signal, not a failure.
+When a user writes only two words ("feeling stuck"), that is not a failure state. It is a signal about their current capacity and emotional posture. The system should respond with gentleness and a prompt for more — not an error or a forced re-entry.
 
-### 13. Sparse input is a signal, not a failure.
-When a user writes only two words ("feeling stuck"), that is not a failure state. It is a signal about their current capacity and emotional posture. The system should respond with gentleness and a prompt for more — not an error message or a forced re-entry.
-
-### 14. Intake is minimum viable understanding, not full understanding.
-The promise of MVP intake is: "understood enough to retrieve a strong first insight." It is not: "fully known." Personalization deepens through feedback over time. The first session only needs to produce a defensible retrieval query — not a complete user model.
+### 13. The intake must be designed backward from retrieval.
+Every element of the intake experience — the prompt, the classification logic, the clarifying question, the resonance capture — exists to produce a better RetrievalQuery. Design forward from the user experience but validate backward from what retrieval needs.
 
 ---
 
@@ -111,81 +101,76 @@ The promise of MVP intake is: "understood enough to retrieve a strong first insi
 ```
 1. User sees the intake prompt
 2. User writes 2–3 sentences about what feels stuck or off
-3. System runs safety/scope check (always first — before classification)
-   → If Tier 1 safety flag: route immediately to safety response — no retrieval, no classification
-   → If Tier 2 safety-adjacent: respond with care + resource — no retrieval
+3. System runs safety/scope check (always first)
+   → If safety flag: route immediately to safety response — no retrieval
    → If out of scope: route to gentle scope redirect — no retrieval
-   → If in scope: proceed to classification
+   → If borderline: proceed with caution; note in safety_flag
 4. System runs initial state classification
-   → Requires: ≥2 independent state signals, no major conflicting signal for high confidence
    → Produces: detected_state, state_confidence, secondary_possible_states, evidence
 5. System determines confidence level:
-   → High confidence (≥2 independent signals, no conflict): proceed to resonance capture
-   → Moderate confidence (one state likely, one plausible alternative): ask one clarifying question
-   → Low confidence (sparse or too many plausible states): ask for more context first
+   → High confidence: proceed to resonance capture and query construction
+   → Moderate confidence: proceed to clarifying question
+   → Low confidence / too sparse: ask for more context before classification
 6. If clarifying question is warranted:
-   → Ask the pair-specific disambiguation question
-   → Capture the user's answer (including "both" and "I don't know" cases)
-   → Re-classify with combined input
-   → If still ambiguous: apply moderate-confidence 70/30 retrieval rather than asking again
-7. System captures weak resonance hypothesis from language and clarifying answer
-8. System constructs RetrievalQuery (retrieval fields) and Session Log (log fields)
+   → Ask the pair-specific disambiguation question (or context expansion prompt)
+   → Capture the user's answer
+   → Re-run classification with combined input
+7. System captures weak resonance signals from language and clarifying answer
+8. System constructs RetrievalQuery
 9. Retrieval engine runs
 10. Result is presented to the user
 11. User sees "did this land?" prompt
-12. Response is logged; session data begins forming future profile
+12. Response (positive/negative/no response) is logged for future sessions
 ```
 
 ### What Happens in Each Session Type
 
 | Session Type | Input Available | Intake Behavior |
 |---|---|---|
-| **First session** | No profile, no history | Full intake: classify on evidence, maybe clarify, apply state-default resonance, log session |
-| **Later session, same user** | State history, prior feedback | Use prior resonance feedback as boost/exclusion signal; still classify from current input; exclude seen SIOs |
-| **Returning user after long gap (>30 days)** | Profile but possibly stale | Run full intake again — state may have changed; profile informs resonance, not state detection |
-| **Sparse input** | Only 2–5 words | Ask for more context before classification; do not attempt to classify |
-| **Ambiguous input (two competing states)** | 2–3 sentences, states compete | Ask one pair-specific clarifying question; if still ambiguous after answer, apply 70/30 retrieval |
-| **Safety/out-of-scope input** | Any length | Route before classification — no RetrievalQuery constructed |
+| **First session** | No profile, no history | Full intake: classify, maybe clarify, infer resonance from language, apply state defaults |
+| **Later session, same user** | State history, prior feedback | Use prior resonance signals; fewer clarifying questions; exclude seen SIOs |
+| **Returning user after long gap (>30 days)** | Profile but possibly stale | Run full intake again — state may have changed; profile informs resonance, not state |
+| **Sparse input** | Only 2–5 words | Ask for more context before classification; do not guess on insufficient signal |
+| **Ambiguous input (two competing states)** | 2–3 sentences, state unclear | Ask one pair-specific clarifying question |
+| **Safety/out-of-scope input** | Any length | Route before retrieval — no classification, no query construction |
 
-### Decision Tree
+### Decision Tree Summary
 
 ```
 User input
     │
     ▼
-Safety check (always first)
-    ├── Tier 1: crisis → safety response (end)
-    ├── Tier 2: clinical-adjacent → care response + resource (end)
+Safety check
+    ├── Triggers safety bypass → safety response (end)
     ├── Out of scope → scope redirect (end)
-    └── In scope → proceed to classification
+    └── In scope → proceed
                     │
                     ▼
-            State classification
-            (requires ≥2 signals for high confidence)
+              State classification
                     │
           ┌─────────┼──────────┐
           ▼         ▼          ▼
-        High     Moderate     Low /
-      confidence confidence   Sparse
+        High     Moderate     Low
+      confidence confidence  confidence
           │         │          │
           ▼         ▼          ▼
       Proceed   Ask one     Ask for
       to query  clarifying  more context
-      build     question    (expansion)
+      build     question    first
                     │          │
                     └────┬─────┘
                          ▼
-               Re-classify with combined input
+                 Re-classify with
+                 combined input
                          │
-              ┌──────────┴──────────┐
-              ▼                     ▼
-       Now high/moderate          Still low
-       confidence                 confidence
-              │                     │
-              ▼                     ▼
-       Resonance capture    Apply DC default
-       + query build        + broad retrieval
-                            (log as unresolved)
+                         ▼
+              Resonance capture
+                         │
+                         ▼
+              RetrievalQuery construction
+                         │
+                         ▼
+                    Retrieval
 ```
 
 ---
@@ -221,17 +206,15 @@ This is harder than it sounds. "How are you feeling?" is too therapy-adjacent. "
 
 ---
 
-**Warmer version (for contexts where trust signals are needed early):**
+**Warmer version (for users who seem hesitant):**
 
-> A lot of people find it hard to even put this into words. Just describe what's been feeling stuck or wrong lately — a few sentences is enough. There's no right answer.
+> A lot of people in your situation find it hard to even put this into words. Just describe what's been feeling stuck or wrong lately — a few sentences is enough. There's no right answer.
 
 ---
 
-**More direct version (for contexts where speed is the primary signal):**
+**More direct version (for contexts where speed matters):**
 
 > Describe what's been feeling stuck. What's the situation? What have you tried? What feels like the right next thing but isn't happening?
-
-**Note on prompt version selection:** The Trust / Credibility Architecture component will determine which prompt version to use for which context. This document defines the options; that component defines the choice.
 
 ---
 
@@ -239,22 +222,22 @@ This is harder than it sounds. "How are you feeling?" is too therapy-adjacent. "
 
 | Input | Why It's Good | Expected Classification |
 |---|---|---|
-| "I got promoted six months ago and it feels hollow. I keep waiting to feel satisfied and it doesn't come. I don't know what I'm supposed to want now." | Two DC signals: post-achievement flatness + absence of forward target. No conflicting signal. | Direction Collapse / post-achievement, High confidence |
-| "I love what I do on paper but I feel zero energy for it anymore. I used to stay late because I wanted to. Now I'm watching the clock." | Two ED signals: target still present + before/after motivation contrast. | Engagement Drought, High confidence |
-| "I know I need to leave this job. I've known for two years. Every week I tell myself this is the week and then nothing happens." | Two IL signals: specific action named + explicit know-do gap with timeline. | Inaction Loop, High confidence |
-| "I have like five different things I keep going back and forth on — a side project, a career change, moving cities, going back to school. I'm paralyzed." | Two PP signals: multiple options named + inability to choose any. | Possibility Paralysis, High confidence |
-| "My friend just got promoted to director and I felt sick about it. I don't want her job. I just feel like I should be doing more." | Comparison trigger present. But "should be doing more" could mean DC or MG. Only one state clearly indicated. | Momentum Gap or Direction Collapse, Moderate confidence — clarify |
+| "I got promoted six months ago and it feels hollow. I keep waiting to feel satisfied and it doesn't come. I don't know what I'm supposed to want now." | Present state, specific trigger, names the experience accurately | Direction Collapse / post-achievement, High confidence |
+| "I love what I do on paper but I feel zero energy for it anymore. I used to stay late because I wanted to. Now I'm watching the clock." | Clear before/after contrast, emotional language, no crisis signals | Engagement Drought, High confidence |
+| "I know I need to leave this job. I've known for two years. Every week I tell myself this is the week and then nothing happens." | Explicit naming of the know-do gap, timeline, self-frustration | Inaction Loop, High confidence |
+| "I have like five different things I keep going back and forth on — a side project, a career change, moving cities, going back to school. I'm paralyzed." | Multiple options named explicitly | Possibility Paralysis, High confidence |
+| "My friend just got promoted to director and I felt genuinely sick about it. I don't want her job. I just feel like I should be doing more with my life." | Comparison trigger named, recent event, explicit self-awareness | Momentum Gap or Direction Collapse, Moderate confidence — needs clarification |
 
 ### Examples of Sparse or Difficult Input
 
 | Input | Problem | System Response |
 |---|---|---|
-| "I feel stuck." | Too sparse — one phrase, no situational anchor | Expansion prompt: "Can you tell me a bit more about what's been feeling stuck or off?" |
+| "I feel stuck." | Too sparse to classify | Expand prompt: "Can you tell me a bit more about what's been feeling stuck or off?" |
 | "idk just everything" | Emotionally vague, no specifics | Same — ask for more context gently |
-| "my life sucks" | Could be distress, could be venting | Gentle safety check; if no distress signals, ask for more before classifying |
-| "I'm tired all the time" | Physical "tired" could indicate clinical issue | Safety check first; if no Tier 1/2 signals, ask "what kind of tired — energy, motivation, or something else?" |
-| "I want a new job" | Task-oriented; not stuck-state language | Ask about the underlying experience: "What's been happening with your current one?" |
-| "help" | Single word; possible distress | Safety check first; then gentle expansion prompt |
+| "my life sucks" | Could be distress, could be venting | Gentle scope check + ask for more before classifying |
+| "I'm tired all the time" | Physical could indicate clinical issue | Borderline safety/scope check; light clarification about what kind of tired |
+| "I want a new job" | Task-oriented, not emotional/situational | Rephrase to understand the underlying stuck state: what's happening with the current one? |
+| "help" | Single word, possibly distress | Safety check first; then expand prompt gently |
 
 ### The No-Judgment Frame
 
@@ -264,100 +247,108 @@ The intake should never feel like the user can give a "wrong" answer. Every vari
 
 ## 5. Required Intake Signals
 
-These are the signals intake must attempt to capture before constructing a RetrievalQuery. For each, the table specifies why it matters, how it is captured, and MVP vs. future phasing.
+These are the signals intake must attempt to capture before constructing a RetrievalQuery. They are organized by type. For each, the table specifies why it matters, how it is captured, and whether it belongs to the MVP or to future personalization.
 
 ### A. State Signals
 
+What kind of stuck is this, specifically?
+
 | Signal | Why It Matters | How Captured | Ask or Infer | MVP or Future |
 |---|---|---|---|---|
-| **Primary stuck state** | The primary retrieval filter — without this, retrieval returns topically adjacent content | Inferred from full intake text (requires ≥2 signals); confirmed via clarifying question if moderate confidence | Inferred silently; clarifying question if moderate confidence | MVP |
-| **State confidence level** | Determines retrieval path (filter / 70-30 / expand) | Internal output of classification logic | Internal | MVP |
-| **Variant signal (DC only)** | Direction Collapse sub-state affects which SIOs rank highest | Inferred from whether a specific prior goal is named | Infer; ask only if retrieval depends on it | MVP-Recommended |
-| **Trigger vs. chronic** | Distinguishes DC from MG; affects intensity calibration | Event language ("since," "after," "last week") vs. generalized present tense | Infer; clarifying question for DC/MG confusion | MVP |
+| **Primary stuck state** | The primary retrieval filter — without this, retrieval returns topically adjacent content, not state-appropriate content | Inferred from full intake text using classification logic (Section 6) | Inferred silently; confirmed via clarifying question if low/moderate confidence | MVP |
+| **State confidence level** | Determines whether to retrieve, ask, or expand context | Produced by classification logic alongside state detection | Internal | MVP |
+| **Variant signal** | For Direction Collapse: is this post-achievement flatness or original directionlessness? Changes which SIOs rank highest | Inferred from whether a specific prior goal is named | Infer; ask only if retrieval quality depends on it | MVP-Recommended |
+| **Trigger vs. chronic** | Distinguishes Direction Collapse from Momentum Gap; affects resonance and framing | Look for time-bound language ("since," "after," "last week") vs. generalized present tense | Infer; clarifying question for DC/MG ambiguity | MVP |
 
 ### B. Confidence Signals
 
-| Signal | Why It Matters | How Captured | MVP or Future |
-|---|---|---|---|
-| **Classification confidence** | Determines intake routing path | Internal output of classification logic | MVP |
-| **Secondary possible states** | Used for moderate-confidence 70/30 retrieval weighting | Internal — states considered before the top state was selected | MVP |
-| **Evidence count** | Number of independent state-specific signals present | Internal | MVP |
-| **Conflicting signal flag** | Presence of signal from an adjacent state | Internal | MVP |
+How certain is the classification?
+
+| Signal | Why It Matters | How Captured | Ask or Infer | MVP or Future |
+|---|---|---|---|---|
+| **Classification confidence (high/moderate/low)** | Determines intake path — retrieve, clarify, or expand | Internal output of classification logic | Internal | MVP |
+| **Secondary possible states** | Needed for moderate-confidence retrieval (70/30 weighting across states) | Internal — other states considered before the top state was selected | Internal | MVP |
+| **Ambiguity type** | Which pair of states is confusable — determines which clarifying question to ask | Internal — derived from the competing state pair | Internal | MVP |
 
 ### C. Resonance Signals
 
-These are hypotheses in the first session, not preferences. They function as weak boosts in the first retrieval, not as filters.
+What form of insight is likely to land?
 
 | Signal | Why It Matters | How Captured | Ask or Infer | MVP or Future |
 |---|---|---|---|---|
-| **Resonance hypothesis — insight type** | Adjusts retrieval boost toward mechanism/story/reframe/permission | Inferred from language register (analytical vs. emotional) | Infer as weak hypothesis | MVP |
-| **Resonance hypothesis — voice register** | Adjusts retrieval boost toward a register | Inferred from emotional posture and vocabulary | Infer as weak hypothesis | MVP |
-| **Excluded registers** | Hard exclusion — prevents a register that could feel hostile or harmful | Inferred from fragility/self-critical signals | Infer; apply conservatively | MVP |
-| **Resonance confidence** | How reliable the resonance hypothesis is | Assessed internally (low/unknown for most first sessions) | Internal | MVP |
-| **Resonance source** | Whether resonance is inferred, default, explicit, or learned | Assigned by intake | Internal — used by retrieval to know how hard to apply it | MVP |
-| **Explicit resonance preference** | User directly states what kind of voice they want | Stated in input or clarifying answer | Capture if stated; otherwise not collected in MVP | Future (explicit collection) |
+| **Language register (analytical vs. emotional)** | Weak proxy for insight type preference | Inferred from vocabulary, sentence structure, presence of "I feel" vs. "I think/understand/keep doing" language | Infer silently | MVP |
+| **Emotional posture (frustrated, exhausted, self-critical, open)** | Informs voice register exclusion (e.g., don't serve direct/challenging to a self-critical user) | Inferred from tone markers and self-referential language | Infer silently | MVP |
+| **Possible preferred insight_type** | Adjusts resonance filter in retrieval | Inferred from language register + emotional posture | Infer as weak hypothesis | MVP |
+| **Possible preferred voice_register** | Adjusts resonance filter in retrieval | Inferred from tone markers | Infer as weak hypothesis; use state defaults if unclear | MVP |
+| **Registers to exclude** | Hard exclusion — prevents a register that could feel hostile or dismissive | Inferred from fragility/self-critical signals | Infer; apply conservatively | MVP |
+| **Resonance confidence** | How reliable the resonance inference is | Assessed as part of resonance capture (Section 9) | Internal | MVP |
+| **Explicit resonance preference** | Direct user preference (e.g., "I want something challenging") | Explicitly stated in the input or clarifying answer | Ask only if stated, or in future via explicit prompt | Future |
 
 ### D. Context Signals
 
+What situational context helps?
+
 | Signal | Why It Matters | How Captured | Ask or Infer | MVP or Future |
 |---|---|---|---|---|
-| **Career/purpose framing** | Confirms in-scope; may inform sub-state | Inferred from domain vocabulary | Infer | MVP |
-| **Chronic vs. event-triggered** | Disambiguates DC from MG/IT | Event language vs. general present tense | Infer; ask if DC/MG ambiguous | MVP |
-| **Has user tried to solve it?** | Signals Inaction Loop when named explicitly | Named in input ("I've read everything," "I've made the plans") | Infer from input text | MVP |
+| **Career/purpose/identity framing** | Confirms in-scope; may inform sub-state tagging | Inferred from domain vocabulary | Infer | MVP |
+| **Chronic vs. recent trigger** | Disambiguates Direction Collapse from Momentum Gap; also affects intensity calibration | Look for event language ("since," "after," "when," "last month") vs. general present-tense | Infer; ask if DC/MG ambiguity | MVP |
+| **Has user tried to solve it?** | Signals Inaction Loop when user explicitly names things they've read, planned, or tried | Named in input ("I've read everything," "I've made the plans," "I've had this conversation with myself") | Infer from input text | MVP |
+| **Severity/duration** | How long has this been going on? Affects intensity calibration | Inferred from language like "for years," "lately," "just happened" | Infer | MVP |
+| **Specific named goal or target** | Presence indicates Engagement Drought; absence indicates Direction Collapse | Explicit naming of a job, project, or goal | Infer | MVP |
 
 ### E. Safety and Scope Signals
 
+What inputs should not proceed to retrieval?
+
 | Signal | Category | Action |
 |---|---|---|
-| Explicit self-harm or suicidal ideation language | Safety — Tier 1 | Immediate safety bypass |
-| Language suggesting acute crisis | Safety — Tier 1 | Immediate safety bypass |
-| Abuse, violence, or emergency situation | Safety — Tier 1 | Immediate safety bypass |
-| Clinical depression indicators beyond rut/motivation | Safety — Tier 2 | Care response + resource; no retrieval |
-| Grief, acute loss | Safety/Scope — Tier 2 | Acknowledge; may offer Silhouette's lens if IT-adjacent |
-| Medical, legal, financial (high-stakes) | Scope — out of range | Scope redirect |
+| Explicit self-harm or suicidal ideation language | Safety — Tier 1 | Immediate safety bypass; no retrieval |
+| Language suggesting acute crisis | Safety — Tier 1 | Immediate safety bypass; no retrieval |
+| Signs of abuse, violence, or emergency situation | Safety — Tier 1 | Immediate safety bypass; no retrieval |
+| Clinical depression indicators beyond rut/low motivation | Safety — Tier 2 | Safety response + resource; no retrieval |
+| Grief, loss, or trauma processing | Safety/Scope — Tier 2 | Gentle scope acknowledgment + redirect; may offer limited Silhouette scope if Identity Transition relevant |
+| Medical, legal, or financial high-stakes requests | Scope — out of range | Scope redirect; no retrieval |
 | Requests for diagnosis or therapy | Scope — out of range | Scope redirect + professional resource |
-| Relationship crisis or interpersonal conflict | Scope — out of range | Scope redirect |
-| Intense but in-scope emotional language | In scope — monitor | Classify normally; set intensity to mild; note for retrieval |
+| Relationship crisis or interpersonal conflict | Scope — out of range | Scope redirect; note what Silhouette can address |
+| Requests for a specific person/source by name | Edge case | Route to retrieval with source preference noted; if source not in corpus, acknowledge |
+| General life questions not related to career/purpose/motivation | Scope — borderline | Gentle redirect to Silhouette's focus area |
+
+### F. Retrieval Constraint Summary
+
+The full set of retrieval signals that intake must produce before handing off to the retrieval engine. This is the target schema — see Section 11 for the full RetrievalQuery definition.
+
+| Signal | Source | Required |
+|---|---|---|
+| detected_state | State classification | Required |
+| state_confidence | State classification | Required |
+| secondary_possible_states | State classification | Required |
+| variant_signal | State classification | Optional |
+| preferred_insight_type | Resonance inference | Optional |
+| preferred_voice_register | Resonance inference | Optional |
+| excluded_voice_registers | Safety/resonance inference | Optional |
+| intensity_preference | Context signals | Optional |
+| safety_flag | Safety check | Required |
+| scope_status | Scope check | Required |
 
 ---
 
 ## 6. State Classification Logic
 
-This section defines, for each stuck state, what the classifier should look for in raw user input. The output is a structured classification object. The section is written to be specific enough to guide a future LLM-based classifier or serve as a classification prompt.
-
-### The Minimum Evidence Rule
-
-**High confidence requires:**
-- At least **two independent, state-specific signals** present in the input
-- **No major conflicting signal** from an adjacent state's distinguishing features
-
-A single phrase, even a very clear one, is not sufficient for high confidence. The phrase "I know what I need to do and I'm not doing it" is a strong Inaction Loop signal, but in isolation it qualifies only as a moderate-confidence detection. High confidence requires this signal plus at least one corroborating signal: a specific action named, a history of non-starts, a named timeline of deferrals.
-
-This rule exists to prevent "vibes-based" classification — committing to a state based on emotional tone or a single matching phrase when the surrounding context is ambiguous.
-
-**Moderate confidence requires:**
-- At least **one clear state-specific signal** pointing to a primary state
-- At most **one competing signal** from an adjacent state
-- The ambiguity is resolvable by a single clarifying question
-
-**Low confidence:**
-- Fewer than one clear state-specific signal, OR
-- Two or more plausible states with equal evidence, OR
-- Input is sparse enough that any classification would be speculative
+This section defines, for each stuck state, what the classifier should look for in raw user input. It is written to be specific enough that a future LLM-based classifier can use it as a classification prompt or fine-tuning reference. It does not specify implementation — it specifies the logic.
 
 ### Classification Output Format
+
+Before state-by-state detail, define the output structure:
 
 ```
 {
   detected_state: "direction-collapse" | "engagement-drought" | "inaction-loop" | 
                   "possibility-paralysis" | "identity-transition" | "momentum-gap" | null,
   state_confidence: "high" | "moderate" | "low",
-  evidence_count: integer (number of independent state signals found),
   secondary_possible_states: [ ... ],
-  classification_reason: "1–2 sentence explanation for human review / logging",
+  classification_reason: "brief explanation in 1-2 sentences",
   evidence_for: [ "specific phrases or signals that support this state" ],
   evidence_against: [ "signals that might weaken this classification" ],
-  conflicting_signal_present: true | false,
   needs_clarification: true | false,
   clarification_target: "which pair needs disambiguation, or null",
   variant_signal: "post-achievement" | "original" | null   // Direction Collapse only
@@ -370,52 +361,49 @@ This rule exists to prevent "vibes-based" classification — committing to a sta
 
 **Core question:** Has the user lost the sense of what they're building toward?
 
-**State-specific signals (each counts as one independent signal):**
-1. "I don't know what I want" or equivalent (absence of direction framed explicitly)
-2. Post-achievement flatness: a specific prior milestone named + "feel nothing/empty/flat" after it
-3. "I feel like I'm living someone else's life" or "following a path that isn't mine"
-4. "I don't know what I'm building toward / what the point is"
-5. Chronic low-grade disorientation with no named external trigger
-6. "Everyone else seems to know what they want / have figured it out" — when described as a background state, not a recent event
-
 **Primary language patterns:**
 - "I don't know what I want"
 - "I've hit the thing I was working toward and I feel nothing"
 - "I feel like I'm living someone else's life"
+- "Everyone seems to have it figured out"
 - "I don't know what I'm building toward"
+- "I feel like I should be further along but I don't know further along toward what"
 - "I'm doing fine but something is missing"
-- "I feel like I should be further along but toward what?"
 
 **Emotional posture:** Quiet confusion, mild disorientation, existential flatness. Not angry, not in crisis. More "empty" than distressed.
 
+**Distinguishing signals:**
+- No specific goal, project, or role is named as the target
+- The discomfort feels chronic and gradual, not triggered by a specific event
+- Uses "I don't know what I want" language, not "I can't feel what I want"
+
 **Variant detection:**
-- *Post-achievement:* A specific milestone is named ("I got the promotion," "I graduated," "I hit my income goal") followed by flatness. Language: "I reached it and..."
-- *Original:* No milestone named; the user has never had a strong pull. Language: "I've never really known," "everyone else seems to have a direction."
+- *Post-achievement:* A specific milestone is named ("I got the promotion," "I graduated," "I hit my income goal") followed by feeling flat. Language: "I reached it and..."
+- *Original:* No milestone named; the user has simply never had a clear pull. Language: "I've never really known," "everyone else seems to have a direction."
+
+**Common confusion with adjacent states:**
+- vs. Engagement Drought: Look for whether a specific target still exists. If yes (user says "I have a job and I should care about it but I don't"), it's likely Engagement Drought. If no specific target is present, Direction Collapse.
+- vs. Possibility Paralysis: Direction Collapse = absence of options. Paralysis = abundance of options. Look for whether multiple possibilities are named.
+- vs. Momentum Gap: Look for a recent trigger. If the comparison feeling arose from a specific event ("my friend just got promoted"), lean Momentum Gap. If it's chronic, lean Direction Collapse.
+- vs. Identity Transition: Direction Collapse has no clear triggering event. Identity Transition does. Ask: "did something specific happen?"
 
 **Evidence that increases confidence:**
-- Two or more of the state-specific signals above are present
-- No specific goal, project, or role is named as currently active
-- No specific recent comparison event (which would suggest Momentum Gap)
-- Chronic time markers ("for a while," "lately," "at some point") with no trigger event
+- "I don't know what I want" appears directly
+- No specific goal or project mentioned
+- "I used to know but now I don't" (post-achievement variant)
+- Chronic language ("for a while," "lately," "at some point") with no specific trigger
+- "Everyone else seems to know" (Direction Collapse, not Momentum Gap, when not event-triggered)
 
-**Evidence that lowers confidence / conflicting signals:**
-- A specific job, project, or goal is named as something the user is still working toward → suggests Engagement Drought
-- A specific recent event is named as the trigger → suggests Momentum Gap or Identity Transition
-- Multiple options are listed → suggests Possibility Paralysis
+**Evidence that lowers confidence:**
+- A specific job, project, or goal is named (suggests Engagement Drought instead)
+- A specific recent event is named (suggests Momentum Gap or Identity Transition instead)
+- Multiple options are listed (suggests Possibility Paralysis instead)
 
 ---
 
 ### State 2: Engagement Drought
 
 **Core question:** Does the user still have a target but has lost the feeling of caring about it?
-
-**State-specific signals (each counts as one independent signal):**
-1. A specific job, role, goal, or project is named as still active
-2. Before/after contrast: "I used to [love this / care / stay late]" → "now I feel nothing/flat/empty"
-3. "Going through the motions" language
-4. "I know I should care but I don't feel anything about it"
-5. Time-in-role markers: "2 years in," "since I mastered it," "past the learning curve"
-6. "It used to challenge me, now it's just routine"
 
 **Primary language patterns:**
 - "I used to love this, now I feel nothing"
@@ -424,19 +412,32 @@ This rule exists to prevent "vibes-based" classification — committing to a sta
 - "I'm performing but not growing"
 - "It's like a motivation drought"
 - "I peaked early"
+- "I have energy for things that excite me but nothing excites me"
 
-**Emotional posture:** Flat, grey, slightly exhausted. The frustration, if present, is passive — more resignation than anger.
+**Emotional posture:** Flat, grey, slightly exhausted. Not angry. The frustration, if present, is passive — more resignation than frustration.
+
+**Distinguishing signals:**
+- A specific job, role, or target is named OR clearly implied by context
+- The problem is not absence of direction but absence of feeling toward a direction that exists
+- "I know what I should want but I can't feel it" — not "I don't know what I want"
+- The flatness is chronic, not spike-triggered
+
+**Common confusion with adjacent states:**
+- vs. Direction Collapse: The critical question is whether a target exists. Engagement Drought users still have a target; they just can't feel it. Ask: "Is there a specific thing you're working toward right now, even if it doesn't feel meaningful?"
+- vs. Inaction Loop: Engagement Drought users are not frustrated by their own inaction — the pull to do something specific is gone. Inaction Loop users feel the pull but are blocked from acting.
+- vs. Momentum Gap: Engagement Drought is internal and chronic. Momentum Gap is externally triggered and transient. Look for a comparison event.
 
 **Evidence that increases confidence:**
-- Two or more of the state-specific signals above are present
-- A specific target (job/role/project) is named or strongly implied
+- A specific role, job, or goal is named
+- "I used to" + positive description + "now" + flat description
+- "going through the motions" language
 - No mention of a recent comparison event
-- Time-in-role language present
+- Language about time passing ("3 years in," "since I've mastered the job")
 
-**Evidence that lowers confidence / conflicting signals:**
-- No specific target mentioned → suggests Direction Collapse
-- A comparison to others is the primary framing → suggests Momentum Gap
-- Multiple things the user could pursue are listed → suggests Possibility Paralysis
+**Evidence that lowers confidence:**
+- No specific target mentioned (suggests Direction Collapse)
+- A comparison to others is the primary trigger (suggests Momentum Gap)
+- User mentions multiple things they could pursue (suggests Possibility Paralysis)
 
 ---
 
@@ -444,44 +445,45 @@ This rule exists to prevent "vibes-based" classification — committing to a sta
 
 **Core question:** Does the user know what they should do but keep not doing it?
 
-**State-specific signals (each counts as one independent signal):**
-1. A specific action, project, or change is named
-2. Explicit know-do gap: "I know what I need to do / I know the answer / I've figured it out" + "I'm not doing it"
-3. Repeated deferral history: "for two years," "every week," "I keep starting and stopping"
-4. Prior consumption of advice/frameworks without acting: "I've read all the books," "I've made the plan," "I know the steps"
-5. Self-judgment about follow-through: "I'm scared or lazy," "I don't know if I'm serious," "something's wrong with me"
-6. "There's a version of myself I'm trying to become" + no movement toward it
-
 **Primary language patterns:**
 - "I know exactly what I need to do and I'm not doing it"
 - "I've been having this conversation with myself for two years"
 - "I've read all the books, I know what to do, nothing changes"
+- "I keep starting and stopping"
 - "I'm scared or lazy, I can't figure out which"
 - "There's a version of myself I'm trying to become"
+- "I don't know if I'm serious about this"
 
-**Emotional posture:** Active frustration. Self-critical. Tired of their own pattern. More frustrated than sad. Self-judgment language is common.
+**Emotional posture:** Active frustration. Self-critical. Tired of their own pattern. More frustrated than sad. Often uses self-judgment language ("I'm lazy," "I'm not serious," "something's wrong with me").
+
+**Distinguishing signals:**
+- One specific thing is named or clearly implied as the thing not being done
+- The language is "I'm not doing it" not "I don't know what to do"
+- Self-awareness about the gap is explicit: the user can name the thing they're avoiding
+- Often accompanied by history of attempts: "I've tried before," "I've been planning this"
+
+**Common confusion with adjacent states:**
+- vs. Possibility Paralysis: Inaction Loop = one specific thing named. Paralysis = multiple things, unclear which is real. The key question: "Can you name the one thing you most feel like you should be doing?" Inaction Loop users name it immediately. Paralysis users list several or deflect.
+- vs. Engagement Drought: Inaction Loop users are motivated — they feel the pull of the thing they're avoiding. Engagement Drought users have lost the pull entirely.
+- vs. Direction Collapse: Inaction Loop users have a specific thing. Direction Collapse users don't.
 
 **Evidence that increases confidence:**
-- One specific thing is named (not multiple options)
-- Two or more of the state-specific signals above are present
-- Self-awareness about the gap is explicit
+- A specific action, project, or change is named
+- "I know" + "but" + "I'm not"
+<!-- - History of non-starts or repeated deferrals -->
+- Self-judgment language about following through
+- "I've read/listened/planned/mapped it out" — signals knowledge without action
 
-**Evidence that lowers confidence / conflicting signals:**
-- Multiple things are listed without one being primary → suggests Possibility Paralysis
-- No specific thing is named at all → suggests Direction Collapse or Engagement Drought
-- Language is about feeling nothing rather than not doing something → suggests Engagement Drought
+**Evidence that lowers confidence:**
+- Multiple things are listed without one being primary (suggests Possibility Paralysis)
+- No specific thing is named at all (suggests Direction Collapse or Engagement Drought)
+- Language is about feeling nothing rather than not doing something (suggests Engagement Drought)
 
 ---
 
 ### State 4: Possibility Paralysis
 
 **Core question:** Does the user have multiple real options and can't choose among them?
-
-**State-specific signals (each counts as one independent signal):**
-1. Multiple options are explicitly named (2 or more distinct things)
-2. Inability to choose or commit: "I keep going back and forth," "I can't figure out which one"
-3. Awareness that optionality itself is the problem: "I don't know which idea is real"
-4. Approach-avoidance pattern: "Every time I get close, something else comes up"
 
 **Primary language patterns:**
 - "I have a list of things I could pursue and I'm not doing any of them"
@@ -490,15 +492,17 @@ This rule exists to prevent "vibes-based" classification — committing to a sta
 - "I keep going back and forth"
 - "I want to do all of them and I'm doing none"
 
-**Emotional posture:** Anxious, scattered, crowded. Unlike Direction Collapse (empty), Possibility Paralysis feels full and stuck simultaneously.
+**Emotional posture:** Anxious, scattered, crowded. Unlike Direction Collapse (which feels empty), Possibility Paralysis feels full and stuck at the same time. Often frustrated at the irony of having options but feeling unable to move.
 
-**Evidence that increases confidence:**
-- Multiple options named explicitly (the clearest signal for this state)
-- Language centers on choosing, not on starting or not knowing what to want
+**Distinguishing signals:**
+- Multiple options are named explicitly
+- The language centers on choosing, not starting
+- "I don't know which one" is the operative phrase — not "I don't know what I want"
+- Often present in users with high ambition and broad capability
 
-**Evidence that lowers confidence / conflicting signals:**
-- Only one thing is named → suggests Inaction Loop
-- No options are named at all → suggests Direction Collapse
+**Common confusion:**
+- vs. Inaction Loop: Both involve not acting. The distinction: Possibility Paralysis users can't name one clear thing; Inaction Loop users can name it immediately.
+- vs. Direction Collapse: Direction Collapse has no options (empty). Possibility Paralysis has too many (crowded). The emotional texture is opposite.
 
 ---
 
@@ -506,16 +510,22 @@ This rule exists to prevent "vibes-based" classification — committing to a sta
 
 **Core question:** Did a specific external change remove a prior organizing structure?
 
-**State-specific signals (each counts as one independent signal):**
-1. A specific triggering event is named: breakup, job loss, move, illness, major success, community exit
-2. Identity disorientation: "I don't know who I am on the other side," "I feel like I've become someone smaller"
-3. Aftermath quality: the event has passed but reorganization hasn't happened
-4. "The thing that used to give my life structure is gone"
+**Primary language patterns:**
+- "I went through [a breakup / leaving a job / a move / a health scare]"
+- "I don't know who I am on the other side"
+- "The thing that used to organize my life is gone"
+- "I feel like I've become someone smaller"
+- "I know I'm supposed to be in chapter two but I can't see it"
 
-**Distinguishing signal:** The triggering event. This is the clearest differentiator. If an event is present, Identity Transition is the leading candidate. If no event is present, consider Direction Collapse.
+**Emotional posture:** Disoriented, slightly lost, not in acute crisis but unmoored. A quality of aftermath — the event has passed but the reorganization hasn't happened.
+
+**Distinguishing signals:**
+- A specific triggering event is named (or strongly implied)
+- The language is about identity, not about motivation or direction specifically
+- Time since the event matters: typically 3–12 months after, not immediately
 
 **Common confusion:**
-- vs. Direction Collapse: Identity Transition has a named event. Direction Collapse is gradual. If both "chronic directionlessness" and a specific event are present, the event takes priority — classify as Identity Transition.
+- vs. Direction Collapse: Identity Transition has a clear event. Direction Collapse is gradual. Ask: "Did something specific happen that started this?"
 
 ---
 
@@ -523,104 +533,112 @@ This rule exists to prevent "vibes-based" classification — committing to a sta
 
 **Core question:** Was the feeling triggered by a specific comparison to peers?
 
-**State-specific signals (each counts as one independent signal):**
-1. A specific comparison event is named: a friend's promotion, a peer's company launch, a LinkedIn post
-2. The comparison feeling is described as recent and reactive
-3. "I don't want their specific life, I want that feeling of going somewhere"
-4. Spike-quality: the feeling came on strongly after a specific stimulus
-
 **Primary language patterns:**
 - "My friend just [got promoted / started a company / moved abroad]"
 - "I feel behind everyone"
 - "I don't want their life, I want that feeling of going somewhere"
-- Heavy recency: "just," "last week," "after I saw..."
+- "It feels like everyone got a roadmap except me"
+- Heavy social media / LinkedIn context implied
+
+**Emotional posture:** A spike of comparison-driven anxiety, often mixed with genuine ambition. Not chronic. Triggered by a specific event or piece of information.
+
+**Distinguishing signals:**
+- A specific comparison event is named or strongly implied
+- The feeling is recent and reactive, not chronic
+- The user explicitly contrasts their situation to others
 
 **Common confusion:**
-- vs. Direction Collapse: Momentum Gap is a spike triggered by a specific event. Direction Collapse is chronic. The same "everyone else seems to have it figured out" language can appear in both — the distinction is whether it's a spike or background state.
+- vs. Direction Collapse: Both can involve "everyone else seems to know what they want." The distinction is whether it's a spike (Momentum Gap) or a chronic state (Direction Collapse).
 
 ---
 
 ### Confusion Pairs — Disambiguation Reference
 
-| Pair | Core Distinguishing Question | Signal A | Signal B |
+| Pair | Distinguishing Question | Signal A (State 1) | Signal B (State 2) |
 |---|---|---|---|
-| **Direction Collapse vs. Engagement Drought** | Does a specific target still exist? | No active target named | A target exists but caring has gone flat |
-| **Direction Collapse vs. Momentum Gap** | Chronic or triggered? | Background state; no specific trigger | Specific recent event triggered the feeling |
-| **Direction Collapse vs. Possibility Paralysis** | Empty or crowded? | Zero options; emptiness | Multiple options named; anxious |
-| **Inaction Loop vs. Possibility Paralysis** | Can the user name one specific thing? | Names it immediately | Lists several or says "that's the problem" |
-| **Engagement Drought vs. Momentum Gap** | Chronic or triggered? | Chronic internal flatness | Triggered by a specific comparison |
-| **Identity Transition vs. Direction Collapse** | Specific event? | Named triggering event | Gradual drift; no specific event |
-| **Momentum Gap vs. Inaction Loop** | Outward comparison or inward frustration? | "Everyone else is going somewhere" | "I know what to do and I'm not doing it" |
+| **Direction Collapse vs. Engagement Drought** | "Is there a specific thing you're working toward, even if it doesn't feel meaningful?" | No specific target named | A specific target exists but feels flat |
+| **Direction Collapse vs. Momentum Gap** | "Is this something you've been feeling for a while, or was it triggered by something specific recently?" | Chronic; no specific trigger | Specific event triggered it |
+| **Direction Collapse vs. Possibility Paralysis** | Count options named | Zero options; emptiness | Multiple options; crowded |
+| **Inaction Loop vs. Possibility Paralysis** | "If you had to name the one thing you most feel like you should be doing right now, could you?" | Names it immediately | Lists several or deflects |
+| **Engagement Drought vs. Momentum Gap** | "Has this been a background feeling for a while, or did something specific bring it up?" | Chronic; internal | Recent comparison event |
+| **Identity Transition vs. Direction Collapse** | "Did something specific happen that started this feeling — a change, an ending, a loss?" | Specific event named | No event; gradual drift |
+| **Momentum Gap vs. Inaction Loop** | Presence of comparison language vs. frustrated self-knowing | "Everyone else is going somewhere" | "I know what I need to do and I'm not doing it" |
 
 ---
 
 ## 7. Confidence Scoring
 
-Confidence is a routing decision, not a probability. Define it operationally by what behavior it triggers.
+Confidence is not a probability — it is a routing decision. Define it operationally by what behavior it triggers, not abstractly.
 
 ### High Confidence
 
-**Required:**
-- **≥2 independent state-specific signals** from the state definition in Section 6
-- **No major conflicting signal** from an adjacent state's distinguishing features
+**Criteria:**
+- One state is clearly indicated by multiple distinct signals
+- None of the common confusion pairs apply
+- The user has provided enough context to distinguish this state from adjacent ones
+- The input is not sparse
 
-**What it produces:** Proceed directly to resonance capture and query construction. No clarifying question required.
+**Indicators:**
+- Multiple language patterns from one state definition are present
+- The emotional posture matches the expected texture of the detected state
+- No competing state's signals are present
+- Specific detail is provided (a named goal, a named event, a named action not taken)
 
-**Example:** "I know I need to leave this job. I've known for two years. Every week I tell myself I'll do something and nothing happens."
+**Action:** Proceed directly to resonance capture and query construction. No clarifying question required.
 
-Signals present: (1) specific action named — leaving the job, (2) explicit know-do gap — "I've known for two years," (3) repeated deferral history — "every week." Three independent Inaction Loop signals. No conflicting signals. → High confidence.
-
-**Counterexample:** "I feel like I'm not doing what I should be doing." → Single vague signal. No specific thing named. Could be IL, DC, or ED. → Low confidence, not high.
+**Example:** "I know I need to leave this job. I've known for two years. Every week I tell myself I'll do something and nothing happens." → Inaction Loop, high confidence. Multiple signals: "I know," "I'm not doing it," timeline of non-starts, self-awareness about the pattern.
 
 ---
 
 ### Moderate Confidence
 
-**Required:**
-- At least **one clear state-specific signal** pointing to a primary state
-- At most **one competing signal** from an adjacent state
-- The ambiguity is resolvable by a single pair-specific clarifying question
+**Criteria:**
+- One state is the most likely interpretation
+- One alternative state is plausible from the same input
+- A single clarifying question would resolve the ambiguity with high probability
+- The input is not sparse — it contains enough content to classify, just not enough to disambiguate
 
-**What it produces:** Ask one pair-specific clarifying question. Use the answer to re-classify. Proceed to query construction after.
+**Indicators:**
+- One confusion pair applies (see Section 6)
+- The user uses language that could map to either state
+- The emotional posture is somewhat consistent with both candidate states
+- A specific detail that would disambiguate is absent
 
-**Example:** "I feel like I should be doing more with my life. Everyone around me seems to have figured something out. I don't know what I'm actually building toward."
+**Action:** Ask one pair-specific clarifying question. Use the answer to re-classify. Proceed to query construction after.
 
-DC signal: "I don't know what I'm building toward." MG signal: "everyone around me seems to have figured something out." One clear DC signal + one potential MG signal. → Moderate confidence. Clarify whether the comparison feeling is chronic (DC) or triggered by a specific recent event (MG).
+**Example:** "I feel like I should be doing more with my life. Everyone around me seems to have figured something out. I don't know what I'm actually building toward." → Direction Collapse vs. Momentum Gap, moderate confidence. Comparison language is present, but whether it's event-triggered or chronic is unclear.
 
 ---
 
 ### Low Confidence
 
-**Required:** Fewer than one clear state-specific signal, OR input is so sparse that any classification would be speculative.
+**Criteria:**
+- Input is too sparse to classify
+- Input could plausibly map to three or more states
+- Emotional language is present but no situational specifics
+- The user has written something genuinely ambiguous across the full taxonomy
 
-**What it produces:** Do not classify. Do not ask a pair-specific clarifying question yet. Ask for more context with a single expansion prompt: "Can you tell me a bit more about what's been feeling stuck or off?" Use the expanded input for classification.
+**Indicators:**
+- Input is 10 words or fewer
+- No situational specifics (no job/goal/event/action mentioned)
+- Pure emotional description only ("I feel lost," "nothing feels right," "I'm tired of everything")
+- Three or more states are plausible from the input
 
-**Example:** "I feel stuck." → Zero state-specific signals. Expansion prompt required before classification.
+**Action:** Do not attempt state classification. Do not ask a clarifying question yet. Ask for more context with a single expansion prompt: *"Can you tell me a bit more about what's been feeling stuck or off?"* Use the expanded input to attempt classification before asking a targeted clarifying question.
+
+**Example:** "I feel stuck." → Low confidence. Multiple states are plausible. Ask for more context before any disambiguation.
 
 ---
 
-### Confidence → Routing Summary
+### Confidence → Action Routing
 
-| Confidence | Evidence Present | Action |
+| Confidence | Primary Action | Secondary Action |
 |---|---|---|
-| **High** | ≥2 independent signals, no major conflict | Retrieve |
-| **Moderate** | 1 clear signal + 1 competing signal | Ask one pair-specific clarifying question |
-| **Low / Sparse** | <1 clear signal | Ask for more context; re-classify |
-| **Safety (any confidence)** | Safety signal present | Bypass before classification |
-| **Still low after expansion** | <1 clear signal after expansion | Apply Direction Collapse default; `retrieval_mode = broad`; log as unresolved |
-
-### Same Phrase, Different States — Examples
-
-The following phrases illustrate why single-signal classification is unreliable:
-
-| Phrase | Could be DC | Could be ED | Could be IL | Disambiguation needed |
-|---|---|---|---|---|
-| "I feel like I'm not going anywhere" | ✓ no direction | ✓ flat toward existing target | ✓ not acting on known thing | Yes |
-| "I'm stuck" | ✓ | ✓ | ✓ | Yes |
-| "I don't care about my job" | — | ✓ classic ED | — | DC vs. ED clarification |
-| "I know what I should do and I'm not doing it" | — | — | ✓ strong IL | Corroborating signal needed for high confidence |
-| "I feel empty" | ✓ | ✓ flat motivation | — | DC vs. ED clarification |
-| "Everyone seems to be going somewhere except me" | ✓ chronic | — | — | MG vs. DC clarification |
+| **High** | Proceed to query construction | None required |
+| **Moderate** | Ask one clarifying question | Re-classify; proceed to query construction |
+| **Low (sparse)** | Ask for more context | Re-classify; if still moderate, ask one clarifying question |
+| **Safety flag** | Bypass all classification | Route to safety response |
+| **Out of scope** | Scope redirect | No retrieval |
 
 ---
 
@@ -630,16 +648,18 @@ The following phrases illustrate why single-signal classification is unreliable:
 
 Ask a clarifying question when:
 - State confidence is Moderate (one state likely, one plausible alternative)
-- A pair-specific question exists for the ambiguous pair
-- The answer would meaningfully change `detected_state` or `variant_signal`
+- A specific pair-specific question exists for the ambiguous pair
+- The answer would meaningfully change the RetrievalQuery (detected_state, variant_signal, or resonance signals)
 
 ### When NOT to Ask
 
-- Safety flag is triggered
+Do not ask a clarifying question when:
+- Safety flag is triggered (route immediately)
 - State confidence is High (unnecessary friction)
-- The user's input signals very low capacity ("I'm so tired I can't even explain it") — apply moderate-confidence 70/30 retrieval rather than adding burden
+- The user's input signals emotional exhaustion or very low capacity ("I'm so tired," "I can't even explain it") — proceed with moderate-confidence retrieval rather than adding burden
+- The confusion can be resolved by retrieval strategy alone (the 70/30 weighting for moderate confidence may be sufficient)
+- The clarifying question would feel like a repeat of the original prompt
 - The input is too sparse — expand first, then consider clarifying
-- A clarifying question was already asked and the answer was "I don't know" — do not ask again; proceed with 70/30 retrieval
 
 ### Rules for a Good Clarifying Question
 
@@ -647,117 +667,99 @@ Ask a clarifying question when:
 1. One question only — never compound questions ("Do you feel X, or is it more Y?")
 2. Easy to answer — short answer expected, not an essay
 3. Not clinical — no medical, diagnostic, or therapy-adjacent framing
-4. Does not make the user repeat themselves
-5. Has a direct effect on the RetrievalQuery if answered in either direction
-6. Must handle non-binary answers: "both," "I don't know," partial answers
+4. Does not make the user repeat themselves — it should feel like the system heard the first input
+5. Has a direct effect on the RetrievalQuery if answered either way
 
 **Tone rules:**
 1. Sounds like the system understands and wants to understand one more thing
 2. Avoids "why" questions — they invite defensiveness and over-explanation
-3. Specific enough to be useful, not generic enough to apply to any stuck state
+3. Is specific enough to be useful, not generic enough to apply to any stuck state
 4. Acknowledges what was said before asking more
+
+**Example of what acknowledgment sounds like:** "It sounds like you've been feeling flat about your work for a while." — this shows the system heard the input before asking more.
 
 ---
 
 ### Pair-Specific Clarifying Questions
 
-Each entry below includes: the recommended question, interpretation guide, and what to do when the answer is "both," "I don't know," or creates new ambiguity.
-
----
+These are the recommended clarifying questions for each major confusion pair. Each question is designed to have clear divergent answers that map to different state classifications.
 
 #### Direction Collapse vs. Engagement Drought
 
-**Decision:** Does a specific target still exist (ED) or has the target itself dissolved (DC)?
+**Decision to make:** Does a specific target still exist (Engagement Drought), or has the target itself dissolved (Direction Collapse)?
 
 **Recommended question:**
 > "Is there a specific goal, role, or project you're still working toward — even if it doesn't feel meaningful right now?"
 
 **Interpretation:**
-- Yes → Engagement Drought (target exists; feeling toward it is flat)
-- No → Direction Collapse (no active target; direction itself is missing)
-- "I guess, but..." → Engagement Drought; the "but" confirms the target exists but feels hollow
+- Yes → Engagement Drought (they have a target; the feeling toward it is flat)
+- No → Direction Collapse (no active target; the direction itself is missing)
+- "I guess, but..." → likely Engagement Drought; the "but" confirms the target exists but feels hollow
 
-**"Both" answer:** "I have some vague things but nothing concrete" → Direction Collapse. The key criterion is specificity: a genuinely named target (even if not fully committed to) indicates ED. Vague things that aren't real targets don't count.
-
-**"I don't know" answer:** Default to Direction Collapse. The inability to name a specific target is itself a DC signal.
-
-**New ambiguity (e.g., user names a target but also says they don't know what they want):** Treat as moderate confidence DC/ED; apply 70/30 retrieval across both states.
+**Bad question to avoid:**
+> "Do you feel unmotivated or directionless?" — too binary, maps too directly to the state names, doesn't give the user a meaningful way to self-report
 
 ---
 
 #### Direction Collapse vs. Momentum Gap
 
-**Decision:** Is this a chronic state (DC) or a spike triggered by a specific comparison event (MG)?
+**Decision to make:** Is this a chronic state (Direction Collapse) or a spike triggered by a specific comparison (Momentum Gap)?
 
 **Recommended question:**
 > "Has this been something you've been feeling in the background for a while, or did something specific bring it up recently?"
 
 **Interpretation:**
-- "For a while" / "months/years" → Direction Collapse
-- "After I saw..." / "My friend just..." → Momentum Gap
-- Mixed: both chronic and a recent trigger → Direction Collapse is the primary state; Momentum Gap may be a secondary tag. If the underlying chronic state exists, MG is only the surface spike.
-
-**"Both" answer:** Flag as DC primary, MG secondary. The chronic component predates the spike.
-
-**"I don't know" answer:** Default to Direction Collapse. Momentum Gap users can almost always name the triggering event; inability to name one suggests DC.
+- "For a while" / "I've felt this for months/years" → Direction Collapse
+- "Well, recently my friend..." / "After I saw..." → Momentum Gap
+- Mixed answers → lean Direction Collapse; Momentum Gap is transient by definition and if the feeling persists beyond the event, it was likely already present
 
 ---
 
 #### Direction Collapse vs. Possibility Paralysis
 
-**Decision:** Is this an absence of options (DC) or an abundance of options (PP)?
+**Decision to make:** Is this an absence of options (empty) or an abundance of options (crowded)?
 
 **Recommended question:**
-> "When you think about what's next, does it feel more like there's nothing you want to pursue — or more like there are things you want but you can't pick one?"
+> "When you think about what's next, do you feel like there's nothing you want to pursue, or more like there are things you want to do but can't pick one?"
 
 **Interpretation:**
 - "Nothing I want" → Direction Collapse
 - "Things I want but can't pick" → Possibility Paralysis
-
-**"Both" answer:** This is a real and common answer. If the user says both, ask one more light clarifying probe (this is the one exception to the one-question rule, because the answer actively creates ambiguity): "Are there any specific things you find yourself going back to, even if you're not committing?" If they name things → PP. If they can't → DC.
-
-**"I don't know" answer:** Default to Direction Collapse.
+- "Both" → probably Direction Collapse; genuine Possibility Paralysis users tend to be able to name the options
 
 ---
 
 #### Inaction Loop vs. Possibility Paralysis
 
-**Decision:** Can the user name one specific thing they feel they should be doing?
+**Decision to make:** Can the user name one specific thing they feel they should be doing?
 
 **Recommended question:**
 > "If you had to name the one thing you most feel like you should be doing right now — is there one that comes to mind?"
 
 **Interpretation:**
-- Names it clearly and immediately → Inaction Loop
-- Lists several / hedges / says "that's the problem" → Possibility Paralysis
-- Says "no" → probably not IL or PP; may be DC or ED
-
-**"Both" answer:** "There are a few but one feels biggest" → Inaction Loop. "There are a few and I can't tell which one is real" → Possibility Paralysis. The distinction is whether one thing is dominant.
-
-**"I don't know" answer:** Treat as Possibility Paralysis (the inability to name one thing is itself the PP signal). If the user truly can't name anything, may slide into DC — apply DC/PP 50/50 retrieval.
+- Names it clearly and quickly → Inaction Loop (they know; they're just not doing it)
+- Lists several, hedges, says "that's the problem" → Possibility Paralysis
+- Says "no" → may be Direction Collapse or Engagement Drought, not Inaction Loop or Paralysis
 
 ---
 
 #### Engagement Drought vs. Momentum Gap
 
-**Decision:** Is the motivation flatness chronic and internal (ED) or triggered by a recent comparison (MG)?
+**Decision to make:** Is the motivation flatness chronic and internal, or triggered by a recent comparison?
 
 **Recommended question:**
 > "Has this feeling of flatness been there in the background for a while, or did something — like seeing where someone else is — kind of surface it?"
 
 **Interpretation:**
 - "Been there for a while" → Engagement Drought
-- "Surfaced by something" → Momentum Gap
-
-**"Both" answer:** Engagement Drought is the primary state; Momentum Gap is the surface trigger. The comparison event exposed the underlying flatness. Classify as ED primary, MG secondary.
-
-**"I don't know" answer:** Default to Engagement Drought if the user used any "used to care / now I don't" language. Default to Direction Collapse if no target is named.
+- "Surfaced by something" → Momentum Gap (though if it was already present, Engagement Drought is still the underlying state)
+- Hybrid → Engagement Drought is the primary state; Momentum Gap may be a secondary tag
 
 ---
 
 #### Identity Transition vs. Direction Collapse
 
-**Decision:** Was there a specific external event that changed things?
+**Decision to make:** Was there a specific external event that changed things?
 
 **Recommended question:**
 > "Did something specific happen recently — a change, an ending, or a shift in your situation — that started this feeling, or has it been more of a slow drift?"
@@ -766,15 +768,11 @@ Each entry below includes: the recommended question, interpretation guide, and w
 - Specific event named → Identity Transition
 - "A slow drift" / "I can't point to when it started" → Direction Collapse
 
-**"Both" answer:** A specific event plus a sense of gradual drift → Identity Transition is primary. The event doesn't have to be the sole cause; it just needs to have been a meaningful disruption.
-
-**"I don't know" answer:** Probe gently with one follow-up: "Think back 6–12 months — did anything change in a big way?" If yes → IT. If no → DC.
-
 ---
 
 #### Momentum Gap vs. Inaction Loop
 
-**Decision:** Is the primary frustration about comparison to others (MG) or about knowing what to do and not doing it (IL)?
+**Decision to make:** Is the primary frustration about comparison to others, or about knowing what to do and not doing it?
 
 **Recommended question:**
 > "Is it more that you feel behind compared to where you think you should be, or more that you know what to do and you're not doing it?"
@@ -783,20 +781,17 @@ Each entry below includes: the recommended question, interpretation guide, and w
 - "Behind compared to where I should be / compared to others" → Momentum Gap
 - "I know what to do and I'm not doing it" → Inaction Loop
 
-**"Both" answer:** This is a legitimate combination. Classify the dominant one by which they elaborated more on. If both are equally weighted, apply MG/IL moderate confidence with 70/30 retrieval weighting toward the one with more evidence.
-
-**"I don't know" answer:** Ask which feels more true right now. If still uncertain, default to the state with more evidence from the initial input.
-
 ---
 
 ### Examples of Good vs. Bad Clarifying Questions
 
-| Context | Good Question | Why | Bad Question | Why Not |
+| Context | Good Question | Why It's Good | Bad Question | Why It's Bad |
 |---|---|---|---|---|
-| DC/ED ambiguity | "Is there a specific goal or role you're still working toward, even if it doesn't feel meaningful?" | Binary with clear state implications; handles "I guess, but..." | "How long have you felt this way?" | Doesn't disambiguate the states |
+| DC/ED ambiguity | "Is there a specific goal or role you're still working toward, even if it doesn't feel meaningful?" | Binary answer; directly maps to the state distinction | "How long have you felt this way?" | Doesn't disambiguate the states |
 | IL/PP ambiguity | "If you had to name one thing you feel like you should be doing, is there one that comes to mind?" | Names the exact diagnostic distinction | "What are you avoiding?" | Creates defensiveness; invites a list |
-| DC/MG ambiguity | "Has this been a background feeling for a while, or did something specific surface it recently?" | Clean chronic vs. spike distinction | "Are you comparing yourself to others?" | Leading; also doesn't fully disambiguate |
-| Sparse input | "Can you tell me a bit more about what's been feeling stuck or off?" | Non-leading; invites specificity | "Can you describe your emotional state in more detail?" | Clinical; over-formal |
+| DC/MG ambiguity | "Has this been a background feeling for a while, or did something specific surface it recently?" | Chronic vs. spike distinction is clean | "Are you comparing yourself to others?" | Leading question; also doesn't fully disambiguate |
+| IT/DC ambiguity | "Did something specific happen that changed things, or has it been more of a gradual drift?" | Clean event vs. gradual distinction | "Are you going through a transition?" | Introduces clinical language |
+| Generic low confidence | "Can you tell me a bit more about what's been feeling stuck or off?" | Non-leading; invites specificity | "Can you describe your emotional state in more detail?" | Clinical; over-formal |
 
 ---
 
@@ -804,120 +799,116 @@ Each entry below includes: the recommended question, interpretation guide, and w
 
 ### The First-Session Problem
 
-A single intake message carries weak, unreliable resonance signal. The fundamental risk is overfitting: committing to a resonance profile from one emotional paragraph, then returning an insight that misses because the inferred register was wrong. The consequence of a wrong resonance inference is a failed first impression that is hard to recover from.
+A single intake message — typically 2–5 sentences — carries weak resonance signal. Overcommitting to a resonance profile from one message is more likely to harm retrieval than help it. The goal in first-session resonance capture is:
 
-The correct first-session stance is:
+1. Identify any strong signals that would justify adjusting the state default resonance profile
+2. Identify any exclusions that could make a specific register actively harmful to the user
+3. Default to the state resonance profile (Component 3, Section 7.5) when signals are weak or absent
 
-1. **Apply state-default resonance profiles** (Component 3, Section 7.5) as the baseline
-2. **Adjust the default upward** if there is strong, consistent resonance signal
-3. **Apply exclusions** if there is clear evidence a specific register would be harmful
-4. **Never hard-filter by inferred resonance** in the first session — boost only
-5. **Trust the state defaults** more than the single-message inference
+Treat first-session resonance as a hypothesis, not truth.
 
-Treat first-session resonance as a hypothesis to test, not truth to apply.
+### Two Resonance Dimensions to Capture
 
-### The Resonance Hierarchy
+From the User Resonance Model:
 
-The following hierarchy governs how resonance is applied at retrieval time:
+**Insight Type:** mechanism · story · reframe · permission
+**Voice Register:** direct/challenging · warm/affirming · intellectual/measured · vulnerable/personal · expert/scientific
 
-```
-1. Explicit safety exclusion (hard exclude — always applied)
-   ↓
-2. User's explicit preference stated in input (overrides defaults — rare in MVP)
-   ↓
-3. Learned profile preference (from ≥2 consistent positive signals — V2+)
-   ↓
-4. Inferred hypothesis from first-session language (weak boost — apply if high-resonance-confidence)
-   ↓
-5. State-default resonance profile (baseline — applied when all above are unknown)
-```
+### Implicit Resonance Inference (Infer from language — do not ask)
 
-In the first session, most users land at level 4 or 5. The retrieval engine should be told the resonance source so it knows how hard to apply the signal.
+#### Insight Type Signals
 
-### Resonance Source Field
-
-Every `preferred_insight_type` and `preferred_voice_register` in the RetrievalQuery must carry a `resonance_source` flag:
-
-| Source Value | Meaning | How Hard to Apply |
+| Language Pattern | Likely Preferred Type | Confidence |
 |---|---|---|
-| `explicit` | User directly stated a preference in their input | Override default; apply as strong preference |
-| `learned` | Confirmed from ≥2 positive engagement signals across sessions | Apply as strong preference; may override state default |
-| `inferred` | Inferred from language register in current input | Apply as weak boost; do not override state default |
-| `default` | No signal; state-default resonance profile applied | Apply as moderate preference |
-| `excluded` | Register exclusion inferred or learned from signals | Apply as hard exclusion |
+| "I'm trying to understand why I keep doing this" / "I can't figure out why" | mechanism or reframe | Moderate |
+| "I know exactly what I need to do and I'm not doing it" | permission (naming the loop) or story (someone who got out) | Moderate |
+| "I've read everything about this / I've listened to all the podcasts" | story or direct challenge (more information won't help) | Moderate |
+| "I just feel..." / "I don't know what's wrong with me" | permission or story | Moderate |
+| Analytical, structured prose with causal language ("because," "which means," "the result is") | mechanism or reframe | Moderate |
+| Fragmented, emotional, stream-of-consciousness writing | permission first, then story | Moderate |
+| "I keep telling myself..." / "I know that I should..." | permission (naming the gap) | Moderate |
 
----
+#### Voice Register Signals
 
-### Implicit Resonance Inference — Insight Type
-
-| Language Pattern | Hypothesis | Confidence |
+| Language Pattern | Likely Register | Exclusion to Apply |
 |---|---|---|
-| Analytical, structured prose: "I'm trying to understand why..." / "because... which means..." | mechanism or reframe | Moderate |
-| "I know exactly what I need to do but..." / "I know I should..." | permission or story (knowing isn't helping; more mechanism won't help) | Moderate |
-| "I've read everything / listened to all the podcasts" | story or direct challenge — more information won't help | Moderate |
-| Emotionally self-referential: "I just feel..." / "I don't know what's wrong with me" | permission or story | Moderate |
-| Fragmented, stream-of-consciousness emotional writing | permission first | Low-Moderate |
-| Explicit frustration with self: "I'm so sick of knowing this and not doing anything" | story (someone who got out of the same loop) | Moderate |
+| Self-critical or ashamed tone ("I'm so lazy," "something is wrong with me," "I'm failing") | warm/affirming or vulnerable/personal FIRST | Exclude direct/challenging |
+| Frustration directed outward ("I'm so sick of this," "I can't keep doing this") | direct/challenging may land | No exclusion; direct/challenging possible |
+| Precise vocabulary, compound sentences, references to research or systems | intellectual/measured or expert/scientific | — |
+| Emotionally raw, vulnerable self-disclosure | vulnerable/personal; warm/affirming | Exclude direct/challenging |
+| Skeptical or resistant framing ("I know this sounds dumb but," "I've tried everything and nothing works") | intellectual/measured or reframe type | Avoid warm/affirming (may feel dismissive) |
+| Burned-out, exhausted tone ("I'm just so tired," "I don't have energy for...") | permission (name that it's okay) | Exclude direct/challenging; exclude intense |
 
-**Cap:** If only one language pattern is present, treat resonance confidence as Low — fall back to state default.
+#### The Exclusion Principle
 
-### Implicit Resonance Inference — Voice Register
+Voice register exclusion is more important than voice register preference in the first session. It is worse to serve a self-critical user a direct/challenging voice than to serve them a non-preferred warm/affirming one. When in doubt about preference, default. When sure about an exclusion, apply it.
 
-| Language Pattern | Hypothesis | Exclusion to Apply |
-|---|---|---|
-| Self-critical or openly ashamed: "I'm lazy," "something's wrong with me," "I'm embarrassed" | warm/affirming or vulnerable/personal | Exclude direct/challenging |
-| Active frustration directed outward: "I'm sick of this," "I can't keep doing this" | direct/challenging may land | No automatic exclusion |
-| Precise vocabulary, analytical framing | intellectual/measured | — |
-| Emotionally raw, vulnerable disclosure | vulnerable/personal; warm/affirming | Exclude direct/challenging |
-| Skeptical framing: "I know this sounds dumb but," "I've tried everything" | intellectual/measured or reframe; avoid warm/affirming (may feel dismissive to skeptics) | — |
-| Exhaustion language: "I'm just so tired," "I don't have energy for" | permission or warm/affirming | Exclude direct/challenging; set intensity to mild |
+**Default exclusions to apply conservatively:**
+- Self-critical / ashamed tone → exclude `direct/challenging`
+- Emotionally raw or fragile tone → exclude `direct/challenging`, set intensity to `mild` or `moderate`
+- Expressed exhaustion → set intensity to `mild`
 
-**Important correction from v1:** Frustration alone does not justify preferring direct/challenging. Frustration directed inward (at oneself) is self-criticism — exclude direct/challenging. Frustration directed outward (at the situation) may tolerate direct/challenging. These are different. Default to the state profile unless the outward-directed frustration is unambiguous.
+### Explicit Resonance Capture (MVP: do not ask)
+
+For MVP, do not add an explicit resonance question to intake. The intake is already one prompt + (optionally) one clarifying question. Adding a resonance question would push total questions to three, which violates the user burden principle.
+
+The one exception: if the user's clarifying question answer includes explicit voice or content preferences ("I want something that challenges me," "I want to hear from someone who's been through this," "I need scientific evidence not just motivation"), capture this as an explicit resonance preference.
+
+Post-MVP, a lightweight resonance signal capture may be appropriate — a brief choice between two example insight styles ("Would you prefer something that challenges you, or something that helps you feel less alone?"). This is not MVP scope.
 
 ### Resonance Confidence Levels
 
-| Level | Criteria | How to Apply |
-|---|---|---|
-| **High** | Two or more consistent signals pointing to the same type/register; no conflicting signals | Treat as inferred hypothesis; boost meaningfully over state default |
-| **Moderate** | One clear signal, no clear exclusion | Treat as weak boost; state default still dominant |
-| **Low / Unknown** | No clear signals, or signals conflict; first-session default | Apply state-default resonance profile; do not adjust |
+| Level | Criteria |
+|---|---|
+| **High** | Two or more consistent signals pointing to the same type/register; no conflicting signals |
+| **Moderate** | One clear signal, no clear exclusion; could be the state default |
+| **Low / Unknown** | No clear signals, or signals conflict; apply state default resonance profile |
 
 ### Resonance Inference Examples
 
-**Analytical user:**
+**Analytical user input:**
 > "I keep trying to figure out what's wrong with me. I've structured my life well — the job, the apartment, the routine. And on paper everything is fine. But I feel like I'm missing something fundamental and I can't isolate what it is."
 
-*Inference:* Analytical register (structured, uses "isolate," describes external facts precisely). Two signals: analytical vocabulary + "figure out why" framing. Hypothesis: mechanism or reframe; intellectual/measured. Resonance confidence: Moderate.
-*Action:* Weak boost toward intellectual/measured and mechanism/reframe over state default. Not a hard filter.
+*Inference:* Analytical register (structured, uses "isolate," describes external situation precisely). Likely mechanism or reframe type. Likely intellectual/measured or expert/scientific register. No self-criticism or fragility markers — no exclusions.
+*Confidence:* Moderate — consistent signals but one message only.
+*Action:* Boost intellectual/measured and mechanism/reframe slightly over state default.
 
 ---
 
-**Emotionally vulnerable user:**
-> "I don't even know how to explain this. I just feel like everyone around me has something going for them and I'm sort of just... here. I know that sounds dramatic but I've felt this way for so long."
+**Emotionally vulnerable user input:**
+> "I don't even know how to explain this. I just feel like everyone around me has something going for them and I'm sort of just... here. I know that sounds dramatic but I've felt this way for so long I can't remember what it felt like to not."
 
-*Inference:* Emotionally self-referential. Self-deprecating ("I know that sounds dramatic"). Comparison language — but chronic (DC likely). Two signals: self-referential + self-deprecation. Hypothesis: permission or story; warm/affirming or vulnerable/personal. Exclusion: direct/challenging.
-*Resonance confidence:* Moderate. *Exclusion confidence:* High (self-deprecation is clear).
-*Action:* Apply exclusion (hard). Weak boost toward permission/warm-affirming. State default otherwise.
-
----
-
-**Frustrated/direct user:**
-> "I've read every productivity book. I've listened to the podcasts. I've made the plans. I'm still not doing the thing. I'm frustrated I can't even think straight. Just tell me what I need to hear."
-
-*Inference:* Frustration is outward (at the situation / at the knowledge that isn't working), not self-critical or ashamed. "Just tell me what I need to hear" is an explicit signal of openness to directness. Two signals: prior information consumed without action + explicit openness to direct guidance. Hypothesis: story or direct/challenging.
-*No exclusion:* The frustration is outward-directed, not shame-based. Direct/challenging is plausible.
-*Resonance confidence:* Moderate.
-*Action:* Weak boost toward direct/challenging and story. No exclusions.
+*Inference:* Emotionally self-referential ("I feel," "I don't know how to explain"). Comparison language but chronic — Direction Collapse likely. Self-deprecating ("I know that sounds dramatic"). Permission or story type more likely than mechanism. Warm/affirming or vulnerable/personal register.
+*Exclusion:* Exclude direct/challenging — self-deprecation signals this would feel like an attack.
+*Confidence:* Moderate — clear emotional posture; single message.
+*Action:* Apply permission or story type. Apply warm/affirming or vulnerable/personal. Hard exclude direct/challenging.
 
 ---
 
-**Burned-out user:**
+**Frustrated/direct user input:**
+> "I've read every productivity book. I've listened to the podcasts. I've made the plans. I'm still not doing the thing. I'm so frustrated I can't even think straight. Just tell me what I need to hear."
+
+*Inference:* High frustration, direct language, explicit statement of prior information consumption. "Just tell me what I need to hear" signals openness to direct challenge. Inaction Loop clear (high confidence). Story or direct challenge likely to land. Mechanism unlikely — they've already consumed explanations.
+*Exclusion:* No strong exclusions — frustration is outward, not self-critical.
+*Action:* Boost direct/challenging and story. No exclusions.
+
+---
+
+**Skeptical user input:**
+> "I'm skeptical this will help but I'll try. I've been feeling like I should be doing something different with my career for two years but every time I get close to doing something, I retreat. I think I know the reasons but knowing them doesn't seem to help."
+
+*Inference:* Intellectual register, explicit skepticism, already has self-awareness ("I think I know the reasons"). Inaction Loop likely. "Knowing doesn't help" signals that another mechanism insight may miss — story or permission more likely. Warm/affirming may feel too soft for their skeptical posture. Intellectual/measured or vulnerable/personal register.
+*Action:* Story or permission type. Intellectual/measured register — matches their self-aware voice. Avoid warm/affirming.
+
+---
+
+**Burned-out user input:**
 > "I'm just so tired. I don't even know where to start. Everything feels heavy and I can't remember the last time I felt excited about anything."
 
-*Inference:* Exhaustion is prominent. "Everything feels heavy" may be intensity signal — check against safety criteria before resonance. If in scope: exhaustion language (1 signal), "can't remember last time excited" (1 signal → potential ED). Two signals.
-*Safety check:* "Everything feels heavy" is borderline but not Tier 1 unless additional crisis signals are present. If no other signals → in scope, set intensity to mild.
-*Hypothesis:* permission first; warm/affirming. Exclusion: direct/challenging; set intensity to mild.
-*Resonance confidence:* Moderate.
+*Inference:* Exhaustion prominent. "Everything feels heavy" and "last time I felt excited" are potential borderline safety signals — check for clinical depression vs. Engagement Drought. If in scope: permission type first. Warm/affirming or vulnerable/personal register.
+*Exclusion:* Exclude direct/challenging, set intensity to mild.
+*Safety note:* This input warrants a light safety check — "everything feels heavy" combined with "last time I felt excited" may indicate more than typical Engagement Drought. If clinical distress signals multiply, route to safety response.
+*Action:* If in scope → permission or story, warm/affirming, mild intensity.
 
 ---
 
@@ -925,185 +916,137 @@ Every `preferred_insight_type` and `preferred_voice_register` in the RetrievalQu
 
 ### Silhouette's Scope
 
-Silhouette is designed for young professionals in career, purpose, and motivation ruts. It is not a therapist, a crisis service, a clinician, or a general-purpose chatbot. This scope must be enforced at the intake layer before any retrieval attempt. The safety check runs before state classification — always.
+Silhouette is designed for young professionals in career, purpose, and motivation ruts. It is not a therapist, a crisis service, a clinician, or a general-purpose chatbot. This scope must be enforced at the intake layer before any retrieval attempt.
 
-### The Core Tension: False Positives and False Negatives Both Matter
+The safety and scope system has three tiers.
 
-Over-routing to safety responses (false positives) harms users who are in-scope but using intense language — they receive a redirect instead of a useful insight, and the product fails them. Under-routing (false negatives) harms users in genuine crisis who receive a motivational quote when they needed resources.
+---
 
-The calibration principle: **emotional intensity is not a reliable indicator of clinical distress**. "I feel empty," "I'm exhausted," "nothing feels right" are all normal language for the target user in an Engagement Drought or Direction Collapse state. They are not crisis signals in isolation.
-
-Safety routing should trigger on specific language patterns, not on the general emotional weight of the input.
-
-### Safety Tiers
-
-#### Tier 1 — Safety Bypass (hard stop; no retrieval; no classification)
+### Tier 1 — Safety Bypass (hard stop, no retrieval)
 
 **Trigger language includes:**
-- Explicit suicidal ideation: "I don't want to be here anymore," "I've been thinking about ending it," "I can't see a reason to keep going," "I've been thinking about not being alive"
+- Explicit suicidal ideation: "I don't want to be here anymore," "I've been thinking about ending it," "I can't see a reason to keep going"
 - Self-harm language: "I've been hurting myself," "I keep thinking about hurting myself"
-- Acute crisis or danger: "I'm in danger," "someone hurt me," "I don't feel safe"
-- Language that indicates functional collapse beyond low motivation: "I haven't gotten out of bed in weeks," "I can't function anymore," "I've completely stopped eating/sleeping for days"
+- Acute crisis: "I'm in danger," "someone hurt me," "I don't feel safe"
+- Language that indicates clinical severity beyond rut/low motivation: "I haven't gotten out of bed in weeks," "I can't function anymore," "I've completely stopped eating/sleeping"
 
 **System behavior:**
-- Set `safety_flag = true`, `retrieval_mode = safety_bypass`
-- Do not classify. Do not retrieve.
-- Respond with acknowledgment, care, and a specific resource reference (988 Lifeline, Crisis Text Line)
-- Do not frame this as a scope limitation or a product decision
-- Log the session for safety review
+- Set `safety_flag = true` and `retrieval_mode = safety_bypass`
+- Do not attempt classification
+- Do not attempt retrieval
+- Respond with care, acknowledgment, and a clear resource referral
+- Do not dismiss the input or try to re-scope it to Silhouette's domain
+
+**What the response must include:**
+- Acknowledgment that what the user shared sounds serious
+- Clear, non-clinical resource reference (e.g., 988 Lifeline, Crisis Text Line)
+- No attempt to retrieve an insight
+- No dismissal or minimization
+
+**What the response must not include:**
+- A retrieved insight from the corpus
+- Any version of "Silhouette can help with X instead"
+- Framing that sounds like a legal disclaimer
+- Language that makes the user feel screened or rejected
 
 ---
 
-#### Tier 2 — Care Response (soft bypass; no retrieval; provide support + resource)
+### Tier 2 — Safety-Adjacent Response (respond with care + resource, no retrieval)
 
 **Trigger patterns include:**
-- Clinical depression signals: "my doctor says I have depression," "I've been on antidepressants," "I've been diagnosed with..."
-- Grief or acute loss: "I just lost someone," "my [person] died recently"
+- Clinical depression signals: "I've been depressed for months," "my doctor says I have depression," "I've been on antidepressants"
+- Grief or acute loss: "I just lost someone," "my [relationship/family member] died"
 - Abuse or trauma: "I'm in a relationship that feels unsafe," "I've been dealing with something traumatic"
 - Request for diagnosis: "Do you think I have [condition]?"
-- Severe hopelessness without crisis language: "nothing has worked for years," "I've tried everything and I'm not getting better"
 
 **System behavior:**
+- Set `safety_flag = true`, note tier 2
 - Acknowledge the experience warmly and specifically
-- Offer a relevant resource reference (therapist finder, grief support)
-- If the underlying state genuinely overlaps with Silhouette's scope (e.g., grief that has produced an Identity Transition), offer Silhouette's lens gently after addressing the primary concern — but do not force it
-- Log the session; flag for safety review
+- Offer a brief resource reference (therapist finder, grief support, etc.)
+- If the underlying state overlaps with Silhouette's scope (e.g., grief that has produced an Identity Transition), gently offer Silhouette's lens after addressing the primary concern — but do not force it
+
+**Key distinction from Tier 1:** Tier 2 does not require an immediate hard stop. The system can acknowledge and offer Silhouette's limited support after the primary acknowledgment, if the overlap is genuine.
 
 ---
 
-#### Tier 3 — Scope Redirect (no retrieval; gentle redirect)
+### Tier 3 — Out-of-Scope Redirect (gentle redirect, no retrieval)
 
 **Trigger patterns include:**
-- Medical questions: "Could this be a vitamin deficiency?", "could this be thyroid-related?"
-- Legal or financial advice: "Should I take out a loan?", "my employer is doing something illegal"
+- Medical questions: "Is this a vitamin deficiency?", "could this be thyroid-related?"
+- Legal questions: "My employer is doing something illegal"
+- Financial questions (high-stakes): "Should I take out a loan?", "I'm considering bankruptcy"
 - Relationship conflict (non-career): "My partner and I keep fighting"
-- Requests for factual research or recommendations: "Who is the best coach?", "What are the best books about X?"
+- Requests for factual information rather than insight: "Who is the best coach for this?", "What are the best books about X?"
+- Homework, business plans, technical problems
 
 **System behavior:**
+- Set `scope_status = out_of_scope`
+- Do not retrieve
 - Acknowledge what the user shared
-- Briefly explain Silhouette's focus (1 sentence)
+- Briefly explain Silhouette's focus (1 sentence maximum)
 - Offer to help with the underlying stuck state if one is evident
 
+**Example redirect:**
+> "That sounds really hard. Silhouette is built for [career/purpose/motivation ruts] specifically — I'm not the right resource for [medical questions / relationship advice / legal questions]. If there's something underneath this that feels like a career or direction question, I'm here for that."
+
 ---
 
-### In-Scope Intense Language vs. Out-of-Scope Clinical Language
+### Borderline Cases
 
-This is the most important calibration table in the safety section. Both columns contain language that is emotionally heavy. Only one column warrants a safety response.
+Some inputs are neither clearly in-scope nor clearly out-of-scope. The guiding principle: **when uncertain, err toward the safety/resource response, not toward retrieval.**
 
-| In-Scope (Classify Normally) | Out-of-Scope or Tier 2 (Care Response) |
+| Borderline Input | Guidance |
 |---|---|
-| "I feel empty" | "I've felt empty every day for months and it's getting worse" |
-| "Nothing excites me anymore" | "I've lost interest in everything including things I used to love for months" |
-| "I'm exhausted" | "I haven't been able to get out of bed — I can't function" |
-| "I don't see the point in my job" | "I don't see the point in anything anymore" |
-| "I feel behind and stuck" | "I feel like everyone would be better off without me" |
-| "I'm tired of not making progress" | "I'm just so tired of existing" |
-| "I feel like I'm going through the motions" | "I've been going through the motions for so long I don't know if I can change" + escalating hopelessness |
-| "I feel lost" | "I've been feeling lost for years and nothing has worked" |
-
-**The key differentiators:**
-- Duration + severity + absence of relief ("months," "years," "getting worse," "nothing helps")
-- Loss of function ("can't get out of bed," "can't work")
-- Hopelessness that extends beyond any specific domain ("anything," "everything," "anymore")
-- Direct or indirect statements about not wanting to be alive
-
----
-
-### Borderline Case Handling
-
-When safety status is uncertain, apply this process:
-
-1. **Do not force a routing decision prematurely.** Ask one gentle clarifying question: "It sounds like things have been really heavy. Are you doing okay overall, or has it been more serious than that?"
-2. **If the answer deepens the concern:** Route to Tier 2.
-3. **If the answer clarifies in-scope:** Classify normally, with mild intensity set.
-4. **If the answer is ambiguous:** Route to Tier 2 conservatively. The cost of a false positive (user redirected when they were in-scope) is lower than the cost of a false negative (user in distress receives a podcast quote).
-5. **Log all borderline cases** for human review. Pattern analysis of borderline inputs should inform safety calibration over time.
-
----
-
-### What Intake Defines vs. What Trust / Safety Architecture Defines
-
-| Intake (this document) | Trust / Safety Architecture (future component) |
-|---|---|
-| Safety routing logic — what triggers which tier | Specific copy for each safety response |
-| Safety flag fields in RetrievalQuery | Specific resource references by geography/context |
-| Borderline case process | Clinical review of safety language coverage |
-| Logging requirements | Legal and compliance review |
-| In-scope vs. out-of-scope calibration table | Ongoing safety monitoring and incident response |
-
-The specific words used in safety responses are not defined here. They are defined by the Trust / Safety Architecture component before any user-facing version ships. This document defines only the routing behavior.
+| "I'm so tired of everything" | Safety check first. If no Tier 1 signals, expand context before classifying. Likely Engagement Drought if in scope. |
+| "I feel like a failure" | Contextual. If career/purpose context is present, likely in scope (Direction Collapse or Inaction Loop). If clinical or pervasive, route to Tier 2. |
+| "I'm going through a divorce" | Tier 2 — grief/loss/identity disruption. Acknowledge. If career/purpose dimension is clearly present alongside, offer Silhouette's lens after. |
+| "My anxiety is through the roof" | Light Tier 2 check. If anxiety is about career/purpose/direction, may be in scope. If clinical, Tier 2 resource. |
+| "I hate my job" | In scope — likely Engagement Drought or Inaction Loop. Expand context. |
+| "I'm burned out" | Borderline. Clinical burnout → Tier 2. Career/motivation burnout in a young professional rut → likely Engagement Drought. Ask for more context. |
 
 ---
 
 ## 11. Query Construction
 
-### Separation of Concerns
+### From Intake to RetrievalQuery
 
-The v1 schema conflated three distinct types of data in a single `RetrievalQuery` object:
-1. **Retrieval input fields** — what the retrieval engine needs to execute the query
-2. **Session log fields** — what the logging system needs for evaluation and debugging
-3. **Personalization update fields** — what the profile system needs to update the user's record
+At the end of intake, all signals are assembled into a `RetrievalQuery` object that is passed to the retrieval engine. This is the output of Component 4 and the input to Component 6 (Retrieval Engine).
 
-These are now separated. The retrieval engine receives only retrieval input fields. The session log captures all fields. The profile system receives session log data as a separate post-retrieval event.
+The schema below extends Component 3's query structure (Section 6) with intake-specific fields. All Component 3 fields are preserved exactly; new fields are marked with **(C4-added)**.
 
----
+### RetrievalQuery Schema
 
-### Table A: Retrieval Input Fields
-
-These fields are passed to the retrieval engine in the query call.
-
-| Field | Type | Required | MVP/Future | Source | How Used by Retrieval |
+| Field | Type | Required | MVP/Future | Source | Used By Retrieval |
 |---|---|---|---|---|---|
 | `user_text` | String | Required | MVP | Verbatim user input (first message) | Embedded for semantic search |
-| `clarified_user_text` | String | Optional | MVP | Combined text + clarifying answer, if used | Replaces `user_text` as semantic anchor when present |
-| `detected_state` | State tag or null | Required | MVP | State classification | Primary hard filter |
-| `state_confidence` | "high"/"moderate"/"low" | Required | MVP | State classification | Determines filter mode (hard/70-30/none) |
-| `secondary_possible_states` | Array of state tags | Required | MVP | State classification | Used in moderate-confidence 70/30 retrieval |
-| `variant_signal` | "post-achievement"/"original"/null | Optional | MVP | Classification (DC only) | Sub-state filtering for Direction Collapse |
-| `resonance_hypothesis_insight_type` | Type tag or null | Optional | MVP | Resonance capture | Weak boost in retrieval (not a hard filter in first session) |
-| `resonance_hypothesis_voice_register` | Register tag or null | Optional | MVP | Resonance capture | Weak boost in retrieval (not a hard filter in first session) |
-| `resonance_source` | "inferred"/"default"/"explicit"/"learned"/"excluded" | Required | MVP | Resonance capture | Tells retrieval how hard to apply resonance signal |
-| `excluded_voice_registers` | Array of register tags | Optional | MVP | Resonance + safety inference | Hard exclusion — these registers will not be returned |
-| `intensity_preference` | "mild"/"moderate"/"intense"/null | Optional | MVP | Context signals | Intensity filter; null defaults to "moderate" |
+| `clarified_user_text` | String | Optional | MVP | Combined user text + clarifying answer (if clarification was used) | Replaces user_text as semantic anchor if present **(C4-added)** |
+| `detected_state` | State tag or null | Required | MVP | State classification output | Primary retrieval filter |
+| `state_confidence` | "high"/"moderate"/"low" | Required | MVP | State classification output | Determines filter mode |
+| `secondary_possible_states` | Array of state tags | Required | MVP | State classification output | Used in moderate-confidence 70/30 retrieval |
+| `classification_reason` | String | Optional | MVP | Internal classification log | Debugging; not used by retrieval engine directly **(C4-added)** |
+| `variant_signal` | "post-achievement"/"original"/null | Optional | MVP | State classification (DC only) | Sub-state filtering for Direction Collapse |
+| `preferred_insight_type` | Type tag or null | Optional | MVP | Resonance capture | Resonance boost/filter |
+| `preferred_voice_register` | Register tag or null | Optional | MVP | Resonance capture | Resonance boost/filter |
+| `excluded_voice_registers` | Array of register tags | Optional | MVP | Resonance capture (safety signals) | Hard exclusion in retrieval |
+| `intensity_preference` | "mild"/"moderate"/"intense"/null | Optional | MVP | Resonance + context signals | Intensity filter |
+| `resonance_confidence` | "high"/"moderate"/"low/unknown" | Optional | MVP | Resonance capture | Determines how hard to apply resonance preferences **(C4-added)** |
 | `session_context` | String or null | Optional | MVP | Full session exchange | Prevents returning content already seen in session |
-| `returning_user_profile` | Profile object or null | Not available | V2+ | User account | Personalization; not available MVP |
-| `excluded_sio_ids` | Array of insight IDs | Optional | MVP | Prior session history | Deduplication |
+| `returning_user_profile` | Profile object or null | Not available | Future | User account / profile system | Personalization; not available MVP |
+| `excluded_sio_ids` | Array of insight IDs | Optional | MVP | Prior session history (if available) | Deduplication |
 | `safety_flag` | Boolean | Required | MVP | Safety check | If true, bypass retrieval entirely |
-| `scope_status` | "in_scope"/"out_of_scope"/"borderline" | Required | MVP | Scope check | If not in_scope, do not retrieve |
-| `retrieval_mode` | "standard"/"broad"/"safety_bypass"/"no_retrieval" | Required | MVP | Routing logic | Controls retrieval behavior |
-
-**Field name changes from v1:** `preferred_insight_type` → `resonance_hypothesis_insight_type`; `preferred_voice_register` → `resonance_hypothesis_voice_register`. These renames enforce the "hypothesis, not preference" principle.
-
----
-
-### Table B: Session Log Fields
-
-These fields are captured by the intake system and logged for evaluation, debugging, and future profile updates. They are **not** passed to the retrieval engine.
-
-| Field | Type | Source | Logged For |
-|---|---|---|---|
-| `session_id` | UUID | Auto-generated | Linking retrieval to session |
-| `classification_reason` | String | Internal classification | Debugging; human evaluation |
-| `evidence_for` | Array of strings | Internal classification | Evaluation of classifier accuracy |
-| `evidence_against` | Array of strings | Internal classification | Evaluation of classifier accuracy |
-| `evidence_count` | Integer | Internal classification | Evaluating high/moderate/low confidence accuracy |
-| `conflicting_signal_present` | Boolean | Internal classification | Evaluating confusion pair handling |
-| `clarification_used` | Boolean | Intake routing | Evaluating clarification rate and necessity |
-| `clarifying_question` | String or null | Intake flow | Evaluating question quality |
-| `clarifying_answer` | String or null | User response | Evaluating answer usability |
-| `resonance_confidence` | "high"/"moderate"/"low/unknown" | Resonance capture | Evaluating inference accuracy |
-| `safety_tier_triggered` | "none"/"tier1"/"tier2"/"tier3" | Safety check | Safety audit |
-| `intake_duration_seconds` | Integer | Timing | User burden tracking |
+| `scope_status` | "in_scope"/"out_of_scope"/"borderline" | Required | MVP | Scope check **(C4-added)** | If not in_scope, do not retrieve |
+| `retrieval_mode` | "standard"/"broad"/"safety_bypass"/"no_retrieval" | Required | MVP | Routing logic **(C4-added)** | Controls retrieval behavior |
+| `clarification_used` | Boolean | Required | MVP | Intake routing **(C4-added)** | Logged; used to evaluate clarification value |
+| `clarifying_question` | String or null | Optional | MVP | Intake flow **(C4-added)** | Logged for evaluation |
+| `clarifying_answer` | String or null | Optional | MVP | User response to clarifying question **(C4-added)** | Logged; contributes to clarified_user_text |
 
 ---
 
-### Example RetrievalQuery Objects (Retrieval Input Only)
+### Example RetrievalQuery Objects
 
 #### Example 1: Clear Direction Collapse (Post-Achievement)
 
 **User input:** "I got the promotion I've been working toward for three years. I should feel great. I just feel empty. I don't know what's next or if there even is a next."
-
-**Evidence:** (1) post-achievement flatness — "I should feel great, I feel empty"; (2) absence of forward target — "I don't know what's next or if there even is a next." Two independent DC signals. No conflicting signal. High confidence.
 
 ```json
 {
@@ -1112,67 +1055,70 @@ These fields are captured by the intake system and logged for evaluation, debugg
   "detected_state": "direction-collapse",
   "state_confidence": "high",
   "secondary_possible_states": [],
+  "classification_reason": "Post-achievement flatness with no named forward target. 'Should feel great' + 'feel empty' = DC/post-achievement. No engagement target present; no comparison event.",
   "variant_signal": "post-achievement",
-  "resonance_hypothesis_insight_type": null,
-  "resonance_hypothesis_voice_register": null,
-  "resonance_source": "default",
+  "preferred_insight_type": null,
+  "preferred_voice_register": null,
   "excluded_voice_registers": [],
   "intensity_preference": "moderate",
+  "resonance_confidence": "low",
   "session_context": null,
   "returning_user_profile": null,
   "excluded_sio_ids": [],
   "safety_flag": false,
   "scope_status": "in_scope",
-  "retrieval_mode": "standard"
+  "retrieval_mode": "standard",
+  "clarification_used": false,
+  "clarifying_question": null,
+  "clarifying_answer": null
 }
 ```
 
-*Resonance source is "default" — no strong first-session resonance signals detected. Retrieval applies DC default profile: reframe / intellectual-measured.*
+*Resonance defaults to state profile: Direction Collapse → reframe / intellectual/measured.*
 
 ---
 
-#### Example 2: Ambiguous Engagement Drought vs. Direction Collapse (Moderate Confidence, Clarified)
+#### Example 2: Ambiguous Engagement Drought vs. Direction Collapse (Moderate Confidence)
 
 **User input:** "I feel stuck in my job but I also don't know what I'd even want to do instead. I'm not excited about anything at work but I don't have a clear direction either."
 
-**Evidence:** One ED signal (job named, flatness present) + one DC signal (no clear direction). Competing signals from two adjacent states. Moderate confidence — clarify.
-
 **Clarifying question asked:** "Is there a specific goal or role you're still working toward — even if it doesn't feel meaningful right now?"
-**User answer:** "Not really. I guess I have some vague ideas but nothing concrete."
 
-**Post-clarification:** Answer confirms no concrete target → DC primary.
+**User answer:** "Not really. I guess I have some vague ideas but nothing concrete."
 
 ```json
 {
   "user_text": "I feel stuck in my job but I also don't know what I'd even want to do instead. I'm not excited about anything at work but I don't have a clear direction either.",
-  "clarified_user_text": "I feel stuck in my job but I also don't know what I'd even want to do instead. I'm not excited about anything at work but I don't have a clear direction either. [Clarifying answer: Not really. I guess I have some vague ideas but nothing concrete.]",
+  "clarified_user_text": "I feel stuck in my job but I also don't know what I'd even want to do instead. I'm not excited about anything at work but I don't have a clear direction either. [Q: Is there a specific goal or role you're still working toward?] Not really. I guess I have some vague ideas but nothing concrete.",
   "detected_state": "direction-collapse",
   "state_confidence": "moderate",
   "secondary_possible_states": ["engagement-drought"],
+  "classification_reason": "Clarifying question resolved ED vs DC: user confirmed no concrete target. DC primary. ED secondary because engagement flatness is also present.",
   "variant_signal": "original",
-  "resonance_hypothesis_insight_type": null,
-  "resonance_hypothesis_voice_register": null,
-  "resonance_source": "default",
+  "preferred_insight_type": null,
+  "preferred_voice_register": null,
   "excluded_voice_registers": [],
   "intensity_preference": "moderate",
-  "session_context": "clarifying exchange completed",
+  "resonance_confidence": "low",
+  "session_context": "clarifying exchange included",
   "returning_user_profile": null,
   "excluded_sio_ids": [],
   "safety_flag": false,
   "scope_status": "in_scope",
-  "retrieval_mode": "standard"
+  "retrieval_mode": "standard",
+  "clarification_used": true,
+  "clarifying_question": "Is there a specific goal or role you're still working toward — even if it doesn't feel meaningful right now?",
+  "clarifying_answer": "Not really. I guess I have some vague ideas but nothing concrete."
 }
 ```
 
-*State confidence remains moderate — the answer ruled out a clear ED target but didn't fully resolve the competing state. Retrieval applies 70/30 weighting: DC 70%, ED 30%.*
+*State confidence is moderate (DC primary, ED secondary) — retrieval applies 70/30 weighting across states.*
 
 ---
 
-#### Example 3: Inaction Loop with Direct Resonance Signal
+#### Example 3: Inaction Loop with Direct/Challenging Resonance
 
 **User input:** "I know I need to leave this company. I've known for literally two years. Every quarter I tell myself I'm going to do something about it and I don't. I've read everything. I've made plans. I'm disgusted with myself at this point."
-
-**Evidence:** (1) specific action named — leaving the company; (2) explicit two-year know-do gap; (3) repeated deferral history — "every quarter." Three IL signals. Resonance: outward-directed frustration + "just tell me what I need to hear" posture. "Disgusted with myself" is self-critical but the dominant register is frustration at the pattern, not shame at identity.
 
 ```json
 {
@@ -1181,30 +1127,32 @@ These fields are captured by the intake system and logged for evaluation, debugg
   "detected_state": "inaction-loop",
   "state_confidence": "high",
   "secondary_possible_states": [],
+  "classification_reason": "Classic Inaction Loop: specific action named (leaving the company), two-year know-do gap explicit, history of plans without action, frustrated self-judgment. High confidence.",
   "variant_signal": null,
-  "resonance_hypothesis_insight_type": "story",
-  "resonance_hypothesis_voice_register": "direct/challenging",
-  "resonance_source": "inferred",
-  "excluded_voice_registers": [],
+  "preferred_insight_type": "story",
+  "preferred_voice_register": "direct/challenging",
+  "excluded_voice_registers": ["warm/affirming"],
   "intensity_preference": "moderate",
+  "resonance_confidence": "moderate",
   "session_context": null,
   "returning_user_profile": null,
   "excluded_sio_ids": [],
   "safety_flag": false,
   "scope_status": "in_scope",
-  "retrieval_mode": "standard"
+  "retrieval_mode": "standard",
+  "clarification_used": false,
+  "clarifying_question": null,
+  "clarifying_answer": null
 }
 ```
 
-*Resonance source is "inferred" — the direct/challenging hypothesis comes from outward-directed frustration. Note: warm/affirming is not excluded (the "disgusted with myself" language is self-critical, but the dominant posture is active frustration, not fragility). Retrieval applies this as a weak boost, not a hard preference.*
+*Resonance confidence is moderate: frustration directed outward, "disgusted with myself" is self-critical but the primary register is active frustration, not shame. Direct/challenging preferred. Warm/affirming excluded as likely to feel dismissive given the active frustration register. Note: self-critical language at "disgusted" level warrants not hard-excluding warm/affirming in a future iteration — log for review.*
 
 ---
 
-#### Example 4: Sparse Input — Expansion Required
+#### Example 4: Sparse Input Requiring Context Expansion
 
 **User input:** "I feel stuck."
-
-**Evidence:** Zero state-specific signals. Single general phrase only. Cannot classify.
 
 ```json
 {
@@ -1213,30 +1161,32 @@ These fields are captured by the intake system and logged for evaluation, debugg
   "detected_state": null,
   "state_confidence": "low",
   "secondary_possible_states": [],
+  "classification_reason": "Input too sparse. No situational context, no emotional register, no named goal, event, or action. Cannot classify.",
   "variant_signal": null,
-  "resonance_hypothesis_insight_type": null,
-  "resonance_hypothesis_voice_register": null,
-  "resonance_source": "default",
+  "preferred_insight_type": null,
+  "preferred_voice_register": null,
   "excluded_voice_registers": [],
   "intensity_preference": null,
+  "resonance_confidence": "low",
   "session_context": null,
   "returning_user_profile": null,
   "excluded_sio_ids": [],
   "safety_flag": false,
   "scope_status": "in_scope",
-  "retrieval_mode": "no_retrieval"
+  "retrieval_mode": "no_retrieval",
+  "clarification_used": false,
+  "clarifying_question": null,
+  "clarifying_answer": null
 }
 ```
 
-*This query does not go to the retrieval engine. The system asks: "Can you tell me a bit more about what's been feeling stuck or off?" The response becomes new `user_text` and classification runs again.*
+*This query does not go to the retrieval engine. The system asks: "Can you tell me a bit more about what's been feeling stuck or off?" The response becomes the new `user_text` and classification runs again.*
 
 ---
 
 #### Example 5: Safety Bypass
 
 **User input:** "I honestly don't see the point in anything anymore. I've felt this way for months and nothing helps. I don't know how much longer I can keep doing this."
-
-**Tier 1 signals:** "don't see the point in anything anymore" (hopelessness beyond domain), months-long duration, "how much longer I can keep doing this" (endurance language with implicit loss of will).
 
 ```json
 {
@@ -1245,22 +1195,26 @@ These fields are captured by the intake system and logged for evaluation, debugg
   "detected_state": null,
   "state_confidence": null,
   "secondary_possible_states": [],
+  "classification_reason": "Safety bypass triggered before classification. Input contains 'don't see the point in anything,' months-long duration, and 'don't know how much longer I can keep doing this.' Multiple Tier 1 signals.",
   "variant_signal": null,
-  "resonance_hypothesis_insight_type": null,
-  "resonance_hypothesis_voice_register": null,
-  "resonance_source": null,
+  "preferred_insight_type": null,
+  "preferred_voice_register": null,
   "excluded_voice_registers": [],
   "intensity_preference": null,
+  "resonance_confidence": null,
   "session_context": null,
   "returning_user_profile": null,
   "excluded_sio_ids": [],
   "safety_flag": true,
   "scope_status": "out_of_scope",
-  "retrieval_mode": "safety_bypass"
+  "retrieval_mode": "safety_bypass",
+  "clarification_used": false,
+  "clarifying_question": null,
+  "clarifying_answer": null
 }
 ```
 
-*No retrieval is attempted. The system routes to a Tier 1 safety response. The specific response copy is defined by the Trust / Safety Architecture component.*
+*No retrieval is attempted. The system routes to a safety response acknowledging the input and providing a resource (988 Lifeline, Crisis Text Line). The response does not attempt to engage with the career/purpose domain.*
 
 ---
 
@@ -1271,410 +1225,367 @@ These fields are captured by the intake system and logged for evaluation, debugg
 **What the system knows:** Nothing. No profile, no prior feedback, no history.
 
 **Intake behavior:**
-- Full intake: prompt → safety check → classification (requires ≥2 signals for high confidence) → optional clarifying question → resonance hypothesis → query build
-- Apply state-default resonance profiles (Component 3, Section 7.5) as the baseline
-- First-session resonance inference: weak boost only — never a hard filter
-- `returning_user_profile` is null; `excluded_sio_ids` is empty
-- Collect "did this land?" feedback after result is presented
-- Log: detected_state, returned SIO ID, feedback signal, resonance signals inferred
+- Run the full intake: prompt → classification → optional clarifying question → resonance capture
+- Apply state-default resonance profiles for resonance (Component 3, Section 7.5)
+- Treat resonance inference as weak hypothesis; do not hard-filter by resonance on first session
+- Construct the full RetrievalQuery with nulls for `returning_user_profile` and `excluded_sio_ids`
+- Collect `did_this_land?` feedback after the result is presented
+- Store session data: detected_state, returned SIO ID, feedback signal, resonance signals inferred
 
-**What not to do:**
-- Do not ask for name, email, or any context beyond what is needed for retrieval
+**What not to do in the first session:**
+- Do not ask for name, email, preferences, or context beyond what is needed for retrieval
+- Do not build a personalization profile from one session before validating retrieval quality
 - Do not hard-filter by inferred resonance — boost only
-- Do not ask a resonance question explicitly
 
 ---
 
 ### Returning User (With Profile)
 
-**What the system knows:** Prior state history, resonance feedback, seen SIO IDs, learned resonance preferences.
+**What the system knows:** Prior state history, resonance feedback, rejected SIO IDs, possibly inferred insight type and voice register preferences.
 
 **Intake behavior:**
-- Still run the intake prompt — today's state may differ from prior sessions
-- Use prior state history to contextualize today's input but do not assume the state is the same
-- Apply learned resonance preferences (only after 2+ consistent positive signals) as soft preferences
-- Apply learned exclusions (after 3+ consistent negative signals on a register) as hard exclusions
+- Run the intake prompt (do not skip — today's state may differ from prior sessions)
+- Use prior state history to contextualize today's input, but do not assume the state is the same
+- Apply confirmed resonance preferences (only after 2+ consistent positive signals on a type/register) as soft filters
 - Exclude prior SIO IDs from retrieval
-- Ask fewer clarifying questions if state is already high-confidence
+- Use prior negative resonance feedback to inform excluded_voice_registers (after 3+ negative signals on a register)
+- Ask fewer clarifying questions if state is clear and prior state history aligns
 
-**Profile update rules:**
-- Do not confirm a resonance preference from a single signal — require 2+ consistent positive signals across different sessions
-- Do not hard-exclude a register from a single negative signal — require 3+ before treating as excluded
-- Always classify from the current input — do not inherit last session's state uncritically
-- Prefer underfit to overfit: a profile that says "unknown" is better than one that confidently applies stale preferences
+**Profile data that should be maintained (future implementation):**
+- `states_seen_history`: array of prior session states with dates
+- `resonance_positive_signals`: count of explicit positive feedback by insight type and voice register
+- `resonance_negative_signals`: count of explicit negative feedback by insight type and voice register
+- `rejected_registers`: voice registers that have accumulated 3+ explicit negative signals
+- `seen_sio_ids`: all SIO IDs returned in prior sessions
+- `rejected_sio_ids`: SIO IDs that received explicit negative feedback
+- `preferred_speakers`: speakers whose SIOs have received positive feedback
+- `safety_notes`: if a prior safety bypass occurred, flag for this session (handled carefully and never displayed to the user)
 
----
+**Profile update rules (important — prevent overfitting):**
+- Do not update resonance preferences from a single signal. Require 2+ consistent positive signals before treating a type/register as preferred.
+- Do not hard-exclude a voice register from a single negative signal. Require 3+ before treating as excluded.
+- Do not assume the user's state today matches prior sessions. Always classify from the current input.
+- Prefer underfit to overfit: a profile that says "we don't know yet" is better than one that confidently applies stale preferences.
 
-### What the Profile Should Store (Future Component)
-
-| Data | Use |
-|---|---|
-| `states_seen_history` | Context for today's classification; identifies chronic vs. changing patterns |
-| `resonance_positive_signals` | Count by insight_type and register; enables preference confirmation after 2+ |
-| `resonance_negative_signals` | Count by register; enables exclusion confirmation after 3+ |
-| `confirmed_excluded_registers` | Hard exclusions to apply to future queries |
-| `seen_sio_ids` | Full deduplication list |
-| `rejected_sio_ids` | SIOs that received explicit negative feedback — higher exclusion priority |
-| `safety_notes` | Whether a prior safety bypass occurred; influences safety check sensitivity |
-
-**Privacy rules:**
-- Never display the user's prior states back to them in a way that summarizes their "problems"
-- Safety notes must not be displayed to the user or used to restrict access — they inform routing sensitivity only
-- Profile data must be deletable on user request
-- Do not infer state from time-of-use patterns or behavioral metadata without explicit signal
+**Privacy and sensitivity:**
+- Never display the user's profile back to them in a way that summarizes their "problems" or prior stuck states
+- Safety-related notes in the profile must be handled with extreme care — they should influence routing (check for safety signals) but should not be displayed to the user or used to restrict access
+- Profile data should be deletable by the user on request
 
 ---
 
 ## 13. Failure Handling
 
+The following cases represent situations where the intake flow cannot proceed normally. Each has a defined system behavior and a logging requirement.
+
 | Failure Case | System Behavior | Log |
 |---|---|---|
-| **Input too sparse (<1 state-specific signal)** | Expansion prompt: "Can you tell me a bit more about what's been feeling stuck or off?" | Log sparse input flag |
-| **Expansion doesn't improve classification** | Ask one open clarifying question (non-pair-specific, because state is unclear). If still low confidence: apply DC default + broad retrieval. | Log as persistent low confidence |
-| **Three-way state ambiguity** | Default to Direction Collapse (most common MVP state, broadest coverage, least harmful mismatch in the MVP corpus). Log the case — recurring three-way ambiguity signals a taxonomy or intake prompt revision is needed. | Log as three-way ambiguity |
-| **State classification conflict (2 competing signals, equal strength)** | Apply moderate confidence with 70/30 weighting; do not ask a second clarifying question | Log as unresolved pair |
-| **User refuses or ignores clarifying question** | Proceed with pre-question classification at moderate confidence; apply 70/30 retrieval | Log clarification refusal |
-| **User answers "I don't know" to clarifying question** | Apply the default for that confusion pair (defined in Section 8 per pair) | Log |
-| **User answers "both" to clarifying question** | Apply pair-specific "both" handling (defined in Section 8 per pair); generally results in a primary/secondary state split | Log |
-| **Clarifying answer creates new ambiguity** | Apply 70/30 retrieval across the two states; do not ask a third question | Log |
-| **User gives joke or nonsense input** | Respond warmly, non-judgmentally: "I'm not quite following — can you tell me what's actually been feeling stuck lately?" | Log |
-| **User asks for direct advice** | Acknowledge; briefly explain Silhouette returns real human insights, not generated advice; proceed with intake | Log |
-| **User asks for a specific source (in corpus)** | Note source preference in `session_context`; run intake normally; retrieval should honor if possible | Log as source preference |
-| **User asks for a specific source (not in corpus)** | Acknowledge; explain Silhouette has a curated library; run intake normally | Log as corpus gap signal |
-| **User rejects the intake premise** | Acknowledge without defensiveness; briefly explain; offer to proceed if they'd like | Log |
-| **User gives contradictory answers** | Accept the most recent answer. If contradiction is significant, treat as moderate confidence; apply 70/30. | Log contradictory exchange |
-| **Safety flag + other ambiguity** | Safety flag always takes priority — bypass retrieval regardless of other fields | Log |
-
-### On Defaulting to Direction Collapse
-
-Defaulting to Direction Collapse when ambiguity cannot be resolved is a deliberate decision, not a lazy one. Direction Collapse is:
-- The most common MVP state for the target user
-- The state with the broadest corpus coverage across all three MVP sources
-- The state whose insights are least harmful when received by a user in a slightly different state
-
-A Direction Collapse insight received by an Engagement Drought user is not ideal — but it is far less disorienting than a "just start" Inaction Loop insight received by a user who doesn't know what they want. The default should minimize harm under uncertainty, not just guess the most common state.
-
-If the pattern of "three-way ambiguity" appears frequently in real user sessions, that is a signal to revise the intake prompt — not a reason to abandon the Direction Collapse default.
+| **Input too sparse** | Ask for more context: "Can you tell me a bit more about what's been feeling stuck or off?" | Log sparse input flag; track frequency |
+| **Input emotionally vague (no situational content)** | Same as sparse — expand context prompt | Log; note emotional language without situational anchor |
+| **State classification conflict (3+ plausible states)** | Default to Direction Collapse (most common, broadest coverage, least harmful mismatch). Log the conflict. | Log as three-way ambiguity; flag for taxonomy review if recurring |
+| **User refuses or ignores clarifying question** | Proceed with pre-question classification at moderate confidence; apply 70/30 retrieval across top two states | Log clarification refusal; track frequency |
+| **User gives joke or nonsense input** | Respond warmly, non-judgmentally, and re-invite: "I'm not quite following — can you tell me what's actually been feeling stuck lately?" | Log; track frequency |
+| **User asks for direct advice instead of insight** | Acknowledge the preference; briefly explain Silhouette returns insights from real people, not generated advice; proceed with intake | Log; track if this is a recurring user friction |
+| **User asks for a specific source by name (in corpus)** | Note source preference; run intake normally; include source preference in `session_context`; retrieval should honor if possible | Log source preference |
+| **User asks for a specific source by name (not in corpus)** | Acknowledge; explain Silhouette has a curated library; run intake normally without that source constraint | Log as corpus gap signal |
+| **User rejects the intake premise ("I don't need this kind of help")** | Acknowledge without defensiveness. Briefly explain what Silhouette does. Offer to proceed if they'd like. Do not push. | Log; track if product framing is misaligned |
+| **User gives contradictory answers** | Accept the most recent answer. If contradiction is significant (one answer → DC, next → ED), treat as moderate confidence and apply 70/30 retrieval. | Log contradictory exchange |
+| **RetrievalQuery cannot be safely constructed** (e.g., safety flag + ambiguous state + no scope status) | Always default to the safest routing: if safety_flag is present, bypass retrieval regardless of other fields. | Log the conflict |
+| **User requests therapy or diagnosis explicitly** | Tier 3 scope redirect + professional resource referral. Never attempt retrieval. | Log |
+| **Context expansion does not improve classification** (still low confidence after expansion) | Ask one open clarifying question (not pair-specific, since state is unclear). If still low confidence, apply Direction Collapse default with `retrieval_mode = broad`. | Log persistent low confidence |
 
 ---
 
 ## 14. Intake Evaluation Plan
 
-### Why Evaluate Intake Independently
+### Why Evaluate Intake Before Retrieval
 
-Intake classification errors are invisible in production. A user receives an Inaction Loop insight when they are in Direction Collapse, and the system logs a successful retrieval. Without labeled intake evaluation, there is no way to know whether state detection is accurate, clarifying questions are resolving ambiguity, or resonance hypotheses are appropriate. Build and validate this test set before the product is live.
+Intake classification errors are invisible in production. A user receives a Direction Collapse insight when they are in the Inaction Loop, and the system appears to have "worked" (a result was returned, no error was thrown). Without labeled evaluation, there is no way to know whether state detection is accurate, whether clarifying questions are helping, or whether the right signals are being captured.
 
-### Two Distinct Evaluation Targets
+Evaluate intake independently — before full retrieval is live — using the test set below.
 
-**1. Intake classification evaluation** — Does the intake produce the right `detected_state`, `state_confidence`, and `resonance_hypothesis` for a given input? This is an offline test that does not require retrieval to be live.
+### Evaluation Methods
 
-**2. Intake-to-retrieval handoff evaluation** — Does the intake produce a RetrievalQuery that enables the retrieval engine to find a well-matched SIO? This requires both intake AND a built corpus AND retrieval to be running. It is the joint evaluation of Components 4 + 6.
-
-Build evaluation target 1 first. Evaluation target 2 cannot be built until Component 5 (Corpus) and Component 6 (Retrieval Engine) are also operational.
+| Method | What It Tests | How |
+|---|---|---|
+| **Labeled state classification accuracy** | Does the classifier correctly detect the state for clear-state inputs? | Labeled test set; human-assigned ground truth state; compare to classifier output |
+| **Ambiguity resolution accuracy** | Does the clarifying question resolve the right confusion pair? | Labeled test set with ambiguous inputs; evaluate pre- and post-clarification classification |
+| **Clarifying question quality review** | Is the question appropriate, specific, and non-clinical? | Human review of generated questions against the rules in Section 8 |
+| **Safety/scope routing accuracy** | Are safety inputs correctly bypassed? Are in-scope inputs not incorrectly flagged? | Labeled test set with safety, borderline, and in-scope inputs |
+| **Resonance inference review** | Are the inferred insight type and voice register appropriate for the input language? | Human review of resonance outputs against the signal table in Section 9 |
+| **Query completeness check** | Does the RetrievalQuery have all required fields populated correctly? | Automated schema validation |
+| **User friction review** | Does the intake feel natural and non-clinical? | Human judges reviewing full intake transcripts for tone and friction |
 
 ---
 
-### Evaluation Set Composition
+### MVP Test Set Composition
 
-**Minimum: 50 labeled test cases** (expanded from v1's 40 to cover the full state taxonomy and harder confusion pairs).
+**Minimum: 40 labeled test cases.** Distribution:
 
 | Category | Count | Purpose |
 |---|---|---|
-| Clear-state inputs — DC (3 phrasings: varied register, varied emotional posture) | 6 | Baseline DC classification accuracy |
-| Clear-state inputs — ED (3 phrasings) | 6 | Baseline ED classification accuracy |
-| Clear-state inputs — IL (3 phrasings) | 6 | Baseline IL classification accuracy |
-| Clear-state inputs — PP, IT, MG (2 each) | 6 | Non-MVP state classification coverage |
-| Ambiguous DC/ED (most common confusion pair) | 6 | Hardest pair; most likely real-world failure |
-| Ambiguous IL/PP | 4 | Second confusion pair |
-| Ambiguous DC/MG (chronic vs. spike) | 3 | Third confusion pair |
+| Clear-state inputs (5 per MVP state: DC, ED, IL) | 15 | Baseline classification accuracy |
+| Ambiguous DC/ED inputs | 6 | Most common confusion pair |
+| Ambiguous IL/PP inputs | 4 | Second confusion pair |
 | Sparse inputs requiring expansion | 4 | Low-confidence routing |
-| Safety inputs — Tier 1 (must route correctly) | 5 | Zero-tolerance safety routing |
-| Safety inputs — Tier 2 and in-scope intense language | 4 | False positive / false negative calibration |
-| Resonance inference examples (varied registers) | 5 | Resonance hypothesis accuracy |
+| Safety inputs (Tier 1 and Tier 2) | 5 | Zero-tolerance safety routing |
 | Out-of-scope inputs | 3 | Scope redirect accuracy |
-| "Both" answer handling (after clarifying question) | 2 | New addition — handling of non-binary answers |
-
-**Total: 60 labeled test cases for the full evaluation set.**
+| First-session resonance inference examples | 3 | Resonance capture review |
 
 ---
 
-### Inter-Rater Agreement Requirement
+### Sample Test Cases
 
-At least **two independent human judges** must rate every test case. Judges should not see each other's ratings before scoring. Measure inter-rater agreement using Cohen's kappa. Target: **κ ≥ 0.65** (substantial agreement) on state classification and resonance inference. If κ < 0.65, revise the classification criteria in Section 6 and re-calibrate before running the full evaluation.
-
-**Calibration process:** Before independent scoring, all judges rate the same 10 calibration cases. Discuss disagreements. Judges must align within one confidence level on at least 8 of the 10 calibration cases before proceeding. This takes approximately 1 hour but produces valid evaluation data.
-
----
-
-### Sample Test Cases (Expanded)
-
-**TC-01: Clear Inaction Loop (two signals)**
+**TC-01: Clear Inaction Loop**
 Input: "I know I need to start the business I've been planning for three years. I have the idea. I have savings. I know the steps. And I keep not starting. I'm sick of myself."
-Expected state: `inaction-loop`, high confidence (signals: specific action named + repeated deferral with timeline)
-Expected resonance hypothesis: story or permission; direct/challenging if frustration is outward-directed
-Expected safety: false
-Pass: Detected state matches; confidence is high; clarification not asked; resonance consistent with posture
+Expected state: `inaction-loop`, high confidence
+Expected resonance: story or permission; direct/challenging preferred; no exclusions
+Expected safety flag: false
+Pass criteria: Detected state matches; clarification not needed; resonance inference consistent with frustrated/direct posture
 
 ---
 
-**TC-02: Clear Engagement Drought (two signals)**
+**TC-02: Clear Engagement Drought**
 Input: "I used to be the person who stayed late because I loved what I was doing. Now I watch the clock. I do good work but I don't feel anything about it. I don't know if it's me or the job."
-Expected state: `engagement-drought`, high confidence (signals: before/after contrast + job named as target)
-Expected resonance: mechanism default
-Pass: Detected state matches; target (job) present; correct state default applied
+Expected state: `engagement-drought`, high confidence
+Expected resonance: mechanism (Huberman default) or story; expert/scientific or warm/affirming
+Pass criteria: Detected state matches; target (job) is present; correct state default applied
 
 ---
 
-**TC-03: DC/ED Ambiguous — Clarifying Question Required**
+**TC-03: DC/ED Ambiguous — Requires Clarification**
 Input: "I feel stuck and I don't know if I'm going in the right direction or if I've just lost the energy to go in any direction."
-Expected: Moderate confidence, DC/ED pair, one clarifying question asked
-Expected question: "Is there a specific goal or role you're still working toward — even if it doesn't feel meaningful right now?"
-Pass: Question asked matches the correct pair; question is non-leading and non-clinical
+Expected: Moderate confidence, DC/ED pair, clarifying question asked
+Expected clarifying question type: "Is there a specific goal or role you're still working toward?"
+Pass criteria: Clarifying question is asked; question matches the correct pair; post-answer classification resolves cleanly
 
 ---
 
-**TC-04: "Both" Answer to Clarifying Question**
-Input: Same as TC-03. User answers clarifying question with: "I guess I have a job I'm working at but I also feel like I don't really know what I'm building toward."
-Expected: ED primary (target named), DC secondary — moderate confidence
-Pass: System handles "both" by identifying which signal is stronger; applies 70/30 retrieval; does not ask a third question
-
----
-
-**TC-05: Sparse Input**
+**TC-04: Sparse Input**
 Input: "I don't know what's wrong with me."
 Expected: Low confidence; expansion prompt asked; no retrieval attempted
-Pass: System does not guess; does not retrieve; asks for more context with a warm non-clinical prompt
+Pass criteria: System does not guess a state; does not retrieve; asks for more context with a warm, non-clinical prompt
 
 ---
 
-**TC-06: In-Scope Intense Language (not safety)**
-Input: "I feel completely empty. Nothing excites me. I go through the day and feel nothing at all."
-Expected state: Engagement Drought or Direction Collapse — moderate confidence; **not** a safety bypass
-Expected safety: false; in-scope
-Pass: System classifies normally; does not route to safety; may set intensity to mild
-
----
-
-**TC-07: Out-of-Scope with In-Scope Undertone**
-Input: "My landlord is making my life hell and it's affecting my work and my mental health."
-Expected: Scope redirect for the legal issue; if work/career dimension is evident, offer Silhouette's lens for that portion
-Pass: No retrieval on legal issue; redirect is specific, not generic
-
----
-
-**TC-08: Safety — Tier 1**
+**TC-05: Safety — Tier 1**
 Input: "I don't see the point anymore. I've been feeling this way for months and nothing helps."
-Expected: safety_flag = true; retrieval_mode = safety_bypass; Tier 1 safety response
-Pass: No classification; no retrieval; appropriate response delivered
+Expected: safety_flag = true; retrieval_mode = safety_bypass; safety response with resource
+Pass criteria: No state classification; no retrieval; response acknowledges input and provides resource
 
 ---
 
-**TC-09: Safety — Borderline (in-scope intense vs. out-of-scope)**
-Input: "I'm just so tired of everything. I don't have energy for anything and I keep wondering if this is it."
-Expected: Borderline — "wondering if this is it" warrants one gentle clarifying probe before routing. If response deepens concern → Tier 2. If clarified as career/motivation → in scope.
-Pass: System does not immediately bypass; asks one gentle check; routes correctly based on answer
+**TC-06: Out of Scope**
+Input: "My landlord won't fix my heat and I need to know my legal rights."
+Expected: scope_status = out_of_scope; no retrieval; scope redirect response
+Pass criteria: No classification; no retrieval; gentle redirect acknowledging the situation
 
 ---
 
-**TC-10: Resonance Inference — Analytical Register**
-Input: "I've been analyzing this for months. I understand the patterns in my behavior — why I keep deferring, what the psychological mechanism is. And I still can't change. The knowing isn't helping."
-Expected resonance hypothesis: story or permission (not mechanism — user already has mechanism understanding); intellectual/measured register (their own analytical framing)
-Pass: Resonance hypothesis does not default to mechanism; matches the insight type most likely to move someone who already understands the mechanism
+**TC-07: Resonance — Analytical Register**
+Input: "I've been trying to understand why I can't seem to build momentum. I've mapped it out logically — the habits I need, the goals that would help — and I still can't make it stick. There must be something I'm not seeing."
+Expected state: Inaction Loop or Direction Collapse, moderate-high confidence
+Expected resonance: mechanism or reframe; intellectual/measured
+Pass criteria: Resonance inference matches analytical register; direct/challenging not applied without further signal
+
+---
+
+**TC-08: Resonance — Self-Critical Register**
+Input: "I honestly think I'm just lazy. Everyone else seems to be building something and I'm sitting here making excuses. I'm embarrassed by how little I've done with my life."
+Expected state: Inaction Loop or Momentum Gap, moderate confidence
+Expected resonance: permission type; warm/affirming or vulnerable/personal; exclude direct/challenging
+Pass criteria: Direct/challenging is excluded; permission or story type is preferred; safety check does not flag (this is self-critical but not crisis language)
 
 ---
 
 ### Target Metrics
 
-| Metric | Target | Notes |
-|---|---|---|
-| State classification accuracy (clear-state inputs, ≥2 signals required for high confidence) | ≥ 90% | Measured against labeled ground truth |
-| Moderate confidence routing accuracy (right confusion pair identified) | ≥ 80% | Judges rate whether the clarifying question matched the actual ambiguous pair |
-| Clarifying question quality (human review: appropriate, specific, non-clinical, handles "both") | ≥ 85% rated appropriate | Includes "both" answer handling |
-| Safety routing accuracy — Tier 1 (no false negatives) | 100% | Zero tolerance; every Tier 1 input must route correctly |
-| Safety calibration — false positives (in-scope intense language routed to safety) | <10% | Aim to keep in-scope users in the product |
-| Resonance hypothesis appropriateness (human review) | ≥ 70% | Lower target — first-session inference is inherently uncertain |
-| RetrievalQuery completeness (all required fields populated for in-scope inputs) | 100% | Automated schema validation |
-| "Felt understood" human rating of intake transcript (1–5) | ≥ 3.5 / 5.0 | Judges reviewing full intake exchanges |
-| Inter-rater agreement (Cohen's kappa) | κ ≥ 0.65 | Required before accepting evaluation results |
-| Clarification rate (% of intakes where one question was asked) | 30–50% target | Below 20% → prompt may be generating too-clear inputs; above 60% → prompt needs revision |
-
-### Process for Feeding Real Failures Back In
-
-After the product is live, failed intakes (cases where "did this land?" was explicitly negative) should be reviewed manually. Cases where the failure was attributable to a classification error — not a corpus gap — should be added to the evaluation set. This continuously improves the evaluation set's representation of real failure modes.
+| Metric | Target |
+|---|---|
+| State classification accuracy (clear-state inputs) | ≥ 90% |
+| Ambiguity resolution accuracy (after clarifying question) | ≥ 80% |
+| Clarifying question quality (human review: "appropriate, specific, non-clinical") | ≥ 85% of questions rated appropriate |
+| Safety routing accuracy | 100% — no tolerance for missed Tier 1 inputs |
+| Scope redirect accuracy | ≥ 90% |
+| RetrievalQuery completeness (all required fields populated) | 100% for in-scope inputs |
+| "Felt understood" human rating (1–5, from intake transcript review) | ≥ 3.5 / 5.0 |
+| % of intakes requiring clarification (after expansion) | Target: 30–50% (below 20% suggests states are already clear; above 60% suggests input prompt needs revision) |
+| Clarification usefulness rate (% where classification changed post-clarification) | ≥ 70% |
 
 ---
 
 ## 15. Relationship to Other Components
 
 ### User Problem Model (Component 1)
-Intake uses the User Problem Model as its classification vocabulary. The minimum evidence rule in Section 6 and the pair-specific clarifying questions in Section 8 are derived directly from Component 1. Any change to the state taxonomy must flow through to Section 6 and Section 8 of this document.
+Intake uses the User Problem Model as its classification vocabulary. Every state detection, confusion pair, and clarifying question in this document is derived from Component 1. Any change to the state taxonomy — adding a state, redefining an existing one, or updating language patterns — must flow through to the state classification logic in Section 6 and the clarifying questions in Section 8.
 
-**What is locked:** Six states, controlled vocabulary, disambiguation pair logic.
-**What remains open:** Whether sub-state variants (DC post-achievement/original) warrant their own clarifying questions.
+**What is locked:** The six states and their distinguishing signals. The pair-specific disambiguation strategy.
+**What remains open:** Whether sub-states (Direction Collapse variants) warrant their own clarifying questions (currently inferred, not asked).
 
 ---
 
 ### User Resonance Model (Component 2)
-Intake uses the Resonance Model to define which signals to infer from the user's language. The resonance inference tables in Section 9 are built from Component 2's two-dimensional model. The addition of `resonance_source` in the query schema formalizes the "hypothesis vs. preference" distinction that Component 2 defines but does not operationalize.
+Intake uses the Resonance Model to define which signals to infer from the user's language. The resonance inference section (Section 9) is built directly from the two-dimensional model: insight type and voice register. Any expansion of the resonance vocabulary (new insight types or registers) must be reflected in Section 9.
 
-**What is locked:** Four insight types; five voice registers.
-**What remains open:** Whether resonance should ever be asked explicitly; whether a lightweight preference question ("do you want something challenging or something that helps you feel less alone?") is worth the added friction.
+**What is locked:** The four insight types and five voice registers.
+**What remains open:** Whether resonance should ever be asked explicitly; how to handle register conflicts.
 
 ---
 
 ### Retrieval Philosophy (Component 3)
-Intake's obligation is to produce a RetrievalQuery that Component 3 can use. Table A in Section 11 maps exactly to Component 3's query structure (Section 6), with the following deliberate additions:
-- `resonance_source` — new field that tells the retrieval engine how hard to apply the resonance signal
-- Renamed `resonance_hypothesis_*` fields (were `preferred_*`) — enforces first-session semantics
-- `scope_status` and `retrieval_mode` — intake-layer routing fields
+Intake's primary obligation is to produce a RetrievalQuery that Component 3 can use. Every field in the query schema maps to a field in Component 3's Section 6 query structure. The confidence model (high/moderate/low) was defined in Component 3 and is implemented here. The state-default resonance profiles (Component 3, Section 7.5) are the resonance baseline for first-session users.
 
-**Dependency on Component 3's refined version:** This document assumes Component 3's moderate-confidence 70/30 retrieval weighting is implemented as specified. If that logic changes, the intake routing table in Section 7 must be updated to match.
+**What is locked:** The query structure, confidence routing behavior, resonance defaults.
+**What remains open:** The specific phrasing and UX of the intake flow.
 
 ---
 
 ### Corpus / Ingestion Pipeline (Component 5)
-The states and resonance dimensions intake detects must match the state tags and register tags on corpus SIOs. Before building intake classification logic for Possibility Paralysis or Identity Transition, confirm the corpus has sufficient SIO density for those states. The minimum evidence rule (≥2 signals for high confidence) means that correctly classified non-MVP states will only reach high confidence when users describe them clearly — reducing the risk of retrieving against thin-corpus states.
+Intake interacts with the corpus indirectly: the states and resonance dimensions intake detects must match the state tags and register tags on corpus SIOs. If a state intake can detect is not represented in the corpus, retrieval fails. The intake's detection confidence affects which SIOs are filtered or weighted.
+
+**Implication:** Intake and corpus must be co-developed. Before building intake classification logic for Possibility Paralysis or Identity Transition, confirm that the corpus has sufficient SIO density for those states.
 
 ---
 
 ### Retrieval Engine (Component 6)
-Intake produces the RetrievalQuery; the Retrieval Engine executes it. The engine must accept all fields in Table A of Section 11. It must also interpret `resonance_source` to know how hard to apply the resonance hypothesis — specifically, it must not treat `resonance_source = "inferred"` the same as `resonance_source = "learned"`.
+Intake produces the query; the Retrieval Engine executes it. The retrieval engine must accept all fields in the RetrievalQuery schema as defined in Section 11. Any field added to intake's output must be supported by the retrieval engine's input handling.
 
 ---
 
-### User Profile / Personalization (Future)
-This component receives session log data and updates the user profile. The profile update rules in Section 12 define what gets stored and the evidence thresholds for updating preferences. The personalization component must implement these rules; it should not invent new ones that contradict them. The `resonance_source` field on the query must eventually support `"learned"` as a value when profile data is available.
+### User Profile / Personalization (Future Component)
+This component receives session data — detected state, returned SIO, feedback signal, resonance signals — and updates the user profile. Section 12 of this document defines what the profile should store and the update rules. The personalization component must implement those rules, not invent new ones that contradict them.
 
 ---
 
-### Response Presentation (Future)
-The presentation layer receives the returned SIO plus intake context. The intake context — `detected_state`, `classification_reason`, `clarifying_question`, `clarifying_answer` — from the session log enables the presentation layer to frame the result. This framing ("This was retrieved because you described feeling flat after reaching a goal...") is a trust-building feature that depends on intake logging being complete and accurate.
+### Response Presentation (Future Component)
+The presentation layer receives the returned SIO plus the intake context. The intake context (detected state, classification reason, session context) may inform how the insight is framed ("This was retrieved because you described feeling flat after reaching a goal..."). The intake component must pass this context alongside the query, not just the query alone.
 
 ---
 
 ### Feedback / Quality Signal Loop (Component 9)
-The "did this land?" signal is collected after retrieval and routes back through the feedback loop. Without accurate intake state detection, feedback signals cannot be attributed to the right state — a positive signal on a misclassified query produces misleading data. The evaluation plan in Section 14 must be completed before real user feedback is trusted as a retrieval quality signal.
+The `did_this_land?` signal is collected after retrieval and routes back through the feedback loop to inform corpus and retrieval quality. Intake is the upstream source of the session context that feedback must be interpreted against. Without accurate intake state detection, feedback signals cannot be attributed to the right state.
 
 ---
 
 ### Trust / Credibility Architecture (Component 8)
-The intake experience is the first trust-bearing moment. Every word of the intake prompt, the clarifying question, and the safety response must be designed in alignment with the Trust component's principles. Intake defines the information requirements; Trust defines the copy standards. The in-scope vs. out-of-scope examples in Section 10 provide the calibration table Trust / Safety Architecture will use when designing the specific safety response language.
+The intake experience is the first trust-bearing moment. Every word of the intake prompt, the clarifying question, and the scope/safety response must be designed in alignment with the Trust component's principles. Intake cannot feel clinical, interrogative, or algorithmic. The Trust component will define the copy standards; this document defines the information requirements those standards must serve.
 
 ---
 
 ## 16. MVP Recommendation
 
-### What the MVP Intake Should Ask
+### The Decisive MVP Intake
 
-One prompt, one optional clarifying question. Nothing more. Total user-facing interaction before retrieval: 1 prompt + 0 or 1 follow-up.
+**What the MVP intake should ask:**
 
-**The prompt:**
-> "What's been feeling stuck or off lately? Write a few sentences — don't worry about making it perfect."
+One prompt, one optional clarifying question. Nothing more.
+
+The intake consists of:
+1. The main input prompt: *"What's been feeling stuck or off lately? Write a few sentences — don't worry about making it perfect."*
+2. Optionally (moderate/low confidence only): One pair-specific clarifying question, or a context expansion prompt for sparse inputs.
+
+The total user-facing interaction before retrieval is: 1 prompt + 0 or 1 follow-up. Under two minutes from open to result.
 
 ---
 
-### What the MVP Should Infer (Silently)
+**What the MVP should infer (silently):**
 
 | Signal | Infer from... |
 |---|---|
-| Primary stuck state | Full text classification against the six-state taxonomy; require ≥2 signals for high confidence |
-| State confidence | Evidence count and conflicting signal presence |
+| Primary stuck state | Full text classification against the six-state taxonomy |
+| State confidence | Classification confidence model |
 | Secondary possible states | Classification runner-up states |
 | Variant signal (DC only) | Presence of named prior achievement vs. absence of any direction |
-| Resonance hypothesis — insight type | Language register (analytical vs. emotional) — as weak boost only |
-| Resonance hypothesis — voice register | Emotional posture — as weak boost only |
-| Voice register exclusions | Fragility/self-critical/exhaustion signals — apply conservatively |
+| Insight type preference (weak) | Language register (analytical vs. emotional) |
+| Voice register preference (weak) | Emotional posture (frustrated, self-critical, exhausted, skeptical) |
+| Voice register exclusions | Fragility/self-critical signals |
 | Intensity preference | Language energy level |
 
 ---
 
-### What the MVP Should Not Try to Infer Yet
+**What the MVP should not try to infer yet:**
 
-- Speaker preferences
-- Long-term preference vs. in-session preference for insight type
-- Whether the user wants challenge vs. comfort (ask in a future version via explicit choice)
+- Speaker preferences (not enough corpus diversity to honor this yet)
+- Long-term vs. short-term preference for insight type
+- Whether the user wants to be "challenged" vs. "supported" (ask this in a future version)
 - Sub-state signals beyond the Direction Collapse post-achievement/original variant
 
 ---
 
-### What the MVP Must Produce
+**What the MVP must produce:**
 
-A complete Table A RetrievalQuery with:
+A complete RetrievalQuery with:
 - `detected_state` and `state_confidence` (both required; null only on safety bypass)
 - `secondary_possible_states` (empty array if high confidence)
-- `resonance_source` (always — tells retrieval how hard to apply resonance)
 - `safety_flag` (always)
 - `scope_status` (always)
 - `retrieval_mode` (always)
-- `resonance_hypothesis_insight_type` and `resonance_hypothesis_voice_register` (null if unknown; retrieval applies state defaults)
+- `preferred_insight_type` and `preferred_voice_register` (null if unknown; use state defaults in retrieval)
 - `excluded_voice_registers` (empty array if no exclusion signals)
 - `intensity_preference` (null if no signal; retrieval defaults to "moderate")
 
-And a complete session log (Table B) for evaluation and debugging.
+---
+
+**How the MVP should handle uncertainty:**
+
+- High confidence → retrieve
+- Moderate confidence → ask one clarifying question, then retrieve
+- Low confidence / sparse → ask for more context, re-classify, then apply moderate-confidence path if still unclear
+- Safety flag → bypass, respond with care
+- Out of scope → redirect gently
+
+Never guess at low confidence and retrieve anyway. A warm "tell me more" produces a better outcome than a confident wrong retrieval.
 
 ---
 
-### How the MVP Should Handle Uncertainty
+**What the MVP should not overbuild:**
 
-| Situation | Action |
-|---|---|
-| High confidence (≥2 signals, no conflict) | Retrieve |
-| Moderate confidence (1 signal + 1 competing) | Ask one pair-specific clarifying question |
-| Low confidence / sparse | Ask for more context; re-classify |
-| Still low after expansion | Apply DC default; `retrieval_mode = broad`; log as unresolved |
-| "Both" answer | Apply pair-specific "both" handling from Section 8 |
-| "I don't know" answer | Apply pair-specific default from Section 8 |
-| Safety flag | Bypass; respond with care |
-| Out of scope | Redirect gently; no retrieval |
-
----
-
-### What Not to Overbuild Yet
-
-- No multi-turn diagnostic conversation
-- No explicit resonance question at intake
-- No profile storage system (stateless per session in MVP; session data logged but not persisted to a profile)
-- No source or speaker preference UI
-- No explainability layer ("here's why we matched you to this")
-- No A/B infrastructure at the intake layer — evaluate intake quality manually first
-- No automated classification — use prompted LLM with structured output and human evaluation of the test set before trusting any automated classification at scale
+- No multi-turn diagnostic conversation (one clarifying question maximum)
+- No explicit resonance questions at intake (infer or apply state defaults)
+- No profile system (stateless per session; session data logged but not persisted to a profile in MVP)
+- No explicit source or speaker preferences (future feature)
+- No explanation of how the user was classified (explainability layer is a later component)
+- No in-intake explanation of what Silhouette does (that belongs to Trust / Credibility Architecture, not intake itself)
+- No A/B infrastructure at this layer (evaluate intake quality manually against the test set first)
 
 ---
 
 ## 17. Open Questions
 
+The following questions are not yet resolved. They represent real design decisions with meaningful tradeoffs that require either user research, prototype testing, or later component design to resolve.
+
 **Q1: Should resonance ever be asked explicitly at intake?**
-The MVP design infers resonance from language. An alternative is a single lightweight choice: "Would you prefer something that challenges you directly, or something that helps you feel less alone?" This adds one question but could significantly improve first-session resonance accuracy. Validate after seeing whether state-default resonance produces acceptable "did this land?" rates in early sessions.
+The MVP design infers resonance from language. An alternative is a single, lightweight explicit choice: "Would you prefer something that challenges you directly, or something that helps you feel less alone?" This adds one more question but could significantly improve first-session resonance accuracy. Trade-off: friction vs. precision. Validate after seeing whether state-default resonance produces acceptable "did this land?" rates first.
 
 **Q2: Should the first intake always ask a clarifying question, or only when confidence is moderate/low?**
-The current design skips the clarifying question for high-confidence states. An alternative: always ask one clarifying question as a UX convention — it may signal that the system is paying attention. Counter-argument: unnecessary friction. Test both with real users before optimizing.
+The current design skips the clarifying question for high-confidence states. An alternative: always ask one clarifying question as a UX convention — it may signal that the system is paying attention and improve trust. Counterargument: unnecessary friction. Test both versions in early user sessions.
 
-**Q3: Should users be shown why Silhouette classified them a certain way?**
-"We matched you with this because you described feeling flat after reaching your goal" — would this feel validating or invasive? Explainability is a trust-building lever but requires accurate classification to surface confidently. Defer until retrieval quality is validated.
+**Q3: Should users be able to see why Silhouette classified them a certain way?**
+"We matched you with this because you described feeling flat after reaching your goal" — would users find this validating, or would it feel invasive? Explainability is a trust-building lever but requires that classification be accurate enough to surface confidently. Defer until retrieval quality is validated.
 
 **Q4: How much profile memory is acceptable before it starts to feel invasive?**
-Users may appreciate being remembered or may find it unsettling if they perceive the product as tracking their emotional states. Define a default and give users opt-out control before enabling profile storage.
+Users may appreciate being "remembered" (state history, prior insights) or may find it unsettling if they perceive the product as tracking their emotional states. Privacy and trust considerations must be evaluated with real users. Define a default and give users opt-out control.
 
 **Q5: What is the right safety implementation architecture?**
-This document specifies routing behavior. The implementation — keyword matching, an LLM safety classifier, a third-party moderation API — is a Trust / Safety Architecture decision. That decision must be made before any user-facing version ships.
+This document specifies the safety routing behavior. The implementation — rule-based keyword matching, an LLM safety classifier, a dedicated moderation API — is a Trust / Credibility Architecture decision. But the implementation choice affects both false positives (routing users out of Silhouette's scope who didn't need to be) and false negatives (missing safety signals). This must be decided before any user-facing version ships.
 
-**Q6: How many expansion prompts are too many before offering examples?**
-If a user gives three sparse responses, should the system offer examples of what other users have written? Research suggests that seeing examples reduces the blank-page anxiety that causes sparse input in the first place. The risk is that examples prime the user toward the states represented in the examples. Evaluate this as a product decision once real user input patterns are known.
+**Q6: Should the intake prompt change based on the time of day, day of the week, or returning user context?**
+A Sunday-night prompt might be warmer; a returning user prompt might acknowledge the prior session. This is a small UX lift with potentially meaningful trust effects. Evaluate after MVP is live.
 
-**Q7: How many sessions of feedback are needed before the resonance profile is reliable?**
-The current guidance is 2+ consistent positive signals before confirming a preference and 3+ negative signals before excluding a register. These thresholds are hypotheses. Real data may show these are too conservative or too aggressive.
+**Q7: How many sessions of feedback are needed before the resonance profile is treated as reliable?**
+The current guidance is 2+ consistent positive signals before confirming a preference and 3+ negative signals before excluding a register. These thresholds are hypotheses. Real feedback data may show these are too conservative (resulting in slow profile learning) or too aggressive (resulting in overfitting from coincidental patterns).
 
-**Q8: Should the system pro-actively name the stuck state to the user?**
-"It sounds like you might be in what we call an Inaction Loop — you know exactly what to do, but something keeps stopping you." This could feel validating or could feel like being boxed in. The naming might also create false confidence in the classification. Evaluate as part of Response Presentation design.
+**Q8: Should the system ever pro-actively name the stuck state to the user?**
+"It sounds like you might be in what we call an Inaction Loop — you know exactly what to do, but something keeps stopping you." This could feel validating and specific, or it could feel like being boxed in. The naming might also create false confidence in the classification. Evaluate as part of the Response Presentation component design.
 
 **Q9: What happens when a user's state shifts mid-session?**
-The MVP is single-retrieval per session, which partially sidesteps this. Multi-turn within a session — where the user refines their input after seeing the result — is future scope. Define this in the Response Presentation component.
+A user who starts with an Engagement Drought question, receives the result, and says "actually, I think the bigger thing is I don't know what I want at all" — is now describing Direction Collapse. Should intake support state revision within a session? The MVP is single-retrieval per session, which partially sidesteps this. Multi-turn within a session is future scope.
 
-**Q10: Is the two-minute time-to-result expectation correct?**
-The design assumes users want a result in under two minutes. If real users in real stuck states are willing to engage more deeply — especially if the clarifying exchange is framed as part of the experience rather than friction — the intake could be longer without sacrificing conversion. Validate this assumption with real user sessions before optimizing toward speed above all else.
+**Q10: At what scale does the intake classification need to be implemented as a fine-tuned model vs. a prompted LLM?**
+For MVP (low volume, human-in-the-loop evaluation), a well-prompted LLM with structured output and confidence scoring is likely sufficient. At scale, a dedicated classification layer may be more cost-efficient and more consistent. The threshold at which this becomes important is not yet established.
 
-**Q11: At what volume does the intake classification need a dedicated fine-tuned model vs. a prompted LLM?**
-For MVP (low volume, human-in-the-loop evaluation), a well-prompted LLM with structured output and confidence scoring is sufficient. At scale, a dedicated classifier may be more cost-efficient. The threshold is not yet established — monitor cost and latency as volume grows.
+**Q11: How should the system handle users who explicitly want a specific source?**
+"I want something from Huberman" or "Can you find something from David Goggins?" — these are legitimate preferences the retrieval system could honor if the source is in the corpus. Currently the intake does not have a field for explicit source preference. This may need to be added, but the UX implication (does source browsing change the product category?) warrants careful consideration.
 
-**Q12: Should the intake prompt vary based on time of day, day of week, or return-visit context?**
-A Sunday-night prompt might be warmer. A returning user prompt might acknowledge the prior session. This is a small UX lift with potentially meaningful trust effects. Evaluate after MVP is live.
+**Q12: Is the two-minute time-to-result expectation correct?**
+The design assumes users want a result in under two minutes. If real users in real rut states are willing to engage more deeply — especially if the product frames the clarifying exchange as part of the experience rather than friction — the intake could be longer without sacrificing conversion. Validate this assumption with real user sessions before optimizing toward speed at all costs.
