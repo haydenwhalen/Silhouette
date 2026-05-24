@@ -9,7 +9,14 @@
     "start": "next start",
     "ingest": "tsx scripts/ingest-docs.ts",
     "test-tools": "tsx scripts/test-tools.ts",
-    "test-sio-retrieval": "tsx scripts/test-sio-retrieval.ts"
+    "test-sio-retrieval": "tsx scripts/test-sio-retrieval.ts",
+    "test-state-classification": "tsx scripts/test-state-classification.ts",
+    "test-present-insight": "tsx scripts/test-present-insight.ts",
+    "test-retrieval-calibration": "tsx scripts/test-retrieval-calibration.ts",
+    "test-chat-e2e": "tsx scripts/test-chat-e2e.ts",
+    "test-feedback-loop": "tsx scripts/test-feedback-loop.ts",
+    "test-ui-signal": "tsx scripts/test-ui-signal.ts",
+    "analyze-feedback": "tsx scripts/analyze-feedback.ts"
   },
   "dependencies": {
     "@langchain/classic": "^1.0.25",

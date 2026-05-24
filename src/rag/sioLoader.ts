@@ -181,5 +181,19 @@ export async function loadSIODocuments(): Promise<Document[]> {
     insightIds: docs.map((d) => d.metadata.insight_id),
   });
 
+  for (const d of docs) {
+    SIO_INDEX.set(String(d.metadata.insight_id), d);
+  }
+
   return docs;
+}
+
+const SIO_INDEX = new Map<string, Document>();
+
+export function getSIOById(insightId: string): Document | undefined {
+  return SIO_INDEX.get(insightId);
+}
+
+export function listLoadedSIOs(): Document[] {
+  return Array.from(SIO_INDEX.values());
 }

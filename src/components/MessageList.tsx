@@ -1,25 +1,53 @@
 "use client";
 
 import React from "react";
+import { FeedbackButtons } from "./FeedbackButtons";
+import { FEEDBACK_MARKER_TEXT } from "@/presentation/feedbackMarker";
 
-interface Message {
+export interface Message {
   role: "user" | "assistant";
   content: string;
+  // Insight metadata for the latest insight presentation; null on other turns.
+  // Buttons only render for the latest assistant message that has this set.
+  insight_id?: string | null;
 }
 
 interface MessageListProps {
   messages: Message[];
   loading?: boolean;
+  sessionId: string;
+  onFeedbackText: (text: string) => void;
+  feedbackDisabled?: boolean;
 }
 
-function renderSimpleMarkdown(text: string): React.ReactNode[] {
-  const tokens = text.split(/(\[.*?\]\(.*?\)|\*\*.*?\*\*)/g);
-  return tokens.map((token, i) => {
-    const linkMatch = token.match(/^\[(.*?)\]\((.*?)\)$/);
+// Marker constant comes from the presentation layer — single source of truth.
+function hasFeedbackMarker(content: string): boolean {
+  return content.trimEnd().endsWith(FEEDBACK_MARKER_TEXT);
+}
+
+function stripFeedbackMarker(content: string): string {
+  const idx = content.lastIndexOf(FEEDBACK_MARKER_TEXT);
+  if (idx === -1) return content.trim();
+  return content.slice(0, idx).trim();
+}
+
+// Renders inline text with:
+//   **bold**          → <strong>
+//   [text](url)       → markdown link
+//   bare http(s) URL  → autolink
+function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
+  // Tokenize on: markdown link, bold, or bare URL. Order matters — markdown
+  // link first so we don't double-match URLs inside (...)
+  const tokenRegex =
+    /(\[[^\]]+?\]\([^)]+?\)|\*\*[^*]+?\*\*|https?:\/\/[^\s)]+)/g;
+  const parts = text.split(tokenRegex);
+  return parts.map((part, i) => {
+    if (!part) return null;
+    const linkMatch = part.match(/^\[([^\]]+?)\]\(([^)]+?)\)$/);
     if (linkMatch) {
       return (
         <a
-          key={i}
+          key={`${keyPrefix}-${i}`}
           href={linkMatch[2]}
           target="_blank"
           rel="noopener noreferrer"
@@ -29,15 +57,93 @@ function renderSimpleMarkdown(text: string): React.ReactNode[] {
         </a>
       );
     }
-    const boldMatch = token.match(/^\*\*(.*?)\*\*$/);
+    const boldMatch = part.match(/^\*\*([^*]+?)\*\*$/);
     if (boldMatch) {
-      return <strong key={i}>{boldMatch[1]}</strong>;
+      return <strong key={`${keyPrefix}-${i}`}>{boldMatch[1]}</strong>;
     }
-    return token;
+    if (/^https?:\/\//.test(part)) {
+      return (
+        <a
+          key={`${keyPrefix}-${i}`}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#6fa8dc", textDecoration: "underline", wordBreak: "break-all" }}
+        >
+          {part}
+        </a>
+      );
+    }
+    return <React.Fragment key={`${keyPrefix}-${i}`}>{part}</React.Fragment>;
   });
 }
 
-export function MessageList({ messages, loading }: MessageListProps) {
+// Splits content into logical blocks (block quote, attribution line, plain
+// paragraph) and renders each with appropriate styling.
+function renderBlocks(content: string, idx: number): React.ReactNode[] {
+  // Normalize: collapse 3+ blank lines to 2.
+  const normalized = content.replace(/\n{3,}/g, "\n\n").trim();
+  // Split into paragraphs by blank line.
+  const paragraphs = normalized.split(/\n\s*\n/);
+  return paragraphs.map((para, pIdx) => {
+    const keyPrefix = `m${idx}-p${pIdx}`;
+    const lines = para.split("\n");
+
+    // Block quote: every line starts with `>`
+    if (lines.every((l) => /^>\s?/.test(l))) {
+      const inner = lines.map((l) => l.replace(/^>\s?/, "")).join("\n");
+      return (
+        <blockquote
+          key={keyPrefix}
+          style={{
+            margin: "0.75rem 0",
+            padding: "0.5rem 0 0.5rem 1rem",
+            borderLeft: "3px solid #4a6fa5",
+            fontStyle: "italic",
+            color: "#d8d8d8",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {renderInline(inner, keyPrefix)}
+        </blockquote>
+      );
+    }
+
+    // Attribution line: starts with `— ` (em-dash + space)
+    if (/^—\s/.test(para)) {
+      return (
+        <p
+          key={keyPrefix}
+          style={{
+            margin: "0.5rem 0",
+            fontSize: "0.85rem",
+            color: "#aaa",
+            fontWeight: 500,
+          }}
+        >
+          {renderInline(para, keyPrefix)}
+        </p>
+      );
+    }
+
+    return (
+      <p
+        key={keyPrefix}
+        style={{ margin: "0.5rem 0", whiteSpace: "pre-wrap" }}
+      >
+        {renderInline(para, keyPrefix)}
+      </p>
+    );
+  });
+}
+
+export function MessageList({
+  messages,
+  loading,
+  sessionId,
+  onFeedbackText,
+  feedbackDisabled,
+}: MessageListProps) {
   if (messages.length === 0 && !loading) {
     return (
       <div style={{ color: "#555", fontSize: "0.875rem", padding: "2rem 0", textAlign: "center" }}>
@@ -46,28 +152,52 @@ export function MessageList({ messages, loading }: MessageListProps) {
     );
   }
 
+  // Determine which message is the latest assistant insight (the only one
+  // that should have active feedback buttons).
+  let latestInsightIdx = -1;
+  for (let i = messages.length - 1; i >= 0; i--) {
+    const m = messages[i];
+    if (m.role === "assistant" && m.insight_id && hasFeedbackMarker(m.content)) {
+      latestInsightIdx = i;
+      break;
+    }
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1.5rem" }}>
-      {messages.map((msg, i) => (
-        <div
-          key={i}
-          style={{
-            alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
-            background: msg.role === "user" ? "#1a1a2e" : "#162028",
-            padding: "0.75rem 1rem",
-            borderRadius: "0.75rem",
-            maxWidth: "85%",
-            fontSize: "0.9rem",
-            lineHeight: 1.6,
-            whiteSpace: "pre-wrap",
-            wordBreak: "break-word",
-          }}
-        >
-          {msg.role === "assistant"
-            ? renderSimpleMarkdown(msg.content)
-            : msg.content}
-        </div>
-      ))}
+      {messages.map((msg, i) => {
+        const isAssistant = msg.role === "assistant";
+        const isLatestInsight = i === latestInsightIdx;
+        const displayedContent = isAssistant ? stripFeedbackMarker(msg.content) : msg.content;
+
+        return (
+          <div
+            key={i}
+            style={{
+              alignSelf: isAssistant ? "flex-start" : "flex-end",
+              background: isAssistant ? "#162028" : "#1a1a2e",
+              padding: "0.75rem 1rem",
+              borderRadius: "0.75rem",
+              maxWidth: "85%",
+              fontSize: "0.9rem",
+              lineHeight: 1.6,
+              wordBreak: "break-word",
+            }}
+          >
+            {isAssistant ? renderBlocks(displayedContent, i) : (
+              <span style={{ whiteSpace: "pre-wrap" }}>{msg.content}</span>
+            )}
+            {isLatestInsight && msg.insight_id && (
+              <FeedbackButtons
+                insightId={msg.insight_id}
+                sessionId={sessionId}
+                onFeedbackText={onFeedbackText}
+                disabled={feedbackDisabled}
+              />
+            )}
+          </div>
+        );
+      })}
       {loading && (
         <div
           style={{

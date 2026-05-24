@@ -1,3 +1,4 @@
+
 # Silhouette — Prompt Library
 
 > Reusable prompts for **Cursor**, **Claude Code**, and manual AI sessions.

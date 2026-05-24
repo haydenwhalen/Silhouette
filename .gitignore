@@ -6,3 +6,6 @@ dist/
 *.tsbuildinfo
 .DS_Store
 Thumbs.db
+
+# Feedback log — local-only signal capture for Phase 5
+corpus/feedback.jsonl
