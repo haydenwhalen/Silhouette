@@ -34,3 +34,25 @@ export async function similaritySearch(
   if (!store) throw new Error("Vector store not initialized. Run ingestion first.");
   return store.similaritySearch(query, k);
 }
+
+export async function similaritySearchWithState(
+  query: string,
+  state?: string,
+  k = 3
+): Promise<Document[]> {
+  if (!store) throw new Error("Vector store not initialized. Run ingestion first.");
+
+  if (!state) return store.similaritySearch(query, k);
+
+  const filter = (doc: Document) => {
+    const primary = String(doc.metadata.primary_state_tag ?? "");
+    if (primary === state) return true;
+    const secondary = doc.metadata.secondary_state_tags;
+    if (Array.isArray(secondary) && secondary.map(String).includes(state)) {
+      return true;
+    }
+    return false;
+  };
+
+  return store.similaritySearch(query, k, filter);
+}

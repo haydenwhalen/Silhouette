@@ -2,7 +2,7 @@ import "dotenv/config";
 import { calculatorTool } from "../src/tools/calculator";
 import { webSearchTool } from "../src/tools/webSearch";
 import { knowledgeBaseTool } from "../src/tools/knowledgeBase";
-import { loadAndChunkDocuments } from "../src/rag/documents";
+import { loadSIODocuments } from "../src/rag/sioLoader";
 import { getOrCreateVectorStore } from "../src/rag/vectorStore";
 
 async function testCalculator() {
@@ -44,10 +44,10 @@ async function testWebSearch() {
 }
 
 async function initVectorStore() {
-  console.log("  Loading documents and creating vector store...");
-  const chunks = await loadAndChunkDocuments();
-  await getOrCreateVectorStore(chunks);
-  console.log("  Vector store ready.\n");
+  console.log("  Loading SIOs and creating vector store...");
+  const docs = await loadSIODocuments();
+  await getOrCreateVectorStore(docs);
+  console.log(`  Vector store ready (${docs.length} SIOs).\n`);
 }
 
 async function testKnowledgeBase() {

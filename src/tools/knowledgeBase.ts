@@ -1,9 +1,13 @@
 import { tool } from "@langchain/core/tools";
 import { z } from "zod";
-import { similaritySearch } from "../rag/vectorStore";
+import { similaritySearchWithState } from "../rag/vectorStore";
 import { logToolCall } from "../logging/logger";
 
-const MAX_CHUNK_LENGTH = 600;
+const STATE_VALUES = [
+  "direction-collapse",
+  "engagement-drought",
+  "inaction-loop",
+] as const;
 
 export const knowledgeBaseTool = tool(
   async (input) => {
@@ -14,33 +18,40 @@ export const knowledgeBaseTool = tool(
       return msg;
     }
 
+    const state = input.state ?? undefined;
+
     try {
-      const results = await similaritySearch(query, 2);
+      const results = await similaritySearchWithState(query, state, 2);
 
       if (results.length === 0) {
-        const msg = "No relevant resources found in the knowledge base for this query.";
-        logToolCall("knowledge_base", input, { resultCount: 0 });
+        const msg = state
+          ? `No SIOs found for state "${state}" matching this query.`
+          : "No SIOs found matching this query.";
+        logToolCall("knowledge_base", input, { resultCount: 0, state });
         return msg;
       }
 
       const formatted = results
         .map((doc, i) => {
           const m = doc.metadata;
-          const text =
-            doc.pageContent.length > MAX_CHUNK_LENGTH
-              ? doc.pageContent.slice(0, MAX_CHUNK_LENGTH) + "..."
-              : doc.pageContent;
           return [
-            `[${i + 1}] "${m.source_title}" by ${m.source_author}`,
-            `    Source: ${m.source_url}`,
-            `    Tags: ${m.tags}`,
-            `    Excerpt: ${text}`,
+            `[${i + 1}] ${m.speaker ?? "(unknown speaker)"} — ${m.show_or_platform ?? "(unknown show)"}`,
+            `    Episode: ${m.episode_or_content_title ?? "(unknown episode)"}`,
+            `    State: ${m.primary_state_tag} | Type: ${m.insight_type} | Register: ${m.voice_register}`,
+            `    Key claim: ${m.key_claim ?? "(missing)"}`,
+            `    Attribution: ${m.attribution_text ?? "(missing)"}`,
+            `    Source: ${m.source_url ?? "(missing)"}`,
+            `    insight_id: ${m.insight_id}`,
           ].join("\n");
         })
         .join("\n\n");
 
-      const titles = results.map((d) => d.metadata.source_title);
-      logToolCall("knowledge_base", input, { resultCount: results.length, titles });
+      const insightIds = results.map((d) => d.metadata.insight_id);
+      logToolCall("knowledge_base", input, {
+        resultCount: results.length,
+        state,
+        insightIds,
+      });
       return formatted;
     } catch (err) {
       const message = err instanceof Error ? err.message : "Unknown knowledge base error";
@@ -51,16 +62,26 @@ export const knowledgeBaseTool = tool(
   {
     name: "knowledge_base",
     description:
-      "Searches Silhouette's curated library of hope-building and practical guidance resources. " +
-      "Returns the most relevant excerpt(s) with source attribution (title, author, URL). " +
-      "Use this FIRST whenever the user describes feeling stuck, overwhelmed, avoidant, lonely, " +
-      "or low-confidence. Only fall back to web_search if this tool returns no relevant results.",
+      "Searches Silhouette's curated library of Structured Insight Objects (SIOs) " +
+      "from podcast interviews and educational content. Each SIO is one retrievable " +
+      "insight tagged with the stuck state it serves. " +
+      "Returns the most relevant SIO(s) with speaker, show, key claim, and attribution. " +
+      "Use this FIRST whenever the user describes feeling stuck — directionless, " +
+      "disengaged, or avoiding action. Pass a `state` argument when you can classify " +
+      "the user's stuck state confidently.",
     schema: z.object({
       query: z
         .string()
         .describe(
           "A natural language query describing what the user is struggling with, " +
-          "e.g. 'feeling ashamed about avoiding important work' or 'lonely and disconnected'"
+          "in their own words or paraphrased. Example: 'I got what I wanted but feel empty'."
+        ),
+      state: z
+        .enum(STATE_VALUES)
+        .optional()
+        .describe(
+          "Optional. The classified stuck state, if known. When provided, retrieval " +
+          "is filtered to SIOs tagged for that state. Omit to search all states."
         ),
     }),
   }

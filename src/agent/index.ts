@@ -11,7 +11,7 @@ import { SYSTEM_PROMPT } from "./systemPrompt";
 import { calculatorTool } from "../tools/calculator";
 import { webSearchTool } from "../tools/webSearch";
 import { knowledgeBaseTool } from "../tools/knowledgeBase";
-import { loadAndChunkDocuments } from "../rag/documents";
+import { loadSIODocuments } from "../rag/sioLoader";
 import { getOrCreateVectorStore } from "../rag/vectorStore";
 import { getSessionHistory } from "../memory/conversationMemory";
 
@@ -30,10 +30,10 @@ let ragReady = false;
 async function ensureRagLoaded(): Promise<void> {
   if (ragReady) return;
   logAgentStep("rag_init_start");
-  const docs = await loadAndChunkDocuments();
+  const docs = await loadSIODocuments();
   await getOrCreateVectorStore(docs);
   ragReady = true;
-  logAgentStep("rag_init_complete", { chunks: docs.length });
+  logAgentStep("rag_init_complete", { sioCount: docs.length });
 }
 
 async function getExecutor(): Promise<AgentExecutor> {

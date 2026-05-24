@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "ingest": "tsx scripts/ingest-docs.ts",
-    "test-tools": "tsx scripts/test-tools.ts"
+    "test-tools": "tsx scripts/test-tools.ts",
+    "test-sio-retrieval": "tsx scripts/test-sio-retrieval.ts"
   },
   "dependencies": {
     "@langchain/classic": "^1.0.25",
@@ -18,12 +19,14 @@
     "@langchain/textsplitters": "^1.0.1",
     "@tavily/core": "^0.7.0",
     "dotenv": "^16.4.0",
+    "js-yaml": "^4.1.1",
     "langchain": "^1.2.0",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
