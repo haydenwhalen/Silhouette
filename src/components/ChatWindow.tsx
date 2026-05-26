@@ -100,6 +100,11 @@ export function ChatWindow() {
     await sendToApi(text, "button");
   }
 
+  // null = not yet resolved on client; render an empty shell to keep layout stable
+  // and avoid flashing either the chat (for first-timers) or the preamble (for returnees).
+  if (preambleAccepted === null) {
+    return <div style={{ minHeight: "calc(100vh - 8rem)" }} />;
+  }
   if (!preambleAccepted) {
     return <BetaPreamble onAccept={acceptPreamble} />;
   }

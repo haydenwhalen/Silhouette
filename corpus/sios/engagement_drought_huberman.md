@@ -16,21 +16,27 @@ transcript_verified: false
 # Replace with verbatim transcript text before marking approved.
 # Transcript available via: YouTube captions or hubermanlab.com episode page.
 
-# ── MEDIA ─────────────────────────────────────────────────────────
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
 source_media_type: podcast-video
 # Huberman Lab is a full video podcast recorded in his lab at Stanford.
 # All episodes available on YouTube with complete video footage of the host.
 
 video_provider: youtube
-# Huberman Lab YouTube channel: https://www.youtube.com/@hubermanlab
+official_channel: "Huberman Lab"
+official_channel_url: "https://www.youtube.com/@hubermanlab"
 
 video_id: ""
-# ⚠️ NEEDS VERIFICATION. Find the YouTube video ID for this episode:
-# Search YouTube for "Huberman Lab Controlling Dopamine Motivation Focus Satisfaction"
-# or browse https://www.youtube.com/@hubermanlab (published April 26, 2021)
+# ⚠️ HELD BLANK BY DESIGN. The official hubermanlab.com episode page links a candidate
+# YouTube id (QmOF0crdyRU, https://youtu.be/QmOF0crdyRU) — HIGH-confidence candidate — but
+# official-channel playback was NOT confirmed without the YouTube Data API, so no video_id
+# is written. See media_verification_notes. Do not embed until playback-verified.
+
+video_url: "https://www.youtube.com/watch?v=QmOF0crdyRU"
+# Candidate watch URL (from the official episode page). Verify before treating as official.
 
 embed_url: ""
-# Fill in after verifying video_id:
+# Leave blank until video_id is playback-verified on the official channel. Then:
 # https://www.youtube-nocookie.com/embed/{video_id}?start=2700&end=3000
 
 timestamp_start_seconds: 2700
@@ -40,11 +46,14 @@ timestamp_end_seconds: 3000
 # Approx. Derived from 00:50:00  (50×60). Verify against actual video.
 
 display_mode: video-primary
-# Huberman Lab has full video — show Huberman in the lab explaining the mechanism.
-# The visual context (clinical/scientific setting) reinforces the expert/scientific register.
+# Huberman Lab has full official video. Until the video_id is verified, presentation
+# falls back to the source-link (hubermanlab.com episode page) gracefully.
 
 media_available: true
-# Huberman Lab YouTube channel is publicly maintained and all episodes are accessible.
+# Official episode page + channel are publicly maintained and accessible.
+
+media_verification_status: needs_review
+media_verification_notes: "Official channel (Huberman Lab, https://www.youtube.com/@hubermanlab) and official episode page (hubermanlab.com) CONFIRMED via web search/fetch (2026-05). The official episode page links candidate YouTube id QmOF0crdyRU (youtu.be/QmOF0crdyRU) — recorded as a HIGH-confidence candidate in video_url. video_id deliberately left blank because official-channel playback could not be machine-confirmed without the YouTube Data API (search-result titles are not sufficient). Timestamps (45:00–50:00) are approximate, derived from documentation, not transcript-verified."
 
 media_rights_notes: "Huberman Lab episodes are publicly available on YouTube under standard license. Embed only from the official channel. Do not download or re-host clips."
 

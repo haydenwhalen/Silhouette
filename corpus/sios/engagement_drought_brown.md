@@ -15,14 +15,19 @@ transcript_verified: false
 # with her published research on vulnerability and emotional regulation. Replace with verbatim
 # book excerpt before marking approved.
 
-source_media_type: other
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
+source_media_type: book
 video_provider: none
 video_id: ""
+video_url: ""
 embed_url: ""
 timestamp_start_seconds: null
 timestamp_end_seconds: null
 display_mode: text-only
 media_available: true
+media_verification_status: not_applicable
+media_verification_notes: "Published book — no embeddable video. Presentation links the author page as the source. Not_applicable for video."
 media_rights_notes: "Published book by Brené Brown. Link to author page. Text-only."
 
 primary_state_tag: engagement-drought

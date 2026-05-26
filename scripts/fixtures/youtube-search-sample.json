@@ -1,0 +1,50 @@
+{
+  "_comment": "SYNTHETIC TEST FIXTURE — NOT real YouTube API data. All videoIds, channelIds, and metadata are fabricated for testing purposes only. Do NOT use in production or treat as real API responses. The channelId 'SAMPLEchan0000000000000' matches the test entry in trusted_youtube_channels.json so that mock-mode official-channel matching can be exercised.",
+  "kind": "youtube#searchListResponse",
+  "etag": "sample-etag-00000",
+  "regionCode": "US",
+  "pageInfo": {
+    "totalResults": 2,
+    "resultsPerPage": 2
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "sample-etag-item-01",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "SAMPLEvid01"
+      },
+      "snippet": {
+        "publishedAt": "2024-01-15T12:00:00Z",
+        "channelId": "SAMPLEchan0000000000000",
+        "title": "Sample Video Title — How to Overcome Inaction (SYNTHETIC FIXTURE)",
+        "description": "This is a synthetic test fixture description. Not real content. Used only for automated tests of the YouTube API helper module.",
+        "thumbnails": {
+          "default": { "url": "https://example.com/sample-thumb.jpg", "width": 120, "height": 90 }
+        },
+        "channelTitle": "SAMPLE_TRUSTED_FOR_TESTS_ONLY",
+        "liveBroadcastContent": "none"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "sample-etag-item-02",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "SAMPLEvid02"
+      },
+      "snippet": {
+        "publishedAt": "2024-02-20T09:30:00Z",
+        "channelId": "UNTRUSTEDchan00000000000",
+        "title": "Sample Untrusted Channel Video (SYNTHETIC FIXTURE)",
+        "description": "This is a synthetic test fixture for an untrusted channel. Not real content.",
+        "thumbnails": {
+          "default": { "url": "https://example.com/sample-thumb-2.jpg", "width": 120, "height": 90 }
+        },
+        "channelTitle": "Some Untrusted Channel",
+        "liveBroadcastContent": "none"
+      }
+    }
+  ]
+}

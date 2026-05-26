@@ -30,7 +30,7 @@ export const stateClassificationSchema = z.object({
     .enum(["mechanism", "story", "reframe", "permission"])
     .nullable()
     .describe(
-      "Optional weak resonance hint from user-language register per Component 3 §6.5. analytical posture ('why does this happen', 'I've thought about this') → mechanism/reframe; self-referential or shame ('what's wrong with me') → permission/story. Null if unclear."
+      "Optional weak resonance hint inferred from the user's emotional tone. Does NOT affect detected_state. burnout/exhaustion/'running on empty' → permission; shame/self-criticism/'I'm just lazy' → permission; 'I need a kick'/'no excuses' → story or mechanism; analytical 'why does this happen'/'I want the science' → mechanism; perfectionism/'never good enough'/'can't ship' → permission; vivid personal narrative → story; 'I've journaled/thought about this for months' → reframe. Null if unclear."
     ),
   inferred_resonance_voice_register: z
     .enum([
@@ -42,7 +42,7 @@ export const stateClassificationSchema = z.object({
     ])
     .nullable()
     .describe(
-      "Optional weak resonance hint per Component 3 §6.5. Null if unclear. Lean intellectual/measured for analytical posture; warm/affirming for self-criticism; vulnerable/personal for emotionally exposed personal narrative."
+      "Optional weak resonance hint inferred from emotional tone. Does NOT affect detected_state. burnout/depletion → vulnerable/personal (or warm/affirming); shame/self-criticism/discouragement → warm/affirming; 'I need a kick'/'no excuses'/perfectionism → direct/challenging; analytical 'why does this happen'/'I want the science' → expert/scientific; emotionally exposed personal narrative → vulnerable/personal; 'I've journaled/thought about this for months' → intellectual/measured. Null if unclear."
     ),
 });
 
@@ -102,12 +102,16 @@ Signals:
 - needs_clarification: true if confidence is moderate or low, or if two states are competing.
 - classification_reason: 1–2 sentences citing the specific user-language signal you used.
 - direction_collapse_variant: only set when detected_state is direction-collapse. "post-achievement" if the user names a specific milestone or external achievement they reached and feel empty at ("I got the promotion", "I hit my income goal"). "original" if no milestone is named. Otherwise null.
-- inferred_resonance_insight_type / inferred_resonance_voice_register: optional weak signals from user-language register. Only set when the signal is clear. Examples:
-  - "Why does this happen?" → mechanism + expert/scientific
-  - "What's wrong with me?" / shame language → permission + warm/affirming
-  - Personal narrative with named moments → story + vulnerable/personal
-  - "I've thought about this for months, I've journaled, etc." → reframe + intellectual/measured
-  - Sparse or unclear input → null for both.`;
+- inferred_resonance_insight_type / inferred_resonance_voice_register: optional WEAK signals inferred from the user's emotional tone and language register. These do NOT change the detected_state — they only hint at which emotional TONE of insight will land. Only set them when the tonal signal is clear; otherwise leave null. The voice_register enum is exactly: "direct/challenging", "warm/affirming", "intellectual/measured", "vulnerable/personal", "expert/scientific". Use these explicit tone → hint mappings:
+  - Burnout / exhaustion / "running on empty" / "running on fumes" / "nothing left in the tank" / depleted / "I keep pushing but there's nothing left" → insight_type=permission, voice_register=vulnerable/personal (warm/affirming is also acceptable). The user needs permission to stop, not a mechanism.
+  - Shame / self-criticism / "what's wrong with me" / "something must be wrong with me" / "I'm furious with myself" / "I quietly hate myself" / "I'm just lazy" / self-blame → insight_type=permission, voice_register=warm/affirming. The user needs the self-judgment lifted.
+  - Discouragement / hopelessness / "what's the point" / "why bother" / "none of it matters" → insight_type=permission or reframe, voice_register=warm/affirming.
+  - "I need a kick" / "I need someone to push me" / "stop making excuses" / "no excuses" / wants accountability or tough love → insight_type=story or mechanism, voice_register=direct/challenging. The user is asking to be pushed.
+  - "Why does this happen?" / "I want to understand the science" / analytical, curious posture → insight_type=mechanism, voice_register=expert/scientific.
+  - Perfectionism / "it's never good enough" / "I can't ship" / "unless it's perfect" / "I'd rather have nothing than something flawed" → insight_type=permission, voice_register=direct/challenging or vulnerable/personal.
+  - Personal narrative with named moments / vivid first-person scene → insight_type=story, voice_register=vulnerable/personal.
+  - "I've journaled / thought about this for months / read all the books" / has already analyzed it intellectually → insight_type=reframe, voice_register=intellectual/measured.
+  - Sparse or unclear input, or no clear tonal signal → null for both. When in doubt, prefer null over guessing.`;
 
 let classifier: ChatOpenAI | null = null;
 

@@ -1,0 +1,26 @@
+{
+  "source_id": "src-tedx-sinek-why-2009",
+  "source_type": "ted talk",
+  "speaker": "Simon Sinek",
+  "show_or_platform": "TEDxPugetSound",
+  "episode_or_content_title": "How great leaders inspire action",
+  "episode_or_content_date": "2009-09-01",
+  "source_url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/simon_sinek_how_great_leaders_inspire_action",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). TEDxPugetSound, Sept 2009; exact day approximate. A widely-cited TEDxPugetSound YouTube upload exists but the official-channel video_id was NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Source preliminarily endorsed in ai/guides/source_candidates.md §1.4; not yet formally rubric-scored. Note: talk is framed around leadership/branding and is repurposed here for personal direction.",
+  "rights_or_usage_notes": "Official TEDx talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-sinek-start-with-why-2009"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action"
+}

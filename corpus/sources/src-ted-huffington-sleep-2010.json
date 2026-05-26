@@ -1,0 +1,26 @@
+{
+  "source_id": "src-ted-huffington-sleep-2010",
+  "source_type": "ted talk",
+  "speaker": "Arianna Huffington",
+  "show_or_platform": "TEDWomen",
+  "episode_or_content_title": "How to succeed? Get more sleep",
+  "episode_or_content_date": "2010-12-08",
+  "source_url": "https://www.ted.com/talks/arianna_huffington_how_to_succeed_get_more_sleep",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/arianna_huffington_how_to_succeed_get_more_sleep",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). TEDWomen 2010 (Dec 2010), posted to TED.com Jan 2011; exact day approximate. Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Newly evaluated for this batch (added to ai/guides/source_candidates.md §1.4); not yet formally rubric-scored. Short talk (~4 min).",
+  "rights_or_usage_notes": "Official TED talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-huffington-depletion-not-dedication-2010"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/arianna_huffington_how_to_succeed_get_more_sleep"
+}

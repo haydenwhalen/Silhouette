@@ -14,15 +14,24 @@ transcript_verified: false
 # Core mechanism (count backwards from 5 to interrupt the hesitation circuit) is consistent
 # across all her published work. Replace with verbatim TED transcript before marking approved.
 
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
 source_media_type: ted-talk
-video_provider: none
+video_provider: ted
+# UPGRADED 2026-05: canonical TED slug verified, embed via embed.ted.com (was provider: none).
 video_id: ""
-embed_url: ""
+video_url: "https://www.ted.com/talks/mel_robbins_how_to_stop_screwing_yourself_over"
+embed_url: "https://embed.ted.com/talks/mel_robbins_how_to_stop_screwing_yourself_over"
+official_channel: "TED"
+official_channel_url: "https://www.ted.com/"
 timestamp_start_seconds: null
 timestamp_end_seconds: null
+# ⚠️ No verified per-moment timestamp. Embed plays from talk start.
 display_mode: video-primary
 media_available: true
-media_rights_notes: "Publicly available TEDxSF talk on ted.com. Verify video_id before embedding."
+media_verification_status: verified
+media_verification_notes: "TED embed VERIFIED (upgraded 2026-05): canonical ted.com slug mel_robbins_how_to_stop_screwing_yourself_over confirmed via web search/fetch — TEDxSF, June 2011, ~34M views; embed.ted.com URL confirmed. Was previously video_provider: none with blank embed. Official TED-channel YouTube video_id NOT playback-verified, left blank. No per-moment timestamp verified."
+media_rights_notes: "Official TEDxSF talk, publicly available on ted.com. Embed via embed.ted.com only. Do not download or re-host. Switch to youtube-nocookie embedding only after verifying the official TED-channel video_id."
 
 primary_state_tag: inaction-loop
 secondary_state_tags: []

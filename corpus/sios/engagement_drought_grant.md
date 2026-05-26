@@ -15,14 +15,19 @@ transcript_verified: false
 # (not depression, but not flourishing) is the central concept of the piece.
 # Replace with verbatim NYT article text before marking approved.
 
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
 source_media_type: article
 video_provider: none
 video_id: ""
+video_url: ""
 embed_url: ""
 timestamp_start_seconds: null
 timestamp_end_seconds: null
 display_mode: text-only
 media_available: true
+media_verification_status: not_applicable
+media_verification_notes: "Published NYT article — no embeddable video. Presentation links the canonical NYT URL as the source (may be paywalled). Not_applicable for video."
 media_rights_notes: "NYT article — may be paywalled depending on user. Link to canonical NYT URL."
 
 primary_state_tag: engagement-drought

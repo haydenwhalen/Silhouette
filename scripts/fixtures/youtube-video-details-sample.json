@@ -1,0 +1,43 @@
+{
+  "_comment": "SYNTHETIC TEST FIXTURE — NOT real YouTube API data. The videoId, channelId, and all metadata are fabricated for testing only. Do NOT use in production or treat as real API responses.",
+  "kind": "youtube#videoListResponse",
+  "etag": "sample-detail-etag-00000",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "sample-detail-etag-item-01",
+      "id": "SAMPLEvid01",
+      "snippet": {
+        "publishedAt": "2024-01-15T12:00:00Z",
+        "channelId": "SAMPLEchan0000000000000",
+        "title": "Sample Video Detail — How to Overcome Inaction (SYNTHETIC FIXTURE)",
+        "description": "Extended synthetic description for the video detail fixture. Not real content. The YouTube Data API v3 videos.list endpoint returns this shape when fetching video metadata by ID.",
+        "thumbnails": {
+          "default": { "url": "https://example.com/sample-detail-thumb.jpg", "width": 120, "height": 90 },
+          "medium": { "url": "https://example.com/sample-detail-thumb-medium.jpg", "width": 320, "height": 180 }
+        },
+        "channelTitle": "SAMPLE_TRUSTED_FOR_TESTS_ONLY",
+        "categoryId": "27",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT45M30S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "true",
+        "licensedContent": false
+      },
+      "statistics": {
+        "viewCount": "12345",
+        "likeCount": "678",
+        "commentCount": "42"
+      }
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+candidate_id: cand-clear-habits-trajectory
+candidate_status: approved
+target_state: inaction-loop
+target_gap: inaction-loop + expert/scientific (systems/habits over willpower)
+proposed_insight_type: reframe
+proposed_voice_register: expert/scientific
+proposed_intensity_level: moderate
+source_title: James Clear, Atomic Habits — Simple Strategies for Building (and Breaking) Habits
+source_url: https://tim.blog/2023/01/06/james-clear-atomic-habits-transcript/
+source_platform: The Tim Ferriss Show
+speaker: James Clear
+guest_if_applicable: James Clear
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: https://tim.blog/2023/01/06/james-clear-atomic-habits-transcript/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: >-
+  Can my current habits carry me to my desired future? That's really about figuring out what kind of
+  trajectory you're on. If they can, then maybe all you need is patience, but if they can't,
+  something needs to change, you need to develop or build some new habits.
+quote_type: verbatim
+candidate_moment_summary: >-
+  Clear reframes the stuck question away from goals and motivation: ask whether your CURRENT habits
+  can carry you to the future you want. You're already on a trajectory set by what you repeatedly
+  do. If the habits can get you there, you just need patience; if they can't, no amount of wanting
+  will — you have to change the habits themselves.
+key_claim: >-
+  The real question isn't your goal — it's whether your current habits can carry you to the future
+  you want. You're on a trajectory set by what you already do. If your habits can get you there, you
+  just need patience; if they can't, no goal or burst of motivation will fix it — you have to build
+  new habits.
+why_it_might_land: >-
+  Inaction-loop users fixate on goals and motivation. Clear redirects to the only thing that
+  actually moves the trajectory — current habits — which is both clarifying and a little confronting
+  (your habits, not your intentions, predict your future).
+user_problem_match_notes: >-
+  Inaction-loop: the user keeps setting goals / waiting for motivation while the underlying habits
+  don't change. Clear's trajectory reframe locates the lever in the system, not the goal. Fills
+  inaction-loop + expert/scientific. Distinct from Robbins (timing), Goggins/Jocko (discipline),
+  Pressfield (Resistance), Colonna (complicity).
+resonance_match_notes: >-
+  Expert/scientific, measured. Lands for analytical users who want the systems-level explanation
+  rather than a push or a reframe of blame. NOTE: register is borderline expert/scientific vs
+  intellectual/measured (tagger_confidence medium); the excerpt is short (~46 words) and analytical
+  rather than emotionally vivid — let the Human Resonance Score decide whether it clears the bar.
+source_credibility_notes: >-
+  James Clear — author of Atomic Habits; domain authority on habit formation synthesizing behavioral
+  research. tier-2 for this excerpt (expertise, not citing his own study). Source: The Tim Ferriss
+  Show #648; official transcript on tim.blog. NOTE: the famous 'you fall to the level of your
+  systems' line is NOT Clear's in this episode (Tim Ferriss says it in the intro) — deliberately not
+  used.
+media_verification_status: not_applicable
+transcript_verification_status: verified
+human_resonance_score: 80
+quote_quality_score: 67
+source_credibility_score: 100
+gap_fit_score: 100
+novelty_score: 46
+overall_candidate_score: 83
+novelty_rating: novel
+recommendation: ready_for_sio_draft
+human_review_notes: >-
+  Excerpt VERBATIM from the official tim.blog transcript for TFS #648 (fetched 2026-05; continuous
+  block). Modest length/analytical — included to test whether the evaluator promotes or holds it.
+  Caught and avoided a misattribution (the 'systems' line is Tim's intro, not Clear's). No
+  timestamps.
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-26T00:29:20.404Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 4
+    emotional_precision: 4
+    reframe_power: 5
+    permission_relief: 3
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 3
+    non_genericness: 4
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The real question isn't your goal — it's whether your current habits can carry you to the
+      future you want.
+    felt_recognition: You're on a trajectory set by what you already do.
+    emotional_precision: >-
+      If the habits can get you there, you just need patience; if they can't, no goal or burst of
+      motivation will fix it.
+    reframe_power: >-
+      Clear reframes the stuck question away from goals and motivation: ask whether your CURRENT
+      habits can carry you to the future you want.
+    permission_relief: >-
+      If they can, then maybe all you need is patience, but if they can't, something needs to
+      change.
+    actionability: you have to change the habits themselves.
+    human_credibility: >-
+      James Clear — author of Atomic Habits; domain authority on habit formation synthesizing
+      behavioral research.
+    source_vividness: The content is clear but lacks personal anecdotes or vivid examples.
+    non_genericness: The insight is specific to habit formation and not a generic motivational statement.
+    voice_register_clarity: The voice is consistent and authoritative, fitting the expert/scientific register.
+  why_it_might_land: >-
+    This insight directly addresses the inaction-loop by shifting focus from goals to habits, which
+    many young professionals struggle with.
+  why_it_might_not_land: >-
+    Some users may still feel overwhelmed by the idea of changing habits without clear steps on how
+    to do so.
+novelty_nearest:
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.5412983564131667
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.5023140357028022
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.494490121544031
+  - insight_id: sio-achor-happiness-advantage-2011
+    similarity: 0.4850108379373592
+  - insight_id: sio-pink-autonomy-mastery-purpose-2009
+    similarity: 0.4832056894609419

@@ -1,0 +1,120 @@
+candidate_id: cand-jocko-discipline-not-motivation
+candidate_status: approved
+target_state: inaction-loop
+target_gap: inaction-loop + direct/challenging + intense (the intensity shortage)
+proposed_insight_type: reframe
+proposed_voice_register: direct/challenging
+proposed_intensity_level: intense
+source_title: Jocko Willink on Discipline, Leadership, and Overcoming Doubt
+source_url: https://tim.blog/2016/09/21/jocko-willink-on-discipline-leadership-and-overcoming-doubt/
+source_platform: The Tim Ferriss Show
+speaker: Jocko Willink
+guest_if_applicable: Jocko Willink
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: >-
+  https://tim.blog/2018/06/04/the-tim-ferriss-show-transcripts-jocko-willink-on-discipline-leadership-and-overcoming-doubt/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: >-
+  Motivation is fickle. Motivation comes and goes. I mean, you think about motivation, something as
+  simple as being hungry can sap your motivation. Right? That's ridiculous. You can't rely on that.
+  You have, oh my blood sugar went down, I'm not motivated anymore. Oh, I didn't get enough
+  caffeine, I'm not motivated. No, wrong answer. Motivation is unreliable. When you're counting on
+  motivation to get your goals accomplished, you're likely going to fall short. So don't count on
+  motivation. Count on discipline.
+quote_type: verbatim
+candidate_moment_summary: >-
+  Jocko dismantles the wait-to-feel-motivated trap: motivation is fickle — something as small as low
+  blood sugar can sap it — so counting on it to accomplish your goals means you'll fall short. The
+  move isn't to find motivation; it's to stop relying on it. Don't count on motivation. Count on
+  discipline.
+key_claim: >-
+  Motivation is fickle — it comes and goes, and something as small as being hungry can sap it. If
+  you're counting on motivation to get your goals accomplished, you're going to fall short. Don't
+  count on motivation. Count on discipline.
+why_it_might_land: >-
+  Inaction-loop users are usually waiting to feel motivated. Jocko names that as the actual mistake,
+  bluntly, from someone whose credibility on doing hard things is unimpeachable. For a user who
+  wants to be pushed (not soothed), the directness is the help.
+user_problem_match_notes: >-
+  Inaction-loop where the user keeps waiting for motivation that never reliably comes. Jocko
+  reframes the problem (motivation → discipline) and refuses the excuse. Fills the chronic 'intense'
+  shortage and pairs with Goggins as a second forceful inaction-loop voice. Distinct from Robbins
+  (timing mechanism) and Pressfield (Resistance reframe).
+resonance_match_notes: >-
+  Direct/challenging, intense. The right answer when the user explicitly wants accountability/tough
+  love and is rejecting comfort. Should NOT win for a self-blaming/shame-laden user (route those to
+  Colonna's warm reframe) — a deliberate tonal opposite.
+source_credibility_notes: >-
+  Jocko Willink — retired Navy SEAL officer; direct lived experience of discipline under extreme
+  conditions. tier-1 for this excerpt. Source: The Tim Ferriss Show #187; official transcript on
+  tim.blog.
+media_verification_status: not_applicable
+transcript_verification_status: verified
+human_resonance_score: 80
+quote_quality_score: 67
+source_credibility_score: 100
+gap_fit_score: 100
+novelty_score: 45
+overall_candidate_score: 83
+novelty_rating: novel
+recommendation: ready_for_sio_draft
+human_review_notes: >-
+  Excerpt VERBATIM from the official tim.blog transcript for TFS #187 (fetched 2026-05; one
+  continuous block, no elision). No timestamps in tim.blog transcripts. Note: episode date is
+  2016-09-21 (episode page); transcript published later. Recommend a final human word-for-word
+  check.
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-26T00:29:03.000Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 4
+    emotional_precision: 3
+    reframe_power: 5
+    permission_relief: 3
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 4
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The content clearly addresses the inaction-loop by emphasizing the unreliability of motivation
+      and the need for discipline.
+    felt_recognition: >-
+      The phrase 'you're likely going to fall short' resonates with someone who feels stuck in
+      inaction.
+    emotional_precision: >-
+      It touches on frustration with motivation but doesn't delve into deeper emotions like fear or
+      self-doubt.
+    reframe_power: It fundamentally shifts the perspective from relying on motivation to embracing discipline.
+    permission_relief: >-
+      While it challenges the reliance on motivation, it doesn't explicitly relieve shame or
+      self-blame for feeling unmotivated.
+    actionability: 'It implies a clear next step: to focus on discipline instead of waiting for motivation.'
+    human_credibility: >-
+      Jocko Willink's background as a Navy SEAL lends significant credibility to the message about
+      discipline.
+    source_vividness: The content feels direct and personal, reflecting Jocko's authoritative voice.
+    non_genericness: >-
+      The specific framing of motivation as 'fickle' and the emphasis on discipline is distinctive
+      and not generic.
+    voice_register_clarity: The voice is consistently direct and challenging throughout the content.
+  why_it_might_land: >-
+    The clear distinction between motivation and discipline resonates with those feeling stuck in
+    inaction, providing a strong reframe.
+  why_it_might_not_land: Some may find the tone too harsh or dismissive of their emotional struggles with motivation.
+novelty_nearest:
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.549392584048089
+  - insight_id: sio-pink-autonomy-mastery-purpose-2009
+    similarity: 0.5493561062527208
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.5157947153368978
+  - insight_id: sio-huberman-dopamine-baseline-2021
+    similarity: 0.4902514299458791
+  - insight_id: sio-achor-happiness-advantage-2011
+    similarity: 0.4503351451350679

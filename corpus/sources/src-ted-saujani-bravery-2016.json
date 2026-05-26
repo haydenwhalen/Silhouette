@@ -1,0 +1,26 @@
+{
+  "source_id": "src-ted-saujani-bravery-2016",
+  "source_type": "ted talk",
+  "speaker": "Reshma Saujani",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Teach girls bravery, not perfection",
+  "episode_or_content_date": "2016-02-01",
+  "source_url": "https://www.ted.com/talks/reshma_saujani_teach_girls_bravery_not_perfection",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/reshma_saujani_teach_girls_bravery_not_perfection",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). Talk given at TED2016; exact day approximate. Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Newly evaluated for this batch (added to ai/guides/source_candidates.md §1.4); not yet formally rubric-scored.",
+  "rights_or_usage_notes": "Official TED talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-saujani-brave-not-perfect-2016"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/reshma_saujani_teach_girls_bravery_not_perfection"
+}

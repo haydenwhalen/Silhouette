@@ -1,0 +1,26 @@
+{
+  "source_id": "src-ted-gilbert-genius-2009",
+  "source_type": "ted talk",
+  "speaker": "Elizabeth Gilbert",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Your elusive creative genius",
+  "episode_or_content_date": "2009-02-09",
+  "source_url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). Published on TED.com 2009-02-09. Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Source preliminarily endorsed in ai/guides/source_candidates.md §1.4; not yet formally rubric-scored.",
+  "rights_or_usage_notes": "Official TED talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-gilbert-elusive-genius-2009"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius"
+}

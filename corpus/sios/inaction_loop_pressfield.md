@@ -14,15 +14,22 @@ transcript_verified: false
 # and his book "The War of Art" (2002). The Resistance concept is central to both. Replace with
 # verbatim transcript text before marking approved.
 
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
 source_media_type: podcast-audio
 video_provider: none
+official_channel: "The Tim Ferriss Show"
+official_channel_url: "https://tim.blog/podcast/"
 video_id: ""
+video_url: ""
 embed_url: ""
 timestamp_start_seconds: null
 timestamp_end_seconds: null
 display_mode: audio-primary
 media_available: true
-media_rights_notes: "Publicly available podcast. Tim Ferriss episode 84. Verify timestamp before video embed."
+media_verification_status: not_applicable
+media_verification_notes: "Audio-only Tim Ferriss Show episode (ep. 84); no official video to embed. Source-link only to the official episode page. Not_applicable for video."
+media_rights_notes: "Publicly available podcast. Tim Ferriss episode 84. Link to the official episode page; do not download or re-host."
 
 primary_state_tag: inaction-loop
 secondary_state_tags: []

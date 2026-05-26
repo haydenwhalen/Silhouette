@@ -73,6 +73,9 @@ export interface ScoredCandidate {
   raw_boost_total: number; // before the cap
   final_score: number;
   label: "strong" | "acceptable" | "below_threshold";
+  // Debug trace for scoring decisions that don't add/subtract score but explain
+  // the resonance logic (e.g. a default boost being suppressed by a user hint).
+  notes?: string[];
 }
 
 export interface ScoredSearchResult {
@@ -104,47 +107,60 @@ function applyBoosts(
   const cfg = RETRIEVAL_CONFIG;
   const boosts: ScoredCandidate["boosts"] = [];
   const penalties: ScoredCandidate["penalties"] = [];
+  const notes: string[] = [];
 
-  // Default-profile resonance (Component 3 §7.5)
-  // Only apply if NOT overridden by an explicit intake hint of the opposite kind.
-  if (resonance) {
-    const hintType = hint?.insight_type;
-    const hintRegister = hint?.voice_register;
-    if (
-      String(m.insight_type ?? "") === resonance.insight_type &&
-      // Don't double-boost when intake hint matches default — give credit once via intake hint.
-      hintType !== resonance.insight_type
-    ) {
+  // Resonance scoring: default = FALLBACK, hint = PRECEDENCE (see retrievalConfig.ts).
+  // Each dimension (insight_type, voice_register) is decided independently:
+  //   - If the classifier produced a HINT for the dimension, the hint governs:
+  //     matching SIOs get the (larger) hint boost; the per-state DEFAULT boost
+  //     for that dimension is SUPPRESSED, whether the hint matches OR diverges
+  //     from the default. This stops the generic state default from out-voting
+  //     the user-specific tonal signal.
+  //   - If there is NO hint for the dimension, the default profile boost applies.
+  const hintType = hint?.insight_type || null;
+  const hintRegister = hint?.voice_register || null;
+  const docType = String(m.insight_type ?? "");
+  const docRegister = String(m.voice_register ?? "");
+
+  // --- insight_type dimension ---
+  if (hintType) {
+    // Hint present → hint takes precedence; default suppressed for this dimension.
+    if (docType === hintType) {
       boosts.push({
-        reason: `insight_type matches state default (${resonance.insight_type})`,
-        amount: cfg.boost_insight_type_match_default,
+        reason: `insight_type matches intake hint (${hintType})`,
+        amount: cfg.boost_inferred_insight_type_match,
       });
     }
-    if (
-      String(m.voice_register ?? "") === resonance.voice_register &&
-      hintRegister !== resonance.voice_register
-    ) {
-      boosts.push({
-        reason: `voice_register matches state default (${resonance.voice_register})`,
-        amount: cfg.boost_voice_register_match_default,
-      });
+    if (resonance && hintType !== resonance.insight_type) {
+      notes.push(
+        `default insight_type boost suppressed (user hint diverges: ${hintType} vs default ${resonance.insight_type})`
+      );
     }
-  }
-
-  // Intake-inferred resonance hint (Component 3 §6.5)
-  if (hint?.insight_type && String(m.insight_type ?? "") === hint.insight_type) {
+  } else if (resonance && docType === resonance.insight_type) {
+    // No hint → default profile applies as fallback.
     boosts.push({
-      reason: `insight_type matches intake hint (${hint.insight_type})`,
-      amount: cfg.boost_inferred_insight_type_match,
+      reason: `insight_type matches state default (${resonance.insight_type})`,
+      amount: cfg.boost_insight_type_match_default,
     });
   }
-  if (
-    hint?.voice_register &&
-    String(m.voice_register ?? "") === hint.voice_register
-  ) {
+
+  // --- voice_register dimension ---
+  if (hintRegister) {
+    if (docRegister === hintRegister) {
+      boosts.push({
+        reason: `voice_register matches intake hint (${hintRegister})`,
+        amount: cfg.boost_inferred_voice_register_match,
+      });
+    }
+    if (resonance && hintRegister !== resonance.voice_register) {
+      notes.push(
+        `default voice_register boost suppressed (user hint diverges: ${hintRegister} vs default ${resonance.voice_register})`
+      );
+    }
+  } else if (resonance && docRegister === resonance.voice_register) {
     boosts.push({
-      reason: `voice_register matches intake hint (${hint.voice_register})`,
-      amount: cfg.boost_inferred_voice_register_match,
+      reason: `voice_register matches state default (${resonance.voice_register})`,
+      amount: cfg.boost_voice_register_match_default,
     });
   }
 
@@ -204,6 +220,7 @@ function applyBoosts(
     raw_boost_total: rawBoostTotal,
     final_score: finalScore,
     label,
+    notes: notes.length ? notes : undefined,
   };
 }
 

@@ -1,0 +1,100 @@
+candidate_id: cand-newport-skill-over-passion-dup
+candidate_status: proposed
+target_state: direction-collapse
+target_gap: direction-collapse + reframe + intellectual/measured
+proposed_insight_type: reframe
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: moderate
+source_title: Cal Newport on career capital and why 'follow your passion' is bad advice (podcast appearance)
+source_url: ''
+source_platform: podcast (appearance — to be identified)
+speaker: Cal Newport
+guest_if_applicable: Cal Newport
+official_channel_url: ''
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: unknown
+candidate_moment_summary: >
+  Newport restates his core thesis: "follow your passion" is dangerous advice because most people
+  don't have a pre-existing passion. Passion follows skill — you build rare and valuable abilities
+  (career capital), and meaning emerges from doing demanding work well, not from finding the thing
+  you were always meant to do.
+key_claim: >
+  Don't follow your passion — passion follows skill. Stop searching inward for a calling and build
+  something rare and valuable; the sense of meaning comes from getting good, not from finding the
+  one true thing.
+why_it_might_land: >
+  Strong reframe for analytical direction-collapse users — but the corpus already carries this exact
+  Newport reframe (sio-newport-skill-not-passion-2012). Useful test of the dedup agent.
+user_problem_match_notes: >
+  Original-variant direction-collapse; analytical posture. Overlaps the existing Newport SIO
+  heavily.
+resonance_match_notes: |
+  intellectual/measured. Likely flagged as a duplicate of the existing Newport SIO.
+source_credibility_notes: |
+  Cal Newport — tier-2. (Source episode not yet identified; needs source verification.)
+media_verification_status: needs_review
+transcript_verification_status: needs_review
+human_resonance_score: 85
+quote_quality_score: 75
+source_credibility_score: 75
+gap_fit_score: 100
+novelty_score: 15
+overall_candidate_score: 84
+novelty_rating: duplicate
+recommendation: needs_stronger_source
+human_review_notes: >-
+  Near-duplicate example — expected outcome: novelty agent flags duplicate / similar_but_useful vs
+  sio-newport-skill-not-passion-2012.
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-25T23:31:58.451Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 4
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 4
+    human_credibility: 4
+    source_vividness: 3
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: Don't follow your passion — passion follows skill.
+    felt_recognition: Stop searching inward for a calling and build something rare and valuable.
+    emotional_precision: the sense of meaning comes from getting good, not from finding the one true thing.
+    reframe_power: >-
+      'follow your passion' is dangerous advice because most people don't have a pre-existing
+      passion.
+    permission_relief: >-
+      meaning emerges from doing demanding work well, not from finding the thing you were always
+      meant to do.
+    actionability: build rare and valuable abilities (career capital)
+    human_credibility: Cal Newport — tier-2.
+    source_vividness: the sense of meaning comes from getting good, not from finding the one true thing.
+    non_genericness: >-
+      'follow your passion' is dangerous advice because most people don't have a pre-existing
+      passion.
+    voice_register_clarity: Cal Newport's intellectual and measured tone is consistent throughout.
+  why_it_might_land: >-
+    This insight challenges a common belief and provides a clear alternative perspective that many
+    young professionals may resonate with.
+  why_it_might_not_land: >-
+    Some may still feel overwhelmed by the idea of building skills without a clear passion to guide
+    them.
+novelty_nearest:
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.8539824960788128
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.6601286525263554
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.5586011430281025
+  - insight_id: sio-sinek-start-with-why-2009
+    similarity: 0.5489259947194636
+  - insight_id: sio-pink-autonomy-mastery-purpose-2009
+    similarity: 0.48382331103585663

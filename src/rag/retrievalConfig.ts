@@ -30,8 +30,31 @@ export const STATE_DEFAULT_RESONANCE: Record<MvpState, ResonanceProfile> = {
 // Boost weights for resonance_source = "inferred" or "default" (Component 6 §9).
 // Strong-resonance weights (explicit/learned) are not used at MVP since we only
 // have inferred/default signals.
+//
+// RESONANCE SCORING MODEL (Phase: tone-selectivity fix)
+// ------------------------------------------------------
+// There are two resonance signals: the per-state DEFAULT profile (e.g.
+// engagement-drought → mechanism/expert) and the per-query intake HINT inferred
+// by the classifier from the user's emotional tone (e.g. burnout → permission/
+// vulnerable).
+//
+//   default = FALLBACK, hint = PRECEDENCE.
+//
+// For each dimension (insight_type, voice_register) independently:
+//   - If the classifier produced a HINT for that dimension, the hint governs:
+//     only SIOs matching the hint get the (larger) hint boost, and the default
+//     boost for that dimension is SUPPRESSED — even if the hint diverges from
+//     the default. This stops the generic state default from out-voting the
+//     user-specific tonal signal (e.g. Huberman's default mechanism boost no
+//     longer buries Huffington's permission match on a burnout query).
+//   - If there is NO hint for that dimension, the default profile boost applies
+//     as before (analytical queries still pull mechanism/expert, etc.).
+// The hint boosts are intentionally LARGER than the default boosts so that a
+// clear user signal can actually move ranking; the +0.20 cap keeps boosts from
+// swamping semantic similarity. See vectorStore.ts applyBoosts().
 export const RETRIEVAL_CONFIG = {
-  // Resonance (default profile)
+  // Resonance (default profile — applied only as a FALLBACK when no intake hint
+  // exists for the dimension; see model note above).
   boost_insight_type_match_default: 0.05,
   boost_voice_register_match_default: 0.04,
   // Credibility
@@ -54,11 +77,14 @@ export const RETRIEVAL_CONFIG = {
   // Variant boost (Phase 4 fix #1) — applies when classifier infers a Direction
   // Collapse variant that matches an SIO's direction_collapse_variant field.
   boost_variant_match: 0.06,
-  // User-language resonance hint boost (Phase 4 fix #2) — light intake-inferred
-  // resonance signal per Component 3 §6.5. Smaller than default-profile match
-  // because it's noisier and shouldn't override a clear default.
-  boost_inferred_insight_type_match: 0.03,
-  boost_inferred_voice_register_match: 0.03,
+  // User-language resonance hint boost — intake-inferred tonal signal per
+  // Component 3 §6.5. Raised from 0.03 → 0.06 each (tone-selectivity fix):
+  // these now take PRECEDENCE over the default profile (which is suppressed for
+  // any dimension that has a hint), so they must be large enough that a clear
+  // user signal can flip ranking against semantically-close default-matching
+  // SIOs. Combined max hint boost = 0.12, still well under boost_cap_total 0.20.
+  boost_inferred_insight_type_match: 0.06,
+  boost_inferred_voice_register_match: 0.06,
 } as const;
 
 export type RetrievalConfig = typeof RETRIEVAL_CONFIG;

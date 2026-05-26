@@ -64,38 +64,58 @@ transcript_verified: false
 # ⚠️ These fields are NOT used for retrieval.
 # Retrieval is text-based: key_claim + content_summary + transcript_excerpt + state tags.
 # These fields tell the UI how to present the insight after retrieval has already occurred.
+#
+# Full schema, status vocabulary, embed formats, confidence model, and the
+# human-in-the-loop verification workflow live in:
+#   ai/guides/video_source_finder_design.md
+#
+# HONESTY RULE: never fabricate a video_id, timestamp, or URL. A blank field with an
+# honest media_verification_status (needs_review / unverified) always beats a guess.
+# Tooling: `npm run find-video-sources` (inventory + search targets),
+#          `npm run validate-media` (format + honesty checks).
 
 source_media_type: ""
 # What is the original source format?
-# Options: youtube-video | podcast-video | podcast-audio | ted-talk | article | other
+# Options: youtube-video | podcast-video | podcast-audio | ted-talk | article | book | other
 
 video_provider: ""
-# Options: youtube | vimeo | spotify | none
+# Options: ted | youtube | vimeo | spotify | none
+# "ted"  = official TED talk; embed via embed.ted.com (uses a slug, NOT a video_id)
 # "none" = audio-only or text source; no embeddable video exists
 
 video_id: ""
-# Provider-specific video ID. For YouTube: the string after ?v= in the watch URL.
+# Provider-specific video ID. YOUTUBE ONLY (11 chars): the string after ?v= in the watch URL.
 # Example: https://youtube.com/watch?v=dQw4w9WgXcQ  →  video_id: dQw4w9WgXcQ
-# Leave blank until verified. Do not guess.
+# TED uses a slug inside embed_url, so video_id stays BLANK for TED sources.
+# Leave blank until playback-verified on the OFFICIAL channel. Do not guess.
+
+video_url: ""
+# OPTIONAL. Canonical public watch URL (e.g. https://www.youtube.com/watch?v=<id>,
+# or the ted.com/talks/<slug> page). Informational; may hold a candidate URL pending review.
 
 embed_url: ""
-# Full iFrame embed URL with timestamp parameters. Built from video_id + timestamps.
+# Full iFrame embed URL. Leave blank until the underlying artifact is verified.
+# TED format:     https://embed.ted.com/talks/<slug>
 # YouTube format: https://www.youtube-nocookie.com/embed/{video_id}?start={start_s}&end={end_s}
 # Use youtube-nocookie.com (privacy-enhanced mode — no cookies until user clicks play).
-# Leave blank until video_id is verified.
+
+official_channel: ""
+# OPTIONAL. Human name of the official channel/show (e.g. TED, Huberman Lab,
+# The Tim Ferriss Show). Used to distinguish official uploads from re-uploads.
+
+official_channel_url: ""
+# OPTIONAL. URL of the official channel (e.g. https://www.youtube.com/@hubermanlab).
 
 timestamp_start_seconds: null
-# Integer. Seconds from video start where this insight begins.
+# Integer or null. Seconds from video start where this insight begins.
 # Derive from timestamp_range: HH×3600 + MM×60 + SS
-# Example: 01:14:22  →  1×3600 + 14×60 + 22 = 4462
-# Used for YouTube ?start= parameter.
+# Example: 01:14:22  →  1×3600 + 14×60 + 22 = 4462. Used for YouTube ?start=.
+# Leave null when not transcript-verified rather than committing a false precision.
 
 timestamp_end_seconds: null
-# Integer. Seconds where the insight ends.
-# Example: 01:17:08  →  1×3600 + 17×60 + 8 = 4628
-# Used for YouTube ?end= parameter.
-# Note: YouTube's end parameter is approximate — the player may run slightly over.
-# The UI should not rely on it for hard stopping; use it as a soft cue only.
+# Integer or null. Seconds where the insight ends.
+# Example: 01:17:08  →  1×3600 + 17×60 + 8 = 4628. Used for YouTube ?end=.
+# YouTube's end parameter is approximate — soft cue only, do not rely on it for hard stop.
 
 display_mode: ""
 # How should the presentation layer render this SIO?
@@ -108,9 +128,24 @@ media_available: null
 # false = video is private, taken down, or geo-restricted
 # null  = not yet verified
 
+media_verification_status: ""
+# REQUIRED for media-bearing sources. One of:
+# verified       — official artifact confirmed (TED canonical slug, or official channel
+#                  links the exact video). Only this status may drive a video-primary embed.
+# needs_review   — plausible official candidate found, but the playback artifact
+#                  (esp. YouTube video_id) is not machine-confirmed. video_id stays blank.
+# unverified     — not yet checked / existence unknown.
+# unofficial     — only a non-official re-upload is available. Never embedded as official.
+# not_applicable — source has no embeddable video by nature (book / article / audio-only).
+
+media_verification_notes: ""
+# What was verified, by what method + date, and exactly what remains unverified.
+# Honest gaps go here. Required when media_verification_status is anything but unverified.
+
 media_rights_notes: ""
 # OPTIONAL. Video-specific rights or usage notes beyond the general source rights.
 # Standard note for YouTube: "Embed only from official channel. Do not download or re-host."
+# Standard note for TED:     "Embed via embed.ted.com only. Do not download or re-host."
 
 # ── RETRIEVAL TAGS ─────────────────────────────────────────────────
 primary_state_tag: ""

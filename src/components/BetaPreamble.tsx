@@ -34,19 +34,31 @@ export function BetaPreamble({ onAccept }: BetaPreambleProps) {
         mid-career people navigating that quiet kind of stuck.
       </p>
 
-      <p style={{ marginTop: "0.5rem", marginBottom: "0.75rem" }}>
-        It is <em>not</em> a therapist, a crisis service, or mental-health care.
-        If you're in crisis or immediate danger, please reach out to{" "}
-        <a
-          href="https://988lifeline.org"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "#6fa8dc", textDecoration: "underline" }}
-        >
-          988
-        </a>{" "}
-        in the US or your local emergency resources.
-      </p>
+      <div
+        style={{
+          marginTop: "0.5rem",
+          marginBottom: "0.75rem",
+          padding: "0.75rem 0.85rem",
+          background: "#1a1f25",
+          borderLeft: "3px solid #c97a4a",
+          borderRadius: "0.25rem",
+        }}
+      >
+        <p style={{ margin: 0 }}>
+          <strong style={{ color: "#e8e8e8" }}>This is not a crisis service.</strong>{" "}
+          Silhouette is not a therapist or mental-health care. If you're in
+          crisis or immediate danger, please reach out to{" "}
+          <a
+            href="https://988lifeline.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#e8a070", textDecoration: "underline", fontWeight: 600 }}
+          >
+            988
+          </a>{" "}
+          in the US or your local emergency resources.
+        </p>
+      </div>
 
       <p style={{ marginTop: "0.5rem", marginBottom: "0.75rem" }}>
         This is an early prototype. Some quotes are paraphrased reconstructions
@@ -79,11 +91,11 @@ export function BetaPreamble({ onAccept }: BetaPreambleProps) {
   );
 }
 
-export function useBetaPreambleAccepted(): [boolean, () => void] {
-  // Default `accepted` to true during SSR / first hydration so the preamble
-  // never flashes for returning users; we flip it to false on mount if no
-  // localStorage flag exists.
-  const [accepted, setAccepted] = useState(true);
+// null = not yet resolved (SSR + first paint), true = accepted, false = needs to accept.
+// Tri-state prevents both: first-time users briefly seeing the chat behind the preamble,
+// and returning users seeing the preamble flash on top of the chat.
+export function useBetaPreambleAccepted(): [boolean | null, () => void] {
+  const [accepted, setAccepted] = useState<boolean | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

@@ -7,5 +7,14 @@
   "source_url": "https://www.hubermanlab.com/episode/controlling-your-dopamine-for-motivation-focus-and-satisfaction",
   "transcript_source": "auto-generated",
   "source_score": 68,
-  "rights_or_usage_notes": "Publicly available podcast. Attribution required."
+  "rights_or_usage_notes": "Publicly available podcast. Attribution required.",
+  "video_provider": "youtube",
+  "video_id": "",
+  "video_url": "https://www.youtube.com/watch?v=QmOF0crdyRU",
+  "embed_url": "",
+  "official_channel": "Huberman Lab",
+  "official_channel_url": "https://www.youtube.com/@hubermanlab",
+  "media_available": true,
+  "media_verification_status": "needs_review",
+  "verification_notes": "Official channel + episode page CONFIRMED via web (2026-05). Official hubermanlab.com episode page links candidate id QmOF0crdyRU (youtu.be/QmOF0crdyRU) — HIGH-confidence candidate, recorded in video_url. video_id left blank: official-channel playback not machine-confirmable without YouTube Data API."
 }

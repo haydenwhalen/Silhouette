@@ -11,6 +11,10 @@ export interface PresentationMedia {
   source_url: string | null;
   embed_url: string | null;
   video_id: string | null;
+  video_url: string | null;
+  video_provider: string | null;
+  source_media_type: string | null;
+  media_verification_status: string | null;
   timestamp_range: string | null;
   timestamp_start_seconds: number | null;
 }
@@ -113,9 +117,18 @@ function buildMedia(m: Record<string, unknown>): PresentationMedia {
   const videoId = (m.video_id as string) || null;
   const embedUrl = (m.embed_url as string) || null;
   const sourceUrl = (m.source_url as string) || null;
-  // Graceful fallback: declared video-primary without a video_id collapses to audio-primary or text-only.
+  const videoUrl = (m.video_url as string) || null;
+  const videoProvider = (m.video_provider as string) || null;
+  const sourceMediaType = (m.source_media_type as string) || null;
+  const verificationStatus = (m.media_verification_status as string) || null;
+  // A video is presentable only with a real embed (TED slug embed, or a verified YouTube
+  // embed). A blank embed_url means we have no verified player — even if video_id/provider
+  // are set as candidates — so video-primary must degrade rather than show a broken player.
+  const hasEmbed = !!embedUrl;
+  // Graceful fallback: declared video-primary without an embed collapses to audio-primary
+  // or text-only (preserve existing behavior; embed_url presence keeps video-primary).
   let display: PresentationMedia["display_mode"] = declared;
-  if (declared === "video-primary" && !videoId && !embedUrl) {
+  if (declared === "video-primary" && !hasEmbed) {
     display = sourceUrl ? "audio-primary" : "text-only";
   }
   if (declared === "audio-primary" && !sourceUrl) {
@@ -129,6 +142,10 @@ function buildMedia(m: Record<string, unknown>): PresentationMedia {
     source_url: sourceUrl,
     embed_url: embedUrl,
     video_id: videoId,
+    video_url: videoUrl,
+    video_provider: videoProvider,
+    source_media_type: sourceMediaType,
+    media_verification_status: verificationStatus,
     timestamp_range: (m.timestamp_range as string) || null,
     timestamp_start_seconds:
       typeof m.timestamp_start_seconds === "number"
@@ -195,12 +212,51 @@ function stripReconstructionNotes(text: string): string {
   return out;
 }
 
+// Media-aware, never-broken source link. Chooses the verb (Watch / Listen / Read)
+// from the media kind, prefers the canonical public page for the URL, and only adds a
+// "from <timestamp>" cue when the timestamp is genuinely usable. Returns null (no link)
+// rather than a broken one when no URL exists.
 function sourceLink(m: PresentationMedia): string | null {
-  if (!m.source_url) return null;
-  if (m.timestamp_range) {
-    return `Hear it at ${m.timestamp_range.split("–")[0]} → ${m.source_url}`;
+  // Best public link target. In true video-primary mode we may link the watch page
+  // (video_url); otherwise prefer the canonical source page (e.g. the official episode
+  // page) over a candidate watch URL. We never expose the bare embed URL as the click
+  // target. Returns null (no link) rather than a broken one when no URL exists.
+  const url =
+    m.display_mode === "video-primary"
+      ? m.video_url || m.source_url || null
+      : m.source_url || m.video_url || null;
+  if (!url) return null;
+
+  const provider = (m.video_provider ?? "").toLowerCase();
+  const mediaType = (m.source_media_type ?? "").toLowerCase();
+  const startTs = m.timestamp_range ? m.timestamp_range.split("–")[0].trim() : null;
+
+  // The verb follows the RESOLVED display_mode, so we only say "Watch" when we actually
+  // have a verified video (video-primary requires an embed in buildMedia). A media block
+  // that degraded to audio-primary (e.g. a needs_review YouTube source with no verified
+  // embed) honestly reads as "Listen", not "Watch".
+  if (m.display_mode === "video-primary") {
+    // TED embeds play from the start (no per-moment ts), so plain "Watch the talk" is
+    // correct there; only offer a timestamp cue for non-TED with a real embed timestamp.
+    if (startTs && provider !== "ted") {
+      return `Watch from ${startTs} → ${url}`;
+    }
+    return `Watch the talk → ${url}`;
   }
-  return `Listen to the full episode → ${m.source_url}`;
+
+  if (
+    m.display_mode === "text-only" ||
+    mediaType === "book" ||
+    mediaType === "article"
+  ) {
+    return `Read the source → ${url}`;
+  }
+
+  // Audio / audio-primary (incl. video sources that degraded for lack of a verified embed).
+  if (startTs) {
+    return `Hear it at ${startTs} → ${url}`;
+  }
+  return `Listen to the full episode → ${url}`;
 }
 
 function shouldIncludeBridge(c: StateClassification, state: string): boolean {

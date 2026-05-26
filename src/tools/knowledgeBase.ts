@@ -162,9 +162,10 @@ export const knowledgeBaseTool = tool(
         ),
       state: z
         .enum(STATE_VALUES)
+        .nullable()
         .optional()
         .describe(
-          "Optional. Override the upstream-detected state. Leave unset to use the detected state."
+          "Optional. Override the upstream-detected state. Leave unset (or null) to use the detected state."
         ),
     }),
   }

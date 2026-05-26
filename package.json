@@ -16,7 +16,20 @@
     "test-chat-e2e": "tsx scripts/test-chat-e2e.ts",
     "test-feedback-loop": "tsx scripts/test-feedback-loop.ts",
     "test-ui-signal": "tsx scripts/test-ui-signal.ts",
-    "analyze-feedback": "tsx scripts/analyze-feedback.ts"
+    "test-smoke-flows": "tsx scripts/test-smoke-flows.ts",
+    "warm": "bash scripts/warm-dev-server.sh",
+    "analyze-feedback": "tsx scripts/analyze-feedback.ts",
+    "find-video-sources": "tsx scripts/find-video-sources.ts",
+    "validate-media": "tsx scripts/validate-media-metadata.ts",
+    "detect-gaps": "tsx scripts/detect-corpus-gaps.ts",
+    "find-source-candidates": "tsx scripts/find-source-candidates.ts",
+    "evaluate-candidate": "tsx scripts/evaluate-sio-candidate.ts",
+    "score-candidate-novelty": "tsx scripts/score-candidate-novelty.ts",
+    "verify-candidate-source": "tsx scripts/verify-candidate-source.ts",
+    "review-candidates": "tsx scripts/review-candidates.ts",
+    "draft-sio-from-candidate": "tsx scripts/draft-sio-from-candidate.ts",
+    "discover-sios": "tsx scripts/run-sio-discovery-agent.ts",
+    "test-youtube-api": "tsx scripts/test-youtube-api.ts"
   },
   "dependencies": {
     "@langchain/classic": "^1.0.25",

@@ -1,5 +1,7 @@
 import "dotenv/config";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync, readdirSync } from "fs";
+import { join } from "path";
+import { load as parseYaml } from "js-yaml";
 import { getFeedbackLogPath, type FeedbackEvent } from "../src/feedback/feedbackLog";
 
 // Phase 7 path recommendation thresholds. Tweak as the corpus and beta data grow.
@@ -44,25 +46,65 @@ interface Aggregates {
   data_quality_warnings: string[];
 }
 
-// 6 of 9 SIOs are reconstructed (verbatim only for McConaughey, Manson, Newport).
-// This list lets the analysis spot a verbatim-vs-reconstructed performance gap.
-const RECONSTRUCTED_SIO_IDS = new Set([
-  "sio-huberman-dopamine-baseline-2021",
-  "sio-goggins-identity-of-inaction-2023",
-  "sio-grant-languishing-2021",
-  "sio-brown-numbing-not-failing-2021",
-  "sio-pressfield-resistance-2015",
-  "sio-robbins-5-second-rule-2011",
-]);
+// Derive the set of reconstructed SIOs from the corpus itself —
+// `transcript_verified: false` in the SIO frontmatter is the source of truth.
+// This way the analysis stays correct as SIOs are added, verified, or replaced.
+function loadReconstructedSIOIds(): Set<string> {
+  const dir = join(process.cwd(), "corpus", "sios");
+  if (!existsSync(dir)) return new Set();
+  const out = new Set<string>();
+  for (const file of readdirSync(dir).filter((f) => f.endsWith(".md"))) {
+    const raw = readFileSync(join(dir, file), "utf-8");
+    if (!raw.startsWith("---")) continue;
+    const end = raw.indexOf("\n---", 3);
+    if (end === -1) continue;
+    try {
+      const fm = parseYaml(raw.slice(3, end)) as Record<string, unknown> | null;
+      if (!fm) continue;
+      if (fm.transcript_verified === false && typeof fm.insight_id === "string") {
+        out.add(fm.insight_id);
+      }
+    } catch {
+      // skip
+    }
+  }
+  return out;
+}
 
-function loadLog(): { events: FeedbackEvent[]; warnings: string[] } {
+const RECONSTRUCTED_SIO_IDS = loadReconstructedSIOIds();
+
+// Reserved test/smoke identifiers. Events tagged with these are skipped from
+// Phase 7 analysis so dev/smoke runs don't contaminate beta recommendations.
+// Real beta participants should not use these handles.
+const TEST_SESSION_PREFIXES = ["test-"];
+const RESERVED_TEST_HANDLES = new Set(["smoketest", "probe", "test", "dev"]);
+
+function isTestEvent(e: { session_id: string; user_handle?: string | null }): boolean {
+  if (TEST_SESSION_PREFIXES.some((p) => e.session_id.startsWith(p))) return true;
+  if (e.user_handle && RESERVED_TEST_HANDLES.has(e.user_handle.toLowerCase())) return true;
+  // Also catch sessions named after a reserved handle even if user_handle was
+  // not cached (e.g. dwell signals before the handle reached session state).
+  // The ChatWindow session pattern is `s-${handle}-...`.
+  const sidLower = e.session_id.toLowerCase();
+  for (const handle of RESERVED_TEST_HANDLES) {
+    if (sidLower.startsWith(`s-${handle}-`)) return true;
+  }
+  return false;
+}
+
+function loadLog(includeTest: boolean): {
+  events: FeedbackEvent[];
+  warnings: string[];
+  filteredCount: number;
+} {
   const path = getFeedbackLogPath();
   if (!existsSync(path)) {
-    return { events: [], warnings: ["feedback log does not exist yet"] };
+    return { events: [], warnings: ["feedback log does not exist yet"], filteredCount: 0 };
   }
   const lines = readFileSync(path, "utf-8").split("\n").filter(Boolean);
   const events: FeedbackEvent[] = [];
   const warnings: string[] = [];
+  let filteredCount = 0;
   for (const [i, line] of lines.entries()) {
     try {
       const obj = JSON.parse(line);
@@ -70,12 +112,16 @@ function loadLog(): { events: FeedbackEvent[]; warnings: string[] } {
         warnings.push(`line ${i + 1}: missing response_type or session_id`);
         continue;
       }
+      if (!includeTest && isTestEvent(obj)) {
+        filteredCount++;
+        continue;
+      }
       events.push(obj as FeedbackEvent);
     } catch {
       warnings.push(`line ${i + 1}: invalid JSON`);
     }
   }
-  return { events, warnings };
+  return { events, warnings, filteredCount };
 }
 
 function median(xs: number[]): number | null {
@@ -489,8 +535,21 @@ function renderReport(a: Aggregates, rec: Recommendation): void {
 }
 
 function main() {
-  const { events, warnings } = loadLog();
-  if (warnings.length > 0 && events.length === 0) {
+  const includeTest = process.argv.includes("--include-test");
+  const { events, warnings, filteredCount } = loadLog(includeTest);
+  if (filteredCount > 0) {
+    warnings.unshift(
+      `Filtered ${filteredCount} test/smoke event(s) from analysis (sessions prefixed test- or reserved handles: ${[...RESERVED_TEST_HANDLES].join(", ")}). Pass --include-test to include them.`
+    );
+  }
+  // Hard fail only when the log file itself is unreadable. An empty log
+  // (or one with only test events) is a valid pre-beta state — render an empty
+  // report so the user sees the "collect-more" recommendation rather than an error.
+  const unreadable =
+    warnings.some((w) => w.includes("does not exist") || w.includes("invalid JSON")) &&
+    events.length === 0 &&
+    filteredCount === 0;
+  if (unreadable) {
     console.error("Feedback log unreadable or missing.");
     for (const w of warnings) console.error(`  - ${w}`);
     process.exit(2);

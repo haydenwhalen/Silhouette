@@ -1,0 +1,109 @@
+candidate_id: cand-susan-david-emotional-courage
+candidate_status: proposed
+target_state: engagement-drought
+target_gap: engagement-drought + permission + warm/affirming (mild)
+proposed_insight_type: permission
+proposed_voice_register: warm/affirming
+proposed_intensity_level: mild
+source_title: The gift and power of emotional courage
+source_url: https://www.ted.com/talks/susan_david_the_gift_and_power_of_emotional_courage
+source_platform: TED
+speaker: Susan David
+guest_if_applicable: ''
+official_channel_url: https://www.ted.com/
+video_url: https://www.ted.com/talks/susan_david_the_gift_and_power_of_emotional_courage
+embed_url: ''
+transcript_url: https://www.ted.com/talks/susan_david_the_gift_and_power_of_emotional_courage/transcript
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  David, a psychologist, argues that the cultural push to "just be positive" teaches people to
+  bottle or brood on difficult emotions — and that this rigid positivity is itself a subtle tyranny
+  that disconnects us from our own signals. Her reframe: tough emotions are normal data, not
+  evidence that something is wrong with you, and "discomfort is the price of admission to a
+  meaningful life." For someone flat and going-through-the-motions, the move isn't to force more
+  positivity; it's to let the real (often uncomfortable) feeling be present, because that's where
+  re-engagement actually begins.
+key_claim: >
+  Bottling up what you feel, or forcing yourself to "just stay positive," is how the work goes numb
+  — tough emotions aren't a sign something is wrong with you, they're the price of admission to a
+  meaningful life, and letting them be real is where caring comes back.
+why_it_might_land: >
+  Speaks to the engagement-drought user who suspects the answer is "try harder to be positive" and
+  is quietly exhausted by it. Names the suppression underneath the flatness and grants permission to
+  stop performing positivity — relief rather than another demand.
+user_problem_match_notes: >
+  Engagement-drought / numbness where the user is forcing positivity over a real, unfelt emotion.
+  Permission to feel rather than a mechanism or a push. Distinct from Huberman (dopamine mechanism)
+  and from Brown (numbing-as-avoidance) — David targets rigid positivity specifically.
+resonance_match_notes: >
+  Warm/affirming, mild. Lands for users who experience clinical mechanism as cold and who are tired
+  of "good vibes only." Pairs as a register discriminator against Huberman/Pink within ED.
+source_credibility_notes: >
+  Psychologist (Harvard Medical School / Evidence Based Psychology); author of "Emotional Agility".
+  Likely tier-2/tier-3 framing. Official TED talk; canonical slug to be confirmed by the verifier.
+media_verification_status: needs_review
+transcript_verification_status: needs_review
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+novelty_score: 34
+overall_candidate_score: 91
+novelty_rating: novel
+recommendation: needs_stronger_source
+human_review_notes: >-
+  Example candidate (gap-filling). Verify canonical TED slug + capture a brief verbatim line +
+  timestamp before drafting.
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-25T23:53:56.643Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the move isn't to force more positivity; it's to let the real (often uncomfortable) feeling be
+      present, because that's where re-engagement actually begins.
+    felt_recognition: >-
+      Bottling up what you feel, or forcing yourself to 'just stay positive,' is how the work goes
+      numb.
+    emotional_precision: >-
+      tough emotions aren't a sign something is wrong with you, they're the price of admission to a
+      meaningful life.
+    reframe_power: 'Her reframe: tough emotions are normal data, not evidence that something is wrong with you.'
+    permission_relief: tough emotions aren't a sign something is wrong with you.
+    actionability: it's to let the real (often uncomfortable) feeling be present.
+    human_credibility: Susan David, a psychologist, argues that the cultural push to 'just be positive'...
+    source_vividness: >-
+      the cultural push to 'just be positive' teaches people to bottle or brood on difficult
+      emotions.
+    non_genericness: this rigid positivity is itself a subtle tyranny that disconnects us from our own signals.
+    voice_register_clarity: Susan David, a psychologist, argues that the cultural push to 'just be positive'...
+  why_it_might_land: >-
+    This insight directly addresses the feelings of numbness and disengagement that come from
+    suppressing emotions, which many young professionals experience.
+  why_it_might_not_land: >-
+    Some may still feel overwhelmed by their emotions and struggle to see them as a pathway to
+    re-engagement.
+novelty_nearest:
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.6641899855267007
+  - insight_id: sio-achor-happiness-advantage-2011
+    similarity: 0.5426893473747607
+  - insight_id: sio-grant-languishing-2021
+    similarity: 0.5298282523739273
+  - insight_id: sio-dgilbert-synthetic-happiness-2004
+    similarity: 0.5130914945186392
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.4919274548515446

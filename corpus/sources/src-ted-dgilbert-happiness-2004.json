@@ -1,0 +1,26 @@
+{
+  "source_id": "src-ted-dgilbert-happiness-2004",
+  "source_type": "ted talk",
+  "speaker": "Dan Gilbert",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "The surprising science of happiness",
+  "episode_or_content_date": "2004-02-01",
+  "source_url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). Filmed at TED2004 (Feb 2004), published on TED.com 2006; exact day approximate. Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Source preliminarily endorsed in ai/guides/source_candidates.md §1.4 (listed there as 'Dan Gilbert — The Surprising Science of Happiness'); not yet formally rubric-scored.",
+  "rights_or_usage_notes": "Official TED talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-dgilbert-synthetic-happiness-2004"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness"
+}

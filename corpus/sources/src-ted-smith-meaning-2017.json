@@ -1,0 +1,26 @@
+{
+  "source_id": "src-ted-smith-meaning-2017",
+  "source_type": "ted talk",
+  "speaker": "Emily Esfahani Smith",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "There's more to life than being happy",
+  "episode_or_content_date": "2017-09-12",
+  "source_url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). Published on TED.com 2017-09-12 (TED2017). Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Newly evaluated for this batch (added to ai/guides/source_candidates.md §1.4); not yet formally rubric-scored.",
+  "rights_or_usage_notes": "Official TED talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-smith-meaning-over-happiness-2017"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/emily_esfahani_smith_there_s_more_to_life_than_being_happy"
+}

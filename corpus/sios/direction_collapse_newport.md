@@ -14,14 +14,19 @@ transcript_verified: false
 # Core argument ("passion follows skill, not vice versa") is consistent across his published work
 # and many podcast appearances. Replace with verbatim book excerpt before marking approved.
 
-source_media_type: other
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
+source_media_type: book
 video_provider: none
 video_id: ""
+video_url: ""
 embed_url: ""
 timestamp_start_seconds: null
 timestamp_end_seconds: null
 display_mode: text-only
 media_available: true
+media_verification_status: not_applicable
+media_verification_notes: "Published book — no embeddable video. Presentation links the publisher/author page as the source. Not_applicable for video."
 media_rights_notes: "Published book — text-only. Link to publisher page. No embedded media."
 
 primary_state_tag: direction-collapse

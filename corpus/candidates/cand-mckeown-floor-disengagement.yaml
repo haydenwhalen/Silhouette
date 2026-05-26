@@ -1,0 +1,126 @@
+candidate_id: cand-mckeown-floor-disengagement
+candidate_status: needs_review
+target_state: engagement-drought
+target_gap: engagement-drought + story + vulnerable/personal (the felt, vivid experience of disengagement)
+proposed_insight_type: story
+proposed_voice_register: vulnerable/personal
+proposed_intensity_level: mild
+source_title: Greg McKeown — How to Master the Art of Essentialism
+source_url: https://tim.blog/2019/01/12/the-tim-ferriss-show-transcripts-greg-mckeown/
+source_platform: The Tim Ferriss Show
+speaker: Greg McKeown
+guest_if_applicable: Greg McKeown
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: https://tim.blog/2019/01/12/the-tim-ferriss-show-transcripts-greg-mckeown/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: >-
+  If you've been in a supermarket, you see a kid on the floor, not throwing a tantrum. They're just
+  lying on the floor, like legs spread out, arms spread out, just like they have no energy to even
+  get up off the floor. This is how much passion they feel for being in the supermarket on this day.
+  They're just like, "Nothing here is interesting. Not one part of me wants to be getting up and
+  doing this." That's how I feel in that business.
+quote_type: verbatim
+candidate_moment_summary: >-
+  McKeown gives a startlingly exact image for total disengagement: a kid sprawled on a supermarket
+  floor, no energy to even get up — "Nothing here is interesting. Not one part of me wants to be
+  getting up and doing this" — and admits "that's how I feel in that business." It names the felt
+  experience of being present at something you have zero passion left for.
+key_claim: >-
+  Sometimes you feel about your own work the way a kid sprawled on a supermarket floor feels about
+  the supermarket — no energy even to get up, nothing here interesting, not one part of you wanting
+  to do this. That flatness isn't laziness; it's how little passion is left for a thing you're still
+  showing up to.
+why_it_might_land: >-
+  Engagement-drought users struggle to articulate the feeling — McKeown hands them a precise, almost
+  funny-but-true image that produces instant recognition ("yes, THAT is exactly it"), and it comes
+  from a high-functioning person admitting it about his own business, which removes shame.
+user_problem_match_notes: >-
+  Engagement-drought: the target (his business) still exists, but the feeling is gone. The
+  supermarket metaphor names the specific felt experience of disengagement. Distinct from Grant
+  (naming 'languishing', intellectual) and Brown (numbing, warm) — this is a vivid, vulnerable
+  first-person image. Fills engagement-drought + story + vulnerable/personal.
+resonance_match_notes: >-
+  Vulnerable/personal, mild. Lands via felt recognition and humor-of-truth rather than analysis.
+  Pairs against Grant (same state, intellectual naming) as a register discriminator: when the user
+  describes the FEELING vividly, McKeown's image should resonate more than a clinical term.
+source_credibility_notes: >-
+  Greg McKeown — author of "Essentialism"; here speaking from his own lived experience of zero
+  passion for a business. tier-1 framing for this excerpt (lived experience of the state). Source:
+  The Tim Ferriss Show #355; official transcript on tim.blog.
+media_verification_status: not_applicable
+transcript_verification_status: verified
+human_resonance_score: 90
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+novelty_score: 46
+overall_candidate_score: 95
+novelty_rating: novel
+recommendation: ready_for_sio_draft
+human_review_notes: >-
+  HELD — verified verbatim + high resonance (90), but calibration showed this excerpt is a generic
+  engagement-drought RETRIEVAL MAGNET: its pure flat-feeling text semantically dominates ALL ED
+  queries and collapses within-state discrimination (e.g. it wrongly beat Huberman on a
+  why-mechanism query). Do NOT serve until diversity-aware reranking (e.g. MMR) exists. Finding
+  logged for the next retrieval-tuning pass.
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-26T00:28:49.057Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 4
+    permission_relief: 4
+    actionability: 3
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the analogy of a kid sprawled on a supermarket floor clearly illustrates total disengagement,
+      which aligns with the engagement-drought stuck state.
+    felt_recognition: >-
+      The phrase 'nothing here is interesting, not one part of me wanting to do this' captures a
+      deep sense of disconnection that resonates with the target user.
+    emotional_precision: >-
+      It articulates the feeling of flatness and lack of passion, which many people struggle to
+      express.
+    reframe_power: >-
+      It shifts the perspective on disengagement from laziness to a lack of passion, which can help
+      users understand their feelings better.
+    permission_relief: >-
+      By stating 'that flatness isn't laziness,' it provides a sense of relief from self-blame for
+      feeling disengaged.
+    actionability: >-
+      While it vividly describes the feeling, it does not suggest a specific next step or
+      reflection.
+    human_credibility: >-
+      Greg McKeown's personal experience with disengagement in his own business lends strong
+      credibility to this insight.
+    source_vividness: >-
+      The imagery of a kid on the supermarket floor is vivid and relatable, making the content feel
+      alive.
+    non_genericness: >-
+      The specific analogy and personal experience make this content unique and not something that
+      could be found on a generic motivational page.
+    voice_register_clarity: The voice is consistently vulnerable and personal, aligning well with the proposed register.
+  why_it_might_land: >-
+    The vivid imagery and personal connection to disengagement can help users feel understood and
+    validated in their experiences.
+  why_it_might_not_land: Some users may find the analogy too specific or not relatable to their own unique situations.
+novelty_nearest:
+  - insight_id: sio-grant-languishing-2021
+    similarity: 0.5390864134560609
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.5217265619200723
+  - insight_id: sio-huffington-depletion-not-dedication-2010
+    similarity: 0.4978055429765951
+  - insight_id: sio-mcconaughey-go-to-zero-2020
+    similarity: 0.4911843679717199
+  - insight_id: sio-huberman-dopamine-baseline-2021
+    similarity: 0.4828544918185884

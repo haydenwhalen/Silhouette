@@ -1,0 +1,86 @@
+candidate_id: cand-generic-positivity-clip
+candidate_status: proposed
+target_state: direction-collapse
+target_gap: direction-collapse + reframe (generic test)
+proposed_insight_type: reframe
+proposed_voice_register: warm/affirming
+proposed_intensity_level: mild
+source_title: Motivational compilation — 'Believe in Yourself'
+source_url: ''
+source_platform: motivational compilation channel (EXCLUDED source type — see source_candidates.md §3)
+speaker: (unattributed compilation voiceover)
+guest_if_applicable: ''
+official_channel_url: ''
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: unknown
+candidate_moment_summary: >
+  A generic upbeat montage: "Believe in yourself. Everything happens for a reason. Your time is
+  coming — never give up on your dreams. You are capable of amazing things." No specific person, no
+  specific moment, no specific stuck-state. Over-dubbed music, no clear attribution.
+key_claim: |
+  Believe in yourself and never give up — everything happens for a reason and your time is coming.
+why_it_might_land: >
+  It probably won't. It is pleasant but generic — the kind of line that could be posted on any
+  motivational page. No felt recognition, no precise emotion, no real human behind it.
+user_problem_match_notes: |
+  Nominally direction-collapse, but it does not address any specific signal of the state.
+resonance_match_notes: |
+  Reads as a poster, not a person. Included as a negative example.
+source_credibility_notes: |
+  Unattributed compilation — fails the source bar (no named, credible human; excluded source type).
+media_verification_status: unofficial
+transcript_verification_status: unverified
+human_resonance_score: 0
+quote_quality_score: 0
+source_credibility_score: 0
+gap_fit_score: 0
+novelty_score: 57
+overall_candidate_score: 0
+novelty_rating: novel
+recommendation: reject
+human_review_notes: 'Negative example — expected outcome: rejected by the anti-generic gate.'
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-25T23:31:44.934Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 1
+    felt_recognition: 1
+    emotional_precision: 1
+    reframe_power: 1
+    permission_relief: 1
+    actionability: 1
+    human_credibility: 1
+    source_vividness: 1
+    non_genericness: 1
+    voice_register_clarity: 1
+  evidence:
+    state_specificity: No specific stuck-state is addressed; the content is generic.
+    felt_recognition: User would likely feel this does not resonate with their specific feelings.
+    emotional_precision: The content only names surface-level encouragement without deeper emotional insight.
+    reframe_power: It does not provide a new perspective on the user's situation.
+    permission_relief: The content adds pressure to 'never give up' without acknowledging struggles.
+    actionability: No specific next steps or reflections are implied.
+    human_credibility: Unattributed compilation fails to establish credibility.
+    source_vividness: The montage lacks specific, human experiences or observations.
+    non_genericness: This could easily be found on countless motivational pages.
+    voice_register_clarity: The voice is generic and lacks a clear, consistent register.
+  why_it_might_land: Some users may find comfort in the familiar phrases of encouragement.
+  why_it_might_not_land: >-
+    The content is overly generic and lacks any personal connection or specificity to the user's
+    experience.
+novelty_nearest:
+  - insight_id: sio-gilbert-elusive-genius-2009
+    similarity: 0.4281493207524413
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.4178390195563954
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.41303236616503075
+  - insight_id: sio-sinek-start-with-why-2009
+    similarity: 0.4008722539640748
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.3867137639023052

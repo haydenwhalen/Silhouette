@@ -4,8 +4,18 @@
   "show_or_platform": "The Tim Ferriss Show",
   "episode_or_content_title": "Matthew McConaughey — His Unseen Scripts, Advice For His Younger Self, Greenlights Strategies, The Art of Catching Ghosts, and More",
   "episode_or_content_date": "2020-10-27",
-  "source_url": "https://tim.blog/2020/10/27/matthew-mcconaughey/",
+  "source_url": "https://tim.blog/2020/10/19/matthew-mcconaughey/",
   "transcript_source": "auto-generated",
   "source_score": 71,
-  "rights_or_usage_notes": "Publicly available podcast. Verbatim quotes for attribution purposes."
+  "rights_or_usage_notes": "Publicly available podcast. Verbatim quotes for attribution purposes.",
+  "video_provider": "none",
+  "video_id": "",
+  "video_url": "",
+  "embed_url": "",
+  "official_channel": "The Tim Ferriss Show",
+  "official_channel_url": "https://tim.blog/podcast/",
+  "media_available": true,
+  "media_verification_status": "needs_review",
+  "verification_notes": "Web (2026-05): prior source_url (.../2020/10/27/...) returned 404; corrected to working canonical .../2020/10/19/matthew-mcconaughey/ (episode #474). Official episode page states the conversation was recorded BY PHONE → NO official video (video_provider: none). NOTE 2026-05: this source object is NO LONGER LINKED to any SIO — sio-mcconaughey-go-to-zero-2020 was re-sourced to src-mcconaughey-greenlights-2020 after the #474 transcript was verified NOT to contain its story. Retained as a valid record of the real #474 episode for possible future, correctly-attributed SIOs.",
+  "linked_sios": []
 }

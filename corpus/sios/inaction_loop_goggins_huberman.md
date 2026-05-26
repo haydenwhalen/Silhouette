@@ -16,21 +16,28 @@ transcript_verified: false
 # Replace with verbatim transcript text before marking approved.
 # Transcript available via YouTube captions on the Huberman Lab channel.
 
-# ── MEDIA ─────────────────────────────────────────────────────────
+# ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
+# See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
 source_media_type: podcast-video
 # Huberman Lab is a full video podcast. This episode features both Huberman and Goggins
 # in conversation — a two-person visual format that reinforces the direct/challenging register.
 
 video_provider: youtube
-# Huberman Lab YouTube channel: https://www.youtube.com/@hubermanlab
+official_channel: "Huberman Lab"
+official_channel_url: "https://www.youtube.com/@hubermanlab"
 
 video_id: ""
-# ⚠️ NEEDS VERIFICATION. Find the YouTube video ID for this episode:
-# Search YouTube for "Huberman Lab David Goggins How to Build Immense Inner Strength"
-# or browse https://www.youtube.com/@hubermanlab (published January 9, 2023)
+# ⚠️ HELD BLANK BY DESIGN — candidate IDs conflict (see notes). The official
+# hubermanlab.com episode page links youtu.be/nDLb8_wgX50; a web search instead surfaced
+# pTB51K96vFs as the "Huberman Lab w/ Andrew Huberman" upload. The conflict + an
+# inconsistent date on the official page mean neither is machine-confirmed. No video_id
+# is written.
+
+video_url: ""
+# No single watch URL confirmed (candidate conflict). Candidates recorded in notes only.
 
 embed_url: ""
-# Fill in after verifying video_id:
+# Leave blank until video_id is playback-verified on the official channel. Then:
 # https://www.youtube-nocookie.com/embed/{video_id}?start=4800&end=5040
 
 timestamp_start_seconds: 4800
@@ -40,12 +47,14 @@ timestamp_end_seconds: 5040
 # Approx. Derived from 01:24:00  (1×3600 + 24×60). Verify against actual video.
 
 display_mode: video-primary
-# Huberman Lab has full video — show Goggins and Huberman in conversation.
-# The visual context (seeing Goggins deliver this directly) is core to the
-# direct/challenging register landing as intended.
+# Huberman Lab has full official video. Until the video_id is verified, presentation
+# falls back to the source-link (hubermanlab.com episode page) gracefully.
 
 media_available: true
-# Huberman Lab YouTube channel is publicly maintained and all episodes are accessible.
+# Official episode page + channel are publicly maintained and accessible.
+
+media_verification_status: needs_review
+media_verification_notes: "Official channel (Huberman Lab, https://www.youtube.com/@hubermanlab) and official episode page (hubermanlab.com) CONFIRMED via web search/fetch (2026-05). CANDIDATE CONFLICT: the official episode page links youtu.be/nDLb8_wgX50, while a web search surfaced pTB51K96vFs as the full-episode upload — and the official page showed an inconsistent date (Jan 1 2024 vs the SIO's 2023-01-09). Because the candidates conflict and neither could be machine-confirmed as the canonical official-channel video, video_id and video_url are left blank. MEDIUM confidence. Timestamps (1:20:00–1:24:00) are approximate, not transcript-verified."
 
 media_rights_notes: "Huberman Lab episodes are publicly available on YouTube under standard license. Embed only from the official channel. Do not download or re-host clips."
 

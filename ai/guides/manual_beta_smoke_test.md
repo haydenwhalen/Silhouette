@@ -12,6 +12,18 @@ Open `http://localhost:3000` in a clean browser window. Open DevTools → Networ
 
 If you've added beta user handle support and want to test it, use `http://localhost:3000?user=smoketest`.
 
+**Cold-start warmup:** the very first request to each API route after `npm run dev` boots triggers Next.js to compile that route, and during compilation the in-memory session state map can reset. This can produce a false "stray feedback" on the first Yes click. To avoid it, warm both routes once before running the flows:
+
+```bash
+npm run warm
+```
+
+(This runs `scripts/warm-dev-server.sh`, which hits both `/api/chat` and `/api/feedback-signal` with throwaway payloads.)
+
+Or just send any throwaway message AND click any button in the UI once, then refresh and start Flow 1 fresh.
+
+**Optional automated pre-check:** after warming, you can run `npm run test-smoke-flows` to drive the HTTP API through all 8 flows automatically (no browser needed). This catches API-layer regressions but doesn't catch UI rendering issues — you still need to do the browser walk-through below.
+
 ## Flows
 
 ### Flow 1 — Direction Collapse → Yes

@@ -7,5 +7,14 @@
   "source_url": "https://www.hubermanlab.com/episode/david-goggins-how-to-build-immense-inner-strength",
   "transcript_source": "auto-generated",
   "source_score": 66,
-  "rights_or_usage_notes": "Publicly available podcast. Attribution required."
+  "rights_or_usage_notes": "Publicly available podcast. Attribution required.",
+  "video_provider": "youtube",
+  "video_id": "",
+  "video_url": "",
+  "embed_url": "",
+  "official_channel": "Huberman Lab",
+  "official_channel_url": "https://www.youtube.com/@hubermanlab",
+  "media_available": true,
+  "media_verification_status": "needs_review",
+  "verification_notes": "Official channel + episode page CONFIRMED via web (2026-05). CANDIDATE CONFLICT: official episode page links youtu.be/nDLb8_wgX50 while a web search surfaced pTB51K96vFs; official page also showed an inconsistent date. Neither machine-confirmed; video_id and video_url left blank. MEDIUM confidence."
 }

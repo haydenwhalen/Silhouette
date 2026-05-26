@@ -1,0 +1,130 @@
+candidate_id: cand-colonna-complicit-conditions
+candidate_status: approved
+target_state: inaction-loop
+target_gap: inaction-loop + warm/affirming
+proposed_insight_type: reframe
+proposed_voice_register: warm/affirming
+proposed_intensity_level: mild
+source_title: Jerry Colonna — The Coach with the Spider Tattoo
+source_url: https://tim.blog/2019/06/11/jerry-colonna/
+source_platform: The Tim Ferriss Show
+speaker: Jerry Colonna
+guest_if_applicable: Jerry Colonna
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: https://tim.blog/2019/06/14/the-tim-ferriss-show-transcripts-jerry-colonna-373/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: >-
+  So I'll unpack the question. So the way I usually ask the question goes like this: "How have I
+  been complicit in creating the conditions I say I don't want?" And the reason for the language is
+  very purposeful. I like to use the word complicit and not responsible. 90% of the time when I
+  first ask that question, people hear the word "How have I been responsible for the conditions?"
+  Complicitness is important, because it's relieving the person from the burden of feeling
+  responsible for all the shit in their lives, because that's not fair to carry that responsibility.
+  But it's helpful to think of ourselves as somehow being served by the challenges that we're going
+  through.
+quote_type: verbatim
+candidate_moment_summary: >-
+  Colonna unpacks his signature self-inquiry question and is deliberate about one word: "complicit,"
+  not "responsible." Asking how you're responsible piles on self-blame; asking how you're complicit
+  relieves that unfair burden while still showing you the quiet part you play in keeping the
+  conditions you say you don't want.
+key_claim: >-
+  The question that frees you isn't "how am I responsible for this?" — that just piles on blame.
+  It's "how have I been complicit in creating the conditions I say I don't want?" Complicit, not
+  responsible: it lifts the unfair burden of blame while still showing you the part you quietly play
+  in keeping yourself stuck.
+why_it_might_land: >-
+  Inaction-loop users are usually drowning in self-blame ("why do I keep doing this to myself?").
+  Colonna's distinction gives relief AND agency at once — you're not at fault for everything, but
+  you're not powerless either. That's a warm hand, not a kick.
+user_problem_match_notes: >-
+  Inaction-loop where self-blame is the engine of the stuckness. The complicit-not-responsible
+  reframe removes the shame that keeps the loop spinning while restoring a sense of agency over it.
+  Fills the inaction-loop + warm/affirming gap (the state previously had only direct/intellectual
+  voices: Goggins, Robbins, Pressfield).
+resonance_match_notes: >-
+  Warm/affirming, mild. Lands for users who experience direct challenge (Goggins/Robbins) as more
+  pressure. Pairs as a register discriminator: when an inaction-loop user sounds self-critical, this
+  should win over the direct/challenging options.
+source_credibility_notes: >-
+  Jerry Colonna — executive/leadership coach ("Reboot"), widely known for radical self-inquiry; also
+  speaks publicly from his own lived experience of depression. tier-2 for this excerpt (explaining
+  his coaching method). Source: The Tim Ferriss Show #373 (2019); official transcript on tim.blog.
+media_verification_status: not_applicable
+transcript_verification_status: verified
+human_resonance_score: 95
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+novelty_score: 54
+overall_candidate_score: 96
+novelty_rating: novel
+recommendation: ready_for_sio_draft
+human_review_notes: >-
+  Factory-test candidate. Excerpt is VERBATIM from the official tim.blog transcript for TFS #373
+  (verified by fetch + cross-confirmed via search of Colonna's signature question). No timestamps in
+  tim.blog transcripts. Recommend a final human word-for-word check against the transcript before
+  treating the wording as immutable.
+created_at: '2026-05-25T00:00:00Z'
+updated_at: '2026-05-26T00:05:40.307Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The question that frees you isn't 'how am I responsible for this?' — that just piles on blame.
+      It's 'how have I been complicit in creating the conditions I say I don't want?'
+    felt_recognition: >-
+      it lifts the unfair burden of blame while still showing you the part you quietly play in
+      keeping yourself stuck.
+    emotional_precision: >-
+      Complicitness is important, because it's relieving the person from the burden of feeling
+      responsible for all the shit in their lives.
+    reframe_power: >-
+      Asking how you're responsible piles on self-blame; asking how you're complicit relieves that
+      unfair burden.
+    permission_relief: >-
+      it's relieving the person from the burden of feeling responsible for all the shit in their
+      lives, because that's not fair to carry that responsibility.
+    actionability: >-
+      the way I usually ask the question goes like this: 'How have I been complicit in creating the
+      conditions I say I don't want?'
+    human_credibility: >-
+      Jerry Colonna — executive/leadership coach ('Reboot'), widely known for radical self-inquiry;
+      also speaks publicly from his own lived experience of depression.
+    source_vividness: >-
+      Colonna unpacks his signature self-inquiry question and is deliberate about one word:
+      'complicit,' not 'responsible.'
+    non_genericness: the language is very purposeful. I like to use the word complicit and not responsible.
+    voice_register_clarity: >-
+      the way I usually ask the question goes like this: 'How have I been complicit in creating the
+      conditions I say I don't want?'
+  why_it_might_land: >-
+    This insight offers a fresh perspective on self-blame, which can resonate deeply with those
+    feeling stuck in an inaction loop.
+  why_it_might_not_land: >-
+    Some may still struggle to see their complicity in their circumstances, feeling overwhelmed by
+    their situation.
+novelty_nearest:
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.4582300734780249
+  - insight_id: sio-pressfield-resistance-2015
+    similarity: 0.43735106072741337
+  - insight_id: sio-gilbert-elusive-genius-2009
+    similarity: 0.42833785092877175
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.4193435427682332
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.41129128355069566

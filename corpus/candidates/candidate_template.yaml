@@ -1,0 +1,65 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# SIO CANDIDATE TEMPLATE
+# One file = one proposed insight moment, BEFORE it becomes an SIO.
+# Candidates live here in corpus/candidates/. They are NEVER served to users.
+# They flow: proposed → (verify/evaluate/novelty) → ready_for_sio_draft →
+# draft in corpus/drafts/ → (HUMAN approval) → corpus/sios/.
+#
+# HONESTY: never fill verbatim transcript_excerpt / timestamps / video_id / embed
+# unless you actually have the evidence. If unsure, leave blank and set the
+# matching *_verification_status to needs_review. quote_type must be honest.
+# ─────────────────────────────────────────────────────────────────────────────
+
+candidate_id: ""                       # kebab-case, e.g. cand-susan-david-emotional-courage
+candidate_status: proposed             # proposed | needs_source_verification | needs_transcript_verification | needs_quote_review | ready_for_sio_draft | drafted | approved | rejected | archived
+
+# ── Targeting: which corpus gap is this meant to fill? ──
+target_state: ""                       # direction-collapse | engagement-drought | inaction-loop
+target_gap: ""                         # human-readable, e.g. "engagement-drought + permission + warm/affirming"
+proposed_insight_type: ""              # reframe | permission | mechanism | story
+proposed_voice_register: ""            # direct/challenging | warm/affirming | intellectual/measured | vulnerable/personal | expert/scientific
+proposed_intensity_level: ""           # mild | moderate | intense
+
+# ── Source identity ──
+source_title: ""                       # full talk / episode / book title
+source_url: ""                         # canonical official URL (NOT a re-upload)
+source_platform: ""                    # TED | Huberman Lab | The Tim Ferriss Show | book | ...
+speaker: ""                            # the attributed person (not the host)
+guest_if_applicable: ""                # if speaker is a guest on a show
+official_channel_url: ""               # official channel/show URL
+video_url: ""                          # canonical watch URL if a video exists
+embed_url: ""                          # embed.ted.com/talks/<slug> OR youtube-nocookie/embed/<id> — only if verified
+transcript_url: ""                     # official transcript URL if available
+
+# ── The moment ──
+timestamp_start_seconds:               # int or blank — leave blank unless verified
+timestamp_end_seconds:                 # int or blank
+transcript_excerpt: ""                 # VERBATIM only. Leave blank unless you have the exact text.
+quote_type: unknown                    # verbatim | paraphrase | unknown  (be honest)
+candidate_moment_summary: ""           # what the speaker says, in your words (safe when quote unverified)
+key_claim: ""                          # the retrievable distillation (speaker's voice / declarative)
+
+# ── Editorial / resonance notes ──
+why_it_might_land: ""
+user_problem_match_notes: ""
+resonance_match_notes: ""
+source_credibility_notes: ""
+
+# ── Verification (evidence-gated; default needs_review) ──
+media_verification_status: needs_review        # verified | needs_review | unverified | unofficial | not_applicable
+transcript_verification_status: needs_review   # verified | needs_review | unverified | not_applicable
+
+# ── Scores (filled by the discovery scripts; leave blank when authoring) ──
+human_resonance_score:                 # 0–100 (npm run evaluate-candidate)
+quote_quality_score:                   # 0–100
+source_credibility_score:              # 0–100
+gap_fit_score:                         # 0–100
+novelty_score:                         # 0–100 (npm run score-candidate-novelty)
+overall_candidate_score:               # 0–100 (weighted; resonance dominates)
+novelty_rating: ""                     # duplicate | similar_but_useful | novel
+recommendation: ""                     # reject | needs_stronger_source | needs_transcript_verification | promising | ready_for_sio_draft
+
+# ── Human control ──
+human_review_notes: ""
+created_at: ""
+updated_at: ""

@@ -1,0 +1,26 @@
+{
+  "source_id": "src-tedx-waldinger-good-life-2015",
+  "source_type": "ted talk",
+  "speaker": "Robert Waldinger",
+  "show_or_platform": "TEDxBeaconStreet",
+  "episode_or_content_title": "What makes a good life? Lessons from the longest study on happiness",
+  "episode_or_content_date": "2015-11-01",
+  "source_url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). TEDxBeaconStreet, Nov 2015; exact day approximate. Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction of the Harvard Study of Adult Development findings as presented, not verbatim. Newly evaluated for this batch (added to ai/guides/source_candidates.md §1.4); not yet formally rubric-scored.",
+  "rights_or_usage_notes": "Official TEDx talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-waldinger-good-life-relationships-2015"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness"
+}

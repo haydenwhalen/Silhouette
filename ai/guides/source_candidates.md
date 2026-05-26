@@ -283,16 +283,21 @@ Strongest states: Direction Collapse, Engagement Drought
 
 The following specific talks are recommended for immediate inclusion consideration. These are evaluated as individual content items, not as a category.
 
-| Talk | Speaker | State | Notes |
-|---|---|---|---|
-| "Inside the Mind of a Master Procrastinator" | Tim Urban | Inaction Loop | Exceptional insight density for this state; one of the most watched TED Talks of all time; official transcript available |
-| "The Surprising Science of Happiness" | Dan Gilbert | Direction Collapse (Post-Achievement Flatness) | Directly addresses why we're wrong about what will make us happy; high quotability |
-| "Your Elusive Creative Genius" | Elizabeth Gilbert | Inaction Loop, Possibility Paralysis | Personal, emotionally resonant; reframes the creative stuck state with specificity |
-| "The Power of Vulnerability" | Brené Brown | Identity Transition | One of the most-watched talks of all time; directly addresses the vulnerability of transition states |
-| "How Great Leaders Inspire Action" | Simon Sinek | Direction Collapse | Reframes what direction and purpose actually are; very quotable |
-| "The Puzzle of Motivation" | Dan Pink | Engagement Drought | Addresses why standard motivation approaches fail; mechanism-type insight |
+| Talk | Speaker | State | Voice register | Notes |
+|---|---|---|---|---|
+| "Inside the mind of a master procrastinator" | Tim Urban | Inaction Loop | Vulnerable/Personal | Exceptional insight density; one of the most-watched TED Talks; official transcript available. **Ingested 2026-05 → `sio-urban-instant-gratification-monkey-2016`** |
+| "The surprising science of happiness" | Dan Gilbert | Direction Collapse (Post-Achievement) | Expert/Scientific | Why we're wrong about what will make us happy; impact bias / synthetic happiness mechanism. **Ingested 2026-05 → `sio-dgilbert-synthetic-happiness-2004`** |
+| "Your elusive creative genius" | Elizabeth Gilbert | Inaction Loop | Vulnerable/Personal | Personal, emotionally resonant; relieves the pressure that blocks creative action. **Ingested 2026-05 → `sio-gilbert-elusive-genius-2009`** |
+| "The Power of Vulnerability" | Brené Brown | Identity Transition | Warm/Affirming | One of the most-watched talks of all time. Non-MVP state — deferred. |
+| "How great leaders inspire action" | Simon Sinek | Direction Collapse (Original) | Intellectual/Measured | "Start with why" reframe of direction. **Ingested 2026-05 → `sio-sinek-start-with-why-2009`** |
+| "The puzzle of motivation" | Dan Pink | Engagement Drought | Expert/Scientific | Why standard motivation approaches fail; autonomy/mastery/purpose mechanism. **Ingested 2026-05 → `sio-pink-autonomy-mastery-purpose-2009`** |
+| "Teach girls bravery, not perfection" | Reshma Saujani | Inaction Loop | Direct/Challenging | Perfectionism as the engine of inaction; permission to act imperfectly. *Newly evaluated 2026-05.* **Ingested → `sio-saujani-brave-not-perfect-2016`** |
+| "What makes a good life? Lessons from the longest study on happiness" | Robert Waldinger | Direction Collapse (Post-Achievement) | Expert/Scientific | Harvard 75-yr study; relationships, not achievement, predict a good life. *Newly evaluated 2026-05.* **Ingested → `sio-waldinger-good-life-relationships-2015`** |
+| "There's more to life than being happy" | Emily Esfahani Smith | Direction Collapse (Original) | Warm/Affirming | Four pillars of meaning over the pursuit of happiness. *Newly evaluated 2026-05.* **Ingested → `sio-smith-meaning-over-happiness-2017`** |
+| "How to succeed? Get more sleep" | Arianna Huffington | Engagement Drought | Vulnerable/Personal | Burnout-collapse story; permission to treat depletion (not lack of dedication) as the problem. *Newly evaluated 2026-05.* **Ingested → `sio-huffington-depletion-not-dedication-2010`** |
+| "The happy secret to better work" | Shawn Achor | Engagement Drought | Warm/Affirming | "Happiness advantage" reframe — positivity fuels engagement, not the reverse. *Newly evaluated 2026-05.* **Ingested → `sio-achor-happiness-advantage-2011`** |
 
-*Status: Pending episode-level evaluation for all; official transcripts make this low-effort*
+*Status update (2026-05): Ten of these talks were ingested as the "+10 SIOs / video metadata" batch. Each was chosen to fill a specific gap in the 9-SIO baseline (see `corpus_gap_report.md`) — primarily the thin voice registers (vulnerable/personal, warm/affirming, expert/scientific) and tier-3 coverage. Five were already endorsed in this section (Tim Urban, Dan Gilbert, Elizabeth Gilbert, Simon Sinek, Dan Pink); five were newly evaluated and added (Saujani, Waldinger, Smith, Huffington, Achor). All carry verified canonical `ted.com` URLs and official `embed.ted.com` embed URLs; none has a playback-verified YouTube `video_id` (left blank, not guessed); all SIO excerpts are reconstructions (`transcript_verified: false`, `human_review_status: prototype_only`) pending verbatim transcript ingestion. None has been formally rubric-scored against `source_scoring_rubric.md`. The Power of Vulnerability (Brené Brown) remains deferred as a non-MVP (Identity Transition) state.*
 
 ---
 

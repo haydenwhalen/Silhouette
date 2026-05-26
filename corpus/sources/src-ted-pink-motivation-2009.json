@@ -1,0 +1,26 @@
+{
+  "source_id": "src-ted-pink-motivation-2009",
+  "source_type": "ted talk",
+  "speaker": "Dan Pink",
+  "show_or_platform": "TEDGlobal",
+  "episode_or_content_title": "The puzzle of motivation",
+  "episode_or_content_date": "2009-07-01",
+  "source_url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+  "video_provider": "ted",
+  "video_id": "",
+  "embed_url": "https://embed.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+  "media_available": true,
+  "transcript_source": "TED official transcript (publicly available; not yet ingested verbatim)",
+  "transcript_verified": false,
+  "source_confidence": "high",
+  "source_score": null,
+  "verification_notes": "Canonical ted.com URL and official embed.ted.com URL verified via web search (2026-05). TEDGlobal 2009 (Oxford, July 2009); exact day approximate. Official TED-channel YouTube video_id NOT playback-verified, left blank. SIO excerpt is a reconstruction, not verbatim. Source preliminarily endorsed in ai/guides/source_candidates.md §1.4; not yet formally rubric-scored.",
+  "rights_or_usage_notes": "Official TED talk, publicly available. Embed via embed.ted.com only. Brief paraphrase/quotes for attribution; do not download or re-host.",
+  "sios": [
+    "sio-pink-autonomy-mastery-purpose-2009"
+  ],
+  "media_verification_status": "verified",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.ted.com/",
+  "video_url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation"
+}
