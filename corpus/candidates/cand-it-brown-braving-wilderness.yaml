@@ -1,0 +1,127 @@
+candidate_id: cand-it-brown-braving-wilderness
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + permission + warm/affirming (it-relationship-end-stranger)
+proposed_insight_type: permission
+proposed_voice_register: warm/affirming
+proposed_intensity_level: moderate
+source_title: 'Braving the Wilderness: The Quest for True Belonging and the Courage to Stand Alone'
+source_url: https://brenebrown.com/book/braving-the-wilderness/
+source_platform: book
+speaker: Brené Brown
+guest_if_applicable: ''
+official_channel_url: https://brenebrown.com/
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In "Braving the Wilderness" (2017), Brown develops the concept of "true belonging" as something
+  that begins with belonging to yourself — not a group, a relationship, or a role. She frames the
+  wilderness as "an untamed, unpredictable place of solitude and searching" and argues that standing
+  alone in it, after losing the external structure that organized your sense of belonging, is not a
+  failure but "the bravest and most sacred place you will ever stand." Directly relevant to
+  post-relationship identity loss: Brown addresses how shame around loneliness operates even when
+  "our loneliness is caused by grief, loss, or heartbreak," and the core move she offers is to
+  belong to yourself before seeking belonging elsewhere.
+key_claim: >-
+  When you lose the relationship that organized so much of who you were, the loneliness and
+  disorientation are not signs that something is wrong with you — they are what it feels like to
+  stand in the wilderness. True belonging has to start with belonging to yourself. And belonging to
+  yourself so fully that you're willing to stand alone is not a step backward — it is, according to
+  Brown, the bravest and most sacred place you will ever stand.
+why_it_might_land: >-
+  The post-relationship identity-transition user is caught in a shame spiral: they feel broken for
+  not knowing who they are without the relationship, and they feel further shame for being lonely.
+  Brown's wilderness framing names both — the disorientation and the shame around it — without
+  pathologizing either. The permission she grants is not "get over it" but "this is where the real
+  work begins, and it is supposed to feel like this."
+user_problem_match_notes: >-
+  Strong identity-transition fit. The triggering discrete event is a breakup or divorce that removed
+  a relationship that had organized the user's sense of self and belonging. Brown's wilderness
+  concept speaks directly to the period after the acute event (the in-between), not the crisis
+  itself. The user is functional but disoriented — exactly the state Brown addresses. Distinct from
+  direction-collapse (no trigger) and engagement-drought (no structural rupture). The "belonging to
+  yourself" frame is appropriate for it-relationship-end-stranger. Content stays within
+  functional-but-disoriented; Brown's work does not edge into clinical grief or suicidality.
+resonance_match_notes: >-
+  warm/affirming register — Brown's style throughout this book is validating and permission-granting
+  without sentimentality. Moderate intensity — it names real grief without dramatizing it.
+  Permission type — the central move is granting permission to be in the in-between, to be lonely,
+  and to belong to yourself first. Excludes direct/ challenging (correct: this slot explicitly
+  excludes that register for grief-of-old-self content). Brown is at most 2 sources for this state
+  (this is her first); source cap not yet reached.
+source_credibility_notes: >-
+  Brené Brown — research professor at University of Houston, #1 NYT bestselling author, TED talk
+  with 60M+ views. Tier-1 credibility for vulnerability, belonging, and shame research. "Braving the
+  Wilderness" (2017) is a real, official, widely cited book published by Random House. Source URL is
+  the official brenebrown.com book page. The "wilderness" framing and "belonging to yourself"
+  content is accurately represented based on multiple independent summaries, the official Reese's
+  Book Club description, and brenebrown.com. Paraphrase because no transcript was fetched — source
+  is a book, not a podcast episode. The concepts (wilderness, true belonging, shame around
+  loneliness) are well documented and not fabricated.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.015Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the loneliness and disorientation are not signs that something is wrong with you — they are
+      what it feels like to stand in the wilderness.
+    felt_recognition: the loneliness and disorientation are not signs that something is wrong with you.
+    emotional_precision: >-
+      shame around loneliness operates even when 'our loneliness is caused by grief, loss, or
+      heartbreak'.
+    reframe_power: >-
+      standing alone in it, after losing the external structure that organized your sense of
+      belonging, is not a failure but 'the bravest and most sacred place you will ever stand'.
+    permission_relief: True belonging has to start with belonging to yourself.
+    actionability: the core move she offers is to belong to yourself before seeking belonging elsewhere.
+    human_credibility: 'Brené Brown — research professor at University of Houston, #1 NYT bestselling author.'
+    source_vividness: the wilderness as 'an untamed, unpredictable place of solitude and searching'.
+    non_genericness: the concept of 'true belonging' as something that begins with belonging to yourself.
+    voice_register_clarity: the warm and affirming tone throughout the content.
+  why_it_might_land: >-
+    This insight speaks directly to the experience of identity loss after a relationship, providing
+    a sense of validation and a new perspective on loneliness.
+  why_it_might_not_land: >-
+    Some may find the concept of 'belonging to yourself' too abstract or challenging to implement
+    immediately.
+recommendation: needs_transcript_verification
+novelty_score: 49
+novelty_nearest:
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.5121752454351567
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.46775482802561713
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.4592358062045527
+  - insight_id: sio-david-emotional-courage-2017
+    similarity: 0.4579663561467391
+  - insight_id: sio-waldinger-good-life-relationships-2015
+    similarity: 0.45286258487894127
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

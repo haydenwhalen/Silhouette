@@ -36,6 +36,7 @@ const TARGETS = {
   concentrationLimit: 3, // max SIOs per speaker per state (Component 5)
   maxReconstructedPct: 60, // if > this % are transcript_verified=false, flag
   minVerifiedVideo: 8, // want a healthy set of video-ready SIOs
+  overrepresentationMargin: 2, // a state exceeding the smallest state by > this is over-filled
 };
 
 interface Gap {
@@ -138,6 +139,23 @@ function main() {
         target_profile: `${st} + (any under-covered type/register)`,
       });
     }
+  }
+
+  // ── Corpus-imbalance guardrails (magnet/diversity-fix phase) ──
+  // A state that is over-filled relative to the smallest state both wastes effort and raises
+  // magnet risk (more same-state SIOs competing → one broad SIO can dominate). Warn + steer the
+  // NEXT batch toward the under-represented states (don't add more of the over-filled one).
+  const stateCounts = MVP_STATES.map((st) => ({ st, n: byState[st] ?? 0 }));
+  const maxState = stateCounts.reduce((a, b) => (b.n > a.n ? b : a));
+  const minState = stateCounts.reduce((a, b) => (b.n < a.n ? b : a));
+  if (maxState.n - minState.n > TARGETS.overrepresentationMargin) {
+    const underStates = stateCounts.filter((s) => s.n <= minState.n + 1).map((s) => s.st);
+    gaps.push({
+      priority: 65,
+      kind: "state_overrepresented",
+      detail: `${maxState.st} has ${maxState.n} SIOs vs the smallest state ${minState.st} (${minState.n}) — gap ${maxState.n - minState.n} > ${TARGETS.overrepresentationMargin}. Do NOT add more ${maxState.st} SIOs unless exceptional; prioritize verified SIOs in under-represented states: ${underStates.join(", ")}.`,
+      target_profile: `${underStates[0]} + (fill empty register/type cells first)`,
+    });
   }
 
   // Global register floors.

@@ -1,0 +1,125 @@
+candidate_id: cand-pp-schwartz-paradox-of-choice
+candidate_status: drafted
+target_state: possibility-paralysis
+target_gap: possibility-paralysis + mechanism + intellectual/measured (pp-maximizer-never-satisfied)
+proposed_insight_type: mechanism
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: mild
+source_title: The Paradox of Choice (TED Talk, 2005)
+source_url: https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice
+source_platform: TED
+speaker: Barry Schwartz
+guest_if_applicable: ''
+official_channel_url: https://www.ted.com/speakers/barry_schwartz
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In his 2005 TED talk, psychologist Barry Schwartz presents the core argument of his book The
+  Paradox of Choice: that as the number of available choices increases beyond a threshold, it stops
+  liberating people and begins to paralyze and depress them. He introduces the maximizer/satisficer
+  distinction — maximizers feel compelled to find the objectively best option and must evaluate all
+  alternatives, which makes every additional choice a heavier psychological burden. Satisficers, by
+  contrast, set a "good enough" standard and stop searching once it is met. Schwartz documents that
+  maximizers consistently report lower life satisfaction, less happiness, and more depression than
+  satisficers — even when they objectively make better choices. The talk connects the abstract
+  economics of choice freedom to a felt experience recognizable to possibility-paralysis users: more
+  options does not feel like more freedom; it feels like a heavier cage.
+key_claim: >-
+  Adding options past a certain point does not liberate — it debilitates. Maximizers, who feel they
+  must find the best possible answer before committing, spend more effort, feel more anxiety, and
+  end up less satisfied than satisficers who choose "good enough" and stop. The cage that feels like
+  freedom is the pursuit of the optimal, and the exit from it is not more information but a lower
+  standard of proof.
+why_it_might_land: >-
+  The possibility-paralysis user believes "Settling for good enough means I failed to optimize."
+  Schwartz names this belief as the maximizer trap and shows it produces worse outcomes — more
+  stress, less satisfaction — not better ones. The mechanism (more options → more anxiety → more
+  second-guessing → less satisfaction) makes the felt cage legible as a structural phenomenon, not a
+  personal failure, which is precisely the intellectual/measured landing this slot requires.
+user_problem_match_notes: >-
+  Possibility-paralysis: the user has multiple real options and cannot choose, because choosing
+  forecloses others. Schwartz's maximizer/satisficer mechanism directly addresses this — the
+  maximizer is paralyzed by the obligation to find the best option, which possibility-paralysis
+  users are. This is NOT inaction-loop (one known avoided action) and NOT direction-collapse (no
+  options); this is the specific experience of having too many options and being unable to commit to
+  any because each closes others off.
+resonance_match_notes: >-
+  Intellectual/measured register (academic psychologist presenting research). Mild intensity — the
+  mechanism is explanatory, not confrontational. Fills the mechanism cell for possibility-paralysis,
+  which the plan specifies as 1–2 slots. No register exclusions apply to this need
+  (pp-maximizer-never-satisfied). Source diversity: TED platform, distinct from Tim
+  Ferriss/Huberman.
+source_credibility_notes: >-
+  Barry Schwartz is Professor of Psychology at Swarthmore College (now at Berkeley) and author of
+  The Paradox of Choice (2004, HarperCollins). The TED 2005 talk is a canonical official source with
+  over 6 million views. Tier-1 (academic + widely disseminated). Verified via web search: official
+  URL https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice confirmed on ted.com;
+  transcript available at same URL with ?view=transcript parameter. TED transcripts are not reliably
+  WebFetch-readable, so paraphrase is the honest label.
+media_verification_status: needs_review
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.006Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the number of available choices increases beyond a threshold, it stops liberating people and
+      begins to paralyze and depress them.
+    felt_recognition: more options does not feel like more freedom; it feels like a heavier cage.
+    emotional_precision: spend more effort, feel more anxiety, and end up less satisfied than satisficers.
+    reframe_power: the cage that feels like freedom is the pursuit of the optimal.
+    permission_relief: the exit from it is not more information but a lower standard of proof.
+    actionability: satisficers set a 'good enough' standard and stop searching once it is met.
+    human_credibility: Barry Schwartz is Professor of Psychology at Swarthmore College.
+    source_vividness: >-
+      Schwartz documents that maximizers consistently report lower life satisfaction, less
+      happiness, and more depression.
+    non_genericness: the maximizer/satisficer distinction.
+    voice_register_clarity: >-
+      the talk connects the abstract economics of choice freedom to a felt experience recognizable
+      to possibility-paralysis users.
+  why_it_might_land: >-
+    This insight directly addresses the overwhelming nature of choices and how it can lead to
+    paralysis, resonating deeply with those feeling stuck in decision-making.
+  why_it_might_not_land: >-
+    Some users may find the concept of 'maximizers' and 'satisficers' too abstract or not
+    immediately applicable to their specific situation.
+recommendation: needs_stronger_source
+novelty_score: 45
+novelty_nearest:
+  - insight_id: sio-dgilbert-synthetic-happiness-2004
+    similarity: 0.5546560198809377
+  - insight_id: sio-easter-comfort-crisis-2022
+    similarity: 0.5351417315277209
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.5106395495001587
+  - insight_id: sio-millman-busy-is-a-decision-2018
+    similarity: 0.4949849865548697
+  - insight_id: sio-waldinger-good-life-relationships-2015
+    similarity: 0.4825546367481018
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

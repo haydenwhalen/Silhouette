@@ -1,5 +1,5 @@
 candidate_id: cand-mckeown-floor-disengagement
-candidate_status: needs_review
+candidate_status: held_for_retrieval_risk
 target_state: engagement-drought
 target_gap: engagement-drought + story + vulnerable/personal (the felt, vivid experience of disengagement)
 proposed_insight_type: story

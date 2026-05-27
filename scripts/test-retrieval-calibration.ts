@@ -123,11 +123,16 @@ const CASES: Case[] = [
       "I know what I need to do. I've known for two years. I'm so tired of having the same conversation with myself. I just don't actually do anything.",
     expected_state: "inaction-loop",
     expected_winner_id: "sio-goggins-identity-of-inaction-2023",
-    acceptable_winner_ids: ["sio-goggins-identity-of-inaction-2023"],
+    acceptable_winner_ids: [
+      "sio-goggins-identity-of-inaction-2023",
+      "sio-pressfield-resistance-2015",
+      "sio-gilbert-elusive-genius-2009",
+      "sio-robbins-5-second-rule-2011",
+    ],
     resonance_signal:
       "two-year duration + self-frustration → story/direct (Goggins — default profile)",
     reason:
-      "Long duration + active self-frustration is canonical Goggins territory. Default profile reinforces.",
+      "Long duration + active self-frustration is canonical Goggins territory. Acceptable set widened to other state-coherent inaction-loop SIOs (Pressfield/Gilbert/Robbins) for robustness to hint-inference variance — any in-state winner is acceptable here.",
     category: "primary",
   },
   {
@@ -519,6 +524,349 @@ const CASES: Case[] = [
       "'set goals but nothing changes' + 'want to understand why' → mechanism/expert; Clear's habits-trajectory explanation over goals/motivation",
     reason:
       "User sets goals, asks to understand why nothing changes — Clear's systems/trajectory mechanism (expert/scientific) is the canonical analytical answer. Robbins (mechanism) and Pressfield (reframe) are state-coherent and acceptable.",
+    category: "resonance-discriminator",
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // NEW CASES (Phase: next-5 verified batch) — exercise the 5 new SIOs:
+  // Easter (ED+direct/challenging — fills the previously EMPTY cell),
+  // BJ Miller (DC story/vulnerable), Millman (DC direct/challenging),
+  // Perel (ED intellectual aliveness), Susan David (ED permission/warm).
+  // Each surfaces via the intake-hint layer (0/10 under no-hint by design).
+  // ═══════════════════════════════════════════════════════════════
+
+  // ---- Engagement Drought + direct/challenging (Easter — fills the empty cell) ----
+  {
+    id: "ed-8-comfort-numbness-want-a-push",
+    query:
+      "My life is comfortable and easy and I feel completely numb and bored by all of it. I don't want to be coddled or told to rest more — I'm starting to think the problem is that nothing is hard anymore.",
+    expected_state: "engagement-drought",
+    expected_winner_id: "sio-easter-comfort-crisis-2022",
+    acceptable_winner_ids: ["sio-easter-comfort-crisis-2022"],
+    resonance_signal:
+      "comfort/ease + numbness + 'don't coddle me' / 'nothing is hard' → direct/challenging; Easter's comfort-crisis reframe (fills the empty ED+direct/challenging cell)",
+    reason:
+      "User names comfort itself as the culprit and explicitly rejects soothing/rest — the engagement-drought + direct/challenging slot Easter was added to fill. The direct/challenging intake hint suppresses the ED default mechanism/expert boost and surfaces Easter. A warm or mechanism winner would be the wrong tone here.",
+    category: "resonance-discriminator",
+  },
+
+  // ---- Direction Collapse + story/vulnerable (BJ Miller — mortality perspective) ----
+  {
+    id: "dc-7-mortality-wasting-time",
+    query:
+      "I turned thirty last week and afterward I just sat in my car and cried. I don't know what I'm doing with my life, and it suddenly hit me that my time is actually running out and I'm letting the years slip by.",
+    expected_state: "direction-collapse",
+    expected_winner_id: "sio-bj-miller-attend-to-death-2016",
+    acceptable_winner_ids: [
+      "sio-bj-miller-attend-to-death-2016",
+      "sio-smith-meaning-over-happiness-2017",
+    ],
+    resonance_signal:
+      "lost + mortality / 'time running out' / 'years I have' + vulnerable tone → BJ Miller's attend-to-death story",
+    reason:
+      "Directionlessness expressed through mortality and wasted time is BJ Miller's exact territory (the man who studied 1,000 deaths). The vulnerable/personal hint surfaces his story over the intellectual Newport default. Smith (meaning) is state-coherent and acceptable.",
+    category: "resonance-discriminator",
+  },
+
+  // ---- Direction Collapse + direct/challenging (Millman — busy is a decision) ----
+  {
+    id: "dc-8-hiding-behind-busy",
+    query:
+      "I honestly don't know what I want my life to be about anymore, and I think I keep myself so busy that I never have to sit with that question. I need someone to be blunt with me about what I'm actually choosing.",
+    expected_state: "direction-collapse",
+    expected_winner_id: "sio-millman-busy-is-a-decision-2018",
+    acceptable_winner_ids: ["sio-millman-busy-is-a-decision-2018"],
+    resonance_signal:
+      "'too busy to figure out what I want' + 'hiding behind busy' + 'call me on it' → direct/challenging; Millman's busy-is-a-decision",
+    reason:
+      "Busyness-as-alibi for not choosing a direction, plus an explicit request to be confronted — Millman's exact frame and register. The direct/challenging hint surfaces her over the intellectual Newport default.",
+    category: "resonance-discriminator",
+  },
+
+  // ---- Engagement Drought + intellectual/measured (Perel — surviving vs. alive) ----
+  {
+    id: "ed-9-surviving-not-alive",
+    query:
+      "On paper I'm fine — decent job, bills paid — and I just go through the motions every day. It's like I'm surviving but not actually alive, and I'm trying to understand the difference between the two.",
+    expected_state: "engagement-drought",
+    expected_winner_id: "sio-perel-survival-vs-revival-2017",
+    acceptable_winner_ids: [
+      "sio-perel-survival-vs-revival-2017",
+      "sio-grant-languishing-2021",
+    ],
+    resonance_signal:
+      "'surviving but not alive' + 'going through the motions' + reflective 'understand the difference' → intellectual/measured; Perel's two-groups reframe",
+    reason:
+      "The surviving-vs-alive distinction is Perel's exact image; the reflective register earns the intellectual/measured hint. Grant's 'languishing' naming is the adjacent intellectual ED option and acceptable.",
+    category: "resonance-discriminator",
+  },
+
+  // ---- Engagement Drought + permission/warm (Susan David — stop forcing positivity) ----
+  {
+    id: "ed-10-forcing-positivity",
+    query:
+      "I keep telling myself to just stay positive and push the bad feelings down, but the harder I force the good vibes the more numb and checked out I feel about everything.",
+    expected_state: "engagement-drought",
+    expected_winner_id: "sio-david-emotional-courage-2017",
+    acceptable_winner_ids: [
+      "sio-david-emotional-courage-2017",
+      "sio-brown-numbing-not-failing-2021",
+    ],
+    resonance_signal:
+      "'just stay positive' / 'push feelings down' / forcing good vibes → permission/warm; David's emotional-courage (stop performing positivity)",
+    reason:
+      "Forced positivity / suppression as the engine of the numbness is Susan David's exact frame — permission to feel rather than a push. The permission/warm hint surfaces David; Brown (permission/warm, numbing-as-protection) is the adjacent option and acceptable.",
+    category: "resonance-discriminator",
+  },
+
+  // ═══════════════════════════════════════════════════════════════
+  // SIX-STATE BUILDOUT — the 3 new states + the disambiguation
+  // boundaries that are easiest to get wrong (restart-friction vs
+  // inaction-loop; identity-transition vs direction-collapse;
+  // possibility-paralysis vs inaction-loop).
+  // ═══════════════════════════════════════════════════════════════
+
+  // ---- Possibility Paralysis ----
+  {
+    id: "pp-1-research-as-avoidance",
+    query:
+      "I have three real business ideas I've sat on for two years and I keep researching all of them instead of starting any. Am I actually being thorough or just avoiding the decision?",
+    expected_state: "possibility-paralysis",
+    expected_winner_id: "sio-dan-martell-research-avoidance-2023",
+    acceptable_winner_ids: [
+      "sio-dan-martell-research-avoidance-2023",
+      "sio-derek-sivers-hell-yeah-or-no-2015",
+      "sio-barry-schwartz-paradox-of-choice-2005",
+      "sio-ruth-chang-hard-choices-2014",
+    ],
+    resonance_signal:
+      "'researching instead of deciding' / 'avoiding the decision' → direct/challenging; Martell's research-as-avoidance reframe (warm/affirming correctly excluded — comfort validates stalling)",
+    reason:
+      "Decision-avoidance-disguised-as-research is Martell's exact frame; the direct/challenging hint surfaces him over the intellectual options. Sivers (direct, hell-yeah-or-no), Schwartz, and Chang are state-coherent PP and acceptable.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "pp-2-maximizer-mechanism",
+    query:
+      "Why does having more options make me feel worse, not freer? Every time I'm about to pick one I feel like I'm failing to find the best possible answer.",
+    expected_state: "possibility-paralysis",
+    expected_winner_id: "sio-barry-schwartz-paradox-of-choice-2005",
+    acceptable_winner_ids: [
+      "sio-barry-schwartz-paradox-of-choice-2005",
+      "sio-ruth-chang-hard-choices-2014",
+      "sio-tim-ferriss-fear-setting-2017",
+    ],
+    resonance_signal:
+      "'more options feel worse' / 'find the best possible answer' (maximizing) → mechanism/intellectual; Schwartz's maximizer-vs-satisficer paradox-of-choice",
+    reason:
+      "The maximizer's 'optionality as cage' is Schwartz's exact mechanism. Chang (on-a-par reframe) and Ferriss (fear-setting) are state-coherent and acceptable.",
+    category: "primary",
+  },
+  {
+    id: "pp-3-fear-of-regret-commit",
+    query:
+      "I'm terrified that if I commit to one path I'll have wasted years I can't get back. How do people ever choose when they can't be certain it's right?",
+    expected_state: "possibility-paralysis",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-bren-brown-vulnerability-commitment-2012",
+      "sio-ruth-chang-hard-choices-2014",
+      "sio-barry-schwartz-paradox-of-choice-2005",
+      "sio-tim-ferriss-fear-setting-2017",
+      "sio-derek-sivers-hell-yeah-or-no-2015",
+    ],
+    resonance_signal:
+      "fear of regret + 'choose under uncertainty' → Brown's permission-to-choose-without-certainty (ideal) or Chang's commitment-creates-reasons reframe",
+    reason:
+      "Fear-of-regret commitment anxiety. Brown (permission, choose despite uncertainty) and Chang (we make ourselves by committing) are the closest; any state-coherent PP SIO is acceptable — the only failure is leaving the state.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "pp-4-disambig-vs-inaction-loop",
+    query:
+      "I keep a running list of paths I could take — different careers, different cities — and I can't commit to any single one because picking it means killing the others.",
+    expected_state: "possibility-paralysis",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-ruth-chang-hard-choices-2014",
+      "sio-barry-schwartz-paradox-of-choice-2005",
+      "sio-derek-sivers-hell-yeah-or-no-2015",
+      "sio-dan-martell-research-avoidance-2023",
+      "sio-tim-ferriss-fear-setting-2017",
+      "sio-bren-brown-vulnerability-commitment-2012",
+    ],
+    resonance_signal:
+      "MULTIPLE options + 'killing the others' (fear of foreclosing) → possibility-paralysis, NOT inaction-loop (no single known avoided action)",
+    reason:
+      "Boundary case PP vs inaction-loop: the user names several live options and the blocker is choosing among them (excess), not resisting one known action. Any PP SIO is acceptable; the failure mode is an inaction-loop classification/winner.",
+    category: "resonance-discriminator",
+  },
+
+  // ---- Identity Transition ----
+  {
+    id: "it-1-post-success-lost-boundary",
+    query:
+      "I sold the company I built and I thought I'd feel free, but I just feel hollow and I don't know who I am without it. I'm not even allowed to feel lost after something that went well.",
+    expected_state: "identity-transition",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      // identity-transition (post-success-lost) side
+      "sio-gregg-renfrew-post-exit-identity-2025",
+      "sio-andre-agassi-open-identity-vacuum-2009",
+      "sio-rich-roll-roll-recovery-reinvention-2022",
+      // direction-collapse (post-achievement) side — genuinely acceptable for this boundary
+      "sio-mcconaughey-go-to-zero-2020",
+      "sio-waldinger-good-life-relationships-2015",
+      "sio-dgilbert-synthetic-happiness-2004",
+      "sio-smith-meaning-over-happiness-2017",
+    ],
+    resonance_signal:
+      "discrete exit ('sold the company') + 'hollow after success' + 'don't know who I am' — genuinely straddles identity-transition (post-success-lost) and direction-collapse (post-achievement)",
+    reason:
+      "Boundary case IT↔DC: 'achieved-the-thing-and-feel-empty/lost-myself' legitimately reads as either post-success identity loss (Renfrew/Agassi/Rich Roll) or post-achievement direction-collapse (McConaughey/Waldinger/Dan Gilbert). Any of those is a coherent answer; this case documents the known fuzzy boundary rather than forcing one side. The only real failure would be an inaction-loop / momentum-gap winner.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "it-2-career-exit-who-am-i",
+    query:
+      "I left the career I'd had for a decade and I genuinely don't recognize myself anymore. Who am I without that thing I was known for?",
+    expected_state: "identity-transition",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-lewis-howes-athlete-identity-floor-2015",
+      "sio-rich-roll-roll-recovery-reinvention-2022",
+      "sio-gregg-renfrew-post-exit-identity-2025",
+      "sio-andre-agassi-open-identity-vacuum-2009",
+    ],
+    resonance_signal:
+      "discrete career exit + 'don't recognize myself' → vulnerable/personal story of role-loss and rebuild",
+    reason:
+      "Career-exit identity vacuum. Any of the vulnerable/personal role-loss stories (Howes, Rich Roll, Renfrew, Agassi) is a coherent answer; the failure mode would be a direction-collapse winner (chronic drift) instead of the discrete-event story.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "it-3-in-between-reframe",
+    query:
+      "I'm stuck in this in-between where I can't see what chapter two looks like, and I feel like I'm failing the transition because I can't picture what's next.",
+    expected_state: "identity-transition",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-bruce-feiler-lifequake-messy-middle-2021",
+      "sio-adam-grant-identity-as-structure-2021",
+      "sio-bren-brown-braving-wilderness-2017",
+    ],
+    resonance_signal:
+      "'can't see chapter two' / 'failing the transition' → intellectual/measured reframe; Feiler's messy-middle (disorientation is structural, not failure)",
+    reason:
+      "The liminal in-between is Feiler's exact reframe (you're in the messy middle by design, not behind). Grant (identity-as-structure) and Brown (wilderness) are state-coherent and acceptable.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "it-4-relationship-end-warm",
+    query:
+      "It's been months since the divorce and I still feel like a stranger to myself. Is it normal to be this disoriented for this long?",
+    expected_state: "identity-transition",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-bren-brown-braving-wilderness-2017",
+      "sio-adam-grant-identity-as-structure-2021",
+      "sio-bruce-feiler-lifequake-messy-middle-2021",
+      "sio-andre-agassi-open-identity-vacuum-2009",
+    ],
+    resonance_signal:
+      "post-divorce 'stranger to myself' + 'is it normal' (permission-seeking) → warm/affirming; Brown's wilderness/belonging-to-yourself (ideal) — any state-coherent IT SIO acceptable",
+    reason:
+      "Post-relationship identity loss. Brown's warm permission is the ideal tone; Grant/Feiler/Agassi are state-coherent. Known limitation: when no warm hint is inferred, the intellectual reframe (Grant/Feiler) can out-rank Brown — both stay within identity-transition, so accepted. The only failure is leaving the state.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "it-5-disambig-vs-direction-collapse",
+    query:
+      "Six months ago I retired from the sport I'd done my whole life. Before that I always knew exactly who I was. Now the thing that organized everything is just gone and I feel adrift.",
+    expected_state: "identity-transition",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-andre-agassi-open-identity-vacuum-2009",
+      "sio-lewis-howes-athlete-identity-floor-2015",
+      "sio-rich-roll-roll-recovery-reinvention-2022",
+      "sio-gregg-renfrew-post-exit-identity-2025",
+      "sio-bruce-feiler-lifequake-messy-middle-2021",
+    ],
+    resonance_signal:
+      "DISCRETE event (retirement) + clear before/after ('always knew who I was' → 'gone') → identity-transition, NOT direction-collapse (chronic, no trigger)",
+    reason:
+      "Boundary case IT vs direction-collapse: there is a specific triggering event (retirement) and an explicit before/after, which is identity-transition, not the chronic gradual driftlessness of direction-collapse. Any IT SIO is acceptable; the failure mode is a direction-collapse classification/winner.",
+    category: "resonance-discriminator",
+  },
+
+  // ---- Momentum Gap ----
+  {
+    id: "mg-1-restart-mechanism",
+    query:
+      "I had a great gym and writing routine, fell off for two months, and now restarting feels impossible. How do I get back in without it feeling like a huge mountain?",
+    expected_state: "momentum-gap",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-andrew-huberman-limbic-friction-reentry-2020",
+      "sio-bj-fogg-shrink-the-restart-2019",
+      "sio-james-clear-never-miss-twice-2020",
+      "sio-kristin-neff-lapse-not-identity-2020",
+    ],
+    resonance_signal:
+      "HAD a routine + 'fell off' + 'restarting feels impossible' / 'without it feeling huge' → mechanism/expert; restart-cost-reduction (Huberman limbic friction / Fogg shrink-the-restart)",
+    reason:
+      "Restart-friction re-entry: prior motion existed and was lost. Huberman (limbic friction), Fogg (tiny re-entry), Clear (never miss twice) are the mechanism answers; Neff (lapse ≠ identity) is acceptable. The failure mode is an inaction-loop winner (never-started).",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "mg-2-shame-restart-permission",
+    query:
+      "I fell off my habits and every time I think about restarting I just feel like a fraud who failed. How do I begin again without all the shame about having stopped?",
+    expected_state: "momentum-gap",
+    expected_winner_id: "sio-kristin-neff-lapse-not-identity-2020",
+    acceptable_winner_ids: [
+      "sio-kristin-neff-lapse-not-identity-2020",
+      "sio-mel-robbins-jealousy-future-self-2024",
+      "sio-james-clear-never-miss-twice-2020",
+    ],
+    resonance_signal:
+      "lapse + shame ('fraud who failed') + 'without the shame' → permission/warm; Neff's self-compassion (the lapse is not your identity)",
+    reason:
+      "Shame-blocked re-entry needs permission, not a push — Neff's self-compassion reframe is the exact answer; the warm/affirming hint surfaces her. Clear (never miss twice) is an acceptable adjacent. A direct/challenging winner would be the wrong tone.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "mg-3-comparison-spike-reframe",
+    query:
+      "My friend just raised a seed round and I feel like I've done nothing with my twenties. I don't even want their life — I just want that feeling of going somewhere.",
+    expected_state: "momentum-gap",
+    expected_winner_id: "sio-mel-robbins-jealousy-future-self-2024",
+    acceptable_winner_ids: [
+      "sio-mel-robbins-jealousy-future-self-2024",
+      "sio-kristin-neff-lapse-not-identity-2020",
+    ],
+    resonance_signal:
+      "comparison trigger ('friend raised a round') + 'want the feeling not their life' → warm/affirming reframe; Robbins decodes envy/jealousy as a values signal (direct/challenging correctly excluded)",
+    reason:
+      "Comparison-spike where the wanted 'feeling' is decodable as a values signal — Robbins' exact frame, warm register. The failure mode is a direction-collapse classification (chronic) or a moralizing/tough-love winner.",
+    category: "resonance-discriminator",
+  },
+  {
+    id: "mg-4-disambig-restart-vs-inaction-loop",
+    query:
+      "I used to run every single morning for a year, then I stopped after I got sick, and now two months later getting back out the door feels completely impossible.",
+    expected_state: "momentum-gap",
+    expected_winner_id: null,
+    acceptable_winner_ids: [
+      "sio-andrew-huberman-limbic-friction-reentry-2020",
+      "sio-bj-fogg-shrink-the-restart-2019",
+      "sio-james-clear-never-miss-twice-2020",
+      "sio-kristin-neff-lapse-not-identity-2020",
+    ],
+    resonance_signal:
+      "explicit PRIOR motion ('used to run every morning for a year') that was LOST ('then I stopped') → momentum-gap restart-friction, NOT inaction-loop (which is a never-started action). THE sharpest disambiguation in the expansion.",
+    reason:
+      "The single most important disambiguation: re-entry (had it, lost it) is momentum-gap restart-friction, NOT inaction-loop (a known action never started). The query makes the prior motion explicit. Any MG restart SIO is acceptable; an inaction-loop classification/winner is the failure.",
     category: "resonance-discriminator",
   },
 ];

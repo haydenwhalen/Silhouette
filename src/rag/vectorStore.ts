@@ -224,6 +224,60 @@ function applyBoosts(
   };
 }
 
+function cosineSim(a: number[], b: number[]): number {
+  let dot = 0, na = 0, nb = 0;
+  const n = Math.min(a.length, b.length);
+  for (let i = 0; i < n; i++) { dot += a[i] * b[i]; na += a[i] * a[i]; nb += b[i] * b[i]; }
+  return na && nb ? dot / (Math.sqrt(na) * Math.sqrt(nb)) : 0;
+}
+
+// Layer B diversity (magnet/diversity-fix phase): MMR rerank of the RETURNED set.
+// INVARIANT: position #1 is ALWAYS the highest-final_score candidate, so the winner
+// logic and calibration are unaffected. MMR only chooses positions 2..k to avoid
+// surfacing near-duplicate alternatives. λ favors relevance so a weak SIO never
+// displaces a clearly better one. Embeddings are read fresh from the store each call
+// (trivial at corpus scale) to avoid staleness.
+function mmrSelect(
+  scored: ScoredCandidate[],
+  k: number,
+  lambda: number
+): ScoredCandidate[] {
+  if (scored.length <= 2 || k <= 1) return scored.slice(0, k);
+  const memVecs =
+    (store as unknown as { memoryVectors?: Array<{ embedding: number[]; metadata: Record<string, unknown> }> })
+      .memoryVectors ?? [];
+  const embById = new Map<string, number[]>();
+  for (const v of memVecs) {
+    const id = String(v.metadata?.insight_id ?? "");
+    if (id) embById.set(id, v.embedding);
+  }
+  if (embById.size === 0) return scored.slice(0, k); // embeddings unavailable → no-op
+
+  const selected: ScoredCandidate[] = [scored[0]]; // winner: top final_score, always
+  const remaining = scored.slice(1);
+  while (selected.length < k && remaining.length > 0) {
+    let bestIdx = 0;
+    let bestMmr = -Infinity;
+    for (let i = 0; i < remaining.length; i++) {
+      const cand = remaining[i];
+      const cEmb = embById.get(String(cand.doc.metadata.insight_id));
+      let maxSim = 0;
+      if (cEmb) {
+        for (const s of selected) {
+          const sEmb = embById.get(String(s.doc.metadata.insight_id));
+          if (sEmb) maxSim = Math.max(maxSim, cosineSim(cEmb, sEmb));
+        }
+      }
+      const mmr = lambda * cand.final_score - (1 - lambda) * maxSim;
+      if (mmr > bestMmr) { bestMmr = mmr; bestIdx = i; }
+    }
+    const [picked] = remaining.splice(bestIdx, 1);
+    (picked.notes ??= []).push(`MMR-selected for diversity (λ=${lambda})`);
+    selected.push(picked);
+  }
+  return selected;
+}
+
 export interface ScoredSearchOptions {
   query: string;
   state?: MvpState;
@@ -259,12 +313,16 @@ export async function scoredSearch(
     ? await store.similaritySearchWithScore(queryText, pool, filter)
     : await store.similaritySearchWithScore(queryText, pool);
 
-  const candidates = raw
+  const scored = raw
     .map(([doc, score]) =>
       applyBoosts(doc, score, resonance, opts.intakeHint ?? null)
     )
-    .sort((a, b) => b.final_score - a.final_score)
-    .slice(0, k);
+    .sort((a, b) => b.final_score - a.final_score);
+
+  // Layer B: MMR diversity on positions 2..k (winner #1 preserved). See retrievalConfig.
+  const candidates = RETRIEVAL_CONFIG.enable_mmr_diversity
+    ? mmrSelect(scored, k, RETRIEVAL_CONFIG.mmr_lambda)
+    : scored.slice(0, k);
 
   return {
     candidates,

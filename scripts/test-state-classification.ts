@@ -38,6 +38,25 @@ const CASES: TestCase[] = [
     query: "I know exactly what I need to do, but I keep avoiding it.",
     expectation: { kind: "clear", expectedState: "inaction-loop" },
   },
+  // ── Six-State Buildout: the 3 new states (clear) ──
+  {
+    label: "Possibility Paralysis (clear)",
+    query:
+      "I have three real business ideas and I keep researching all of them instead of committing to any one, because choosing one closes the others off.",
+    expectation: { kind: "clear", expectedState: "possibility-paralysis" },
+  },
+  {
+    label: "Identity Transition (clear)",
+    query:
+      "Six months ago I retired from the sport I'd played my whole life. The thing that organized my entire identity is suddenly gone and I don't recognize the person left behind.",
+    expectation: { kind: "clear", expectedState: "identity-transition" },
+  },
+  {
+    label: "Momentum Gap (clear, restart-friction)",
+    query:
+      "I had a solid running and writing routine, fell off for two months, and now getting back into it feels impossible.",
+    expectation: { kind: "clear", expectedState: "momentum-gap" },
+  },
   {
     label: "Ambiguous (sparse)",
     query: "I just feel stuck and off lately.",

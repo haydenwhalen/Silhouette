@@ -60,6 +60,9 @@ const evaluationSchema = z.object({
     "direction-collapse",
     "engagement-drought",
     "inaction-loop",
+    "possibility-paralysis",
+    "identity-transition",
+    "momentum-gap",
     "unknown",
   ]),
   detected_insight_type: z.enum(["reframe", "permission", "mechanism", "story", "unknown"]),
@@ -94,10 +97,13 @@ Your job is to rate how likely this candidate insight is to create a genuine mom
 ## The Silhouette Standard
 Silhouette's only differentiator is human resonance. The content must feel alive, specific, and human. It must speak to a real psychological stuck state. Generic motivational content actively harms trust.
 
-## The 3 Stuck States
+## The 6 Stuck States
 - **direction-collapse**: Lost the sense of what they're building toward. Core question: "What do I want?"
 - **engagement-drought**: Still has a target but lost feeling for it. Core question: "Why don't I care anymore?"
-- **inaction-loop**: Knows what to do but can't do it. Core question: "Why do I keep not doing this?"
+- **inaction-loop**: Knows the one thing to do but can't do it. Core question: "Why do I keep not doing this?"
+- **possibility-paralysis**: Has several real options and can't choose; fears foreclosing/choosing wrong. Core question: "Which one, and how do I commit?"
+- **identity-transition**: A discrete event (breakup, job loss, exit, move, retirement) removed an organizing structure; caught between an old self and an unseen new one. Core question: "Who am I now?"
+- **momentum-gap**: Comparison-triggered "everyone's ahead of me," OR lost a prior rhythm and can't restart without shame. Core question: "Why am I standing still / how do I get back into motion?"
 
 ## Scoring: 10 Dimensions (each 1–5)
 

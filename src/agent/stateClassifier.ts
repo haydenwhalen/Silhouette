@@ -3,10 +3,19 @@ import { z } from "zod";
 import { requireKey } from "../lib/config";
 import { logAgentStep } from "../logging/logger";
 
+// As of the Expanded Six-State Corpus Buildout this is the full 6-state controlled vocabulary
+// (the name MVP_STATES is kept for backward-compat). It drives the structured-output enum below,
+// so it MUST stay in sync with src/rag/retrievalConfig.ts MvpState and scripts/lib/discovery.ts.
+// RUNTIME-PIN: to pin the live classifier back to the validated MVP-3, comment out the last three
+// entries here AND the matching three in retrievalConfig.ts MvpState. The new-state corpus +
+// calibration stay in place for internal evaluation either way.
 export const MVP_STATES = [
   "direction-collapse",
   "engagement-drought",
   "inaction-loop",
+  "possibility-paralysis",
+  "identity-transition",
+  "momentum-gap",
 ] as const;
 
 export type MvpState = (typeof MVP_STATES)[number];
@@ -50,7 +59,7 @@ export type StateClassification = z.infer<typeof stateClassificationSchema>;
 
 const CLASSIFIER_SYSTEM_PROMPT = `You are a state classifier for Silhouette, a retrieval engine for young professionals (22–32) who feel stuck.
 
-Classify the user's message into ONE of three MVP stuck states, or "unknown" if the signal is too weak.
+Classify the user's message into ONE of six stuck states, or "unknown" if the signal is too weak.
 
 ## States
 
@@ -84,8 +93,41 @@ Signals:
 - A specific action is named or implied as the thing being avoided
 - Active frustration, self-judgment, awareness of the gap
 
+### possibility-paralysis
+Core question: Does the user have several real options and can't choose among them?
+Signals:
+- "I have a list of things I want to do and I'm doing none of them"
+- "I can't tell which idea is the real one" / "what if I choose wrong"
+- "If I commit to one I'm closing off the others"
+- "I keep researching / waiting for certainty instead of deciding"
+- Multiple options named or implied; the blocker is choosing/committing, NOT resistance to one known action
+- Anxious, crowded, fear-of-regret texture (NOT empty/flat)
+
+### identity-transition
+Core question: Did a discrete event remove a structure that organized who the user is?
+Signals:
+- "After my breakup / job loss / move / exit / retirement / graduation I don't know who I am"
+- "The thing that gave my life structure is gone"
+- "I feel like a stranger to myself" / "I feel smaller than I used to be"
+- A specific triggering event is named or strongly implied; a clear before/after
+- Disoriented, in-between, aftermath texture (NOT chronic gradual drift)
+
+### momentum-gap
+Core question: Is the user comparison-triggered "behind," or did they lose a rhythm and can't restart?
+Signals:
+- "Everyone else seems ahead / has it figured out / got a roadmap" (comparison-spike)
+- "I don't want their life, I want that feeling of going somewhere"
+- "I was doing well, fell off, and can't restart" / "I broke my streak and feel like a fraud" (restart-friction)
+- Triggered/recent or lapse-based; outward-facing OR re-entry-focused
+- NOT chronic internal flatness (engagement-drought); NOT a never-started known action (inaction-loop)
+
 ## Distinguishing rules
-- Direction Collapse = no target. Engagement Drought = target exists, feeling is gone. Inaction Loop = target exists, motivation exists, action does not.
+- Direction Collapse = no target. Engagement Drought = target exists, feeling is gone. Inaction Loop = ONE known action, motivation exists, action does not.
+- Possibility Paralysis = several real options, can't choose (excess). Direction Collapse = no options/target (absence). Inaction Loop = one known action, resisted.
+- CRITICAL PP vs Direction Collapse test: Possibility Paralysis requires the user to have CONCRETE, NAMED (or clearly implied) multiple options/paths they are weighing. If the user says they "can't figure out what they want," "don't know what to do with their career/life," or have introspected/journaled without finding an answer — and names NO concrete options — that is direction-collapse (absence of a target), NOT possibility-paralysis. Searching for direction ≠ choosing among known directions.
+- Identity Transition requires a discrete triggering event with a clear before/after. Direction Collapse is chronic and gradual with no trigger.
+- Momentum Gap is comparison-triggered or lapse-based. Hardest call: restart-friction (momentum-gap) = had a rhythm and lost it; Inaction Loop = never started / a known action avoided. "Fell off and can't restart" → momentum-gap; "never managed to start" → inaction-loop.
+- Momentum Gap vs Direction Collapse when the user compares to others: Momentum Gap comparison is about PACE/PROGRESS — others are further along, ahead, moving faster, hitting milestones — while the user roughly knows what they want but feels behind ON it. If the comparison is that others KNOW WHAT THEY WANT / HAVE DIRECTION while the user feels they have no "thing"/no direction at all ("everyone seems to know what they're doing with their life and I don't"), the deficit is direction, not pace → direction-collapse, NOT momentum-gap.
 - "I feel stuck" alone is NOT enough signal — return "unknown" with low confidence.
 - If two states are roughly equally plausible, set needs_clarification: true and pick the slightly stronger one as detected_state, listing the other in secondary_possible_states.
 - Classify carefully, not overconfidently. Moderate confidence is the right answer more often than high.
@@ -96,7 +138,7 @@ Signals:
 - low: too sparse, too vague, or genuinely indistinguishable across states.
 
 ## Output rules
-- detected_state: one of "direction-collapse", "engagement-drought", "inaction-loop", "unknown".
+- detected_state: one of "direction-collapse", "engagement-drought", "inaction-loop", "possibility-paralysis", "identity-transition", "momentum-gap", "unknown".
 - state_confidence: "high" | "moderate" | "low".
 - secondary_possible_states: zero or more MVP states (no "unknown").
 - needs_clarification: true if confidence is moderate or low, or if two states are competing.

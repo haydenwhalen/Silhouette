@@ -1,0 +1,136 @@
+candidate_id: cand-mg-neff-lapse-not-identity
+candidate_status: drafted
+target_state: momentum-gap
+sub_state: restart-friction
+target_gap: momentum-gap + permission + warm/affirming + moderate (mg-lapse-became-shame-spiral)
+proposed_insight_type: permission
+proposed_voice_register: warm/affirming
+proposed_intensity_level: moderate
+source_title: The Space Between Self-Esteem and Self Compassion — TEDxCentennialParkWomen
+source_url: https://self-compassion.org/videos-featuring-dr-kristin-neff/
+source_platform: TEDx Talk / Self-Compassion.org
+speaker: Kristin Neff
+guest_if_applicable: ''
+official_channel_url: https://self-compassion.org
+video_url: ''
+embed_url: ''
+transcript_url: >-
+  https://singjupost.com/kristin-neff-the-space-between-self-esteem-and-self-compassion-at-tedxcentennialparkwomen-transcript/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In her TEDxCentennialParkWomen talk, Kristin Neff explains why self-criticism makes lapses worse:
+  when self-esteem is contingent on performance, failure — including falling off a habit — feels
+  like an attack on your identity. Neff offers an alternative grounded in her research: self-
+  compassion is available precisely when self-esteem deserts you. She frames the key permission: to
+  be human is to be imperfect; falling short is not an exception, it is the shared human experience.
+  The moment she describes — treating yourself as you would treat a good friend who fell off track —
+  directly addresses the shame that turns a lapse into a spiral. She distinguishes between the slip
+  (the lapse) and the identity (who you are), which is the exact permission the restart-friction
+  user needs to re-enter without the shame cost.
+key_claim: >-
+  Falling off a habit doesn't mean you are someone who can't do this — it means you're human.
+  Self-compassion is available exactly when self-esteem deserts you: the moment you slip. The
+  question is whether you'd talk to a good friend who fell off their routine the way you're talking
+  to yourself. If you wouldn't, that's the gap. Treating yourself with the same understanding you'd
+  give a friend is what allows you to actually restart.
+why_it_might_land: >-
+  The restart-friction user is caught in shame: "Restarting means admitting I failed, so it's safer
+  not to try." Neff's frame lifts the shame directly by separating the lapse (a moment) from the
+  identity (who you are as a person). It doesn't prescribe action — it removes the weight that's
+  blocking re-entry. The "good friend" test is concrete enough to use immediately.
+user_problem_match_notes: >-
+  Restart-friction sub-state: the user had a routine — exercise, writing, studying — and lapsed;
+  shame about the lapse is now the primary barrier to re-entry. Prior motion explicitly established:
+  the self-compassion framing assumes you had something you were doing and lost it; it is about a
+  lapse, not first-time starting. Disambiguation from inaction-loop: inaction-loop = a known action
+  never started or chronically avoided; restart-friction = there WAS prior motion that stopped. The
+  lapse-and-shame pattern presupposes prior motion — you cannot "fall off" something you never
+  started. No direct/challenging register (correctly excluded for this shame-adjacent need).
+resonance_match_notes: >-
+  Warm/affirming, moderate, permission type. Fills MG-4 slot (Kristin Neff, per plan). The
+  lapse-not-identity distinction is the specific permission the slot requires. Neff's research
+  credibility (University of Texas; pioneered self-compassion measurement) gives the permission
+  grounding without being cold. Register is warm and scientifically grounded — appropriate for the
+  shame/self-recrimination emotional texture of the mg-lapse-became-shame-spiral need. First of two
+  Neff candidates (≤2 per speaker rule applies).
+source_credibility_notes: >-
+  Kristin Neff, PhD, is an Associate Professor at the University of Texas at Austin and one of the
+  world's leading researchers on self-compassion. The TEDxCentennialParkWomen talk "The Space
+  Between Self-Esteem and Self Compassion" is an official TED-affiliated event; a full transcript is
+  publicly available at singjupost.com. Key passages verified from the transcript: "What happens
+  when we fail? We feel lousy, we feel terrible about ourselves"; "to be human means to be
+  imperfect"; "treating ourselves like we treat a good friend"; "it's there for you precisely when
+  you fail — just when self-esteem deserts you, self-compassion steps in." Tier-1 credibility
+  (published researcher, peer-reviewed work). Quote type: paraphrase from verified public transcript
+  of official TEDx event.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.039Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: Falling off a habit doesn't mean you are someone who can't do this — it means you're human.
+    felt_recognition: >-
+      The question is whether you'd talk to a good friend who fell off their routine the way you're
+      talking to yourself.
+    emotional_precision: >-
+      self-criticism makes lapses worse: when self-esteem is contingent on performance, failure
+      feels like an attack on your identity.
+    reframe_power: >-
+      to be human is to be imperfect; falling short is not an exception, it is the shared human
+      experience.
+    permission_relief: >-
+      treating yourself with the same understanding you'd give a friend is what allows you to
+      actually restart.
+    actionability: treating yourself as you would treat a good friend who fell off track.
+    human_credibility: >-
+      Kristin Neff, PhD, is an Associate Professor at the University of Texas at Austin and one of
+      the world's leading researchers on self-compassion.
+    source_vividness: the moment you slip.
+    non_genericness: >-
+      the gap. Treating yourself with the same understanding you'd give a friend is what allows you
+      to actually restart.
+    voice_register_clarity: Self-compassion is available exactly when self-esteem deserts you.
+  why_it_might_land: >-
+    This insight directly addresses the shame and self-criticism that often accompany falling off a
+    habit, making it relatable and actionable for someone feeling stuck in a momentum gap.
+  why_it_might_not_land: >-
+    If the user is not familiar with self-compassion concepts, they may find it abstract or
+    difficult to apply immediately.
+recommendation: needs_transcript_verification
+novelty_score: 45
+novelty_nearest:
+  - insight_id: sio-saujani-brave-not-perfect-2016
+    similarity: 0.5543545098201828
+  - insight_id: sio-huffington-depletion-not-dedication-2010
+    similarity: 0.5252539740373412
+  - insight_id: sio-david-emotional-courage-2017
+    similarity: 0.5169885290549957
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.5066508825066248
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.4700686029633137
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

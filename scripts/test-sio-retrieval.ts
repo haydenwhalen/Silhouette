@@ -8,7 +8,13 @@ import {
 interface TestCase {
   label: string;
   query: string;
-  expectedState: "direction-collapse" | "engagement-drought" | "inaction-loop";
+  expectedState:
+    | "direction-collapse"
+    | "engagement-drought"
+    | "inaction-loop"
+    | "possibility-paralysis"
+    | "identity-transition"
+    | "momentum-gap";
 }
 
 const CASES: TestCase[] = [
@@ -28,6 +34,24 @@ const CASES: TestCase[] = [
     label: "Inaction Loop",
     query: "I know exactly what I need to do, but I keep avoiding it.",
     expectedState: "inaction-loop",
+  },
+  {
+    label: "Possibility Paralysis",
+    query:
+      "I have several real options I could pursue and I can't commit to any one because choosing it forecloses the others.",
+    expectedState: "possibility-paralysis",
+  },
+  {
+    label: "Identity Transition",
+    query:
+      "A big chapter of my life ended and the thing that organized who I was is gone — I don't recognize myself now.",
+    expectedState: "identity-transition",
+  },
+  {
+    label: "Momentum Gap",
+    query:
+      "I had a strong routine going, fell off for a couple of months, and getting back into motion now feels impossible.",
+    expectedState: "momentum-gap",
   },
 ];
 

@@ -1,0 +1,127 @@
+candidate_id: cand-pp-ferriss-fear-setting
+candidate_status: drafted
+target_state: possibility-paralysis
+target_gap: possibility-paralysis + reframe + intellectual/measured (pp-too-many-options-none-chosen)
+proposed_insight_type: reframe
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: moderate
+source_title: Why you should define your fears instead of your goals (TED2017)
+source_url: https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals
+source_platform: TED
+speaker: Tim Ferriss
+guest_if_applicable: ''
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In his April 2017 TED talk, Tim Ferriss presents "fear-setting" — a Stoic-derived exercise he
+  describes as the most valuable exercise he does every month. The core move: instead of
+  goal-setting, define your fears in writing. For each feared option, write out the worst-case
+  scenario in detail, what you could do to prevent or reduce it, and what you could do to repair the
+  damage if it happened. Then estimate both the likely upside and the cost of inaction — "what will
+  it cost you in six months, twelve months, three years if you don't take action?" Ferriss' key
+  observation for the paralysis user: what we fear doing is very often exactly what we need to do,
+  and most feared setbacks are temporary and more recoverable than imagined. Most people will choose
+  unhappiness over uncertainty, and the cost of that choice compounds over time.
+key_claim: >-
+  Most feared worst-cases are temporary and more recoverable than we imagine — and the real cost is
+  not the feared loss but the cost of inaction compounded over years. Fear-setting asks you to
+  define the nightmare in detail rather than let it remain vague. When you do, you often discover
+  the risk rates a 3 out of 10 and the upside rates a 9 — and that most people choose unhappiness
+  over uncertainty because they never actually examine what they are choosing against.
+why_it_might_land: >-
+  The possibility-paralysis user is stuck because every option feels risky to commit to. Ferriss'
+  fear-setting reframes the analysis: instead of evaluating options, evaluate the actual worst case
+  of the options you keep avoiding. When the nightmare is defined rather than vague, the held-open
+  options reveal their real cost. This is intellectual/measured in register (Stoic framing,
+  structured exercise) but lands with real force ("most people will choose unhappiness over
+  uncertainty").
+user_problem_match_notes: >-
+  Possibility-paralysis: the user keeps options open because closing them feels dangerous. Ferriss'
+  fear-setting addresses the exact mechanism — the feared worst case of choosing is vague and
+  therefore inflated. Defining it in writing deflates it and makes the real cost of not choosing
+  visible. This is NOT inaction-loop (no single avoided action being feared; here the user is
+  paralyzed across multiple options) and NOT direction- collapse (there are genuine options the user
+  fears foreclosing). Disambiguation: fear-setting is most specifically suited for the "too many
+  options, none chosen" presentation of possibility-paralysis, where the user is managing fears
+  about each option without naming them.
+resonance_match_notes: >-
+  Intellectual/measured register — Ferriss presents this as a structured Stoic exercise, not
+  emotional coaching. Moderate intensity. Fills the intellectual/measured reframe cell for
+  pp-too-many-options-none-chosen alongside Chang (different argument: Chang's is philosophical
+  undecidability; Ferriss' is cost-of-inaction via fear definition). Source diversity: TED talk
+  (official), Ferriss as speaker — distinct from Sivers slot where Sivers is the guest. No register
+  exclusions apply (warm/affirming is excluded for pp-research-as-avoidance, not for this need).
+source_credibility_notes: >-
+  Tim Ferriss is the author of The 4-Hour Workweek and host of The Tim Ferriss Show (900+ million
+  downloads). His TED2017 talk is an official TED talk available at ted.com with transcript.
+  Tier-1/Tier-2 (widely respected practitioner with major platform). Official URL confirmed:
+  https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals. TED
+  transcripts are not reliably WebFetch-readable; paraphrase is the honest label. The fear-setting
+  concept is thoroughly documented in his tim.blog post at https://tim.blog/2017/05/15/fear-setting/
+  and in Tribe of Mentors. The specific claims about most-people-choose-unhappiness-over-uncertainty
+  and the asymmetry between feared downside (3/10) and upside (9/10) are documented via web search
+  across multiple secondary sources describing the official TED talk.
+media_verification_status: needs_review
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:31.999Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: 'the core move: instead of goal-setting, define your fears in writing.'
+    felt_recognition: >-
+      most people choose unhappiness over uncertainty because they never actually examine what they
+      are choosing against.
+    emotional_precision: the real cost is not the feared loss but the cost of inaction compounded over years.
+    reframe_power: Fear-setting asks you to define the nightmare in detail rather than let it remain vague.
+    permission_relief: most feared setbacks are temporary and more recoverable than imagined.
+    actionability: For each feared option, write out the worst-case scenario in detail.
+    human_credibility: Tim Ferriss is the author of The 4-Hour Workweek and host of The Tim Ferriss Show.
+    source_vividness: the cost of inaction compounded over years.
+    non_genericness: the fear-setting concept is thoroughly documented in his tim.blog post.
+    voice_register_clarity: 'the core move: instead of goal-setting, define your fears in writing.'
+  why_it_might_land: >-
+    This insight directly addresses the paralysis of choice by reframing fear as a manageable
+    concept, making it relatable and actionable.
+  why_it_might_not_land: >-
+    Some users may still feel overwhelmed by the idea of confronting their fears in detail, despite
+    the clarity provided.
+recommendation: needs_stronger_source
+novelty_score: 49
+novelty_nearest:
+  - insight_id: sio-urban-instant-gratification-monkey-2016
+    similarity: 0.510916098385009
+  - insight_id: sio-saujani-brave-not-perfect-2016
+    similarity: 0.48027893921740145
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.4743605762810778
+  - insight_id: sio-pressfield-resistance-2015
+    similarity: 0.47108296995203436
+  - insight_id: sio-gilbert-elusive-genius-2009
+    similarity: 0.4554137073419871
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

@@ -20,7 +20,7 @@
  * Run: npx tsx scripts/find-source-candidates.ts
  */
 
-import { writeFileSync } from "fs";
+import { writeFileSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
 import {
   GUIDES_DIR,
@@ -58,7 +58,7 @@ const SOURCE_FAMILIES: SourceFamily[] = [
     handles: ["@lewishowes"],
     domains: ["lewishowes.com"],
     search_prefixes: ['site:lewishowes.com', '"Lewis Howes" "School of Greatness"'],
-    strong_states: ["direction-collapse", "engagement-drought", "inaction-loop"],
+    strong_states: ["direction-collapse", "engagement-drought", "inaction-loop", "identity-transition", "momentum-gap"],
     strong_types: ["story", "permission", "reframe"],
     strong_registers: ["warm/affirming", "vulnerable/personal"],
     channel_id: ""  /* blanked: do NOT ship unverified channel IDs — populate from verified trusted_youtube_channels.json */,
@@ -68,7 +68,7 @@ const SOURCE_FAMILIES: SourceFamily[] = [
     handles: ["@hubermanlab"],
     domains: ["hubermanlab.com"],
     search_prefixes: ['site:hubermanlab.com', '"Huberman Lab" site:youtube.com'],
-    strong_states: ["engagement-drought", "inaction-loop"],
+    strong_states: ["engagement-drought", "inaction-loop", "possibility-paralysis", "momentum-gap"],
     strong_types: ["mechanism"],
     strong_registers: ["expert/scientific"],
     channel_id: ""  /* blanked: do NOT ship unverified channel IDs — populate from verified trusted_youtube_channels.json */,
@@ -78,7 +78,7 @@ const SOURCE_FAMILIES: SourceFamily[] = [
     handles: ["@timferriss"],
     domains: ["tim.blog"],
     search_prefixes: ['site:tim.blog', '"Tim Ferriss" "The Tim Ferriss Show"'],
-    strong_states: ["direction-collapse", "inaction-loop"],
+    strong_states: ["direction-collapse", "inaction-loop", "possibility-paralysis", "identity-transition"],
     strong_types: ["story", "reframe", "mechanism"],
     strong_registers: ["intellectual/measured", "direct/challenging"],
     channel_id: ""  /* blanked: do NOT ship unverified channel IDs — populate from verified trusted_youtube_channels.json */,
@@ -88,7 +88,7 @@ const SOURCE_FAMILIES: SourceFamily[] = [
     handles: ["@TheDiaryOfACEO"],
     domains: ["doac.com"],
     search_prefixes: ['"Diary of a CEO"', '"Diary of a CEO" site:youtube.com'],
-    strong_states: ["direction-collapse", "engagement-drought"],
+    strong_states: ["direction-collapse", "engagement-drought", "identity-transition", "momentum-gap"],
     strong_types: ["story", "reframe", "permission"],
     strong_registers: ["vulnerable/personal", "direct/challenging"],
     channel_id: ""  /* blanked: do NOT ship unverified channel IDs — populate from verified trusted_youtube_channels.json */,
@@ -128,7 +128,7 @@ const SOURCE_FAMILIES: SourceFamily[] = [
     handles: ["@TED"],
     domains: ["ted.com"],
     search_prefixes: ['site:ted.com/talks', 'TED talk site:ted.com'],
-    strong_states: ["direction-collapse", "engagement-drought", "inaction-loop"],
+    strong_states: ["direction-collapse", "engagement-drought", "inaction-loop", "possibility-paralysis", "identity-transition", "momentum-gap"],
     strong_types: ["reframe", "mechanism", "story", "permission"],
     strong_registers: ["expert/scientific", "intellectual/measured", "warm/affirming"],
     // TED uses ted.com, not YouTube as primary — no channel_id for API search
@@ -202,6 +202,30 @@ const STATE_TOPIC_SEEDS: Record<string, string[]> = {
     "fear of failure perfectionism",
     "just start imperfect action",
     "accountability momentum",
+  ],
+  "possibility-paralysis": [
+    "too many options can't choose",
+    "paradox of choice overwhelmed decision",
+    "fear of choosing wrong career path",
+    "how to commit to one path",
+    "optionality keeping options open trap",
+    "maximizer satisficer decision making",
+  ],
+  "identity-transition": [
+    "who am I after losing my job",
+    "identity after divorce or breakup",
+    "reinvention after career change",
+    "rebuilding self after major life change",
+    "loss of identity after retirement athlete",
+    "in between selves life transition",
+  ],
+  "momentum-gap": [
+    "feeling behind comparing to peers",
+    "everyone else is ahead of me",
+    "comparison social media falling behind",
+    "lost my routine can't restart",
+    "restarting habit after falling off",
+    "never miss twice get back on track",
   ],
 };
 
@@ -510,11 +534,97 @@ async function main() {
     console.log();
   }
 
+  // ── User-side discovery integration (additive; corpus-gap behavior unchanged) ─────
+  // Surface user-need-driven targets ALONGSIDE the corpus-cell profiles so the human sees one
+  // analysis (HITL best practice). These carry register EXCLUSIONS a metadata cell cannot express.
+  const userNeed = loadUserNeedTargets();
+
   // ── Write markdown report ─────────────────────────────────────────
   ensureDir(GUIDES_DIR);
-  writeFileSync(REPORT_PATH, buildMarkdown(profiles, n, now), "utf-8");
+  writeFileSync(REPORT_PATH, buildMarkdown(profiles, n, now) + buildUserNeedSection(userNeed), "utf-8");
   console.log(`\n[find-source-candidates] Wrote report → ${REPORT_PATH}`);
-  console.log(`[find-source-candidates] ${profiles.length} target profiles, ${profiles.reduce((a, p) => a + p.ranked_queries.length, 0)} queries generated.`);
+  console.log(`[find-source-candidates] ${profiles.length} corpus-cell profiles, ${profiles.reduce((a, p) => a + p.ranked_queries.length, 0)} queries generated.`);
+
+  if (userNeed) {
+    const corpusGaps = userNeed.targets.filter((t) => t.gap_kind === "corpus_gap");
+    const retrievalGaps = userNeed.targets.filter((t) => t.gap_kind === "retrieval_gap");
+    console.log(`\n[find-source-candidates] USER-NEED targets (${userNeed.status}): ${corpusGaps.length} corpus_gap (harvest), ${retrievalGaps.length} retrieval_gap (tune retrieval first).`);
+    for (const t of corpusGaps.slice(0, 5)) {
+      console.log(`  ⛏️ [${t.priority}] ${t.need_id} — ${t.recommended_voice_register}${t.excluded_voice_registers.length ? ` (exclude ${t.excluded_voice_registers.join(", ")})` : ""}`);
+      if (t.suggested_queries[0]) console.log(`       e.g. ${t.suggested_queries[0]}`);
+    }
+    if (corpusGaps.length === 0) {
+      console.log(`  (No user-need corpus gaps right now — the corpus serves the seeded needs. retrieval_gap items go to retrieval tuning, not harvesting.)`);
+    }
+  } else {
+    console.log(`\n[find-source-candidates] (No user-need targets found. Run \`npm run analyze-user-needs\` to generate them.)`);
+  }
+}
+
+// ── User-need harvesting targets (read the machine-readable twin written by the analyzer) ──
+interface UserNeedTarget {
+  need_id: string;
+  gap_kind: string;
+  priority: number;
+  target_state: string;
+  recommended_insight_type: string[];
+  recommended_voice_register: string;
+  excluded_voice_registers: string[];
+  user_situation: string;
+  missing_source_profile: string;
+  suggested_source_families: string[];
+  suggested_queries: string[];
+}
+interface UserNeedTargetsFile { status: string; targets: UserNeedTarget[] }
+
+function loadUserNeedTargets(): UserNeedTargetsFile | null {
+  const p = join(GUIDES_DIR, "user_need_harvesting_targets.json");
+  if (!existsSync(p)) return null;
+  try {
+    const parsed = JSON.parse(readFileSync(p, "utf-8")) as UserNeedTargetsFile;
+    return Array.isArray(parsed.targets) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function buildUserNeedSection(file: UserNeedTargetsFile | null): string {
+  const L: string[] = [];
+  L.push("");
+  L.push("## User-need-driven harvesting targets");
+  L.push("");
+  if (!file) {
+    L.push("_No user-need targets file found. Run `npm run analyze-user-needs` to generate" +
+      " `user_need_harvesting_targets.json` (situational targets with register exclusions)._");
+    L.push("");
+    return L.join("\n");
+  }
+  L.push(`> **${file.status} layer.** These complement the corpus-cell profiles above with realistic` +
+    " user situations and register **exclusions** a metadata gap cannot express. `corpus_gap` →" +
+    " harvest; `retrieval_gap` → tune retrieval first. Full briefs: `user_need_harvesting_targets.md`.");
+  L.push("");
+  const corpus = file.targets.filter((t) => t.gap_kind === "corpus_gap");
+  const retr = file.targets.filter((t) => t.gap_kind === "retrieval_gap");
+  L.push(`**${corpus.length} corpus_gap (harvest) · ${retr.length} retrieval_gap (tune first)**`);
+  L.push("");
+  if (file.targets.length === 0) {
+    L.push("_No under-served user needs detected — the corpus serves the seeded needs._");
+    L.push("");
+    return L.join("\n");
+  }
+  for (const t of file.targets) {
+    L.push(`### ${t.gap_kind === "corpus_gap" ? "⛏️" : "🔧"} \`${t.need_id}\` (priority ${t.priority}, ${t.gap_kind})`);
+    L.push("");
+    L.push(`- **Situation:** ${t.user_situation}`);
+    L.push(`- **Want:** ${t.recommended_insight_type.join("/")} · ${t.recommended_voice_register}` +
+      (t.excluded_voice_registers.length ? ` · **exclude** ${t.excluded_voice_registers.join(", ")}` : ""));
+    L.push(`- **Source profile:** ${t.missing_source_profile}`);
+    L.push(`- **Families:** ${t.suggested_source_families.join(", ")}`);
+    L.push(`- **Queries:**`);
+    for (const q of t.suggested_queries) L.push(`  - \`${q}\``);
+    L.push("");
+  }
+  return L.join("\n");
 }
 
 function buildMarkdown(profiles: TargetProfile[], totalSios: number, now: string): string {

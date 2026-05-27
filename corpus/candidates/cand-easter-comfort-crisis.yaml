@@ -1,0 +1,132 @@
+candidate_id: cand-easter-comfort-crisis
+candidate_status: drafted
+target_state: engagement-drought
+target_gap: engagement-drought + direct/challenging (the empty state×register cell)
+proposed_insight_type: reframe
+proposed_voice_register: direct/challenging
+proposed_intensity_level: moderate
+source_title: 'Podcast #708: Overcome the Comfort Crisis'
+source_url: https://www.artofmanliness.com/health-fitness/health/podcast-708-overcoming-the-comfort-crisis/
+source_platform: The Art of Manliness Podcast
+speaker: Michael Easter
+guest_if_applicable: Michael Easter
+official_channel_url: https://www.artofmanliness.com/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: https://www.artofmanliness.com/health-fitness/health/podcast-708-overcoming-the-comfort-crisis/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: >-
+  You can tie it to everything from chronic disease, to depression, to even feeling a lack of
+  meaning 'cause it's like humans thrive on challenges, on being pushed up against and coming out
+  the other side.
+quote_type: verbatim
+candidate_moment_summary: >
+  Easter, who reported The Comfort Crisis, argues that a life engineered for total comfort and the
+  removal of all friction is exactly what leaves modern people flat, anxious, and feeling a lack of
+  meaning — because humans are built to be tested. The disengaged, going-through-the-motions feeling
+  isn't fixed by more rest, more convenience, or more soothing; it's often a signal that you've
+  optimized away every challenge. The corrective is to deliberately re-introduce difficulty (his
+  "misogi" — a hard thing with a real chance of failure), because aliveness comes from being pushed
+  up against something and coming out the other side.
+key_claim: >-
+  The flat, going-through-the-motions feeling often isn't a sign you need more comfort — it's a sign
+  you've removed all the challenge. Humans thrive on being pushed up against something hard and
+  coming out the other side; if you feel numb, the move isn't to soothe yourself, it's to go do
+  something difficult on purpose.
+why_it_might_land: >-
+  Speaks directly to the engagement-drought user whose life looks fine and comfortable yet feels
+  numb, and who keeps trying to rest or optimize their way out of it. Names comfort itself as the
+  culprit and issues a direct, almost confrontational challenge — go do something hard — which is
+  the register the engagement-drought state is completely missing.
+user_problem_match_notes: >-
+  Engagement-drought where comfort/safety has produced numbness and a quiet lack of meaning. A
+  direct/challenging push, not a permission or a soothing reframe. Distinct from Goggins/Jocko
+  (inaction-loop: discipline vs. the voice that wants to quit) — Easter's claim is about comfort
+  causing the flatness in the first place (engagement), not about overcoming laziness (action).
+resonance_match_notes: >-
+  Direct/challenging, moderate-to-intense. Fills the empty engagement-drought + direct/challenging
+  cell. Lands for users who experience warm/affirming content as too soft and want to be told the
+  hard thing. Pairs as a register discriminator against Huberman (expert/scientific) and Brown
+  (vulnerable/personal) within engagement-drought. Watch for magnet risk (the "do hard things" idea
+  is broad/punchy) — must clear test-magnet-risk before promotion.
+source_credibility_notes: >-
+  Michael Easter — journalist/author of "The Comfort Crisis: Embrace Discomfort to Reclaim Your
+  Wild, Happy, Healthy Self" (Rodale, 2021), professor at UNLV. Likely tier-2 (author synthesizing
+  reporting + research, not a primary researcher for this claim). Verbatim excerpt verified against
+  the official Art of Manliness podcast transcript (episode #708, 2022-11-23). The Comfort Crisis is
+  the corroborating book origin of the idea.
+media_verification_status: not_applicable
+transcript_verification_status: verified
+human_resonance_score: 90
+quote_quality_score: 83
+source_credibility_score: 75
+gap_fit_score: 100
+novelty_score: 36
+overall_candidate_score: 88
+novelty_rating: novel
+recommendation: ready_for_sio_draft
+human_review_notes: >-
+  Verbatim excerpt verified against the official Art of Manliness transcript for ep #708 (guest:
+  Michael Easter). Audio podcast — no official video embed (media not_applicable). MUST pass
+  test-magnet-risk before promotion (broad "do hard things" framing).
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-26T20:42:09.315Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 4
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 5
+    human_credibility: 4
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The disengaged, going-through-the-motions feeling isn't fixed by more rest, more convenience,
+      or more soothing; it's often a signal that you've optimized away every challenge.
+    felt_recognition: >-
+      if you feel numb, the move isn't to soothe yourself, it's to go do something difficult on
+      purpose.
+    emotional_precision: >-
+      the flat, going-through-the-motions feeling often isn't a sign you need more comfort — it's a
+      sign you've removed all the challenge.
+    reframe_power: >-
+      The corrective is to deliberately re-introduce difficulty (his 'misogi' — a hard thing with a
+      real chance of failure), because aliveness comes from being pushed up against something and
+      coming out the other side.
+    permission_relief: Humans thrive on being pushed up against something hard and coming out the other side.
+    actionability: the move isn't to soothe yourself, it's to go do something difficult on purpose.
+    human_credibility: >-
+      Michael Easter — journalist/author of 'The Comfort Crisis: Embrace Discomfort to Reclaim Your
+      Wild, Happy, Healthy Self'.
+    source_vividness: >-
+      Easter, who reported The Comfort Crisis, argues that a life engineered for total comfort and
+      the removal of all friction is exactly what leaves modern people flat, anxious, and feeling a
+      lack of meaning.
+    non_genericness: >-
+      the corrective is to deliberately re-introduce difficulty (his 'misogi' — a hard thing with a
+      real chance of failure)
+    voice_register_clarity: >-
+      The flat, going-through-the-motions feeling often isn't a sign you need more comfort — it's a
+      sign you've removed all the challenge.
+  why_it_might_land: >-
+    This insight directly addresses the disengagement many young professionals feel, offering a
+    clear and actionable reframe that challenges the norm of seeking comfort.
+  why_it_might_not_land: >-
+    Some may find the suggestion to seek discomfort counterintuitive or overwhelming, especially if
+    they are already feeling low energy.
+novelty_nearest:
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.6447433927736361
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.5728055503169647
+  - insight_id: sio-grant-languishing-2021
+    similarity: 0.5669040451411124
+  - insight_id: sio-huffington-depletion-not-dedication-2010
+    similarity: 0.5552541969200657
+  - insight_id: sio-pink-autonomy-mastery-purpose-2009
+    similarity: 0.5483906566569248

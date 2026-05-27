@@ -1,0 +1,128 @@
+candidate_id: cand-mg-robbins-jealousy-future-self
+candidate_status: drafted
+target_state: momentum-gap
+sub_state: comparison-spike
+target_gap: momentum-gap + reframe + warm/affirming + mild (mg-want-the-feeling-not-their-life)
+proposed_insight_type: reframe
+proposed_voice_register: warm/affirming
+proposed_intensity_level: mild
+source_title: The Let Them Theory
+source_url: https://www.melrobbins.com/blog/the-let-them-theory
+source_platform: Book / The Mel Robbins Podcast
+speaker: Mel Robbins
+guest_if_applicable: ''
+official_channel_url: https://www.melrobbins.com/podcast
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In "The Let Them Theory" (December 2024) and its accompanying podcast content, Mel Robbins
+  introduces the idea that jealousy is an invitation from your future self. The framing is specific:
+  when you feel envious of someone else's momentum, direction, or creative output, you are not
+  feeling bad about their life — you are being shown something about what you genuinely want but
+  haven't yet given yourself permission to pursue. The insight she offers is to go a layer beneath
+  the surface thing (someone's title, their relationship, their creative freedom) to find what it is
+  underneath — safety, expression, connection — because THAT is what your values are pointing at.
+  This precisely matches the "want the feeling, not their life" need.
+key_claim: >-
+  Jealousy is an invitation from your future self — not to want what someone else has, but to notice
+  what their life is showing you about what you haven't yet let yourself want. Go one layer deeper
+  than the surface comparison: under whatever they have is something — freedom, expression, meaning
+  — and that is your own signal about your own values.
+why_it_might_land: >-
+  The comparison-spike user says "I don't want their life, I just want that feeling of going
+  somewhere." Robbins' reframe decodes that feeling as data rather than noise: it isn't about the
+  peer, it's a pointer to a specific value the user hasn't honored yet. This turns the ache from
+  inadequacy into something workable without minimizing it.
+user_problem_match_notes: >-
+  Comparison-spike sub-state: user sees peer momentum and feels the ache of wanting that sensation
+  without wanting the peer's specific circumstances. Robbins' "go a layer deeper" mechanism matches
+  exactly — the wanted "feeling" is decodable as a values signal. Recent and triggered (a specific
+  comparison event), not chronic (disambiguation from direction-collapse). Explicit disambiguation:
+  this is comparison-triggered and recent, not a slow internal drift with no trigger. No moralizing;
+  no "get off social media."
+resonance_match_notes: >-
+  Warm/affirming, mild, reframe type. Fills MG-2 slot (mg-want-the-feeling-not-their-life need).
+  Decodes the "feeling of momentum" explicitly into the user's own values signal — the exact gap the
+  slot requires. Robbins' warm register holds the envy without shame, which is what comparison-
+  spike needs before any redirect. No direct/challenging (correctly excluded). Second Mel Robbins
+  candidate — this is the ≤2 cap on James Clear that applies here to Mel Robbins as well (2 total).
+source_credibility_notes: >-
+  "The Let Them Theory" published December 2024, New York Times bestseller. The jealousy-as-
+  invitation framing is a core, documented element of the book and accompanying podcast series (The
+  Mel Robbins Podcast Season 2 on Let Them Theory). Verified via multiple sources: The Wantrepreneur
+  Show article, manchesterjournal.com, podscan.fm. The "go a layer deeper" framing and "your
+  unrealized dreams trying to get your attention" language confirmed as Robbins' own from the book.
+  Paraphrase — official full text not fetched; primary source is the published book. Tier-2
+  credibility (practitioner/author).
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.041Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 75
+gap_fit_score: 100
+overall_candidate_score: 90
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 5
+    human_credibility: 4
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the framing is specific: when you feel envious of someone else's momentum, direction, or
+      creative output, you are not feeling bad about their life — you are being shown something
+      about what you genuinely want but haven't yet given yourself permission to pursue.
+    felt_recognition: >-
+      you are being shown something about what you genuinely want but haven't yet given yourself
+      permission to pursue.
+    emotional_precision: >-
+      under whatever they have is something — freedom, expression, meaning — and that is your own
+      signal about your own values.
+    reframe_power: >-
+      Jealousy is an invitation from your future self — not to want what someone else has, but to
+      notice what their life is showing you about what you haven't yet let yourself want.
+    permission_relief: you genuinely want but haven't yet given yourself permission to pursue.
+    actionability: go one layer deeper than the surface comparison.
+    human_credibility: The Let Them Theory published December 2024, New York Times bestseller.
+    source_vividness: Jealousy is an invitation from your future self.
+    non_genericness: the jealousy-as-invitation framing is a core, documented element of the book.
+    voice_register_clarity: >-
+      the framing is specific: when you feel envious of someone else's momentum, direction, or
+      creative output.
+  why_it_might_land: >-
+    This insight reframes jealousy in a way that feels deeply personal and actionable, allowing the
+    user to see their feelings as signals rather than shortcomings.
+  why_it_might_not_land: >-
+    Some users may still struggle to connect with the idea of jealousy as an invitation, feeling
+    overwhelmed by their emotions instead.
+recommendation: needs_transcript_verification
+novelty_score: 49
+novelty_nearest:
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.5055713831033165
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.4953179005648674
+  - insight_id: sio-gilbert-elusive-genius-2009
+    similarity: 0.48722329555744126
+  - insight_id: sio-clear-habits-trajectory-2023
+    similarity: 0.4688053041633706
+  - insight_id: sio-david-emotional-courage-2017
+    similarity: 0.4687430673738431
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-05-27T05:31:57.258Z",
+  "status": "hypothesis",
+  "note": "User-need-driven harvesting targets. Hypothesis layer — not observed demand. corpus_gap → harvest; retrieval_gap → tune retrieval first.",
+  "targets": [
+    {
+      "need_id": "pp-fear-choosing-wrong-regret",
+      "gap_kind": "retrieval_gap",
+      "priority": 54,
+      "coverage_strength": "none",
+      "target_state": "possibility-paralysis",
+      "recommended_insight_type": [
+        "reframe",
+        "story"
+      ],
+      "recommended_voice_register": "vulnerable/personal",
+      "excluded_voice_registers": [
+        "direct/challenging"
+      ],
+      "recommended_intensity": "moderate",
+      "user_situation": "What if I commit and it turns out to be the wrong life?",
+      "missing_source_profile": "A credible person who made a high-stakes choice fearing regret and can speak honestly to how the fear resolved — vulnerable, not prescriptive.",
+      "anti_pattern_notes": "Do NOT minimize (\"you can't really go wrong\") or push hard. A lived account of committing despite genuine fear of regret — and what was learned about regret itself — lands.",
+      "suggested_source_families": [
+        "Huberman Lab",
+        "The Tim Ferriss Show",
+        "Modern Wisdom"
+      ],
+      "suggested_queries": [
+        "\"Huberman Lab\" fear of regret vulnerable official",
+        "\"Huberman Lab\" dread anxiety reframe",
+        "\"The Tim Ferriss Show\" fear of regret vulnerable official",
+        "\"The Tim Ferriss Show\" dread anxiety reframe"
+      ],
+      "coverage_evidence": "Hinted probe: 0/2 land, 1 wrong-register, 1 EXCLUDED-register served. Static: partial — No exact register+type match. 1 register-only and 2 type-only match(es). Gap kind: retrieval_gap."
+    },
+    {
+      "need_id": "il-perfectionism-freeze",
+      "gap_kind": "retrieval_gap",
+      "priority": 42,
+      "coverage_strength": "weak",
+      "target_state": "inaction-loop",
+      "recommended_insight_type": [
+        "permission",
+        "story"
+      ],
+      "recommended_voice_register": "vulnerable/personal",
+      "excluded_voice_registers": [
+        "direct/challenging"
+      ],
+      "recommended_intensity": "mild",
+      "user_situation": "How do I put something out when I'm terrified it isn't good enough?",
+      "missing_source_profile": "A credible person who shipped imperfect work and reframes bravery over perfection / the cost of protecting a fragile self-image — vulnerable, gentle.",
+      "anti_pattern_notes": "Direct/challenging amplifies the fear that's already freezing them — exclude it. \"Bravery not perfection\" / permission-to-be-bad-first lands; \"stop being a perfectionist and just ship\" does not.",
+      "suggested_source_families": [
+        "The School of Greatness",
+        "Rich Roll Podcast"
+      ],
+      "suggested_queries": [
+        "\"The School of Greatness\" wont ship unless perfect so freezes vulnerable official",
+        "\"The School of Greatness\" fear shame permission",
+        "\"Rich Roll Podcast\" wont ship unless perfect so freezes vulnerable official",
+        "\"Rich Roll Podcast\" fear shame permission"
+      ],
+      "coverage_evidence": "Hinted probe: 1/2 land, 1 EXCLUDED-register served. Static: strong — 3 SIO(s) match recommended register (vulnerable/personal) + type. Gap kind: retrieval_gap."
+    }
+  ]
+}

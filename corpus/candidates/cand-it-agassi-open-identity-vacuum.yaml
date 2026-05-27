@@ -1,0 +1,136 @@
+candidate_id: cand-it-agassi-open-identity-vacuum
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + story + vulnerable/personal (it-role-retirement-structure-gone)
+proposed_insight_type: story
+proposed_voice_register: vulnerable/personal
+proposed_intensity_level: moderate
+source_title: 'Open: An Autobiography'
+source_url: https://www.amazon.com/Open-Autobiography-Andre-Agassi/dp/0307388409
+source_platform: book
+speaker: Andre Agassi
+guest_if_applicable: ''
+official_channel_url: https://www.amazon.com/Open-Autobiography-Andre-Agassi/dp/0307388409
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In "Open" (2009, written with J.R. Moehringer), Andre Agassi describes the paradox at the center
+  of his career: he hated tennis with what he calls "a dark and secret passion," yet tennis was the
+  only structure that organized his identity. His father had him swinging a racket before
+  kindergarten; his entire childhood, adolescence, and adult life were structured by the sport. The
+  book chronicles what happened when that structure was removed at retirement — not just the loss of
+  a job, but the disappearance of the container that had held his sense of who he was. The story is
+  told from enough distance (Agassi retired in 2006; book published in 2009) that he can name both
+  sides: the relief of not having to be "that" person anymore, and the disorientation of not knowing
+  what replaced it.
+key_claim: >-
+  The thing that organized your whole life does not have to be something you loved. Agassi hated
+  tennis — but it was still the container everything else was organized around. When it was gone,
+  the relief and the emptiness arrived simultaneously. Knowing that you needed to be free of it does
+  not mean you know who you are without it. Structure is not the same as meaning, but removing
+  structure exposes you to questions that the structure was answering whether you asked them or not.
+why_it_might_land: >-
+  The role-retirement user often feels guilty for feeling lost when they left something they chose
+  to leave (or that they needed to leave). Agassi's story names the paradox: you can hate the thing
+  that organized you and still feel unmoored when it's gone. That permission — to grieve structure
+  even when you didn't love what it was organized around — is the precise gap in this need.
+user_problem_match_notes: >-
+  Strong identity-transition fit. The triggering discrete event is retirement from a totalizing role
+  (elite tennis). Agassi's account is from well after the event, naming both sides (the role
+  organized his identity even though he resented it). The story stays well within "functional but
+  disoriented" — Agassi's reflections in the book are from a man with family, philanthropy, and
+  perspective, not from inside a crisis. Distinct from direction-collapse (there is a clear before —
+  the tennis career — and a clear event — retirement). The "structure gone" theme is the correct
+  target for it-role-retirement-structure-gone. No clinical grief; no suicidality.
+resonance_match_notes: >-
+  vulnerable/personal register — "Open" is a first-person autobiography written with deliberate
+  emotional honesty about self-doubt, shame, and loss. Moderate intensity — heavy but not desperate;
+  the story is told with earned distance. Story type — it is a lived arc, not a principle. Fills
+  it-role-retirement-structure-gone. Excludes direct/challenging (correct). Different source domain
+  from Roll (addiction/career) — role-retirement domain adds corpus diversity. Not in corpus yet.
+source_credibility_notes: >-
+  Andre Agassi is the only player to have won all four Grand Slams, a gold medal, and the ATP World
+  Tour Finals. "Open" was a #1 NYT bestseller, won the William Hill Sports Book of the Year, and is
+  widely cited in discussions of athletic identity. Tier-2 credibility (elite athlete, acclaimed
+  memoir). The book is real and available through Penguin/Random House. Source verified via Amazon
+  official listing, multiple book reviews, and Wikipedia. The core claim — that Agassi hated tennis
+  yet it organized his identity, and that retirement created an identity vacuum — is confirmed by
+  multiple independent reviews of the book and by a 2016 CNN interview ("Agassi: prospect of
+  retiring 'is like preparing for death'"). Paraphrase: source is a book; no transcript to fetch.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.012Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The content unmistakably addresses the identity-transition stuck state, focusing on the loss
+      of an organizing structure and the resulting disorientation.
+    felt_recognition: >-
+      The phrase 'the relief and the emptiness arrived simultaneously' captures a complex emotional
+      experience that many in identity transition can relate to.
+    emotional_precision: >-
+      The content articulates the specific feelings of relief and disorientation, which are often
+      suppressed or unarticulated in identity transitions.
+    reframe_power: >-
+      The insight fundamentally reorients the user's understanding of their situation by
+      distinguishing between structure and meaning.
+    permission_relief: >-
+      The acknowledgment that 'knowing that you needed to be free of it does not mean you know who
+      you are without it' provides explicit permission to feel lost.
+    actionability: While it implies reflection on identity, it lacks a specific next step for the reader to take.
+    human_credibility: >-
+      Andre Agassi's unique experience as a world-class athlete who struggled with his identity
+      provides strong credibility to this insight.
+    source_vividness: >-
+      The narrative is rich and personal, drawing from Agassi's lived experience, making it feel
+      alive and human.
+    non_genericness: >-
+      The specific context of Agassi's career and the paradox of hating tennis while it organized
+      his life is unique and not generic.
+    voice_register_clarity: The voice is consistently vulnerable and personal, reflecting Agassi's introspective journey.
+  why_it_might_land: >-
+    This insight resonates deeply with anyone experiencing an identity transition, as it articulates
+    the complex emotions involved in losing a core aspect of self.
+  why_it_might_not_land: >-
+    Some readers may find it difficult to relate if they haven't experienced a similar level of
+    identity crisis or if they don't connect with Agassi's story.
+recommendation: needs_transcript_verification
+novelty_score: 56
+novelty_nearest:
+  - insight_id: sio-mcconaughey-go-to-zero-2020
+    similarity: 0.43929643502529103
+  - insight_id: sio-easter-comfort-crisis-2022
+    similarity: 0.42759260883849226
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.42596375453100266
+  - insight_id: sio-waldinger-good-life-relationships-2015
+    similarity: 0.42163257281733674
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.42001823447126746
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

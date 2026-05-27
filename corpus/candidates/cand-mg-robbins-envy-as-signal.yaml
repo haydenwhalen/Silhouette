@@ -1,0 +1,123 @@
+candidate_id: cand-mg-robbins-envy-as-signal
+candidate_status: proposed
+target_state: momentum-gap
+sub_state: comparison-spike
+target_gap: momentum-gap + reframe + warm/affirming + mild (mg-comparison-spike-behind)
+proposed_insight_type: reframe
+proposed_voice_register: warm/affirming
+proposed_intensity_level: mild
+source_title: Mel Robbins Podcast — Approach to Handling Feelings of Envy
+source_url: https://www.melrobbins.com/podcast
+source_platform: The Mel Robbins Podcast
+speaker: Mel Robbins
+guest_if_applicable: ''
+official_channel_url: https://www.melrobbins.com/podcast
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In her podcast on handling envy, Mel Robbins reframes the feeling of being behind peers not as a
+  character flaw but as useful information about your own beliefs and desires. She names the core
+  insight directly: when you feel behind, that feeling is your insecurity "putting a lid" on what
+  you believe is possible for you. Rather than treating envy as something to suppress or be ashamed
+  of, she invites listeners to use it as a signal pointing toward what they actually want to move
+  toward. The episode validates the comparison-triggered feeling and then redirects it as actionable
+  data, never moralizing or saying "stop comparing."
+key_claim: >-
+  When you feel behind others, that feeling isn't evidence that you are behind — it's your
+  insecurity putting a lid on what you believe is possible for you. Envy is information: it shows
+  you exactly where your desires and your doubts are colliding. You don't need to stop feeling it;
+  you need to read it.
+why_it_might_land: >-
+  The comparison-spike user is already aware that the feeling isn't rational, but suppression makes
+  it worse. Robbins' framing — envy as a signal, not a flaw — validates the feeling without
+  amplifying it, then immediately gives the user something to do with it: treat it as data about
+  what they want rather than proof of inadequacy.
+user_problem_match_notes: >-
+  Comparison-spike sub-state: a feeling of being behind triggered by external observation (LinkedIn,
+  a peer's news) that is recent and outward-facing. Robbins explicitly addresses the comparison-
+  spike ache — inadequacy, urgency — and reframes it rather than moralizing. Disambiguation from
+  direction-collapse: this is triggered and recent, not chronic/internal. Disambiguation from
+  inaction-loop: user is not resisting a known action; the stuck feeling is triggered by comparison.
+  No "get off social media" framing; no "comparison is the thief of joy."
+resonance_match_notes: >-
+  Warm/affirming, mild intensity, reframe type. Fits MG-1 slot. Validates the feeling first
+  (required for comparison-spike) then decodes it as signal. Mel Robbins' register is warm but
+  practical, not saccharine — appropriate for the urgency/inadequacy emotional texture of
+  comparison-spike. No direct/challenging register (correctly excluded for this sub-state).
+source_credibility_notes: >-
+  Mel Robbins is a bestselling author (The 5 Second Rule, The Let Them Theory), podcast host, and
+  one of the most-downloaded self-development voices globally. The Mel Robbins Podcast is an
+  official production hosted at melrobbins.com. The episode on handling feelings of envy is a real,
+  discoverable episode in her podcast feed. Verified via web search surfacing
+  podcasts.happyscribe.com transcript and wantrepreneurshow.com summary. Speaker is the host, not a
+  guest — direct source. Tier-2 credibility for this type of claim (practitioner/author, not
+  researcher). Quote type: paraphrase — no official transcript fetched.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:14:05.846Z'
+human_resonance_score: 85
+quote_quality_score: 75
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 87
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 4
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 4
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      When you feel behind others, that feeling isn't evidence that you are behind — it's your
+      insecurity putting a lid on what you believe is possible for you.
+    felt_recognition: 'Envy is information: it shows you exactly where your desires and your doubts are colliding.'
+    emotional_precision: it's your insecurity putting a lid on what you believe is possible for you.
+    reframe_power: >-
+      she reframes the feeling of being behind peers not as a character flaw but as useful
+      information about your own beliefs and desires.
+    permission_relief: >-
+      Rather than treating envy as something to suppress or be ashamed of, she invites listeners to
+      use it as a signal.
+    actionability: you need to read it.
+    human_credibility: Mel Robbins is a bestselling author and podcast host.
+    source_vividness: >-
+      the episode validates the comparison-triggered feeling and then redirects it as actionable
+      data.
+    non_genericness: >-
+      the feeling isn't evidence that you are behind — it's your insecurity putting a lid on what
+      you believe is possible for you.
+    voice_register_clarity: >-
+      she invites listeners to use it as a signal pointing toward what they actually want to move
+      toward.
+  why_it_might_land: >-
+    This insight effectively reframes a common feeling of envy into a constructive tool for
+    self-discovery, which can resonate deeply with those feeling stuck in a momentum gap.
+  why_it_might_not_land: >-
+    Some listeners may still struggle to see envy as anything but a negative emotion, potentially
+    missing the reframe's value.
+recommendation: needs_transcript_verification
+novelty_score: 51
+novelty_nearest:
+  - insight_id: sio-david-emotional-courage-2017
+    similarity: 0.48976002102146005
+  - insight_id: sio-easter-comfort-crisis-2022
+    similarity: 0.4331794485761839
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.43268538184629945
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.4320012610745668
+  - insight_id: sio-colonna-complicit-conditions-2019
+    similarity: 0.431933218227093
+novelty_rating: novel

@@ -1,0 +1,650 @@
+# =============================================================================
+# Silhouette — User Query Pattern Library
+# =============================================================================
+# Realistic user phrasings, each linked to a need_id in corpus/user_need_patterns.yaml.
+# Used by scripts/analyze-user-need-coverage.ts to probe the REAL retrieval engine and
+# measure whether the corpus serves each need.
+#
+# KEPT SEPARATE from user_need_patterns.yaml on purpose: when real beta data exists,
+# these author-written queries get REPLACED by real ones (source: beta_real) without
+# touching the need model.
+#
+# HONESTY: every query here is author-written or doc-derived — NOT a real user log.
+#   source vocabulary: raw_pool | intake_example | resonance_example | magnet_probe
+#                      | calibration_case | curator_hypothesis
+#   (beta_real is reserved for future real queries; none exist yet.)
+#
+# Fields: query_id · need_id · text · source · expected_state · expected_resonance
+#         · expected_insight_type · excluded_voice_registers · notes
+#   expected_resonance      = the voice_register the result SHOULD have (from the need)
+#   excluded_voice_registers = registers that, if served, count as a resonance MISMATCH
+# =============================================================================
+
+meta:
+  layer: user-need-coverage
+  status: hypothesis
+  note: >-
+    Author-written / doc-derived queries, not real user logs. Many are taken verbatim from
+    scripts/lib/magnet-probes.ts (themselves labeled "not real user logs"). Replaceable by
+    real beta queries later.
+
+queries:
+  # ──────────────────────────── DIRECTION COLLAPSE ────────────────────────────
+  - query_id: q-dc-01
+    need_id: dc-post-achievement-hollow
+    text: "I got the promotion I worked years for and I feel completely empty. I don't know what comes next."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [expert/scientific]
+    notes: "Post-achievement variant; hollow on arrival."
+
+  - query_id: q-dc-02
+    need_id: dc-post-achievement-hollow
+    text: "I finally hit the income goal I set and it changed nothing about how I feel. Why?"
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [expert/scientific]
+    notes: "'Why?' can pull a mechanism magnet — but the felt experience, not neuroscience, is what lands."
+
+  - query_id: q-dc-03
+    need_id: dc-post-achievement-hollow
+    text: "I got promoted six months ago and it feels hollow. I keep waiting to feel satisfied and it doesn't come. I don't know what I'm supposed to want now."
+    source: intake_example
+    expected_state: direction-collapse
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [expert/scientific]
+    notes: "intake_diagnostic_flow.md good-input example (DC/post-achievement, high confidence)."
+
+  - query_id: q-dc-04
+    need_id: dc-original-never-knew
+    text: "I have no idea what I actually want to do with my life and I never really have."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Original directionlessness variant."
+
+  - query_id: q-dc-05
+    need_id: dc-original-never-knew
+    text: "Should I be chasing a passion? I don't think I have one and that scares me."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Anti-pattern check: a result that says 'follow your passion' is a near-miss."
+
+  - query_id: q-dc-06
+    need_id: dc-original-never-knew
+    text: "Everyone around me seems to know what they're doing and I'm 29 with no thing of my own."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "State-confusable: comparison language (neighbor momentum-gap) but chronic, so Direction Collapse."
+
+  - query_id: q-dc-07
+    need_id: dc-living-someone-elses-life
+    text: "I built the career everyone told me to want and now I feel like I'm living someone else's life."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [expert/scientific]
+    notes: "Neighbor identity-transition; no discrete event, so Direction Collapse."
+
+  - query_id: q-dc-08
+    need_id: dc-purpose-search-fatigue
+    text: "I've journaled and taken every assessment and I'm no closer to knowing my direction."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "Anti-pattern check: returning ANOTHER assessment/framework is the trap, not the fix."
+
+  - query_id: q-dc-09
+    need_id: dc-purpose-search-fatigue
+    text: "I keep asking what my purpose is and I just come up blank — what's the point of any of it?"
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "Watch for borderline existential tone; in-scope unless distress signals (intake §10)."
+
+  - query_id: q-dc-10
+    need_id: dc-disconnected-trading-time
+    text: "My life looks good on paper but none of it adds up to anything that feels like it matters."
+    source: magnet_probe
+    expected_state: direction-collapse
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "Canonical DC/ED confusion. An ED 're-engage your target' result misses (no target here)."
+
+  - query_id: q-dc-11
+    need_id: dc-original-never-knew
+    text: "I feel stuck."
+    source: intake_example
+    expected_state: direction-collapse
+    expected_resonance: ""
+    expected_insight_type: ""
+    excluded_voice_registers: []
+    notes: >-
+      Sparse input (intake §Situation-1). Low-confidence; intake would expand context first and
+      default to Direction Collapse on 3-way ambiguity. Included to probe what the engine returns
+      for a bare prompt. Resonance expectations intentionally blank.
+
+  # ──────────────────────────── ENGAGEMENT DROUGHT ────────────────────────────
+  - query_id: q-ed-01
+    need_id: ed-resentful-trapped
+    text: "The work hasn't changed but I've checked out — I have no say in how I do it and nothing's building toward anything."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: direct/challenging
+    expected_insight_type: reframe
+    excluded_voice_registers: [warm/affirming]
+    notes: "Flagship gap: ED has NO direct/challenging SIO. Expect coverage none/weak."
+
+  - query_id: q-ed-02
+    need_id: ed-resentful-trapped
+    text: "I don't even like this job anymore but I've put six years in and walking away feels insane. I just feel trapped and kind of bitter about it."
+    source: curator_hypothesis
+    expected_state: engagement-drought
+    expected_resonance: direct/challenging
+    expected_insight_type: reframe
+    excluded_voice_registers: [warm/affirming]
+    notes: "Curator hypothesis (sunk-cost + resentment). Names the trap the held McKeown magnet does not address."
+
+  - query_id: q-ed-03
+    need_id: ed-numb-confused-whats-wrong
+    text: "It's not depression exactly, more like static. The hours pass, I'm functional, but the spark is gone."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "Relief is precise naming (e.g. 'languishing'). Safety-adjacent — check for distress signals."
+
+  - query_id: q-ed-04
+    need_id: ed-numb-confused-whats-wrong
+    text: "I feel numb about everything at work and I can't tell if it's the job or me."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "State-confusable with Direction Collapse ('the job or me')."
+
+  - query_id: q-ed-05
+    need_id: ed-numb-confused-whats-wrong
+    text: "I love what I do on paper but I feel zero energy for it anymore. I used to stay late because I wanted to. Now I'm watching the clock."
+    source: intake_example
+    expected_state: engagement-drought
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "intake good-input example (ED, high confidence). Target still exists, feeling is gone."
+
+  - query_id: q-ed-06
+    need_id: ed-furious-at-self-for-not-caring
+    text: "I'm furious with myself for being so checked out. I should still care about this."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "CRITICAL exclusion: a direct/challenging result confirms the self-attack. Same state as q-ed-01/02, OPPOSITE register."
+
+  - query_id: q-ed-07
+    need_id: ed-running-on-fumes-guilt
+    text: "I'm running on fumes. Stopping feels like failing, but there's nothing left in me."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Depletion + guilt. Exclude direct; intensity mild. Safety-adjacent (clinical burnout → Tier 2)."
+
+  - query_id: q-ed-08
+    need_id: ed-running-on-fumes-guilt
+    text: "I keep telling myself I'll feel better about work once things calm down, but that day never comes."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Passive resignation / waiting for relief that never arrives."
+
+  - query_id: q-ed-09
+    need_id: ed-wants-the-science
+    text: "I want to understand the actual science of why motivation fades like this."
+    source: magnet_probe
+    expected_state: engagement-drought
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: [warm/affirming]
+    notes: "Analytical user; warm reads as evasive. Likely well-covered (Huberman) — confirm strength."
+
+  # ────────────────────────────── INACTION LOOP ──────────────────────────────
+  - query_id: q-il-01
+    need_id: il-self-critical-ashamed
+    text: "I keep ending up in the same rut and it feels like it's all my fault — I'm doing this to myself."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: vulnerable/personal
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "CRITICAL exclusion. State is 4/9 direct/challenging — high risk of serving the harmful register."
+
+  - query_id: q-il-02
+    need_id: il-self-critical-ashamed
+    text: "I do everything except the one thing that matters, and then I quietly hate myself."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: vulnerable/personal
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Self-directed shame. Needs permission/identity reframe, not a kick."
+
+  - query_id: q-il-03
+    need_id: il-give-me-a-kick
+    text: "I just need someone to stop coddling me and give me a kick. No more excuses."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: direct/challenging
+    expected_insight_type: story
+    excluded_voice_registers: [warm/affirming]
+    notes: "Direct counterpart to q-il-01: same state, opposite register. Frustration is OUTWARD."
+
+  - query_id: q-il-04
+    need_id: il-read-everything-need-frame
+    text: "I've read every productivity book and 'lazy' doesn't feel right — I need a better frame for this."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [expert/scientific]
+    notes: "More mechanism/how-to FAILS (they've consumed it). Exclude expert/scientific."
+
+  - query_id: q-il-05
+    need_id: il-perfectionism-freeze
+    text: "I won't ship anything unless it's perfect, so I never ship anything."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: vulnerable/personal
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Perfection-freeze. 'Just ship it' / challenge amplifies the fear — exclude direct."
+
+  - query_id: q-il-06
+    need_id: il-perfectionism-freeze
+    text: "I'm so scared whatever I make won't be good enough that I freeze and make nothing."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: vulnerable/personal
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Fear-driven freeze; warm/vulnerable permission lands."
+
+  - query_id: q-il-07
+    need_id: il-waiting-for-motivation
+    text: "I keep waiting to feel motivated before I start, and the motivation never reliably comes."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Useful insight inverts the premise (action precedes motivation)."
+
+  - query_id: q-il-08
+    need_id: il-waiting-for-motivation
+    text: "Every time I have the impulse to start, I talk myself out of it before I move."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Impulse-to-action gap; mechanism/reframe."
+
+  - query_id: q-il-09
+    need_id: il-waiting-for-motivation
+    text: "I set goals constantly and know what to do, but nothing changes month to month. I want to understand why."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "'Want to understand why' → mechanism is appropriate here (unlike il-read-everything)."
+
+  - query_id: q-il-10
+    need_id: il-knows-exactly-two-years
+    text: "I've known exactly what I need to do for two years and I still don't do it."
+    source: magnet_probe
+    expected_state: inaction-loop
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: []
+    notes: "IL/PP anchor: ONE named thing. Avoid planning tactics."
+
+  - query_id: q-il-11
+    need_id: il-knows-exactly-two-years
+    text: "I know I need to leave this job. I've known for two years. Every week I tell myself this is the week and then nothing happens."
+    source: intake_example
+    expected_state: inaction-loop
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: []
+    notes: "intake good-input example (IL, high confidence)."
+
+  # ──────────────────────────── POSSIBILITY PARALYSIS ────────────────────────────
+  # Added in the Expanded Six-State Corpus Buildout (2026-05-26). Author-written / doc-derived.
+  - query_id: q-pp-01
+    need_id: pp-too-many-options-none-chosen
+    text: "I have a list of things I want to pursue — writing, a business, going back to school — and I'm doing none of them."
+    source: raw_pool
+    expected_state: possibility-paralysis
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [warm/affirming]
+    notes: "UPM raw-description-10. IL/PP anchor: SEVERAL options, not one named thing."
+
+  - query_id: q-pp-02
+    need_id: pp-too-many-options-none-chosen
+    text: "I have too many things I could be good at and I'm doing none of them."
+    source: magnet_probe
+    expected_state: possibility-paralysis
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [warm/affirming]
+    notes: "Excess-of-options core."
+
+  - query_id: q-pp-03
+    need_id: pp-fear-choosing-wrong-regret
+    text: "I'm terrified that if I commit to one idea I'll find out it was the wrong one."
+    source: magnet_probe
+    expected_state: possibility-paralysis
+    expected_resonance: vulnerable/personal
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Fear-of-regret; a hard challenge here reads as pressure."
+
+  - query_id: q-pp-04
+    need_id: pp-fear-choosing-wrong-regret
+    text: "What if I pick a path and waste years finding out it was the wrong life?"
+    source: curator_hypothesis
+    expected_state: possibility-paralysis
+    expected_resonance: vulnerable/personal
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Regret-as-driver phrasing."
+
+  - query_id: q-pp-05
+    need_id: pp-research-as-avoidance
+    text: "I keep researching my options instead of actually picking one and starting."
+    source: magnet_probe
+    expected_state: possibility-paralysis
+    expected_resonance: direct/challenging
+    expected_insight_type: reframe
+    excluded_voice_registers: [warm/affirming]
+    notes: "Research-as-avoidance: warm validation would enable the stalling."
+
+  - query_id: q-pp-06
+    need_id: pp-research-as-avoidance
+    text: "I don't know which of my ideas is the real one and which are just distractions I use to feel productive."
+    source: magnet_probe
+    expected_state: possibility-paralysis
+    expected_resonance: direct/challenging
+    expected_insight_type: reframe
+    excluded_voice_registers: [warm/affirming]
+    notes: "UPM desc-10 'fantasies to feel better' — avoidance flavor."
+
+  - query_id: q-pp-07
+    need_id: pp-maximizer-never-satisfied
+    text: "Keeping my options open used to feel smart; now it feels like a cage I built."
+    source: magnet_probe
+    expected_state: possibility-paralysis
+    expected_resonance: intellectual/measured
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Optionality-as-cage; maximizer mechanism welcome."
+
+  - query_id: q-pp-08
+    need_id: pp-maximizer-never-satisfied
+    text: "Why does having more options make me feel worse instead of freer?"
+    source: curator_hypothesis
+    expected_state: possibility-paralysis
+    expected_resonance: intellectual/measured
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Paradox-of-choice mechanism query."
+
+  - query_id: q-pp-09
+    need_id: pp-commitment-creates-clarity
+    text: "How do people commit to one path when they can't be sure it's the right one?"
+    source: magnet_probe
+    expected_state: possibility-paralysis
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "Clarity-follows-commitment reframe."
+
+  - query_id: q-pp-10
+    need_id: pp-commitment-creates-clarity
+    text: "I keep waiting to feel certain before I choose, and the certainty never comes."
+    source: curator_hypothesis
+    expected_state: possibility-paralysis
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: []
+    notes: "Waiting-for-certainty phrasing."
+
+  # ──────────────────────────── IDENTITY TRANSITION ────────────────────────────
+  - query_id: q-it-01
+    need_id: it-career-exit-who-am-i
+    text: "I left the career I'd built for a decade and I don't know who I am without it."
+    source: magnet_probe
+    expected_state: identity-transition
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [direct/challenging]
+    notes: "Discrete event (career exit) + before/after distinguishes from direction-collapse."
+
+  - query_id: q-it-02
+    need_id: it-career-exit-who-am-i
+    text: "I got laid off from the job that was basically my identity and I feel like no one now."
+    source: curator_hypothesis
+    expected_state: identity-transition
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [direct/challenging]
+    notes: "Layoff trigger."
+
+  - query_id: q-it-03
+    need_id: it-relationship-end-stranger
+    text: "Since my divorce I feel like a stranger to myself."
+    source: magnet_probe
+    expected_state: identity-transition
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Relationship-end trigger; permission register."
+
+  - query_id: q-it-04
+    need_id: it-relationship-end-stranger
+    text: "After my breakup I don't know who I am without that relationship — so much of me was us."
+    source: curator_hypothesis
+    expected_state: identity-transition
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Breakup trigger."
+
+  - query_id: q-it-05
+    need_id: it-role-retirement-structure-gone
+    text: "I retired from competing and the thing that organized my whole life is just gone."
+    source: magnet_probe
+    expected_state: identity-transition
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [direct/challenging]
+    notes: "Role-retirement; structural loss."
+
+  - query_id: q-it-06
+    need_id: it-role-retirement-structure-gone
+    text: "I finished my military service and civilian life feels shapeless — I don't know who I am here."
+    source: curator_hypothesis
+    expected_state: identity-transition
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [direct/challenging]
+    notes: "Service-end trigger; structure gone."
+
+  - query_id: q-it-07
+    need_id: it-post-success-lost
+    text: "I sold my company and thought I'd feel free, but I just feel lost without it."
+    source: magnet_probe
+    expected_state: identity-transition
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [direct/challenging]
+    notes: "Positive trigger (exit); distinguishes from DC by discrete event."
+
+  - query_id: q-it-08
+    need_id: it-post-success-lost
+    text: "I hit the big goal and instead of proud I feel unmoored and a little guilty about it."
+    source: curator_hypothesis
+    expected_state: identity-transition
+    expected_resonance: vulnerable/personal
+    expected_insight_type: story
+    excluded_voice_registers: [direct/challenging]
+    notes: "Post-success guilt; risk of DC/post-achievement confusion — flagged in calibration."
+
+  - query_id: q-it-09
+    need_id: it-in-between-cant-see-next
+    text: "I'm in some in-between place — the old me is gone and I can't see the new one yet."
+    source: magnet_probe
+    expected_state: identity-transition
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Liminal in-between; reframe of disorientation-as-appropriate."
+
+  - query_id: q-it-10
+    need_id: it-in-between-cant-see-next
+    text: "Everyone calls this a fresh start but I just feel like I lost myself somewhere."
+    source: magnet_probe
+    expected_state: identity-transition
+    expected_resonance: intellectual/measured
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "In-between; mismatch with cheerful 'fresh start' framing."
+
+  # ──────────────────────────── MOMENTUM GAP ────────────────────────────
+  - query_id: q-mg-01
+    need_id: mg-comparison-spike-behind
+    text: "Everyone at the reunion seemed so far ahead and I can't shake the feeling that I'm behind."
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: warm/affirming
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Comparison-spike (reunion trigger). Recency distinguishes from direction-collapse."
+
+  - query_id: q-mg-02
+    need_id: mg-comparison-spike-behind
+    text: "My friend just raised a seed round and I feel like I've wasted my twenties."
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: warm/affirming
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Peer-achievement trigger."
+
+  - query_id: q-mg-03
+    need_id: mg-want-the-feeling-not-their-life
+    text: "I don't want their exact life, I just want that feeling of going somewhere."
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: warm/affirming
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "UPM desc-9 'want that feeling'. Decode-the-signal reframe."
+
+  - query_id: q-mg-04
+    need_id: mg-want-the-feeling-not-their-life
+    text: "Why does it feel like everyone got a roadmap and I didn't?"
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: warm/affirming
+    expected_insight_type: reframe
+    excluded_voice_registers: [direct/challenging]
+    notes: "Comparison-spike phrasing."
+
+  - query_id: q-mg-05
+    need_id: mg-lost-rhythm-cant-restart
+    text: "I had a great gym routine, fell off for two months, and now restarting feels impossible."
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Restart-friction. KEY disambiguation vs inaction-loop: HAD it and lost it, not never-started."
+
+  - query_id: q-mg-06
+    need_id: mg-lost-rhythm-cant-restart
+    text: "One missed week turned into three months and I can't get back into motion."
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Lapse → drift; re-entry mechanism."
+
+  - query_id: q-mg-07
+    need_id: mg-lapse-became-shame-spiral
+    text: "I broke my writing streak and now I feel like a fraud trying to start again."
+    source: magnet_probe
+    expected_state: momentum-gap
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Restart shame; tough-love deepens the block."
+
+  - query_id: q-mg-08
+    need_id: mg-lapse-became-shame-spiral
+    text: "I fell off my habits and every time I think about restarting I feel ashamed of myself."
+    source: curator_hypothesis
+    expected_state: momentum-gap
+    expected_resonance: warm/affirming
+    expected_insight_type: permission
+    excluded_voice_registers: [direct/challenging]
+    notes: "Lapse-as-shame; lapse ≠ identity."
+
+  - query_id: q-mg-09
+    need_id: mg-reduce-restart-cost
+    text: "What's the smallest way back into my routine that actually counts?"
+    source: curator_hypothesis
+    expected_state: momentum-gap
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Minimum-viable re-entry; Fogg/Clear lineage."
+
+  - query_id: q-mg-10
+    need_id: mg-reduce-restart-cost
+    text: "I feel like I have to go back to my full routine to restart, and it's so overwhelming I do nothing."
+    source: curator_hypothesis
+    expected_state: momentum-gap
+    expected_resonance: expert/scientific
+    expected_insight_type: mechanism
+    excluded_voice_registers: []
+    notes: "Full-routine expectation as the restart blocker."

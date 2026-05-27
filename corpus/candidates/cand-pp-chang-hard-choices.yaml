@@ -1,0 +1,131 @@
+candidate_id: cand-pp-chang-hard-choices
+candidate_status: drafted
+target_state: possibility-paralysis
+target_gap: possibility-paralysis + reframe + intellectual/measured (pp-commitment-creates-clarity)
+proposed_insight_type: reframe
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: moderate
+source_title: How to make hard choices (TED Talk, 2014)
+source_url: https://www.ted.com/talks/ruth_chang_how_to_make_hard_choices
+source_platform: TED
+speaker: Ruth Chang
+guest_if_applicable: ''
+official_channel_url: https://www.ted.com/speakers/ruth_chang
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In her 2014 TEDSalon NY talk, philosopher Ruth Chang argues that the reason some choices feel so
+  hard is not that we lack enough information to identify the correct answer — it's that both
+  options are genuinely "on a par" (a relation she distinguishes from "equal" or "better"). Neither
+  alternative is objectively better than the other, and no additional research will resolve that.
+  Chang's reframe: in the space where reasons run out, we have the power to create reasons by
+  committing. When we choose in the face of genuine parity, we are not discovering who we are — we
+  are making ourselves. The person who commits to a path in the absence of certainty becomes the
+  person that commitment defines. Hard choices are not obstacles; they are the precise site of
+  self-authorship.
+key_claim: >-
+  When two options are genuinely on a par — neither better than the other — more research cannot
+  break the tie. The inability to choose is not a failure of information; it is the structure of the
+  choice itself. The reframe: in exactly these situations, we have the power to create reasons by
+  committing. Choosing under genuine uncertainty is not finding out who you are — it is making
+  yourself.
+why_it_might_land: >-
+  The possibility-paralysis user believes "the right path will announce itself if I wait long
+  enough." Chang names precisely why that belief is false for the hardest choices: they are
+  structurally underdecidable by more information. The reframe (commitment creates the person, not
+  the reverse) shifts the user from waiting for certainty to understanding that certainty is not
+  what committing requires — which is the intellectual/ measured landing this slot needs.
+user_problem_match_notes: >-
+  Possibility-paralysis: the user has multiple real options and cannot choose, convinced that more
+  information will eventually identify the correct one. Chang's mechanism directly names why that
+  wait is indefinite: options that are "on a par" cannot be resolved by more data. This is NOT
+  inaction-loop (one known avoided action resisted) and NOT direction-collapse (no options at all);
+  this is the specific experience of genuine multi-option parity — the exact structure Chang's
+  argument addresses.
+resonance_match_notes: >-
+  Intellectual/measured register (academic philosopher; rigorous analytic argument). Moderate
+  intensity — the reframe has real force ("in the space where reasons run out, we make ourselves")
+  without being confrontational. Fills the pp-commitment-creates-clarity reframe cell. No register
+  exclusions apply to this need. Source diversity: TED platform, academic speaker — distinct from
+  Schwartz (also TED/intellectual), but the insight type differs (mechanism vs. reframe) and the
+  speaker/argument differs substantially.
+source_credibility_notes: >-
+  Ruth Chang is a philosopher at Cornell Law School (formerly Rutgers), known for her work on
+  incommensurability and practical reason. Her 2014 TEDSalon NY talk is the canonical public
+  expression of her "hard choices" argument, cited extensively in philosophy and popular press.
+  Tier-1 (academic philosopher + TED platform). Verified via web search: official URL
+  https://www.ted.com/talks/ruth_chang_how_to_make_hard_choices confirmed on ted.com with transcript
+  at /transcript. TED transcripts are not reliably WebFetch-readable; paraphrase is the honest
+  label. The "we make ourselves" framing and "on a par" concept are documented in multiple secondary
+  sources confirming Chang genuinely holds and expressed these ideas in this talk.
+media_verification_status: needs_review
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:31.995Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the inability to choose is not a failure of information; it is the structure of the choice
+      itself.
+    felt_recognition: Choosing under genuine uncertainty is not finding out who you are — it is making yourself.
+    emotional_precision: we have the power to create reasons by committing.
+    reframe_power: Hard choices are not obstacles; they are the precise site of self-authorship.
+    permission_relief: we have the power to create reasons by committing.
+    actionability: >-
+      the person who commits to a path in the absence of certainty becomes the person that
+      commitment defines.
+    human_credibility: >-
+      Ruth Chang is a philosopher at Cornell Law School... known for her work on incommensurability
+      and practical reason.
+    source_vividness: 'the reframe: in exactly these situations, we have the power to create reasons by committing.'
+    non_genericness: >-
+      the reason some choices feel so hard is not that we lack enough information to identify the
+      correct answer.
+    voice_register_clarity: >-
+      the inability to choose is not a failure of information; it is the structure of the choice
+      itself.
+  why_it_might_land: >-
+    This insight directly addresses the paralysis of choice by reframing the experience as an
+    opportunity for self-definition, which can resonate deeply with those feeling stuck.
+  why_it_might_not_land: >-
+    Some may find the philosophical framing too abstract or not immediately actionable in their
+    specific situations.
+recommendation: needs_stronger_source
+novelty_score: 45
+novelty_nearest:
+  - insight_id: sio-dgilbert-synthetic-happiness-2004
+    similarity: 0.5475281122990104
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.527894855407055
+  - insight_id: sio-saujani-brave-not-perfect-2016
+    similarity: 0.527221441017148
+  - insight_id: sio-david-emotional-courage-2017
+    similarity: 0.5239340956999612
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.5237745308757894
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

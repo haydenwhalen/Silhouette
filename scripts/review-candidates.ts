@@ -47,7 +47,7 @@ interface ReviewRow {
   transcript_verification_status: string;
   recommendation: string;
   blockers: string[];
-  action_group: "ready_for_sio_draft" | "promising" | "needs_work" | "reject";
+  action_group: "ready_for_sio_draft" | "promising" | "needs_work" | "reject" | "held" | "done";
 }
 
 // ── Compute blockers and action group ────────────────────────────────────────
@@ -104,7 +104,10 @@ function computeBlockers(c: Candidate): string[] {
     blockers.push(`quote_type=verbatim but transcript_verification_status="${tvs}" — honesty violation; downgrade quote_type or verify transcript`);
   }
 
-  // Already drafted or rejected
+  // Held as a retrieval magnet
+  if (c.candidate_status === "held_for_retrieval_risk") {
+    blockers.push("HELD — retrieval MAGNET risk: would dominate its state and collapse within-state diversity (see test-magnet-risk + candidate notes). Excluded from served corpus.");
+  }
   if (c.candidate_status === "rejected") {
     blockers.push("candidate_status=rejected");
   }
@@ -115,10 +118,16 @@ function computeBlockers(c: Candidate): string[] {
   return blockers;
 }
 
+// Route by candidate_status FIRST (status is the source of truth, NOT the recommendation field).
+// A held/needs_review/approved candidate must never show as "ready" just because an earlier
+// evaluate run left recommendation=ready_for_sio_draft.
 function computeActionGroup(c: Candidate, blockers: string[]): ReviewRow["action_group"] {
   const rec = str(c.recommendation) as Recommendation | "";
   const status = str(c.candidate_status);
 
+  // Terminal / explicit statuses win regardless of score or recommendation.
+  if (status === "approved" || status === "drafted") return "done";
+  if (status === "held_for_retrieval_risk") return "held";
   if (status === "rejected" || status === "archived") return "reject";
 
   // Anti-generic hard reject
@@ -129,26 +138,27 @@ function computeActionGroup(c: Candidate, blockers: string[]): ReviewRow["action
       if (typeof score === "number" && score <= ANTI_GENERIC_FLOOR) return "reject";
     }
   }
-
   // Novelty duplicate → reject
   if (c.novelty_rating === "duplicate") return "reject";
-
-  // Official recommendation present → use it
-  if (rec === "ready_for_sio_draft" || status === "ready_for_sio_draft") return "ready_for_sio_draft";
   if (rec === "reject") return "reject";
-  if (rec === "promising") return "promising";
 
-  // No score yet or score-based routing
+  // "Ready" requires an ACTIONABLE status (proposed / ready_for_sio_draft), no blockers,
+  // a draft-ready score, AND the ready recommendation — all of them.
   const overall = typeof c.overall_candidate_score === "number" ? c.overall_candidate_score : null;
-  if (overall === null) return "needs_work";
-  if (overall >= SCORE_THRESHOLDS.draft_ready_at) {
-    // Has score but blocker(s) remain
-    if (blockers.length > 0) return "needs_work";
+  const actionable = status === "proposed" || status === "ready_for_sio_draft" || status === "";
+  if (
+    actionable &&
+    blockers.length === 0 &&
+    rec === "ready_for_sio_draft" &&
+    overall !== null &&
+    overall >= SCORE_THRESHOLDS.draft_ready_at
+  ) {
     return "ready_for_sio_draft";
   }
-  if (overall >= SCORE_THRESHOLDS.promising_at) return "promising";
-  if (overall < SCORE_THRESHOLDS.reject_below) return "reject";
 
+  if (overall === null) return "needs_work";
+  if (overall < SCORE_THRESHOLDS.reject_below) return "reject";
+  if (rec === "promising" || overall >= SCORE_THRESHOLDS.promising_at) return "promising";
   return "needs_work";
 }
 
@@ -198,6 +208,8 @@ function printConsoleReport(rows: ReviewRow[]): void {
     { group: "ready_for_sio_draft", label: "READY FOR SIO DRAFT",  icon: "✓" },
     { group: "promising",           label: "PROMISING",             icon: "◎" },
     { group: "needs_work",          label: "NEEDS WORK",            icon: "⚠" },
+    { group: "held",                label: "HELD (retrieval risk)", icon: "⛔" },
+    { group: "done",                label: "DONE (approved/drafted)", icon: "★" },
     { group: "reject",              label: "REJECT",                icon: "✗" },
   ];
 
@@ -261,6 +273,16 @@ function buildMarkdown(rows: ReviewRow[]): string {
       group: "needs_work",
       label: "Needs Work",
       description: "No overall score yet, or blockers prevent drafting. See blocker list for each.",
+    },
+    {
+      group: "held",
+      label: "Held (retrieval risk)",
+      description: "Verified + high-scoring but flagged as a retrieval MAGNET by test-magnet-risk — would dominate its state. NOT served. Awaiting diversity-aware retrieval.",
+    },
+    {
+      group: "done",
+      label: "Done (approved / drafted)",
+      description: "Already approved into corpus/sios/ or drafted to corpus/drafts/. Not awaiting action here.",
     },
     {
       group: "reject",
@@ -333,9 +355,11 @@ function main(): void {
     ready: rows.filter((r) => r.action_group === "ready_for_sio_draft").length,
     promising: rows.filter((r) => r.action_group === "promising").length,
     needs_work: rows.filter((r) => r.action_group === "needs_work").length,
+    held: rows.filter((r) => r.action_group === "held").length,
+    done: rows.filter((r) => r.action_group === "done").length,
     reject: rows.filter((r) => r.action_group === "reject").length,
   };
-  console.log(`[review-candidates] ready=${byGroup.ready} promising=${byGroup.promising} needs_work=${byGroup.needs_work} reject=${byGroup.reject}`);
+  console.log(`[review-candidates] ready=${byGroup.ready} promising=${byGroup.promising} needs_work=${byGroup.needs_work} held=${byGroup.held} done=${byGroup.done} reject=${byGroup.reject}`);
 }
 
 main();

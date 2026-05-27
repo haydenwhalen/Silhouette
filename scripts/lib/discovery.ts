@@ -28,10 +28,16 @@ export const DRAFTS_DIR = join(ROOT, "corpus", "drafts");
 export const GUIDES_DIR = join(ROOT, "ai", "guides");
 
 // ── Controlled vocabularies (MVP) ───────────────────────────────────────────
+// As of the Expanded Six-State Corpus Buildout (2026-05-26) this covers all 6 User Problem
+// Model states (the name is kept for backward-compat). The first three are the validated MVP
+// wedge; comment out the last three to pin discovery/gap-detection back to MVP-3.
 export const MVP_STATES = [
   "direction-collapse",
   "engagement-drought",
   "inaction-loop",
+  "possibility-paralysis",
+  "identity-transition",
+  "momentum-gap",
 ] as const;
 export type MvpState = (typeof MVP_STATES)[number];
 
@@ -67,6 +73,10 @@ export const CANDIDATE_STATUSES = [
   "approved",
   "rejected",
   "archived",
+  // Verified + high-scoring, but found to be a retrieval MAGNET (would dominate its state and
+  // collapse within-state diversity). NOT served. Held pending diversity-aware retrieval. Caught
+  // by scripts/test-magnet-risk.ts. (magnet/diversity-fix phase.)
+  "held_for_retrieval_risk",
 ] as const;
 export type CandidateStatus = (typeof CANDIDATE_STATUSES)[number];
 

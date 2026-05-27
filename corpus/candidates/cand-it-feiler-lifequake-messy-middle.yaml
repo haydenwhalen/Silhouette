@@ -1,0 +1,128 @@
+candidate_id: cand-it-feiler-lifequake-messy-middle
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + reframe + intellectual/measured (it-in-between-cant-see-next)
+proposed_insight_type: reframe
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: mild
+source_title: The Secret to Mastering Life's Biggest Transitions
+source_url: https://www.ted.com/talks/bruce_feiler_the_secret_to_mastering_life_s_biggest_transitions
+source_platform: TED
+speaker: Bruce Feiler
+guest_if_applicable: ''
+official_channel_url: https://www.brucefeiler.com/
+video_url: ''
+embed_url: ''
+transcript_url: >-
+  https://www.ted.com/talks/bruce_feiler_the_secret_to_mastering_life_s_biggest_transitions/transcript
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In his TED talk (2021, 2M+ views) and accompanying book "Life Is in the Transitions" (Penguin
+  Press, 2020), Bruce Feiler introduces the concept of a "lifequake" — a massive burst of change
+  that forces a life transition — and maps three phases: the long goodbye (mourning the old self),
+  the messy middle (shedding habits and creating new ones), and the new beginning. The key reframe
+  in the talk is this: these phases do not happen in order. The messy middle is "disheartening and
+  disorienting" by design, and the inability to see what comes next is not evidence of failure — it
+  is the structure of the transition itself. Feiler also notes that the average person spends 25
+  years of their adult life inside a transition, meaning "the messy middle" is not exceptional but
+  the ordinary condition of adult life.
+key_claim: >-
+  The reason you cannot see chapter two is not that you are failing at the transition — it is that
+  you are in the messy middle, and the messy middle is disorienting and disheartening by design.
+  Feiler's research across hundreds of life stories shows that these phases do not happen in order.
+  You are not behind. You are in the correct phase of a nonlinear process, and the inability to see
+  forward is a feature of this phase, not a malfunction of yours.
+why_it_might_land: >-
+  The identity-transition user's core hidden belief is "if I can't see chapter two, I'm failing the
+  transition." Feiler's research-backed reframe directly dismantles this: the inability to see
+  forward is structural, not personal. His use of data (hundreds of life stories, 25 years average
+  in transition) gives the intellectual/measured user permission grounded in evidence rather than in
+  sentiment.
+user_problem_match_notes: >-
+  Precise identity-transition fit for it-in-between-cant-see-next. The user is in the aftermath of a
+  discrete triggering event (a lifequake in Feiler's terms) and cannot see what comes next. Feiler's
+  framework explicitly addresses the liminal period — the in-between — and reframes disorientation
+  as structurally appropriate. Distinct from direction-collapse (Feiler requires a discrete event —
+  a lifequake — not chronic drift). Stays within "functional but disoriented" — Feiler's research
+  population is people who went through major transitions and survived them, not clinical
+  populations. No "rush to chapter two" framing (the reframe specifically resists that).
+resonance_match_notes: >-
+  intellectual/measured register — Feiler is a research-backed author presenting findings, not a
+  personal story. Mild intensity — the reframe is normalizing and gentle, not confrontational.
+  Reframe type — the core move is reframing disorientation as structural rather than personal.
+  Serves it-in-between-cant-see-next. Excludes direct/challenging (correct). Different from Brown
+  (warm/affirming permission) and Roll (vulnerable/personal story) — register diversity preserved.
+  Source diversity: Feiler is not in the corpus.
+source_credibility_notes: >-
+  Bruce Feiler is a seven-time NYT bestselling author and TED speaker (2M+ views on this talk).
+  "Life Is in the Transitions" is published by Penguin Press (2020). His research involved 250
+  life-story interviews across all 50 states, coded for transition patterns. Tier-2 credibility. The
+  TED talk is a real, official talk at ted.com; transcript is linked at the official TED transcript
+  URL. TED transcripts are not reliably WebFetch-able, so this is treated as
+  paraphrase/reconstruction — the core concepts (lifequake, messy middle, long goodbye, nonlinear
+  phases) are verified through the third-party singjupost.com transcript which was fetched and
+  confirmed the key framing. The three-phase model and the nonlinear ordering are central and
+  accurately represented.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.018Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: the messy middle is disorienting and disheartening by design.
+    felt_recognition: the inability to see forward is a feature of this phase, not a malfunction of yours.
+    emotional_precision: disorienting and disheartening by design.
+    reframe_power: >-
+      the inability to see what comes next is not evidence of failure — it is the structure of the
+      transition itself.
+    permission_relief: You are not behind. You are in the correct phase of a nonlinear process.
+    actionability: the average person spends 25 years of their adult life inside a transition.
+    human_credibility: Bruce Feiler is a seven-time NYT bestselling author and TED speaker.
+    source_vividness: >-
+      Feiler introduces the concept of a 'lifequake' — a massive burst of change that forces a life
+      transition.
+    non_genericness: the messy middle is 'disheartening and disorienting' by design.
+    voice_register_clarity: 'the key reframe in the talk is this: these phases do not happen in order.'
+  why_it_might_land: >-
+    This insight provides a clear and structured understanding of the identity transition process,
+    which many young professionals can relate to during times of change.
+  why_it_might_not_land: >-
+    Some may still feel overwhelmed by their situation and find it hard to accept that
+    disorientation is a normal part of transitions.
+recommendation: needs_transcript_verification
+novelty_score: 46
+novelty_nearest:
+  - insight_id: sio-bj-miller-attend-to-death-2016
+    similarity: 0.5415362049512972
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.519643914842542
+  - insight_id: sio-david-emotional-courage-2017
+    similarity: 0.5128026574962875
+  - insight_id: sio-easter-comfort-crisis-2022
+    similarity: 0.5122563773213347
+  - insight_id: sio-sinek-start-with-why-2009
+    similarity: 0.5031777278616965
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

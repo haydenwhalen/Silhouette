@@ -1,0 +1,136 @@
+candidate_id: cand-mg-clear-never-miss-twice
+candidate_status: drafted
+target_state: momentum-gap
+sub_state: restart-friction
+target_gap: momentum-gap + reframe + intellectual/measured + mild (mg-lost-rhythm-cant-restart)
+proposed_insight_type: reframe
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: mild
+source_title: >-
+  Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones (Chapter 16) +
+  jamesclear.com/second-mistake
+source_url: https://jamesclear.com/second-mistake
+source_platform: Book / jamesclear.com
+speaker: James Clear
+guest_if_applicable: ''
+official_channel_url: https://jamesclear.com
+video_url: ''
+embed_url: ''
+transcript_url: https://jamesclear.com/second-mistake
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In Chapter 16 of Atomic Habits and in the companion article "Avoid the Second Mistake" at
+  jamesclear.com, James Clear distinguishes between the first mistake and the spiral. Missing once
+  is an accident; missing twice is the start of a new habit. The core reframe is that the first
+  missed day carries no real cost to your trajectory — what ruins a habit is the pattern of
+  consecutive misses, not the single skip. His rule "never miss twice" is not about perfection; it
+  is about recovery speed. The most important decision is not to miss on Monday but to show up on
+  Tuesday regardless. What separates consistent people from inconsistent ones isn't zero misses —
+  it's how quickly they get back. Applied to restart-friction specifically: the reframe is that the
+  gap (however long) is a single extended "miss," and the only relevant question is what happens
+  next.
+key_claim: >-
+  The first mistake is never the one that ruins you. It's the spiral of repeated mistakes that
+  follows. Missing once is an accident. Missing twice is the start of a new habit. Never miss twice
+  — not because perfection matters, but because recovery speed is the only thing that separates
+  people who maintain habits from people who don't.
+why_it_might_land: >-
+  The restart-friction user has already missed, and the gap has grown. The shame of the gap makes
+  restarting feel like acknowledging the failure, which raises the cost further. Clear's reframe
+  breaks that loop: the gap was one (extended) miss — which is survivable — and the only question is
+  what happens now. "Never miss twice" is immediately actionable and takes the weight of the
+  accumulated gap off the restart decision.
+user_problem_match_notes: >-
+  Restart-friction sub-state: the user had a routine (exercise, writing, reading) and lost it; the
+  shame-accumulation around the gap is now blocking re-entry. Prior motion explicitly established:
+  Clear's framing presupposes you had the habit and missed — "missing" implies you were doing
+  something. This is re-entry, not first start. Disambiguation from inaction-loop: inaction- loop =
+  a known action never started or chronically avoided for the first time; restart-friction = there
+  WAS prior motion and the task is getting back in. The distinction is explicit in Clear's "missing"
+  framing — you can only miss something you previously had. Disambiguation note: this candidate
+  covers a DISTINCT moment from the existing sio-clear-habits-trajectory (which is about systems vs.
+  goals / trajectory framing for inaction-loop). "Never miss twice" is a restart/re- entry framing
+  for momentum-gap restart-friction, not a trajectory framing for inaction-loop.
+resonance_match_notes: >-
+  Intellectual/measured, mild, reframe type. Fills MG-6 slot (James Clear, per plan). The "never
+  miss twice" framing is from Chapter 16 of Atomic Habits — not the trajectory/systems content of
+  the existing SIO (which draws from TFS #648 on systems over goals). Distinct moment, distinct
+  state, distinct use case. Clear ≤1 cap for momentum-gap state honored (this is the only Clear
+  candidate for momentum-gap). Different state from the existing inaction-loop Clear SIO, so no
+  speaker-cap conflict within momentum-gap.
+source_credibility_notes: >-
+  James Clear is the author of Atomic Habits (New York Times #1 bestseller; 20M+ copies). The "never
+  miss twice" concept appears in Chapter 16 of Atomic Habits and is elaborated in the official
+  article at jamesclear.com/second-mistake. The full text of "Avoid the Second Mistake" was verified
+  by fetching jamesclear.com/second-mistake directly. Key framing confirmed: "missing once is an
+  accident, missing twice is the start of a new habit" appears as a direct quote on Clear's own
+  official site (jamesclear.com/quotes) and in X posts he authored. The companion quote from Chapter
+  16 — "The first mistake is never the one that ruins you. It is the spiral of repeated mistakes
+  that follows" — is confirmed on multiple official platforms (jamesclear.com, his official X
+  account). The jamesclear.com/second-mistake article is an official canonical source. Quote type:
+  paraphrase; some key phrases ("missing once is an accident, missing twice is the start of a new
+  habit") are effectively in the public domain from his own official posts and could qualify as
+  verbatim if a direct continuous fetch is done at next review.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.030Z'
+human_resonance_score: 85
+quote_quality_score: 83
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 89
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 4
+    emotional_precision: 4
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The core reframe is that the first missed day carries no real cost to your trajectory — what
+      ruins a habit is the pattern of consecutive misses, not the single skip.
+    felt_recognition: >-
+      What separates consistent people from inconsistent ones isn't zero misses — it's how quickly
+      they get back.
+    emotional_precision: It's the spiral of repeated mistakes that follows.
+    reframe_power: His rule 'never miss twice' is not about perfection; it is about recovery speed.
+    permission_relief: Missing once is an accident; missing twice is the start of a new habit.
+    actionability: The most important decision is not to miss on Monday but to show up on Tuesday regardless.
+    human_credibility: 'James Clear is the author of Atomic Habits (New York Times #1 bestseller; 20M+ copies).'
+    source_vividness: The phrase 'never miss twice' is a memorable and specific guideline.
+    non_genericness: The content is directly tied to James Clear's established framework in Atomic Habits.
+    voice_register_clarity: The tone is intellectual and measured, consistent with Clear's writing style.
+  why_it_might_land: >-
+    This insight provides a clear and actionable reframe that addresses the user's feelings of being
+    stuck in a momentum gap, emphasizing recovery over perfection.
+  why_it_might_not_land: >-
+    Some users may still feel overwhelmed by the idea of consistency and may not resonate with the
+    concept of 'never miss twice' as a solution.
+recommendation: needs_transcript_verification
+novelty_score: 46
+novelty_nearest:
+  - insight_id: sio-saujani-brave-not-perfect-2016
+    similarity: 0.5403238799122518
+  - insight_id: sio-clear-habits-trajectory-2023
+    similarity: 0.48747630880371373
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.48216060957273965
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.48189456297985633
+  - insight_id: sio-jocko-discipline-not-motivation-2016
+    similarity: 0.45212698516290434
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

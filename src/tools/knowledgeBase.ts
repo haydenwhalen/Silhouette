@@ -14,6 +14,9 @@ const STATE_VALUES = [
   "direction-collapse",
   "engagement-drought",
   "inaction-loop",
+  "possibility-paralysis",
+  "identity-transition",
+  "momentum-gap",
 ] as const;
 
 export const knowledgeBaseTool = tool(

@@ -1,0 +1,135 @@
+candidate_id: cand-it-renfrew-post-exit-identity
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + story + vulnerable/personal (it-post-success-lost)
+proposed_insight_type: story
+proposed_voice_register: vulnerable/personal
+proposed_intensity_level: moderate
+source_title: Gregg Renfrew Is Making Counter Moves in Clean Beauty (#954)
+source_url: https://richroll.com/podcast/gregg-renfrew-954/
+source_platform: The Rich Roll Podcast
+speaker: Gregg Renfrew
+guest_if_applicable: Gregg Renfrew
+official_channel_url: https://richroll.com/
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  Gregg Renfrew founded Beautycounter — one of the most influential clean beauty companies in the US
+  — and after selling a controlling interest, was pushed out of the company she had built. In
+  episode #954 of the Rich Roll Podcast (December 2025), she describes the identity crisis that
+  followed: "What happens when something you care so deeply about — a relationship, a career, a
+  lifelong dream — goes terribly awry and you don't know who you are anymore?" The episode frames
+  her reckoning as a discrete event (the forced exit) with a clear before (founder, builder, the
+  person synonymous with the company) and the disorienting after. She chose personal transformation
+  over self-destruction and went on to found Counter — but the episode addresses the in-between
+  period before that outcome was known.
+key_claim: >-
+  When the thing you built becomes the thing that defines you, losing it is an identity collapse,
+  not just a career setback. Renfrew describes the after as an "identity crisis of existential
+  proportions" — the feeling of not knowing who she was when separated from the work she had poured
+  herself into. The guilt of feeling lost after a "successful" outcome (the sale) compounds the
+  confusion: you're not supposed to feel hollow when the thing went well on paper.
+why_it_might_land: >-
+  The post-success-lost user carries a specific shame: "I'm not allowed to feel lost after something
+  this good." Renfrew names the opposite: the thing going well on paper (the sale) and the identity
+  collapse happening anyway. Her account validates that success and loss of self can arrive
+  simultaneously, and that the disorientation is the correct response to the structural removal —
+  not ingratitude, not failure, not weakness.
+user_problem_match_notes: >-
+  Strong identity-transition fit for it-post-success-lost. The triggering discrete event is the
+  forced exit from Beautycounter following the sale — a clear before-and-after. Renfrew speaks from
+  after the transition (she has since founded Counter), giving enough distance to name both sides.
+  The account is explicitly "functional but disoriented" — she describes a choice between
+  "self-destruction or personal transformation," framing the disoriented period as one where both
+  options were visible. Distinct from direction-collapse (no chronic gradual drift — there is a
+  specific rupture event). Distinct from engagement-drought (structural identity loss, not chronic
+  flatness in a stable life). No clinical crisis content; the framing stays at the functional level.
+resonance_match_notes: >-
+  vulnerable/personal register — Renfrew is speaking in first person about her own identity
+  collapse, not theorizing. Moderate intensity — honest and heavy but hopeful in structure (she
+  founded Counter). Story type — a lived arc with named before/after. Fills it-post-success-lost.
+  Excludes direct/challenging (correct — post-success grief needs permission not push). Different
+  domain from Agassi (founder post-exit vs athlete retirement) and Roll (addiction/career exit) —
+  adds a distinct identity-collapse domain. Source diversity: Rich Roll Podcast, but different guest
+  and domain from Roll episode. Platform count: Rich Roll Podcast = 1 so far (Agassi is a book,
+  Brown is a book, Feiler is TED, Grant is a book, Roll is Tim Ferriss). Within platform cap.
+source_credibility_notes: >-
+  Gregg Renfrew is the founder of Beautycounter and Counter. Beautycounter was one of the most
+  recognized direct-to-consumer clean beauty brands in the US. Her post-exit experience and
+  reinvention is the actual topic of this episode. Rich Roll Podcast #954 is a real, official
+  episode at richroll.com/podcast/gregg-renfrew-954/ (verified via WebFetch). The episode
+  description quote is taken directly from the fetched page: "What happens when something you care
+  so deeply about — a relationship, a career, a lifelong dream — goes terribly awry and you don't
+  know who you are anymore?" This framing is verbatim from the official episode description.
+  Paraphrase for the candidate body — no podcast transcript was fetched.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.024Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 3
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the episode frames her reckoning as a discrete event (the forced exit) with a clear before
+      (founder, builder, the person synonymous with the company) and the disorienting after.
+    felt_recognition: >-
+      the feeling of not knowing who she was when separated from the work she had poured herself
+      into.
+    emotional_precision: Renfrew describes the after as an 'identity crisis of existential proportions'.
+    reframe_power: losing it is an identity collapse, not just a career setback.
+    permission_relief: the guilt of feeling lost after a 'successful' outcome (the sale) compounds the confusion.
+    actionability: she chose personal transformation over self-destruction.
+    human_credibility: >-
+      Gregg Renfrew founded Beautycounter — one of the most influential clean beauty companies in
+      the US.
+    source_vividness: the episode addresses the in-between period before that outcome was known.
+    non_genericness: >-
+      the specific framing of her identity crisis and the context of her forced exit from
+      Beautycounter.
+    voice_register_clarity: >-
+      the content is framed in a vulnerable and personal tone, particularly in the description of
+      her identity crisis.
+  why_it_might_land: >-
+    This insight deeply resonates with those experiencing an identity transition, as it articulates
+    the profound confusion and loss that can accompany such a change.
+  why_it_might_not_land: >-
+    Some may find the narrative too specific to Renfrew's experience and not applicable to their own
+    identity transitions.
+recommendation: needs_transcript_verification
+novelty_score: 51
+novelty_nearest:
+  - insight_id: sio-huffington-depletion-not-dedication-2010
+    similarity: 0.4918156912207189
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.4842958488744649
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.4799157507788478
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.47601567501968794
+  - insight_id: sio-sinek-start-with-why-2009
+    similarity: 0.46640708254517044
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

@@ -1,0 +1,138 @@
+candidate_id: cand-mg-howes-behind-at-23
+candidate_status: proposed
+target_state: momentum-gap
+sub_state: comparison-spike
+target_gap: momentum-gap + story + vulnerable/personal + mild (mg-comparison-spike-behind)
+proposed_insight_type: story
+proposed_voice_register: vulnerable/personal
+proposed_intensity_level: mild
+source_title: The School of Greatness (book, 2015) + School of Greatness Podcast biographical episodes
+source_url: https://lewishowes.com/about/
+source_platform: Book / School of Greatness Podcast
+speaker: Lewis Howes
+guest_if_applicable: ''
+official_channel_url: https://lewishowes.com
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  Lewis Howes tells the story of being 23, broke, sleeping on his sister's couch in Ohio after a
+  wrist injury ended his professional football career. He had been a college athlete with pro
+  aspirations; now he had nothing but a laptop and LinkedIn. His former teammates and college peers
+  were moving forward — careers, incomes, trajectories — while he was directionless and financially
+  dependent. This is a textbook comparison-spike: the trigger was not internal drift but the visible
+  contrast between where others were and where he was. What he describes doing with that feeling was
+  not suppressing it but using it as information: the urgency he felt about being behind pushed him
+  to obsessively study how successful people operated. The feeling of being behind wasn't resolved
+  by comparing less — it was decoded as signal about what he wanted, and he followed it.
+key_claim: >-
+  At 23, broke on my sister's couch while my peers moved forward, I didn't know what I wanted — but
+  I knew how it felt to be left behind. I stopped treating that feeling as evidence that I'd failed
+  and started treating it as information: it was showing me exactly what I was hungry for. That
+  urgency, uncomfortable as it was, became the fuel.
+why_it_might_land: >-
+  The comparison-spike user sees peers with momentum and feels the ache — "I want that feeling, not
+  their specific life." Howes' story gives them a real person who felt the same specific ache, sat
+  with it rather than suppressing it, and decoded it as useful information rather than proof of
+  failure. The story doesn't moralize about comparison; it shows what using the feeling looks like
+  from the inside.
+user_problem_match_notes: >-
+  Comparison-spike sub-state: the trigger was the visible contrast with peers (former football
+  teammates and college cohort moving forward while Howes was immobile), not a chronic gradual
+  drift. This is recent and outward-facing in the sense that external peer reference was the
+  activating comparison. Disambiguation from direction-collapse: this is triggered by specific
+  external contrast, not chronic/internal absence of direction. Disambiguation from restart-
+  friction: there is no prior motion that was lost and needs re-entry — this is a first-recognition
+  comparison moment, not a lapse recovery. Disambiguation from identity-transition: while Howes'
+  injury is an identity-transition event, this SIO specifically uses the comparison-spike element of
+  the story (seeing peers advance, feeling behind), not the identity-reorganization element. NOTE:
+  the story's comparison-spike element (peers visible, you're behind) is genuinely present in the
+  documented account; however, the exact internal framing of "I decoded the feeling as signal" is a
+  paraphrase-level reconstruction of how he describes the period, not a direct quote from a specific
+  episode about comparison as a signal. Flag for human review.
+resonance_match_notes: >-
+  Vulnerable/personal, mild, story type. Fills MG-7 slot. A real, documented story with genuine
+  comparison-spike elements. Howes' public profile (500M podcast downloads, The School of Greatness)
+  gives the story credibility for a young-professional audience. The story is not a motivational
+  speech about comparison — it is a lived account of what to do with the feeling. No
+  direct/challenging register (correctly excluded). Register: vulnerable/personal — Howes tells this
+  story with genuine candor about being broke and directionless.
+source_credibility_notes: >-
+  Lewis Howes is the host of The School of Greatness podcast (500M+ downloads) and author of The
+  School of Greatness (2015, Rodale Books). The biographical facts — sleeping on his sister's couch
+  after a football wrist injury, age 23, broke, using only a laptop and LinkedIn — are documented in
+  his official bio at lewishowes.com/about, in his 2015 book, and in multiple official podcast
+  episodes and press features. Verified via lewishowes.com/about and artofmanliness.com podcast
+  episode 152. The comparison-spike interpretation (feeling behind peers as the felt experience
+  during that period) is grounded in the documented context; the specific internal framing in
+  key_claim is a paraphrase reconstruction of how he discusses the period. Human review should
+  confirm the exact framing from a specific episode or book passage. Tier-2 credibility (known
+  public figure, documented biographical story). Quote type: paraphrase.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:13:59.793Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the feeling of being behind wasn't resolved by comparing less — it was decoded as signal about
+      what he wanted
+    felt_recognition: I didn't know what I wanted — but I knew how it felt to be left behind
+    emotional_precision: that urgency, uncomfortable as it was, became the fuel
+    reframe_power: >-
+      I stopped treating that feeling as evidence that I'd failed and started treating it as
+      information
+    permission_relief: >-
+      treating it as information implies a shift away from self-blame, but doesn't explicitly grant
+      relief
+    actionability: >-
+      the urgency he felt about being behind pushed him to obsessively study how successful people
+      operated
+    human_credibility: >-
+      Lewis Howes is the host of The School of Greatness podcast and author of The School of
+      Greatness
+    source_vividness: the story of being 23, broke, sleeping on his sister's couch in Ohio after a wrist injury
+    non_genericness: >-
+      the specific details of his life and the unique framing of his experience make it unlikely to
+      be generic
+    voice_register_clarity: the tone is vulnerable and personal, sharing a specific life experience
+  why_it_might_land: >-
+    The personal story of feeling left behind resonates deeply with those experiencing a momentum
+    gap, as it reflects a common struggle of comparison and directionlessness.
+  why_it_might_not_land: >-
+    Some may find the narrative too focused on personal success, potentially alienating those who
+    feel stuck without a clear path forward.
+recommendation: needs_transcript_verification
+novelty_score: 44
+novelty_nearest:
+  - insight_id: sio-mcconaughey-go-to-zero-2020
+    similarity: 0.5622423569244639
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.5485317932054905
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.5434299676557355
+  - insight_id: sio-waldinger-good-life-relationships-2015
+    similarity: 0.536703922212376
+  - insight_id: sio-sinek-start-with-why-2009
+    similarity: 0.5358296516569848
+novelty_rating: novel

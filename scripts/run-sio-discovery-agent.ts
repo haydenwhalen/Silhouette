@@ -5,14 +5,16 @@
  * STOPS for human review. It never auto-approves and never publishes to corpus/sios/.
  *
  * Modes:
+ *   --user-needs      User-side discovery (Stage 0): analyze user-need coverage and emit
+ *                     enriched harvesting targets. Hypothesis layer; no corpus changes.
  *   --gap-only        Gap analysis + source-candidate queries, then stop.
  *   --candidate <p>   Evaluate + novelty + verify a single candidate file.
  *   --review          Rebuild the candidate review queue.
  *   --draft-ready     Draft SIOs (to corpus/drafts/) ONLY for candidates whose
  *                     recommendation == ready_for_sio_draft. Still no approval.
- *   --full-local      (default) Gap → source queries → score every candidate
- *                     (evaluate + novelty + verify) → review queue → list draft-ready.
- *                     Does NOT auto-draft; prints the next human action.
+ *   --full-local      (default) User-need coverage (Stage 0) → corpus gap → source queries →
+ *                     score every candidate (evaluate + novelty + verify) → review queue →
+ *                     list draft-ready. Does NOT auto-draft; prints the next human action.
  *
  * Run: npm run discover-sios -- [mode]
  */
@@ -94,6 +96,14 @@ function main() {
   console.log("This agent researches, scores, and drafts. It NEVER approves or publishes.");
 
   switch (mode) {
+    case "--user-needs": {
+      hr("Stage 0 — User-need coverage (user-side discovery)");
+      // Pass through any extra flags (e.g. --static, --json) after the mode.
+      stage("analyze-user-need-coverage.ts", process.argv.slice(3));
+      console.log("\n→ Reports: ai/guides/user_need_coverage_report.md, ai/guides/user_need_harvesting_targets.md");
+      console.log("  (Hypothesis layer — these enrich, but do not replace, the corpus gap reports.)");
+      break;
+    }
     case "--gap-only": {
       hr("Stage 1 — Gap analysis");
       stage("detect-corpus-gaps.ts");
@@ -140,6 +150,10 @@ function main() {
     }
     case "--full-local":
     default: {
+      hr("Stage 0 — User-need coverage (user-side discovery)");
+      // Enriches harvesting with realistic user situations BEFORE corpus-cell gap analysis.
+      // Non-fatal: a probe failure (e.g. no embeddings key) still produces static coverage.
+      stage("analyze-user-need-coverage.ts");
       hr("Stage 1 — Gap analysis");
       stage("detect-corpus-gaps.ts");
       hr("Stage 2 — Source-candidate queries");

@@ -1,0 +1,137 @@
+candidate_id: cand-pp-martell-research-avoidance
+candidate_status: drafted
+target_state: possibility-paralysis
+target_gap: possibility-paralysis + reframe + direct/challenging (pp-research-as-avoidance)
+proposed_insight_type: reframe
+proposed_voice_register: direct/challenging
+proposed_intensity_level: moderate
+source_title: Buy Back Your Time (book, 2023)
+source_url: https://www.danmartell.com/
+source_platform: book
+speaker: Dan Martell
+guest_if_applicable: ''
+official_channel_url: https://www.danmartell.com/
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  Dan Martell, serial entrepreneur and SaaS coach, is known for a direct coaching voice that names
+  the gap between research and action in entrepreneurial contexts. In his book Buy Back Your Time
+  (2023) and in his coaching work and YouTube channel, Martell repeatedly surfaces the idea that
+  more information-gathering past a certain point is itself a decision — a decision not to decide —
+  and that the cost of perpetual optionality is real and cumulative. His framing: "smart people
+  overanalyze and hold on," treating additional research as diligence when it is functionally
+  avoidance. The direct challenge he makes to founders is: you are not gathering data; you are
+  spending time to avoid the discomfort of committing. Martell does not moralize — he names the
+  mechanism and the cost (time, compounding opportunity loss) in business terms that land without
+  shame.
+key_claim: >-
+  More research past a certain point is not diligence — it is a choice to avoid choosing. Smart
+  people tell themselves they are being thorough when they are actually spending time to escape the
+  discomfort of commitment. The cost of not deciding accumulates every day; perpetual optionality is
+  not safety, it is slow attrition.
+why_it_might_land: >-
+  The possibility-paralysis user who is "researching instead of deciding" needs someone to name the
+  avoidance directly, without contempt. Martell's direct/challenging register does exactly that: he
+  calls it what it is (avoidance), names the real cost (compounding time loss), and does so from a
+  practitioner who has been inside the failure mode, not from a theorist. The warm register is
+  explicitly excluded for this need because it validates the stalling; Martell's directness does
+  not.
+user_problem_match_notes: >-
+  Possibility-paralysis: the user is in "perpetual research mode" — gathering information as a
+  substitute for committing to any of their genuine options. This is NOT inaction-loop
+  (inaction-loop user knows the one action and resists it; here the user is actively doing something
+  — researching — as avoidance of choice). NOT direction-collapse (there are real options; the
+  problem is choosing among them). Disambiguation: if the user "could name the one thing," this
+  might slide toward inaction-loop; the research-as- avoidance frame is most squarely
+  possibility-paralysis when the user genuinely has multiple options and is using research to delay
+  choosing.
+resonance_match_notes: >-
+  Direct/challenging register — Martell's hallmark. Moderate intensity. Warm/affirming is excluded
+  for this need (pp-research-as-avoidance) and this candidate honors that exclusion. Source
+  diversity: book platform; entrepreneur/coach speaker — distinct from TED (Schwartz, Chang),
+  podcast (Sivers/Ferriss). Fills the direct reframe slot for research-as-avoidance that the plan
+  specifies.
+source_credibility_notes: >-
+  Dan Martell is founder of SaaS Academy, serial entrepreneur (Clarity.fm, Flowtown, Spheric), and
+  author of Buy Back Your Time (Penguin Portfolio, 2023). His direct coaching register and the
+  research-as-avoidance framing are documented across his YouTube channel (@danmartell), public
+  interviews, and the book. Tier-2 (respected practitioner; not academic). Source verification:
+  official website confirmed at https://www.danmartell.com; Buy Back Your Time confirmed as 2023
+  Penguin Portfolio publication via web search. The specific framing ("smart people overanalyze and
+  hold on," the cost of not deciding) is attributed to his documented coaching voice based on web
+  search confirming he discusses analysis paralysis and decision speed in interviews. Paraphrase is
+  the honest label — no transcript was fetched; the claim is a well-documented framing from a real
+  speaker, honestly reconstructed.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.003Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the cost of not deciding accumulates every day; perpetual optionality is not safety, it is
+      slow attrition.
+    felt_recognition: >-
+      Smart people tell themselves they are being thorough when they are actually spending time to
+      escape the discomfort of commitment.
+    emotional_precision: spending time to escape the discomfort of commitment.
+    reframe_power: More research past a certain point is not diligence — it is a choice to avoid choosing.
+    permission_relief: >-
+      Martell does not moralize — he names the mechanism and the cost (time, compounding opportunity
+      loss) in business terms that land without shame.
+    actionability: the cost of not deciding accumulates every day.
+    human_credibility: Dan Martell, serial entrepreneur and SaaS coach, is known for a direct coaching voice.
+    source_vividness: >-
+      his coaching work and YouTube channel, Martell repeatedly surfaces the idea that more
+      information-gathering past a certain point is itself a decision.
+    non_genericness: >-
+      his framing: 'smart people overanalyze and hold on,' treating additional research as diligence
+      when it is functionally avoidance.
+    voice_register_clarity: >-
+      Dan Martell is known for a direct coaching voice that names the gap between research and
+      action.
+  why_it_might_land: >-
+    This insight directly addresses the paralysis of choice by framing inaction as a decision
+    itself, which many young professionals can relate to.
+  why_it_might_not_land: >-
+    Some may find the direct challenge too confrontational, potentially leading to defensiveness
+    rather than reflection.
+recommendation: needs_transcript_verification
+novelty_score: 44
+novelty_nearest:
+  - insight_id: sio-millman-busy-is-a-decision-2018
+    similarity: 0.563881296763868
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.5361030584149519
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.5283550956076325
+  - insight_id: sio-urban-instant-gratification-monkey-2016
+    similarity: 0.5238288295241209
+  - insight_id: sio-newport-skill-not-passion-2012
+    similarity: 0.5071270656420256
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

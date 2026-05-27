@@ -1,0 +1,131 @@
+candidate_id: cand-perel-survival-vs-revival
+candidate_status: drafted
+target_state: engagement-drought
+target_gap: engagement-drought + reframe + intellectual/measured (aliveness, non-direct register)
+proposed_insight_type: story
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: moderate
+source_title: Esther Perel (#241)
+source_url: https://tim.blog/2018/06/01/the-tim-ferriss-show-transcripts-esther-perel/
+source_platform: The Tim Ferriss Show
+speaker: Esther Perel
+guest_if_applicable: Esther Perel
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: https://tim.blog/2018/06/01/the-tim-ferriss-show-transcripts-esther-perel/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: There was one group that didn't die, and one group that came back to life.
+quote_type: verbatim
+candidate_moment_summary: >
+  Perel, who grew up among Holocaust survivors in Antwerp, describes noticing two kinds of survivors
+  in her community: one group that "didn't die," and one group that "came back to life." The first
+  had survived in the literal sense but stayed shuttered — plastic on the couches, curtains drawn,
+  going through the motions of a life. The second had also survived everything, yet had somehow
+  re-entered aliveness. Her distinction reframes the engagement-drought experience precisely: the
+  question isn't whether you're functioning — many people function while feeling dead — it's whether
+  you've come back to life. Surviving and being alive are not the same thing, and noticing the gap
+  is the first move back.
+key_claim: >-
+  There's a difference between not dying and being alive. You can be functioning, fed, employed, and
+  fine on paper and still be in the group that merely "didn't die" — going through the motions with
+  the curtains drawn. The work isn't to survive harder; it's to notice you've been surviving, and to
+  come back to life.
+why_it_might_land: >-
+  The engagement-drought user keeps measuring themselves by whether they're coping ("I'm fine, I'm
+  functioning") and can't name why that feels hollow. Perel's two-groups image gives them the exact
+  distinction — surviving vs. coming back to life — and makes the flatness legible as something
+  other than ingratitude or failure.
+user_problem_match_notes: >-
+  Engagement-drought / numbness where the user is functioning but feels dead inside. Perel's
+  survival-vs-revival reframe names that precisely without pathologizing it. Distinct from Huberman
+  (dopamine mechanism), Brown (numbing as avoidance), and Achor (happiness advantage) — Perel's
+  lever is the surviving-vs-alive distinction itself. NOTE: in the source she extends this toward
+  desire/eroticism; this SIO uses only the (non-relational) survivor-community observation, which
+  generalizes to engagement broadly.
+resonance_match_notes: >-
+  Intellectual/measured (reflective), moderate, delivered as a personal-historical story. Fills the
+  thin engagement-drought intellectual/measured and story cells. A register discriminator against
+  Brown (vulnerable/personal) and Huberman (expert/scientific) within engagement-drought. Lower
+  magnet risk than Easter — the image is specific and contextual rather than a broad slogan.
+source_credibility_notes: >-
+  Esther Perel — psychotherapist and one of the most recognized voices on relationships and
+  aliveness (TED, "Mating in Captivity", "The State of Affairs"). tier-2. The survivor-community
+  observation is her own lived family history. Verbatim excerpt verified against the official
+  tim.blog transcript for The Tim Ferriss Show #241; context confirmed (Holocaust survivors,
+  Antwerp).
+media_verification_status: not_applicable
+transcript_verification_status: verified
+human_resonance_score: 100
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+novelty_score: 48
+overall_candidate_score: 100
+novelty_rating: novel
+recommendation: ready_for_sio_draft
+human_review_notes: >-
+  Verbatim excerpt verified against the official tim.blog transcript (#241, Esther Perel). Context
+  confirmed: two groups of Holocaust survivors in her Antwerp community. Body uses only the
+  non-relational observation. Audio podcast — no official video (media not_applicable).
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-26T20:42:10.740Z'
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      the distinction between those who 'didn't die' and those who 'came back to life' clearly
+      addresses the engagement-drought stuck state.
+    felt_recognition: >-
+      the phrase 'going through the motions with the curtains drawn' resonates deeply with someone
+      feeling disengaged.
+    emotional_precision: >-
+      the insight captures the feeling of being 'shuttered' and 'feeling dead' beneath the surface
+      of mere survival.
+    reframe_power: >-
+      the distinction between surviving and being alive fundamentally shifts the perspective on
+      engagement.
+    permission_relief: >-
+      the insight allows for the acknowledgment of feeling disengaged without self-blame,
+      emphasizing the importance of noticing the gap.
+    actionability: >-
+      the suggestion to 'notice you've been surviving' implies a small, actionable step toward
+      re-engagement.
+    human_credibility: >-
+      Esther Perel's background as a psychotherapist and her personal history with Holocaust
+      survivors lends significant credibility to this insight.
+    source_vividness: >-
+      the vivid imagery of 'plastic on the couches' and 'curtains drawn' creates a strong, relatable
+      picture.
+    non_genericness: >-
+      the specific context of Holocaust survivors and the nuanced distinction made is unique and not
+      generic.
+    voice_register_clarity: the voice is consistently intellectual and measured throughout the content.
+  why_it_might_land: >-
+    This insight powerfully articulates the difference between mere existence and true engagement,
+    which many young professionals can relate to.
+  why_it_might_not_land: >-
+    Some may find the Holocaust context too heavy or distant from their personal experiences,
+    potentially limiting resonance.
+novelty_nearest:
+  - insight_id: sio-grant-languishing-2021
+    similarity: 0.5184489632515306
+  - insight_id: sio-brown-numbing-not-failing-2021
+    similarity: 0.4668685585498573
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.45920337262910244
+  - insight_id: sio-waldinger-good-life-relationships-2015
+    similarity: 0.45871261513457495
+  - insight_id: sio-huffington-depletion-not-dedication-2010
+    similarity: 0.45422723508778395

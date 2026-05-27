@@ -1,0 +1,145 @@
+candidate_id: cand-mg-huberman-limbic-friction-reentry
+candidate_status: drafted
+target_state: momentum-gap
+sub_state: restart-friction
+target_gap: momentum-gap + mechanism + expert/scientific + mild (mg-reduce-restart-cost)
+proposed_insight_type: mechanism
+proposed_voice_register: expert/scientific
+proposed_intensity_level: mild
+source_title: 'The Science of Making & Breaking Habits — Huberman Lab Podcast #53'
+source_url: https://www.hubermanlab.com/episode/the-science-of-making-and-breaking-habits
+source_platform: Huberman Lab
+speaker: Andrew Huberman
+guest_if_applicable: ''
+official_channel_url: https://www.hubermanlab.com
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In Huberman Lab Episode 53, Andrew Huberman introduces "limbic friction" — his term for the
+  activation energy required to override your body's current state (anxiety, fatigue, low
+  motivation) to initiate a habit. The higher the limbic friction, the harder it is to start.
+  Huberman explains that when restarting a dropped habit, the same neurological mechanism applies:
+  the restart cost is high partly because the habit has lost its automaticity, and partly because
+  the mismatch between your current state and the required behavior creates friction. His guidance
+  for restart: no compensation (don't try to do twice as much); return to the habit the next day as
+  if the gap didn't happen; and for habits you previously performed, use procedural memory
+  visualization — mentally walk through the steps — to shift your nervous system toward a higher
+  likelihood of re-entry. The insight for restart-friction: the barrier is neurological, not moral.
+key_claim: >-
+  The reason restarting a dropped habit feels so hard isn't a character failing — it's limbic
+  friction: the activation energy your nervous system requires to override its current state and
+  initiate a behavior that's lost its automaticity. You can reduce that friction by timing the
+  restart for the high-norepinephrine window (first 0–8 hours after waking), visualizing the
+  procedural steps beforehand, and — critically — not compensating with double effort. Just get back
+  on the horse the next day.
+why_it_might_land: >-
+  The restart-friction user believes the barrier is psychological (weakness, lack of willpower).
+  Huberman's limbic friction framing converts that belief: the barrier is neurochemical and
+  predictable. That reframe immediately reduces the shame attached to the restart cost and gives the
+  user a concrete, science-grounded mechanism for reducing it. "The barrier is neurological, not
+  moral" is the exact permission + mechanism this slot needs.
+user_problem_match_notes: >-
+  Restart-friction sub-state: the user HAD a habit/rhythm and lost it; the felt barrier to re-entry
+  is high but feels shameful rather than mechanical. Huberman's limbic friction concept names the
+  barrier as neurochemical — presupposing prior automaticity that has lapsed — rather than a first-
+  time learning problem. Prior motion explicitly established: "If you are somebody who used to
+  perform a habit" is the framing Huberman uses for procedural memory restart. This is re-entry, not
+  first start. Disambiguation from inaction-loop: inaction-loop = a known action never started;
+  restart-friction = prior motion existed, and re-entry cost is the blocker. Huberman's "used to
+  perform a habit" framing makes the prior motion explicit.
+resonance_match_notes: >-
+  Expert/scientific, mild, mechanism type. Fills MG-5 slot (Huberman, per plan). The limbic friction
+  concept is specific, named, and grounded in neuroscience — not generic motivational language. The
+  no-compensation principle (don't do twice as much) is actionable and counter- intuitive enough to
+  pass the anti-generic gate. Second major habit-science candidate alongside Fogg (MG-3) — distinct
+  because Fogg = behavioral design / shrink the behavior; Huberman = neurochemical mechanism /
+  timing and friction. Different angle, complementary.
+source_credibility_notes: >-
+  Andrew Huberman, PhD, is a Professor of Neurobiology at Stanford University School of Medicine and
+  host of Huberman Lab. Episode 53 "The Science of Making & Breaking Habits" is an official Huberman
+  Lab production available at hubermanlab.com. The limbic friction concept and no- compensation
+  principle ("the next day, you just get right back on the horse") and procedural memory
+  visualization for habit re-entry ("if you are somebody who used to perform a habit") were verified
+  from the official hubermanlab.com episode page and confirmed via the episode notes page content
+  fetched directly. Tier-1 credibility (active research faculty). Quote type: paraphrase based on
+  verified official episode content; key language ("limbic friction," "get right back on the horse,"
+  "used to perform a habit") confirmed as Huberman's from the official source.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.037Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 5
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The insight clearly addresses the momentum-gap by focusing on the concept of 'limbic friction'
+      and the challenges of restarting a dropped habit.
+    felt_recognition: >-
+      The phrase 'the reason restarting a dropped habit feels so hard isn't a character failing'
+      directly resonates with the user's feelings of frustration and self-blame.
+    emotional_precision: >-
+      The term 'limbic friction' captures the underlying emotional struggle of anxiety and low
+      motivation that often accompanies restarting habits.
+    reframe_power: >-
+      The insight fundamentally shifts the perspective by stating 'the barrier is neurological, not
+      moral,' which helps users see their challenges in a new light.
+    permission_relief: >-
+      By clarifying that the difficulty in restarting a habit is not a personal failing, it
+      explicitly reduces self-blame and shame.
+    actionability: >-
+      The advice to 'just get back on the horse the next day' and to visualize procedural steps
+      provides clear, actionable next steps.
+    human_credibility: >-
+      Andrew Huberman's status as a Professor of Neurobiology at Stanford University lends
+      significant credibility to the insights shared.
+    source_vividness: >-
+      The content is specific and detailed, but it could benefit from more personal anecdotes or
+      examples to enhance its vividness.
+    non_genericness: >-
+      The specific terminology like 'limbic friction' and the detailed explanation of the
+      neurological mechanisms make it unique and not generic.
+    voice_register_clarity: The voice register is clear and consistent, maintaining an expert/scientific tone throughout.
+  why_it_might_land: >-
+    This insight provides a clear, scientific explanation for a common struggle, making it relatable
+    and actionable for the target audience.
+  why_it_might_not_land: >-
+    Some users may still feel overwhelmed by the concept of 'limbic friction' if they are not
+    familiar with neurological terms.
+recommendation: needs_transcript_verification
+novelty_score: 38
+novelty_nearest:
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.6219958234873872
+  - insight_id: sio-huberman-dopamine-baseline-2021
+    similarity: 0.5768125633050925
+  - insight_id: sio-clear-habits-trajectory-2023
+    similarity: 0.549892493789978
+  - insight_id: sio-jocko-discipline-not-motivation-2016
+    similarity: 0.5378832826355323
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.508373385101003
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

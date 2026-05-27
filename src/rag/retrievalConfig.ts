@@ -1,10 +1,17 @@
 // Component 6 §9 scoring weights. Externalized so they can be tuned without code changes.
 // Treat as initial config; calibrate against the evaluation set.
 
+// NOTE: the name `MvpState` is kept for backward-compat across ~10 importers, but as of the
+// Expanded Six-State Corpus Buildout (2026-05-26) this is the full set of 6 User Problem Model
+// states, not just the MVP-3. The first three remain the validated MVP wedge.
 export type MvpState =
   | "direction-collapse"
   | "engagement-drought"
-  | "inaction-loop";
+  | "inaction-loop"
+  // ── Six-State Buildout additions (comment out these three to pin runtime to MVP-3) ──
+  | "possibility-paralysis"
+  | "identity-transition"
+  | "momentum-gap";
 
 export interface ResonanceProfile {
   insight_type: string;
@@ -24,6 +31,19 @@ export const STATE_DEFAULT_RESONANCE: Record<MvpState, ResonanceProfile> = {
   "inaction-loop": {
     insight_type: "story",
     voice_register: "direct/challenging",
+  },
+  // ── Six-State Buildout additions (defaults from remaining_states_sio_strategy.md §10–11) ──
+  "possibility-paralysis": {
+    insight_type: "reframe",
+    voice_register: "intellectual/measured",
+  },
+  "identity-transition": {
+    insight_type: "story",
+    voice_register: "vulnerable/personal",
+  },
+  "momentum-gap": {
+    insight_type: "reframe",
+    voice_register: "warm/affirming",
   },
 };
 
@@ -85,6 +105,20 @@ export const RETRIEVAL_CONFIG = {
   // SIOs. Combined max hint boost = 0.12, still well under boost_cap_total 0.20.
   boost_inferred_insight_type_match: 0.06,
   boost_inferred_voice_register_match: 0.06,
+
+  // ── Diversity (magnet/diversity-fix phase) ────────────────────────────────
+  // Layer B: MMR (Maximal Marginal Relevance) reranking of the RETURNED top-k.
+  // The #1 winner is ALWAYS the highest-final_score SIO (so the within-state
+  // winner logic + calibration are unaffected); MMR only reorders/selects
+  // positions 2..k from the candidate pool to avoid surfacing near-duplicate
+  // alternatives. λ favors relevance heavily (0.7) so it never lets a weak SIO
+  // displace a clearly better one. This is a forward-looking guardrail for as the
+  // corpus grows; the PRIMARY magnet safeguard is the promotion-time win-rate gate
+  // (scripts/test-magnet-risk.ts), NOT a serving-time penalty. A centroid-centrality
+  // penalty was deliberately REJECTED — the data showed the biggest magnet had the
+  // LOWEST centrality, so penalizing centrality would invert (see retrieval_magnet_diagnostic.md).
+  enable_mmr_diversity: true,
+  mmr_lambda: 0.7, // weight on relevance vs. diversity in MMR (1 = pure relevance)
 } as const;
 
 export type RetrievalConfig = typeof RETRIEVAL_CONFIG;

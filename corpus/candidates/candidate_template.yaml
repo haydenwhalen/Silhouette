@@ -14,7 +14,7 @@ candidate_id: ""                       # kebab-case, e.g. cand-susan-david-emoti
 candidate_status: proposed             # proposed | needs_source_verification | needs_transcript_verification | needs_quote_review | ready_for_sio_draft | drafted | approved | rejected | archived
 
 # ── Targeting: which corpus gap is this meant to fill? ──
-target_state: ""                       # direction-collapse | engagement-drought | inaction-loop
+target_state: ""                       # direction-collapse | engagement-drought | inaction-loop | possibility-paralysis | identity-transition | momentum-gap
 target_gap: ""                         # human-readable, e.g. "engagement-drought + permission + warm/affirming"
 proposed_insight_type: ""              # reframe | permission | mechanism | story
 proposed_voice_register: ""            # direct/challenging | warm/affirming | intellectual/measured | vulnerable/personal | expert/scientific

@@ -1,0 +1,144 @@
+candidate_id: cand-it-howes-athlete-identity-floor
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + story + vulnerable/personal (it-career-exit-who-am-i)
+proposed_insight_type: story
+proposed_voice_register: vulnerable/personal
+proposed_intensity_level: moderate
+source_title: The School of Greatness
+source_url: https://lewishowes.com/book/school-of-greatness/
+source_platform: book
+speaker: Lewis Howes
+guest_if_applicable: ''
+official_channel_url: https://lewishowes.com/
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  Lewis Howes was a professional Arena Football League player when a wrist injury ended his career
+  at 23. In "The School of Greatness" (2015) and across multiple official interviews, he describes
+  the aftermath: sleeping on his sister's couch, unable to work, with no degree and no professional
+  identity apart from the sport. He writes that he "didn't know who I was without sports." The loss
+  was not just of a career but of the structure that had organized his sense of self since childhood
+  — the athlete identity that had answered the question of who he was through school, college, and
+  his early twenties. The period on the couch — broken, broke, and without a track — is the
+  in-between this SIO addresses.
+key_claim: >-
+  "I had nowhere to go but my sister's couch. I was broken, broke, and deeply depressed. I didn't
+  know who I was without sports." The career-ending injury removed not just a job but the structure
+  that had been answering the question of his identity for his entire life. What followed was not a
+  crisis in the clinical sense — it was a disoriented in-between: no longer the athlete, not yet
+  anything else, with no clear path from one to the other.
+why_it_might_land: >-
+  The career-exit identity-transition user is often told they should be excited about the next
+  chapter — which makes the disorientation feel like ingratitude or weakness. Howes' account is
+  blunt: he was broken and he didn't know who he was. The permission in his story is implicit —
+  someone with this specific degree of visible success (global podcast, bestselling book) was once
+  utterly lost in that in-between, and he names it without softening it.
+user_problem_match_notes: >-
+  Strong identity-transition fit for it-career-exit-who-am-i. The triggering discrete event is the
+  career-ending injury — sudden, involuntary, specific. The before-state is clear (the athlete
+  identity). The after is the in-between (the couch). Howes speaks from significant distance, having
+  rebuilt entirely. Distinct from direction-collapse (no chronic drift — specific rupture event).
+  Stays within functional-but-disoriented (broken and depressed at the time, but not in clinical
+  crisis; he rebuilt). No direct/challenging framing (correct for this slot). Distinct from Roll's
+  IT-8 (Roll is addiction recovery → career exit; Howes is purely role-retirement from sport →
+  career void — different triggering event and domain). Both have the it-career-exit need but from
+  different angles with different registers. NOTE: Two vulnerable/personal stories are planned (IT-1
+  and IT-8); Howes fills IT-1 and Rich Roll fills IT-8.
+resonance_match_notes: >-
+  vulnerable/personal register — Howes tells this story in first person with genuine emotional
+  rawness. Moderate intensity — heavy disorientation without overdramatization. Story type — lived
+  arc with named before/after and enough distance to name both sides. Fills it-career-exit-who-am-i
+  (IT-1 slot). Excludes direct/challenging (correct). Different speaker and domain from Roll (Roll:
+  addiction + law; Howes: sport + couch). Source diversity: School of Greatness platform not yet in
+  corpus.
+source_credibility_notes: >-
+  Lewis Howes is the host of The School of Greatness podcast (one of the top business/ self-help
+  podcasts), bestselling author of "The School of Greatness" (Rodale, 2015), and a former Arena
+  Football League player. The career-ending injury story is his primary public narrative and is
+  consistently told across lewishowes.com, About pages, and multiple interviews. Tier-2 credibility
+  (widely interviewed, book-verified story). Source verified via lewishowes.com/about/, The Connect
+  Magazine, capitalism.com, and multiple other official interview summaries. The quote "I had
+  nowhere to go but my sister's couch. I was broken, broke, and deeply depressed. I didn't know who
+  I was without sports." is attributed to Howes across multiple independent verified sources and is
+  consistent with his official About page narrative. Paraphrase: no transcript fetched (book
+  source).
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.026Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 4
+    permission_relief: 4
+    actionability: 3
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The content clearly addresses the identity-transition stuck state, focusing on the loss of a
+      professional identity and the disorientation that follows.
+    felt_recognition: >-
+      The phrase 'I didn't know who I was without sports' captures a profound feeling of loss and
+      confusion that many in identity-transition experience.
+    emotional_precision: >-
+      The description of being 'broken, broke, and deeply depressed' articulates specific emotions
+      that are often suppressed during identity transitions.
+    reframe_power: >-
+      The insight shifts the perspective from a clinical crisis to a relatable 'disoriented
+      in-between,' which can help others see their own transitions in a new light.
+    permission_relief: >-
+      By sharing his vulnerability, Howes implicitly grants permission to others to feel lost and
+      disoriented without self-blame.
+    actionability: >-
+      While it doesn't provide a specific next step, it encourages reflection on the in-between
+      state, which can lead to personal insights.
+    human_credibility: >-
+      Lewis Howes' background as a former athlete and his public narrative about his identity loss
+      lend strong credibility to this insight.
+    source_vividness: >-
+      The vivid imagery of 'nowhere to go but my sister's couch' creates a relatable and human
+      experience.
+    non_genericness: >-
+      The specific personal story of Howes' injury and identity loss is unique and not something
+      that could be found on generic motivational pages.
+    voice_register_clarity: The voice is consistently vulnerable and personal, aligning well with the proposed register.
+  why_it_might_land: >-
+    This insight resonates deeply with anyone experiencing an identity transition, as it articulates
+    a common yet often unspoken struggle.
+  why_it_might_not_land: >-
+    Some may find the narrative too specific to Howes' experience and feel it doesn't apply to their
+    own unique identity transitions.
+recommendation: needs_transcript_verification
+novelty_score: 52
+novelty_nearest:
+  - insight_id: sio-mcconaughey-go-to-zero-2020
+    similarity: 0.47537851420990795
+  - insight_id: sio-manson-no-singular-calling-2016
+    similarity: 0.44995746990057006
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.43588078446269496
+  - insight_id: sio-huffington-depletion-not-dedication-2010
+    similarity: 0.4320303032222607
+  - insight_id: sio-easter-comfort-crisis-2022
+    similarity: 0.4225547696753311
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

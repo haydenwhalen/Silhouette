@@ -1,0 +1,139 @@
+candidate_id: cand-mg-fogg-shrink-the-restart
+candidate_status: drafted
+target_state: momentum-gap
+sub_state: restart-friction
+target_gap: momentum-gap + mechanism + expert/scientific + mild (mg-lost-rhythm-cant-restart)
+proposed_insight_type: mechanism
+proposed_voice_register: expert/scientific
+proposed_intensity_level: mild
+source_title: 'Tiny Habits: The Small Changes That Change Everything'
+source_url: https://tinyhabits.com/book/
+source_platform: Book / TEDxFremont Talk
+speaker: BJ Fogg
+guest_if_applicable: ''
+official_channel_url: https://tinyhabits.com
+video_url: https://www.youtube.com/watch?v=AdKUJxjn-R8
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  BJ Fogg's Tiny Habits method, laid out in his TEDxFremont talk and his 2019 book, centers on a
+  specific mechanism: you do not need to restart the full version of a behavior. The actual target
+  is the smallest possible version — floss one tooth, do two push-ups, read one sentence. The
+  behavior is "tiny" not as a consolation prize but because tiny behaviors have almost no limbic
+  friction (motivational resistance), making restart cost negligible. After a lapse, you don't
+  return to the full version first; you return to the tiny anchor version and use celebration
+  immediately after to wire the emotional reward back in. The core insight for restart-friction is:
+  what you lacked when you stopped wasn't knowledge of the full behavior — you already knew how to
+  do it — you lacked the automaticity, and the way back in is the smallest possible version.
+key_claim: >-
+  You already know how to do the full behavior. What you lost wasn't knowledge — it was
+  automaticity. The way back in isn't to pick up where you left off at full scale; it's to make the
+  behavior so tiny that motivation is irrelevant. When restarting, shrink it: floss one tooth, do
+  two push-ups. The tiny version counts, and it restores the neural pathway.
+why_it_might_land: >-
+  The restart-friction user feels that the distance back to their previous level is too far to
+  cover. Fogg's mechanism directly targets that belief: you don't start from the same level you
+  stopped at. You start from the tiniest possible entry point, which has no motivational barrier.
+  This makes restart cost close to zero — which is the exact lever the user needs.
+user_problem_match_notes: >-
+  Restart-friction sub-state: the user HAD a rhythm (was running, was writing, was meditating) and
+  lost it; the blocker is the perceived cost of re-entry. Prior motion established: Fogg's mechanism
+  presupposes prior automaticity that was interrupted — "you already know how to do it" — not first-
+  time learning. Disambiguation from inaction-loop: inaction-loop = a known action never started or
+  chronically avoided; restart-friction = there WAS prior motion and the task is re-entry. The prior
+  motion is the starting premise of Fogg's mechanism (you had the habit and it dropped). This is
+  re-entry, not first start.
+resonance_match_notes: >-
+  Expert/scientific, mild, mechanism type. Fills MG-3 slot (BJ Fogg, per plan). Scientific
+  credibility: Fogg is a Stanford behavior scientist whose method is based on 20 years of research
+  and coaching 60,000+ people. The mechanism (tiny behavior + anchor + celebration) is specific
+  enough to pass the non-generic gate. Register: expert/scientific with practical how-to — correct
+  for this slot. No direct/challenging register present.
+source_credibility_notes: >-
+  BJ Fogg, PhD, directs the Behavior Design Lab at Stanford University and is the author of the New
+  York Times bestseller "Tiny Habits: The Small Changes That Change Everything" (2019). The
+  TEDxFremont talk "Forget big change, start with a tiny habit" is an official TED-affiliated event;
+  full transcript available at singjupost.com. The official book/site: tinyhabits.com. The "you
+  already know how to floss all your teeth — what you're lacking is the automaticity" framing is
+  confirmed verbatim from the TEDxFremont transcript (singjupost.com/forget-big-change-start-tiny-
+  habit-bj-fogg-transcript/). Tier-1 credibility (published researcher). Quote type: paraphrase
+  incorporating verified key framing from the public transcript; would upgrade to verbatim with a
+  direct fetch of a continuous block.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.034Z'
+human_resonance_score: 85
+quote_quality_score: 83
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 89
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 4
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 5
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      The content specifically addresses the momentum-gap by focusing on the loss of automaticity
+      and the need to restart with tiny behaviors.
+    felt_recognition: >-
+      The phrase 'what you lost wasn't knowledge — it was automaticity' resonates deeply with
+      someone feeling stuck in their momentum.
+    emotional_precision: >-
+      It identifies the underlying issue of automaticity but could delve deeper into the emotional
+      experience of frustration or shame associated with losing momentum.
+    reframe_power: >-
+      The insight fundamentally shifts the perspective on restarting behaviors by emphasizing tiny
+      actions rather than overwhelming full-scale efforts.
+    permission_relief: >-
+      It implies relief by suggesting that tiny actions are sufficient, but it could more explicitly
+      address any shame around not being able to perform the full behavior.
+    actionability: >-
+      It provides clear, actionable steps: 'floss one tooth, do two push-ups,' which are specific
+      and manageable.
+    human_credibility: >-
+      BJ Fogg's background as a PhD and director of the Behavior Design Lab lends significant
+      credibility to the insight.
+    source_vividness: >-
+      The content is engaging and specific, but it could benefit from more personal anecdotes or
+      examples to enhance its vividness.
+    non_genericness: >-
+      The specific framing of 'tiny behaviors' and the focus on automaticity are unique to BJ Fogg's
+      methodology and not generic.
+    voice_register_clarity: The voice is clear and consistent, maintaining an expert/scientific tone throughout.
+  why_it_might_land: >-
+    This insight provides a clear, actionable mechanism for overcoming a common barrier to
+    restarting behaviors, which many young professionals can relate to.
+  why_it_might_not_land: >-
+    Some users may still feel overwhelmed by the idea of restarting any behavior, even if it's
+    framed as 'tiny.'
+recommendation: needs_transcript_verification
+novelty_score: 46
+novelty_nearest:
+  - insight_id: sio-robbins-5-second-rule-2011
+    similarity: 0.5434510965483701
+  - insight_id: sio-clear-habits-trajectory-2023
+    similarity: 0.5103798357130255
+  - insight_id: sio-jocko-discipline-not-motivation-2016
+    similarity: 0.5014120778148615
+  - insight_id: sio-huberman-dopamine-baseline-2021
+    similarity: 0.49814114427309614
+  - insight_id: sio-saujani-brave-not-perfect-2016
+    similarity: 0.48917791411431466
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

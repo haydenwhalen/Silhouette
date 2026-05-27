@@ -436,6 +436,14 @@ Third-most common entry point and the most specifically served by Dan Martell's 
 
 Include in the taxonomy for corpus tagging and future expansion. Do not build retrieval evaluation or intake disambiguation around these in the first prototype.
 
+> **Status update (2026-05-26 — Expanded Six-State Corpus Buildout):** the "second iteration" for
+> these three states is now underway. The controlled vocabulary, corpus, user-need patterns, and
+> retrieval calibration are being expanded to cover all six states (target ~9 SIOs each). See
+> `six_state_corpus_expansion_plan.md` and `remaining_states_sio_strategy.md`. This does not change
+> the wedge: the first friendly-user prototype may still be pinned to the three MVP states; the new
+> states can be enabled at runtime once their corpora are validated. The "do not build around these
+> in the first prototype" guidance above remains the default posture for the *first* user test.
+
 **Possibility Paralysis** — Real and distinct, but corpus coverage is thinner. Add in second iteration once MVP states are validated.
 
 **Identity Transition** — High-value but narrower trigger requirement. Excellent School of Greatness coverage exists but single-source coverage is not sufficient for reliable retrieval. Add in second iteration with supplemental sources.

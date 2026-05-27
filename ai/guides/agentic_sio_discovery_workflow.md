@@ -2,6 +2,8 @@
 
 > **Summary.** This is the practical guide for using the SIO Discovery Agent. It covers every action an operator takes: running scripts, adding candidates, interpreting scores, verifying sources, reviewing candidates, drafting SIOs, and moving the corpus toward 40–50 approved SIOs. Read alongside `agentic_sio_discovery_system_design.md` (the architecture reference) and `corpus_ingestion_pipeline.md` (the manual quality standard that applies once a draft reaches final review).
 
+> **Scope update (2026-05-26 — Expanded Six-State Corpus Buildout):** the controlled state vocabulary used throughout this workflow has expanded from the 3 MVP states to all **6** User Problem Model states (added: possibility-paralysis, identity-transition, momentum-gap). The pipeline, gates, and honesty invariants are unchanged — only the set of `target_state` values the agent harvests against is larger. See `six_state_corpus_expansion_plan.md`, `remaining_states_sio_strategy.md`, and `six_state_sio_harvesting_plan.md`.
+
 ---
 
 ## 1. What the Agent Does

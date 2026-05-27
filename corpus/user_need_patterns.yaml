@@ -1,0 +1,1018 @@
+# =============================================================================
+# Silhouette — User Need Pattern Catalog
+# =============================================================================
+# Back-office harvesting/evaluation artifact for the SIO Discovery Agent.
+# Read ai/guides/user_need_pattern_map.md before editing.
+#
+# HONESTY DISCIPLINE:
+#   - Every need is status: hypothesis. NONE is "observed" — we have no real user
+#     data yet. Only real beta data may promote a need to observed (one-way, human-gated).
+#   - Every need cites source_provenance pointing to a real line in the project docs
+#     (user_problem_model.md, intake_diagnostic_flow.md, user_resonance_model.md),
+#     the author-written magnet probes, or a documented live-corpus signal.
+#   - Needs are SITUATIONAL, never demographic. No personas.
+#   - covered_by_sio_ids / coverage_strength / coverage_evidence are seeded as
+#     "unknown"/"[]" and are COMPUTED by scripts/analyze-user-need-coverage.ts.
+#     The analyzer's report is the source of truth for coverage, not these seeds.
+#
+# Controlled vocabularies (see methodology §3):
+#   state:                 direction-collapse | engagement-drought | inaction-loop
+#                          | possibility-paralysis | identity-transition | momentum-gap  (6-state buildout)
+#   recommended_insight_type:   reframe | permission | mechanism | story
+#   voice_register:        direct/challenging | warm/affirming | intellectual/measured
+#                          | vulnerable/personal | expert/scientific
+#   recommended_intensity: mild | moderate | intense
+#   resonance_need:        direct-challenge | warm-permission | expert-mechanism
+#                          | vulnerable-story | intellectual-reframe
+#   coverage_strength:     unknown | none | weak | partial | strong   (analyzer-computed)
+# =============================================================================
+
+meta:
+  layer: user-need-coverage
+  status: hypothesis
+  mvp_states: [direction-collapse, engagement-drought, inaction-loop]
+  expanded_states: [possibility-paralysis, identity-transition, momentum-gap]  # Six-State Buildout (2026-05-26)
+  all_states: [direction-collapse, engagement-drought, inaction-loop, possibility-paralysis, identity-transition, momentum-gap]
+  caps: { max_needs_per_state: 6, max_total: 36 }
+  created_at: "2026-05-26"
+  note: >-
+    All needs below are curator hypotheses grounded in existing project research. They are NOT
+    measurements of real users. Coverage fields are recomputed by analyze-user-need-coverage.ts.
+
+needs:
+  # ──────────────────────────── DIRECTION COLLAPSE ────────────────────────────
+  - need_id: dc-post-achievement-hollow
+    state: direction-collapse
+    variant: post-achievement
+    sub_state: hit-the-goal-felt-nothing
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-2 (hit the thing I said I wanted, feel the same/worse)"
+      - "user_problem_model.md#direction-collapse/variant-A-post-achievement"
+      - "intake_diagnostic_flow.md#good-input (promoted six months ago, feels hollow)"
+    situational_context: [post-achievement, career, mid-career]
+    emotional_texture: [numbness, confusion, disappointment]
+    hidden_beliefs:
+      - "I got what I said I wanted and feel nothing — something must be wrong with me."
+      - "There's supposed to be a next thing and I don't have one."
+    user_question_under_it: "I reached it and felt nothing — was it the wrong target, or is it me?"
+    recommended_insight_type: [story, reframe]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [expert/scientific]
+    resonance_need: vulnerable-story
+    recommended_intensity: mild
+    disambiguation_neighbors: [engagement-drought, identity-transition]
+    anti_pattern_notes: >-
+      Do NOT open with advice, a values exercise, or the word "passion". A clinical/expert
+      mechanism reads as cold here — the user needs the hollow-on-arrival experience named as
+      coherent (data about a wrong target), not explained neurochemically.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible person who reached a milestone they worked years for and felt empty on arrival,
+      who can say from the inside that the emptiness was signal, not failure. Vulnerable register.
+    harvesting_priority: 55
+
+  - need_id: dc-original-never-knew
+    state: direction-collapse
+    variant: original
+    sub_state: never-had-a-clear-pull
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-3 (everyone seems to have figured something out)"
+      - "user_problem_model.md#raw-description-5 (don't know how to want differently than I was taught)"
+      - "user_problem_model.md#direction-collapse/variant-B-original"
+    situational_context: [career, early-career, faith-meaning]
+    emotional_texture: [confusion, disappointment, self-criticism]
+    hidden_beliefs:
+      - "Everyone else got a direction and I never did."
+      - "If I don't have a passion by now, I'm broken."
+    user_question_under_it: "How do people who never had a clear pull actually build one?"
+    recommended_insight_type: [reframe, story]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: intellectual-reframe
+    recommended_intensity: mild
+    disambiguation_neighbors: [momentum-gap, engagement-drought]
+    anti_pattern_notes: >-
+      Do NOT prescribe a purpose-finding exercise or tell them to "follow their passion". A
+      challenging register reads as shaming someone already comparing themselves down. The reframe
+      should be that direction is built by doing/noticing, from someone who started directionless.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible person who was genuinely directionless early and built direction through action
+      and iteration (not introspection), speaking measured/intellectual rather than confrontational.
+    harvesting_priority: 50
+
+  - need_id: dc-living-someone-elses-life
+    state: direction-collapse
+    variant: original
+    sub_state: did-everything-right-feels-borrowed
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-5 (living someone else's life I ended up in)"
+      - "user_problem_model.md#how-the-user-describes-it (I feel like I'm living someone else's life)"
+    situational_context: [career, identity-shift, faith-meaning]
+    emotional_texture: [confusion, restlessness, disappointment]
+    hidden_beliefs:
+      - "I made all the right decisions and they added up to a life that isn't mine."
+      - "I don't know how to want something other than what I was taught to want."
+    user_question_under_it: "Whose life am I living, and how would I even know what mine looks like?"
+    recommended_insight_type: [story, reframe]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [expert/scientific]
+    resonance_need: vulnerable-story
+    recommended_intensity: moderate
+    disambiguation_neighbors: [identity-transition, engagement-drought]
+    anti_pattern_notes: >-
+      Do NOT jump to "here's how to find yourself" frameworks. Avoid clinical mechanism. Needs a
+      lived account of separating inherited wants from one's own.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Someone who realized they were living a scripted/inherited life and can describe, vulnerably,
+      how they began to tell their own wants from the borrowed ones.
+    harvesting_priority: 50
+
+  - need_id: dc-purpose-search-fatigue
+    state: direction-collapse
+    variant: original
+    sub_state: frantic-searching-not-working
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-3 (googling 'how do I find my purpose' at 11pm)"
+      - "intake_diagnostic_flow.md#resonance (I've read everything → more information won't help)"
+    situational_context: [career, faith-meaning, health-routine]
+    emotional_texture: [pressure, exhaustion, confusion]
+    hidden_beliefs:
+      - "If I just read/journal/assess enough, the answer will appear."
+      - "Everyone else found it the normal way and I'm failing at the search."
+    user_question_under_it: "Why hasn't all this searching for my purpose produced one?"
+    recommended_insight_type: [reframe, permission]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: []
+    resonance_need: intellectual-reframe
+    recommended_intensity: mild
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      Do NOT hand them another framework, assessment, or "5 steps to find your purpose" — that IS
+      the trap. The reframe must relieve the search itself (direction emerges from engagement, not
+      from more introspection).
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible voice that explicitly de-emphasizes introspective purpose-hunting and reframes
+      direction as a by-product of action/attention. Measured, non-prescriptive.
+    harvesting_priority: 45
+
+  - need_id: dc-disconnected-trading-time
+    state: direction-collapse
+    variant: post-achievement
+    sub_state: no-larger-purpose-trading-time-for-money
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-12 (disconnected from any larger purpose, trading time for money)"
+      - "user_problem_model.md#disambiguation (Direction Collapse vs Engagement Drought — hardest pair)"
+    situational_context: [career, mid-career, faith-meaning]
+    emotional_texture: [numbness, disappointment, restlessness]
+    hidden_beliefs:
+      - "I'm just trading time for money like everyone, but I thought I'd have found something better."
+      - "Caring about the company's mission is naive, but not caring about anything feels worse."
+    user_question_under_it: "Is it that I lost the meaning, or that there was never any to begin with?"
+    recommended_insight_type: [reframe, story]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: []
+    resonance_need: intellectual-reframe
+    recommended_intensity: moderate
+    disambiguation_neighbors: [engagement-drought]
+    anti_pattern_notes: >-
+      This is the canonical DC/ED confusion. A retrieval result that assumes a still-loved target
+      (ED framing: "rekindle it") misses — there is no target here. Watch for ED magnets winning this.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A reframe on how meaning relates to work for people who never located a "larger purpose",
+      distinct from re-engagement advice that presumes a target still exists.
+    harvesting_priority: 55
+
+  # ──────────────────────────── ENGAGEMENT DROUGHT ────────────────────────────
+  - need_id: ed-resentful-trapped
+    state: engagement-drought
+    variant: null
+    sub_state: meaning-loss-with-resentment-and-sunk-cost
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-1 (good at job, feel nothing, didn't choose this)"
+      - "magnet-probes.ts:engagement-drought#5 (no say in how I do it, nothing building toward anything)"
+      - "live:corpus_gap_detection_report.md (engagement-drought has NO direct/challenging SIO)"
+      - "live:cand-mckeown-floor-disengagement.yaml (held magnet names numbness, not resentment)"
+    situational_context: [career, post-mastery, mid-career]
+    emotional_texture: [resentment, numbness, frustration]
+    hidden_beliefs:
+      - "Leaving would waste the years I've put in."
+      - "I should still care about this and the fact that I don't makes me bitter."
+    user_question_under_it: "Am I trapped here, or am I keeping myself here for reasons that don't hold up?"
+    recommended_insight_type: [reframe, permission]
+    recommended_voice_register: direct/challenging
+    excluded_voice_registers: [warm/affirming]
+    resonance_need: direct-challenge
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse, identity-transition]
+    anti_pattern_notes: >-
+      Do NOT offer motivation tips, "find a hobby", or gentle reassurance — to a resentful user
+      warmth reads as dismissive. The insight must name the sunk-cost trap directly without
+      dismissing real fatigue. Distinct from McKeown's "supermarket floor" (numbness, not the trap).
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible person who left mastered/high-status work and can name, directly, the sunk-cost
+      trap and meaning-loss — challenging register, without contempt for the user's exhaustion.
+    harvesting_priority: 95
+
+  - need_id: ed-numb-confused-whats-wrong
+    state: engagement-drought
+    variant: null
+    sub_state: cant-name-it-not-depression-not-okay
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:engagement-drought#8 (numb about everything, can't tell if it's the job or me)"
+      - "magnet-probes.ts:engagement-drought#6 (not depression exactly, more like static)"
+      - "live:sio-grant-languishing-2021 (naming 'languishing' as the intervention)"
+    situational_context: [career, mid-career, health-routine]
+    emotional_texture: [numbness, confusion, exhaustion]
+    hidden_beliefs:
+      - "It's not depression but it's not normal either, and I can't even describe it."
+      - "What's wrong with me that I can't name what I'm feeling?"
+    user_question_under_it: "Is there even a name for this flat, in-between feeling?"
+    recommended_insight_type: [reframe, mechanism]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: []
+    resonance_need: intellectual-reframe
+    recommended_intensity: mild
+    disambiguation_neighbors: [direction-collapse]
+    anti_pattern_notes: >-
+      Safety-adjacent: if input tips into clinical depression signals, route to safety per intake §10,
+      do not retrieve. For in-scope users, the relief is precise naming (e.g. "languishing"), not a
+      fix-it plan.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible voice that precisely names the flat in-between state (distinct from depression and
+      burnout) and validates it as recognizable — measured/intellectual, accessible.
+    harvesting_priority: 40
+
+  - need_id: ed-furious-at-self-for-not-caring
+    state: engagement-drought
+    variant: null
+    sub_state: self-blame-for-being-checked-out
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:engagement-drought#2 (furious with myself for being so checked out)"
+      - "intake_diagnostic_flow.md#resonance (self-critical tone → exclude direct/challenging)"
+    situational_context: [career, mid-career]
+    emotional_texture: [self-criticism, frustration, guilt]
+    hidden_beliefs:
+      - "I should still care about this and my not caring is a personal failing."
+      - "Other people manage to stay engaged; I'm the problem."
+    user_question_under_it: "Why can't I make myself care, and what does it say about me that I can't?"
+    recommended_insight_type: [permission, reframe]
+    recommended_voice_register: warm/affirming
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: mild
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      A direct/challenging insight here CONFIRMS the self-attack — exclude it. Contrast with
+      ed-resentful-trapped, which WANTS direct: same state, opposite register requirement. The user
+      needs permission that flatness isn't a moral failure before any reframe.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A warm, credible voice that removes the moral charge from disengagement (it's depletion/
+      mismatch, not a character defect) before reframing.
+    harvesting_priority: 50
+
+  - need_id: ed-running-on-fumes-guilt
+    state: engagement-drought
+    variant: null
+    sub_state: depleted-stopping-feels-like-failing
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:engagement-drought#3 (running on fumes, stopping feels like failing)"
+      - "intake_diagnostic_flow.md#resonance (burned-out input → permission, mild intensity)"
+    situational_context: [burnout, career, health-routine]
+    emotional_texture: [exhaustion, guilt, pressure]
+    hidden_beliefs:
+      - "Resting is quitting, and quitting is failing."
+      - "If I stop, everything I've built falls apart."
+    user_question_under_it: "Am I allowed to stop, or does stopping mean I've failed?"
+    recommended_insight_type: [permission, reframe]
+    recommended_voice_register: warm/affirming
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: mild
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      Safety-adjacent (clinical burnout → Tier 2). For in-scope users, exclude direct/challenging
+      and intensity above mild — they are depleted, not lazy. Permission to rest precedes any push.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible voice that reframes depletion as a signal to be honored (not weakness) and gives
+      explicit permission to stop — warm/vulnerable, gentle intensity.
+    harvesting_priority: 45
+
+  - need_id: ed-wants-the-science
+    state: engagement-drought
+    variant: null
+    sub_state: analytical-why-does-motivation-fade
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:engagement-drought#9 (want to understand the actual science of why motivation fades)"
+      - "intake_diagnostic_flow.md#resonance (analytical user → mechanism/expert)"
+      - "user_resonance_model.md (Huberman = mechanism/expert for Engagement Drought)"
+    situational_context: [career, mid-career]
+    emotional_texture: [confusion, restlessness]
+    hidden_beliefs:
+      - "If I understood the mechanism I could fix it."
+      - "Emotional reassurance won't help me; I want the real explanation."
+    user_question_under_it: "What is actually happening in my brain/system that makes motivation fade?"
+    recommended_insight_type: [mechanism]
+    recommended_voice_register: expert/scientific
+    excluded_voice_registers: [warm/affirming]
+    resonance_need: expert-mechanism
+    recommended_intensity: moderate
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      Warm/affirming reads as soft and evasive to this user — exclude it. They want the mechanism
+      (dopamine/reward systems), delivered with authority, not a pep talk.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Research-grounded explanation of why engagement/motivation fades (reward systems), expert
+      register. (Likely already covered — analyzer should confirm strength.)
+    harvesting_priority: 25
+
+  # ────────────────────────────── INACTION LOOP ──────────────────────────────
+  - need_id: il-self-critical-ashamed
+    state: inaction-loop
+    variant: null
+    sub_state: concluded-im-someone-who-never-follows-through
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-4 (scared, lazy, or idea isn't good — never start)"
+      - "user_problem_model.md#raw-description-6 (know the answer, nothing happens, tired of it)"
+      - "intake_diagnostic_flow.md#resonance (self-critical/ashamed → exclude direct/challenging)"
+      - "live:corpus_gap_detection_report.md (inaction-loop is 4/9 direct/challenging — over-indexed on the excluded register)"
+    situational_context: [career, creative-block, early-career]
+    emotional_texture: [shame, self-criticism, fear]
+    hidden_beliefs:
+      - "I'm fundamentally someone who doesn't follow through."
+      - "The fact that I keep not doing it proves something is wrong with me."
+    user_question_under_it: "Is this just who I am, or could I actually be someone who follows through?"
+    recommended_insight_type: [permission, story]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: mild
+    disambiguation_neighbors: [possibility-paralysis, engagement-drought]
+    anti_pattern_notes: >-
+      A direct/challenging "stop making excuses" CONFIRMS the self-attack — exclude it. Accountability/
+      discipline content and "just start" both miss. Needs an identity-level reframe (you are not the
+      verdict) from someone who lived the same self-judgment. The state is well-stocked but skewed to
+      the wrong register for this user.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible person who was stuck in the knowing-doing gap, framed it as belief/identity (not a
+      character defect), and describes what they had to believe differently — vulnerable/warm register.
+    harvesting_priority: 80
+
+  - need_id: il-give-me-a-kick
+    state: inaction-loop
+    variant: null
+    sub_state: wants-to-be-challenged-no-coddling
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:inaction-loop#2 (stop coddling me and give me a kick, no more excuses)"
+      - "intake_diagnostic_flow.md#resonance (frustration outward, 'just tell me what I need to hear' → direct/challenging, story)"
+    situational_context: [career, health-routine, early-career]
+    emotional_texture: [frustration, restlessness, pressure]
+    hidden_beliefs:
+      - "I've been soft on myself and that's why nothing changes."
+      - "I don't need understanding, I need someone to call me out."
+    user_question_under_it: "What's the hard truth I keep dodging?"
+    recommended_insight_type: [story, reframe]
+    recommended_voice_register: direct/challenging
+    excluded_voice_registers: [warm/affirming]
+    resonance_need: direct-challenge
+    recommended_intensity: intense
+    disambiguation_neighbors: []
+    anti_pattern_notes: >-
+      Warm/affirming reads as the coddling they're rejecting — exclude it. The direct counterpart to
+      il-self-critical-ashamed: same state, opposite register. Caution — only serve direct/intense
+      when the frustration is clearly outward, not self-directed (intake §9 exclusion check).
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A high-accountability voice who has earned the right to challenge (lived the resistance and
+      broke it) — direct, intense, from experience not theory.
+    harvesting_priority: 30
+
+  - need_id: il-read-everything-need-frame
+    state: inaction-loop
+    variant: null
+    sub_state: consumed-all-the-content-still-stuck
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-6 (read the books, listened to podcasts, made the plans, nothing happens)"
+      - "magnet-probes.ts:inaction-loop#5 (read every productivity book, 'lazy' doesn't fit, need a better frame)"
+      - "intake_diagnostic_flow.md#resonance (skeptical, 'knowing the reasons doesn't help' → story or permission, avoid more mechanism)"
+    situational_context: [career, creative-block, mid-career]
+    emotional_texture: [frustration, confusion, self-criticism]
+    hidden_beliefs:
+      - "I know all the tactics; more information clearly isn't the issue."
+      - "'Lazy' doesn't fit but I don't have a better explanation."
+    user_question_under_it: "If I know everything about how to start, why am I still not starting?"
+    recommended_insight_type: [reframe, story]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: [expert/scientific]
+    resonance_need: intellectual-reframe
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse]
+    anti_pattern_notes: >-
+      Another mechanism/how-to insight FAILS — they've consumed all of it; exclude expert/scientific
+      "here's the science of procrastination". Needs a new frame or a lived story, not more explanation.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A reframe that relocates the gap from information to belief/identity, or a first-person story of
+      someone who knew everything and still couldn't move until something non-tactical shifted.
+    harvesting_priority: 45
+
+  - need_id: il-perfectionism-freeze
+    state: inaction-loop
+    variant: null
+    sub_state: wont-ship-unless-perfect-so-freezes
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:inaction-loop#8 (won't ship anything unless it's perfect, so never ship)"
+      - "magnet-probes.ts:inaction-loop#9 (so scared it won't be good enough I freeze and make nothing)"
+    situational_context: [creative-block, career, early-career]
+    emotional_texture: [fear, shame, pressure]
+    hidden_beliefs:
+      - "If it's not perfect it will expose that I'm not good enough."
+      - "Shipping something flawed is worse than shipping nothing."
+    user_question_under_it: "How do I put something out when I'm terrified it isn't good enough?"
+    recommended_insight_type: [permission, story]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: mild
+    disambiguation_neighbors: [possibility-paralysis]
+    anti_pattern_notes: >-
+      Direct/challenging amplifies the fear that's already freezing them — exclude it. "Bravery not
+      perfection" / permission-to-be-bad-first lands; "stop being a perfectionist and just ship" does not.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible person who shipped imperfect work and reframes bravery over perfection / the cost of
+      protecting a fragile self-image — vulnerable, gentle.
+    harvesting_priority: 40
+
+  - need_id: il-waiting-for-motivation
+    state: inaction-loop
+    variant: null
+    sub_state: waits-to-feel-motivated-it-never-comes
+    status: hypothesis
+    source_provenance:
+      - "magnet-probes.ts:inaction-loop#10 (waiting to feel motivated before I start, motivation never reliably comes)"
+      - "magnet-probes.ts:inaction-loop#6 (talk myself out of it before I move)"
+    situational_context: [career, health-routine, early-career]
+    emotional_texture: [frustration, confusion, restlessness]
+    hidden_beliefs:
+      - "I need to feel motivated first, then I'll act."
+      - "The motivation will show up eventually if I wait."
+    user_question_under_it: "Why doesn't the motivation to start ever reliably arrive?"
+    recommended_insight_type: [mechanism, reframe]
+    recommended_voice_register: expert/scientific
+    excluded_voice_registers: []
+    resonance_need: expert-mechanism
+    recommended_intensity: moderate
+    disambiguation_neighbors: [engagement-drought]
+    anti_pattern_notes: >-
+      The useful insight inverts the premise (action precedes motivation). A pure permission/warm
+      response misses — this user wants the mechanism of why waiting fails. Avoid moralizing about laziness.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A mechanism/reframe that motivation follows action rather than preceding it, delivered with
+      authority (behavioral science or a credible practitioner).
+    harvesting_priority: 30
+
+  - need_id: il-knows-exactly-two-years
+    state: inaction-loop
+    variant: null
+    sub_state: knows-the-one-thing-still-not-doing-it
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-6 (same conversation with myself for two years)"
+      - "intake_diagnostic_flow.md#good-input (I know I need to leave this job, known for two years)"
+      - "user_problem_model.md#disambiguation (Inaction Loop vs Possibility Paralysis — names ONE thing)"
+    situational_context: [career, mid-career]
+    emotional_texture: [frustration, disappointment, self-criticism]
+    hidden_beliefs:
+      - "I know exactly what to do; the fact that I still don't is the whole problem."
+      - "Maybe the resistance means I'm not serious / it's not right."
+    user_question_under_it: "I've known for years — why can't I make myself actually do it?"
+    recommended_insight_type: [story, permission]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: []
+    resonance_need: vulnerable-story
+    recommended_intensity: moderate
+    disambiguation_neighbors: [possibility-paralysis, engagement-drought]
+    anti_pattern_notes: >-
+      This is the IL/PP disambiguation anchor — ONE named thing (not "which of several"). Avoid
+      planning/how-to-start tactics; they've had years of those. A lived story of crossing the same
+      gap, framed at the belief level, lands.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Someone who sat in a known decision for a long time and can describe what shifted internally
+      (belief/identity) that finally let them move — first-person, not a framework.
+    harvesting_priority: 45
+
+  # ════════════════════════════ POSSIBILITY PARALYSIS ════════════════════════════
+  # Added in the Expanded Six-State Corpus Buildout (2026-05-26). All status: hypothesis.
+  - need_id: pp-too-many-options-none-chosen
+    state: possibility-paralysis
+    sub_state: list-of-options-doing-none
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-10 (list of things to pursue, doing none of them)"
+      - "user_problem_model.md#raw-description-4 (same 'I should start something' conversation for two years)"
+      - "user_problem_model.md#possibility-paralysis (excess of options is the blocker)"
+    situational_context: [career, side-projects, early-mid-career]
+    emotional_texture: [anxiety, crowdedness, self-suspicion]
+    hidden_beliefs:
+      - "If I keep my options open I'm being responsible."
+      - "There's a correct choice and I just haven't found enough information yet."
+    user_question_under_it: "Which of these is the real one — and how do I pick without being sure?"
+    recommended_insight_type: [reframe]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: [warm/affirming]
+    resonance_need: intellectual-reframe
+    recommended_intensity: moderate
+    disambiguation_neighbors: [inaction-loop, direction-collapse]
+    anti_pattern_notes: >-
+      Do NOT offer a decision matrix or "just pick one", and do NOT validate the stalling warmly. The
+      reframe is that commitment generates clarity rather than requiring it — from someone who chose
+      among real options at real cost.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Someone who faced a genuine multi-option commitment with real cost to foreclosing the others and
+      can describe what committing actually felt like (Ruth Chang / Dan Martell register).
+    harvesting_priority: 68
+
+  - need_id: pp-fear-choosing-wrong-regret
+    state: possibility-paralysis
+    sub_state: fear-of-regret
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#possibility-paralysis (fear of regret as the primary decision driver)"
+      - "remaining_states_sio_strategy.md#possibility-paralysis (belief: choosing wrong = wasted potential)"
+    situational_context: [career, relationships, big-decisions]
+    emotional_texture: [dread, anxiety, self-doubt]
+    hidden_beliefs:
+      - "If I choose wrong I'll have wasted years I can't get back."
+      - "Committing means killing the other versions of my life."
+    user_question_under_it: "What if I commit and it turns out to be the wrong life?"
+    recommended_insight_type: [reframe, story]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: vulnerable-story
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse, identity-transition]
+    anti_pattern_notes: >-
+      Do NOT minimize ("you can't really go wrong") or push hard. A lived account of committing despite
+      genuine fear of regret — and what was learned about regret itself — lands.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A credible person who made a high-stakes choice fearing regret and can speak honestly to how the
+      fear resolved — vulnerable, not prescriptive.
+    harvesting_priority: 62
+
+  - need_id: pp-research-as-avoidance
+    state: possibility-paralysis
+    sub_state: decision-avoidance-disguised-as-research
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-10 (which are fantasies I use to feel better about not doing anything)"
+      - "remaining_states_sio_strategy.md#possibility-paralysis (perpetual research mode; warm register can validate stalling)"
+    situational_context: [career, side-projects]
+    emotional_texture: [restlessness, self-suspicion, low-grade-dread]
+    hidden_beliefs:
+      - "More research will make the right answer obvious."
+      - "I'm being thorough, not avoiding."
+    user_question_under_it: "Am I actually deciding, or just hiding in research?"
+    recommended_insight_type: [reframe, mechanism]
+    recommended_voice_register: direct/challenging
+    excluded_voice_registers: [warm/affirming]
+    resonance_need: direct-challenge
+    recommended_intensity: moderate
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      The one PP need where warm/affirming BACKFIRES — comfort validates the deferral. Name the
+      avoidance directly, without shaming; pair with the real cost of perpetual optionality.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A direct, credible voice (Dan Martell register) who names research-as-avoidance and the real cost
+      of not choosing — challenging but not contemptuous.
+    harvesting_priority: 60
+
+  - need_id: pp-maximizer-never-satisfied
+    state: possibility-paralysis
+    sub_state: optionality-as-cage
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#possibility-paralysis (optionality that felt like freedom now feels like a cage)"
+      - "remaining_states_sio_strategy.md#possibility-paralysis (Schwartz: maximizing vs satisficing)"
+    situational_context: [career, consumer-choices, life-design]
+    emotional_texture: [anxiety, exhaustion, crowdedness]
+    hidden_beliefs:
+      - "Settling for 'good enough' means I failed to optimize."
+      - "Keeping every door open protects me."
+    user_question_under_it: "Why does having more options make me feel worse, not freer?"
+    recommended_insight_type: [mechanism, reframe]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: []
+    resonance_need: expert-mechanism
+    recommended_intensity: mild
+    disambiguation_neighbors: [direction-collapse]
+    anti_pattern_notes: >-
+      A mechanism is welcome here (why more options reduce satisfaction; maximizer vs satisficer) but it
+      must connect to the felt cage, not stay abstract. Avoid "just lower your standards".
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      An expert/measured source (Barry Schwartz lineage) explaining the paradox of choice in a way that
+      names the specific anxiety of the chronic maximizer.
+    harvesting_priority: 58
+
+  - need_id: pp-commitment-creates-clarity
+    state: possibility-paralysis
+    sub_state: waiting-for-certainty-before-committing
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#possibility-paralysis (commitment tends to generate clarity rather than requiring it first)"
+      - "remaining_states_sio_strategy.md#possibility-paralysis (Ruth Chang: hard choices, we make ourselves)"
+    situational_context: [career, big-decisions]
+    emotional_texture: [anxiety, hesitation, hope]
+    hidden_beliefs:
+      - "I need to be certain before I commit."
+      - "The right path will announce itself if I wait long enough."
+    user_question_under_it: "How do people commit when certainty never actually arrives?"
+    recommended_insight_type: [reframe]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: []
+    resonance_need: intellectual-reframe
+    recommended_intensity: moderate
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      The reframe (clarity follows commitment; hard choices are where we define who we are) must be
+      grounded in a specific framing from a credible thinker, not a slogan.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A philosopher/thinker (Ruth Chang lineage) who reframes hard choices as self-defining rather than
+      as problems of insufficient information.
+    harvesting_priority: 60
+
+  # ════════════════════════════ IDENTITY TRANSITION ════════════════════════════
+  - need_id: it-career-exit-who-am-i
+    state: identity-transition
+    sub_state: left-a-defining-career
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-11 (through a big thing, don't know who I am on the other side)"
+      - "user_problem_model.md#identity-transition (a discrete event removed an organizing structure)"
+    situational_context: [career, post-exit, post-layoff]
+    emotional_texture: [disorientation, grief, smallness]
+    hidden_beliefs:
+      - "Without that role I don't know what I'm worth."
+      - "I should be over this and excited about the next thing by now."
+    user_question_under_it: "Who am I when the thing I was known for is gone?"
+    recommended_insight_type: [story]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: vulnerable-story
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse, engagement-drought]
+    anti_pattern_notes: >-
+      Do NOT rush to "what's next" or prescribe a rebuild. Direct/challenging invalidates real identity
+      grief. Needs a lived account from someone far enough past it to name the in-between.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Someone who left a defining career/role and rebuilt identity, with enough distance to speak to both
+      sides honestly (vulnerable/personal).
+    harvesting_priority: 66
+
+  - need_id: it-relationship-end-stranger
+    state: identity-transition
+    sub_state: post-breakup-or-divorce
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#identity-transition (a breakup as a triggering event)"
+      - "remaining_states_sio_strategy.md#identity-transition (feel like a stranger to myself)"
+    situational_context: [relationships, post-breakup, post-divorce]
+    emotional_texture: [grief, disorientation, loneliness]
+    hidden_beliefs:
+      - "So much of who I was lived in that relationship, and now it's gone."
+      - "If I'm struggling this long, I'm doing it wrong."
+    user_question_under_it: "How do I find myself again when so much of 'me' was 'us'?"
+    recommended_insight_type: [permission, story]
+    recommended_voice_register: warm/affirming
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse]
+    anti_pattern_notes: >-
+      Permission first: the disorientation is the correct response to a real loss, not a failure. Avoid
+      timelines ("you should be over it") and rebuilding tactics. Keep within functional-but-disoriented;
+      route true crisis to the safety response.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A warm, credible voice (Brené Brown lineage) who names post-relationship identity loss without
+      pathologizing it.
+    harvesting_priority: 60
+
+  - need_id: it-role-retirement-structure-gone
+    state: identity-transition
+    sub_state: retired-from-a-defining-role
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#identity-transition (a demanding period ending removes a prior organizing structure)"
+      - "remaining_states_sio_strategy.md#identity-transition (athlete/role retirement; structure gone)"
+    situational_context: [career, sport, military, caregiving]
+    emotional_texture: [emptiness, disorientation, loss-of-purpose]
+    hidden_beliefs:
+      - "The structure that organized my whole life is just gone."
+      - "Nothing will ever feel as meaningful as that did."
+    user_question_under_it: "What organizes my life now that the thing that did is over?"
+    recommended_insight_type: [story]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: vulnerable-story
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse, engagement-drought]
+    anti_pattern_notes: >-
+      Name the structural loss as real before any forward motion. A retired-athlete / former-founder
+      account lands; abstract mechanism does not.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Someone who retired from a totalizing role (elite sport, military, founder) and navigated the
+      identity vacuum afterward.
+    harvesting_priority: 58
+
+  - need_id: it-post-success-lost
+    state: identity-transition
+    sub_state: got-what-i-built-and-feel-lost
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#identity-transition (the event need not be negative; a major success can remove a prior structure)"
+      - "remaining_states_sio_strategy.md#identity-transition (sold my company, thought I'd feel free)"
+    situational_context: [career, post-exit, post-achievement]
+    emotional_texture: [hollowness, disorientation, guilt]
+    hidden_beliefs:
+      - "I'm not allowed to feel lost after something this good."
+      - "If success didn't fix it, what will?"
+    user_question_under_it: "Why do I feel unmoored after the thing I worked for finally happened?"
+    recommended_insight_type: [story, reframe]
+    recommended_voice_register: vulnerable/personal
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: vulnerable-story
+    recommended_intensity: moderate
+    disambiguation_neighbors: [direction-collapse]
+    anti_pattern_notes: >-
+      Distinguish from direction-collapse/post-achievement by the DISCRETE event (exit/sale/finish) and
+      the clear before/after. The guilt of feeling lost after success needs naming, not dismissal.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A founder/performer who hit the summit (exit, championship, finished the big thing) and felt
+      unmoored, speaking honestly about the after.
+    harvesting_priority: 56
+
+  - need_id: it-in-between-cant-see-next
+    state: identity-transition
+    sub_state: the-in-between
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#identity-transition (between an old self and a new one not yet built)"
+      - "remaining_states_sio_strategy.md#identity-transition (disorientation is structurally appropriate)"
+    situational_context: [life-transition, identity-shift]
+    emotional_texture: [in-between-ness, uncertainty, smallness]
+    hidden_beliefs:
+      - "If I can't see chapter two, I'm failing the transition."
+      - "I've regressed."
+    user_question_under_it: "Is it normal to be in this in-between with no idea what's next?"
+    recommended_insight_type: [reframe, permission]
+    recommended_voice_register: intellectual/measured
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: intellectual-reframe
+    recommended_intensity: mild
+    disambiguation_neighbors: [direction-collapse, momentum-gap]
+    anti_pattern_notes: >-
+      The reframe: the old self was organized around something now gone, so the disorientation is the
+      correct response, not a malfunction. Do NOT prescribe a "chapter two" plan.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A measured voice that frames the liminal in-between as appropriate and survivable, ideally with a
+      personal anchor (Brené Brown 'wilderness' / Bruce Feiler 'life transitions' lineage).
+    harvesting_priority: 58
+
+  # ════════════════════════════ MOMENTUM GAP ════════════════════════════
+  - need_id: mg-comparison-spike-behind
+    state: momentum-gap
+    sub_state: comparison-spike
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-9 (comparing to peers with momentum I don't have)"
+      - "user_problem_model.md#momentum-gap (comparison-triggered spike)"
+    situational_context: [social-media, peer-comparison, reunions]
+    emotional_texture: [inadequacy, urgency, ache]
+    hidden_beliefs:
+      - "Everyone got a roadmap except me."
+      - "If I'm not visibly progressing, I'm failing."
+    user_question_under_it: "Why does everyone seem ahead, and what is this feeling telling me?"
+    recommended_insight_type: [reframe]
+    recommended_voice_register: warm/affirming
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: mild
+    disambiguation_neighbors: [direction-collapse, engagement-drought]
+    anti_pattern_notes: >-
+      NEVER moralize ("comparison is the thief of joy") or say "get off social media". Validate the
+      feeling first, then reframe comparison as a signal to decode about the user's own values.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      Someone who felt behind their peers and can describe what they decoded from the feeling (signal,
+      not "stop comparing"), in a warm register.
+    harvesting_priority: 64
+
+  - need_id: mg-want-the-feeling-not-their-life
+    state: momentum-gap
+    sub_state: comparison-spike
+    status: hypothesis
+    source_provenance:
+      - "user_problem_model.md#raw-description-9 (don't want their specific life, want that feeling of going somewhere)"
+      - "remaining_states_sio_strategy.md#momentum-gap (want the feeling of momentum)"
+    situational_context: [peer-comparison, career]
+    emotional_texture: [restlessness, longing, vagueness]
+    hidden_beliefs:
+      - "Other people have a momentum I structurally lack."
+      - "Wanting the feeling but not their life means I don't know what I want."
+    user_question_under_it: "I want that sense of going somewhere — how do I find what it's pointing me to?"
+    recommended_insight_type: [reframe, story]
+    recommended_voice_register: warm/affirming
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: mild
+    disambiguation_neighbors: [direction-collapse]
+    anti_pattern_notes: >-
+      Distinguish from direction-collapse by the comparison TRIGGER and recency. Decode the wanted
+      "feeling" into the user's own signal; don't redirect to "focus on yourself" platitudes.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A voice that treats the wanted "momentum feeling" as decodable signal about values, grounded in
+      personal experience of the comparison spike.
+    harvesting_priority: 56
+
+  - need_id: mg-lost-rhythm-cant-restart
+    state: momentum-gap
+    sub_state: restart-friction
+    status: hypothesis
+    source_provenance:
+      - "remaining_states_sio_strategy.md#momentum-gap (had rhythm, lost it; restart cost is the blocker)"
+      - "silhouette_expand_remaining_3_states_prompt.md#momentum-gap (lost rhythm; can't restart after falling off)"
+    situational_context: [habits, fitness, creative-practice, post-busy-season]
+    emotional_texture: [inertia, daunt, self-recrimination]
+    hidden_beliefs:
+      - "The distance back to where I was is too far to cover."
+      - "Falling off proves I was never disciplined."
+    user_question_under_it: "How do I get back into motion when restarting feels impossible?"
+    recommended_insight_type: [mechanism]
+    recommended_voice_register: expert/scientific
+    excluded_voice_registers: []
+    resonance_need: expert-mechanism
+    recommended_intensity: mild
+    disambiguation_neighbors: [inaction-loop, engagement-drought]
+    anti_pattern_notes: >-
+      PRIMARY disambiguation vs inaction-loop: this user HAD the rhythm and lost it (re-entry), not a
+      never-started known action. Mechanism (never-miss-twice / reduce restart cost) lands; identity
+      shaming does not.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A behavior-change expert (James Clear / BJ Fogg lineage) on re-entry: never miss twice, shrink the
+      restart, lower the cost of getting back in.
+    harvesting_priority: 66
+
+  - need_id: mg-lapse-became-shame-spiral
+    state: momentum-gap
+    sub_state: restart-friction
+    status: hypothesis
+    source_provenance:
+      - "remaining_states_sio_strategy.md#momentum-gap (small lapse became identity spiral; restart shame)"
+      - "user_problem_model.md#momentum-gap (a residue of vague dissatisfaction that is hard to act on)"
+    situational_context: [habits, fitness, study, creative-practice]
+    emotional_texture: [shame, self-recrimination, inertia]
+    hidden_beliefs:
+      - "Restarting means admitting I failed, so it's safer not to try."
+      - "One slip means I'm back to zero / I'm a fraud."
+    user_question_under_it: "How do I restart without the shame of having fallen off in the first place?"
+    recommended_insight_type: [permission]
+    recommended_voice_register: warm/affirming
+    excluded_voice_registers: [direct/challenging]
+    resonance_need: warm-permission
+    recommended_intensity: moderate
+    disambiguation_neighbors: [inaction-loop]
+    anti_pattern_notes: >-
+      The lapse is not identity. Self-compassion lifts the restart cost more than discipline talk. Avoid
+      tough-love here; it deepens the shame that blocks re-entry.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A self-compassion researcher / warm coach (Kristin Neff lineage) on separating a lapse from
+      identity and re-entering without shame.
+    harvesting_priority: 60
+
+  - need_id: mg-reduce-restart-cost
+    state: momentum-gap
+    sub_state: restart-friction
+    status: hypothesis
+    source_provenance:
+      - "remaining_states_sio_strategy.md#momentum-gap (need first step back; reduce restart cost)"
+      - "silhouette_expand_remaining_3_states_prompt.md#momentum-gap (reducing restart cost; first step back)"
+    situational_context: [habits, routine, post-disruption]
+    emotional_texture: [overwhelm, hesitation, cautious-hope]
+    hidden_beliefs:
+      - "To restart I have to go back to the full routine I had."
+      - "A tiny step isn't worth taking."
+    user_question_under_it: "What's the smallest way back in that actually counts?"
+    recommended_insight_type: [mechanism, permission]
+    recommended_voice_register: expert/scientific
+    excluded_voice_registers: []
+    resonance_need: expert-mechanism
+    recommended_intensity: mild
+    disambiguation_neighbors: [inaction-loop, engagement-drought]
+    anti_pattern_notes: >-
+      Tiny re-entry (Fogg) and "never miss twice" (Clear) framed as legitimate, not a consolation prize.
+      Connect the mechanism to the felt overwhelm of the full-routine expectation.
+    covered_by_sio_ids: []
+    coverage_strength: unknown
+    coverage_evidence: "computed by analyze-user-need-coverage.ts"
+    missing_source_profile: >-
+      A habit-formation expert on minimum-viable re-entry and reducing the activation cost of restarting
+      after a lapse.
+    harvesting_priority: 58

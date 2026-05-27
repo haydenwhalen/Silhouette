@@ -1,0 +1,132 @@
+candidate_id: cand-it-grant-identity-as-structure
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + reframe + intellectual/measured (it-in-between-cant-see-next)
+proposed_insight_type: reframe
+proposed_voice_register: intellectual/measured
+proposed_intensity_level: moderate
+source_title: 'Think Again: The Power of Knowing What You Don''t Know'
+source_url: https://www.adamgrant.net/book/think-again/
+source_platform: book
+speaker: Adam Grant
+guest_if_applicable: ''
+official_channel_url: https://www.adamgrant.net/
+video_url: ''
+embed_url: ''
+transcript_url: ''
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  In "Think Again" (2021), Adam Grant argues that identity problems are often structural: we build
+  our sense of self around what we believe and what we do, and when those things change or are
+  removed, we experience it as a loss of self rather than as an update to our understanding. The key
+  reframe is this: "who you are should be a question of what you value, not what you believe" — and
+  when you anchor identity to values rather than to roles or convictions, transitions become
+  reorganizations rather than erasures. He also observes that many people decide early in life they
+  must be a doctor, lawyer, or athlete, and don't question it "until they're long through med school
+  or law school — but this is my identity." This conflation of identity with structure is the source
+  of the disorientation, and naming it is the first step toward surviving the transition.
+key_claim: >-
+  Disorientation after a major transition is not evidence that you've lost yourself — it's evidence
+  that your sense of self was organized around something that's now gone. The thing you lost wasn't
+  you. It was a structure your identity lived inside. Grant's reframe: anchor identity to what you
+  value, not what role you play, and the disorientation of transition becomes navigable — because
+  values survive the transition even when the structure doesn't.
+why_it_might_land: >-
+  The identity-transition user's hidden belief is often "who I was is gone and there's nothing solid
+  underneath." Grant's reframe offers a different frame: the solid thing underneath (values) is what
+  the role had been expressing — and values survive role-loss. This gives the user a conceptual
+  foothold during the in-between without prescribing a "what comes next" plan.
+user_problem_match_notes: >-
+  Good identity-transition fit for it-in-between-cant-see-next. Grant addresses the structural
+  nature of identity directly: we confuse what we do with who we are, and transitions expose that
+  confusion. The reframe — identity as what you value, not what you believe or do — gives the
+  disoriented user something solid without rushing them to chapter two. Distinct from
+  direction-collapse: the reframe requires a prior organizing structure that's been disrupted, not a
+  chronic absence of direction. Distinct from Feiler (Feiler is about the nonlinear process; Grant
+  is about what identity is made of). Stays within functional-but-disoriented. Second IT source for
+  Grant (max 2); within cap. NOTE: This is the IT-6 slot (reframe / intellectual-measured / moderate
+  for it-in-between-cant-see-next). The Feiler candidate serves IT-4 (reframe /
+  intellectual-measured / mild). Two intellectual/measured slots are allowed; different angles and
+  sources — Feiler: "the in-between is structural" / Grant: "identity is built on values not roles."
+resonance_match_notes: >-
+  intellectual/measured register — Grant writes as an organizational psychologist citing research;
+  his register is analytical and precise. Moderate intensity — heavier claim than Feiler's
+  normalizing observation; Grant is reframing the nature of identity itself. Reframe type — the
+  central move is reconceptualizing what identity is made of so that its disruption is survivable.
+  Excludes direct/challenging (correct). Different from Brown (warm/affirming) and Roll
+  (vulnerable/personal) — register diversity preserved. Different angle from Feiler (process vs
+  structure of identity).
+source_credibility_notes: >-
+  Adam Grant is Wharton's top-rated professor and #1 NYT bestselling author. "Think Again" (2021,
+  Viking) sold millions of copies. The identity-as-structure framing and the "who you are should be
+  a question of what you value, not what you believe" claim is verified via the Behavioral Scientist
+  interview with Grant ("Your Ideas Are Not Your Identity," behavioralscientist.org), Calvin
+  Rosser's book notes, and multiple independent summaries. Tier-1 credibility. Source URL is Adam
+  Grant's official site for the book. Paraphrase: source is a book; no podcast transcript to fetch.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.021Z'
+human_resonance_score: 85
+quote_quality_score: 92
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 91
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 4
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      Disorientation after a major transition is not evidence that you've lost yourself — it's
+      evidence that your sense of self was organized around something that's now gone.
+    felt_recognition: >-
+      the disorientation of transition becomes navigable — because values survive the transition
+      even when the structure doesn't.
+    emotional_precision: we experience it as a loss of self rather than as an update to our understanding.
+    reframe_power: >-
+      the key reframe is this: 'who you are should be a question of what you value, not what you
+      believe'.
+    permission_relief: naming it is the first step toward surviving the transition.
+    actionability: anchor identity to what you value, not what role you play.
+    human_credibility: 'Adam Grant is Wharton''s top-rated professor and #1 NYT bestselling author.'
+    source_vividness: the disorientation of transition becomes navigable.
+    non_genericness: >-
+      This conflation of identity with structure is the source of the disorientation, and naming it
+      is the first step toward surviving the transition.
+    voice_register_clarity: 'Grant''s reframe: anchor identity to what you value, not what role you play.'
+  why_it_might_land: >-
+    This insight provides a clear and actionable reframe for individuals experiencing identity
+    transitions, making them feel understood and offering a path forward.
+  why_it_might_not_land: >-
+    Some may find the concept of anchoring identity to values abstract or challenging to implement
+    without further guidance.
+recommendation: needs_transcript_verification
+novelty_score: 46
+novelty_nearest:
+  - insight_id: sio-sinek-start-with-why-2009
+    similarity: 0.5425843703703496
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.5399390873366678
+  - insight_id: sio-smith-meaning-over-happiness-2017
+    similarity: 0.5355066528544669
+  - insight_id: sio-grant-languishing-2021
+    similarity: 0.5352253383598635
+  - insight_id: sio-waldinger-good-life-relationships-2015
+    similarity: 0.5090442058343648
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.

@@ -1,0 +1,132 @@
+candidate_id: cand-it-rich-roll-recovery-reinvention
+candidate_status: drafted
+target_state: identity-transition
+target_gap: identity-transition + story + vulnerable/personal (it-career-exit-who-am-i)
+proposed_insight_type: story
+proposed_voice_register: vulnerable/personal
+proposed_intensity_level: moderate
+source_title: Rich Roll — Reinventing Your Life at 30, 40, and Beyond (#561)
+source_url: https://tim.blog/2022/01/04/rich-roll/
+source_platform: The Tim Ferriss Show
+speaker: Rich Roll
+guest_if_applicable: Rich Roll
+official_channel_url: https://tim.blog/podcast/
+video_url: ''
+embed_url: ''
+transcript_url: https://tim.blog/2022/01/07/rich-roll-transcript/
+timestamp_start_seconds: null
+timestamp_end_seconds: null
+transcript_excerpt: ''
+quote_type: paraphrase
+candidate_moment_summary: >
+  Rich Roll describes the decade-long gap between getting sober at 31 and reinventing himself as an
+  athlete at 40. After leaving treatment, he focused entirely on repairing the external damage —
+  rebuilding respectability, pursuing a law partnership — with what he calls "blinders on." He did
+  not ask what he actually wanted; he asked what society expected. He describes channeling his
+  compulsive patterns into workaholism rather than discovering who he was. Only when a health scare
+  on the stairs of his home at 39 forced a reckoning did he realize he had been performing an
+  identity rather than living inside one. The gap — functional, employed, sober, and still hollow —
+  is the moment this SIO addresses.
+key_claim: >-
+  Getting sober removed the substance but not the question underneath it. For years I was compelled
+  to repair all of that and get back to the person I was before — with blinders on. I never stopped
+  to ask what I actually wanted, only what I was supposed to want. Everything in my life had always
+  been programmed. I had never been without a track. Leaving that track felt terrifying — but
+  staying on it was slowly killing something that mattered more.
+why_it_might_land: >-
+  The identity-transition user knows the thing that organized their life is gone but cannot name the
+  in-between state. Rich Roll's account is precise: he was functional, respected, and externally
+  "fine" while the deeper question of who he was remained completely unanswered. This is the
+  experience — not crisis, not collapse, but a kind of hollowness behind the ordinary — that this
+  state is about.
+user_problem_match_notes: >-
+  Strong identity-transition fit. The triggering discrete event is leaving behind addiction and with
+  it the person addiction had consumed, then navigating a decade of functional living that felt like
+  a borrowed identity (the lawyer track, the respectable life) rather than a chosen one. There is a
+  clear before-and-after (drinking → sober → new self), the moment addresses the in-between not the
+  crisis, and Rich speaks from enough distance to name both sides honestly. Distinct from
+  direction-collapse: this is not chronic vague drift — there was a specific rupture (the health
+  scare / sobriety moment) and a specific before-state (the person organized by achievement and
+  addiction). Stays well within "functional but disoriented," never clinical. The career element
+  (leaving law) adds the career-exit dimension needed for it-career-exit-who-am-i.
+resonance_match_notes: >-
+  vulnerable/personal register — Rich speaks in first person, specific, without polish. Moderate
+  intensity — honest and heavy but not desperate. Story type — it is a lived arc with named
+  before/after, not a prescriptive principle. Fills the it-career-exit-who-am-i need. No
+  direct/challenging framing (correct — this state excludes it). No warm/affirming framing (not
+  Rich's register). Distinct from direction-collapse SIOs in corpus (those center on chronic
+  internal drift, not a discrete rupture event). Source diversity: Rich Roll not yet in corpus.
+source_credibility_notes: >-
+  Rich Roll is a Stanford swimmer-turned-entertainment lawyer-turned-ultra-endurance athlete,
+  bestselling author of "Finding Ultra," and host of the Rich Roll Podcast (top-charting globally).
+  His reinvention story is his primary public identity and is grounded in lived experience. Tier-2
+  credibility: widely interviewed, book-verified story, not a theorist. Source verified: Tim Ferriss
+  Show #561 is a real, official episode with a published transcript at
+  tim.blog/2022/01/07/rich-roll-transcript/. Transcript fetched; key passages confirmed (the
+  "blinders on," "compelled to repair," "programming," "never without a track" framing appears in
+  the transcript). Paraphrase because no continuous verbatim block was extracted — transcript
+  confirmed the ideas but not a single quotable passage.
+media_verification_status: not_applicable
+transcript_verification_status: needs_review
+created_at: '2026-05-26T00:00:00Z'
+updated_at: '2026-05-27T04:20:32.028Z'
+human_resonance_score: 85
+quote_quality_score: 100
+source_credibility_score: 100
+gap_fit_score: 100
+overall_candidate_score: 93
+resonance_breakdown:
+  scores:
+    state_specificity: 5
+    felt_recognition: 5
+    emotional_precision: 5
+    reframe_power: 5
+    permission_relief: 4
+    actionability: 4
+    human_credibility: 5
+    source_vividness: 5
+    non_genericness: 5
+    voice_register_clarity: 5
+  evidence:
+    state_specificity: >-
+      Rich Roll describes the decade-long gap between getting sober at 31 and reinventing himself as
+      an athlete at 40.
+    felt_recognition: I never stopped to ask what I actually wanted, only what I was supposed to want.
+    emotional_precision: >-
+      Leaving that track felt terrifying — but staying on it was slowly killing something that
+      mattered more.
+    reframe_power: I had never been without a track.
+    permission_relief: For years I was compelled to repair all of that and get back to the person I was before.
+    actionability: >-
+      Only when a health scare on the stairs of his home at 39 forced a reckoning did he realize he
+      had been performing an identity.
+    human_credibility: Rich Roll is a Stanford swimmer-turned-entertainment lawyer-turned-ultra-endurance athlete.
+    source_vividness: >-
+      He describes channeling his compulsive patterns into workaholism rather than discovering who
+      he was.
+    non_genericness: His reinvention story is his primary public identity and is grounded in lived experience.
+    voice_register_clarity: The tone is vulnerable and personal, reflecting on his own journey.
+  why_it_might_land: >-
+    This insight captures the deep struggle of identity transition, resonating with those who feel
+    lost after a significant life change.
+  why_it_might_not_land: >-
+    Some may find the narrative too specific to Rich Roll's experience and not applicable to their
+    own unique situations.
+recommendation: needs_transcript_verification
+novelty_score: 46
+novelty_nearest:
+  - insight_id: sio-goggins-identity-of-inaction-2023
+    similarity: 0.5440262488950697
+  - insight_id: sio-mcconaughey-go-to-zero-2020
+    similarity: 0.5203545467570964
+  - insight_id: sio-easter-comfort-crisis-2022
+    similarity: 0.5039107691869793
+  - insight_id: sio-colonna-complicit-conditions-2019
+    similarity: 0.5012129916367077
+  - insight_id: sio-huberman-dopamine-baseline-2021
+    similarity: 0.49514746005969773
+novelty_rating: novel
+human_review_notes: >-
+  Promoted to corpus/sios/ as prototype_only (Six-State Buildout Phase 8).
+  transcript_verified=false; human_review_status=prototype_only. Verbatim verification + approved
+  upgrade remain a separate human step.
