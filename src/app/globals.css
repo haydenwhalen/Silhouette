@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────────────
+ * Silhouette design tokens — Tailwind v4 @theme.
+ *
+ * Tokens defined here automatically become Tailwind utility classes:
+ *   --color-sil-bg          → bg-sil-bg / text-sil-bg / border-sil-bg
+ *   --color-sil-text        → text-sil-text / bg-sil-text / ...
+ *   --font-sans             → font-sans (applied via Tailwind class)
+ *   --font-serif            → font-serif
+ *   --radius-sil-card       → rounded-sil-card
+ *
+ * Visual character: calm, warm-dark, source-forward. Off-black background,
+ * near-white primary text, low-contrast borders, a single warm-amber accent.
+ * Used by the upcoming insight-card UI redesign (not applied yet — existing
+ * inline-styled components are intentionally preserved).
+ * ──────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Surfaces (top-down in elevation). Warm-toned to soften the dark theme. */
+  --color-sil-bg: #0f0f0f;
+  --color-sil-surface: #151515;
+  --color-sil-elevated: #1c1a18;
+
+  /* Text — three steps of emphasis. */
+  --color-sil-text: #f3eee8;
+  --color-sil-muted: #b8afa6;
+  --color-sil-subtle: #81786f;
+
+  /* Structure. */
+  --color-sil-border: rgba(255, 255, 255, 0.10);
+  --color-sil-border-strong: rgba(255, 255, 255, 0.18);
+
+  /* The one accent. Warm amber — used sparingly: the focus moment, the
+   * "open quote" glyph, the active button. Never as a large flat fill. */
+  --color-sil-accent: #c97a4a;
+  --color-sil-accent-soft: rgba(201, 122, 74, 0.14);
+  --color-sil-accent-strong: #d68a5c;
+
+  /* Focus ring — keyboard accessibility. Always visible on :focus-visible. */
+  --color-sil-focus: rgba(201, 122, 74, 0.45);
+
+  /* Semantic feedback colors — used sparingly for safety / 988 callout. */
+  --color-sil-danger: #e85b5b;
+  --color-sil-danger-soft: rgba(232, 91, 91, 0.12);
+
+  /* Fonts — wired to next/font/google CSS variables from layout.tsx.
+   * Fallbacks cover offline / SSR-without-font scenarios. */
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+
+  /* Border radii — calm, slightly rounded. */
+  --radius-sil-card: 0.875rem;
+  --radius-sil-button: 0.5rem;
+  --radius-sil-input: 0.625rem;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * Base styles. Kept minimal — the existing inline-styled components on
+ * src/app/layout.tsx <body> and the component files still drive today's
+ * visual. These rules only set safe project-wide defaults that won't
+ * surprise the redesign.
+ * ──────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-sil-accent-soft);
+    color: var(--color-sil-text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-sil-focus);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  iframe,
+  video,
+  img {
+    max-width: 100%;
+  }
+}
