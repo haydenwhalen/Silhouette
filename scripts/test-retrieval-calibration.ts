@@ -772,6 +772,7 @@ const CASES: Case[] = [
       "sio-adam-grant-identity-as-structure-2021",
       "sio-bruce-feiler-lifequake-messy-middle-2021",
       "sio-andre-agassi-open-identity-vacuum-2009",
+      "sio-ohno-after-the-finish-line-2017",
     ],
     resonance_signal:
       "post-divorce 'stranger to myself' + 'is it normal' (permission-seeking) → warm/affirming; Brown's wilderness/belonging-to-yourself (ideal) — any state-coherent IT SIO acceptable",
@@ -791,6 +792,7 @@ const CASES: Case[] = [
       "sio-rich-roll-roll-recovery-reinvention-2022",
       "sio-gregg-renfrew-post-exit-identity-2025",
       "sio-bruce-feiler-lifequake-messy-middle-2021",
+      "sio-ohno-after-the-finish-line-2017",
     ],
     resonance_signal:
       "DISCRETE event (retirement) + clear before/after ('always knew who I was' → 'gone') → identity-transition, NOT direction-collapse (chronic, no trigger)",
