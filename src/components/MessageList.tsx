@@ -2,7 +2,9 @@
 
 import React from "react";
 import { FeedbackButtons } from "./FeedbackButtons";
+import { InsightMediaCard } from "./InsightMediaCard";
 import { FEEDBACK_MARKER_TEXT } from "@/presentation/feedbackMarker";
+import type { InsightMedia } from "@/lib/media";
 
 export interface Message {
   role: "user" | "assistant";
@@ -10,6 +12,10 @@ export interface Message {
   // Insight metadata for the latest insight presentation; null on other turns.
   // Buttons only render for the latest assistant message that has this set.
   insight_id?: string | null;
+  // Structured media for the SIO presented this turn. Null when no media
+  // applies (clarifying question, feedback ack, etc.). The InsightMediaCard
+  // is rendered between the excerpt blockquote and the why-this-applies line.
+  media?: InsightMedia | null;
 }
 
 interface MessageListProps {
@@ -80,19 +86,32 @@ function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
 
 // Splits content into logical blocks (block quote, attribution line, plain
 // paragraph) and renders each with appropriate styling.
-function renderBlocks(content: string, idx: number): React.ReactNode[] {
+//
+// When `media` is provided, the InsightMediaCard is injected immediately AFTER
+// the attribution line (the `— ` paragraph) and BEFORE the why-this-applies
+// paragraph. This puts the speaker/source identification first, then the
+// optional video, then the framing — matching the product principle that the
+// reader processes text first and the video is an opt-in deepening.
+function renderBlocks(
+  content: string,
+  idx: number,
+  media?: InsightMedia | null
+): React.ReactNode[] {
   // Normalize: collapse 3+ blank lines to 2.
   const normalized = content.replace(/\n{3,}/g, "\n\n").trim();
   // Split into paragraphs by blank line.
   const paragraphs = normalized.split(/\n\s*\n/);
-  return paragraphs.map((para, pIdx) => {
+  const out: React.ReactNode[] = [];
+  let mediaInserted = false;
+
+  paragraphs.forEach((para, pIdx) => {
     const keyPrefix = `m${idx}-p${pIdx}`;
     const lines = para.split("\n");
 
     // Block quote: every line starts with `>`
     if (lines.every((l) => /^>\s?/.test(l))) {
       const inner = lines.map((l) => l.replace(/^>\s?/, "")).join("\n");
-      return (
+      out.push(
         <blockquote
           key={keyPrefix}
           style={{
@@ -107,11 +126,12 @@ function renderBlocks(content: string, idx: number): React.ReactNode[] {
           {renderInline(inner, keyPrefix)}
         </blockquote>
       );
+      return;
     }
 
     // Attribution line: starts with `— ` (em-dash + space)
     if (/^—\s/.test(para)) {
-      return (
+      out.push(
         <p
           key={keyPrefix}
           style={{
@@ -124,9 +144,15 @@ function renderBlocks(content: string, idx: number): React.ReactNode[] {
           {renderInline(para, keyPrefix)}
         </p>
       );
+      // Inject the media card immediately after attribution.
+      if (media && !mediaInserted) {
+        out.push(<InsightMediaCard key={`m${idx}-media`} media={media} />);
+        mediaInserted = true;
+      }
+      return;
     }
 
-    return (
+    out.push(
       <p
         key={keyPrefix}
         style={{ margin: "0.5rem 0", whiteSpace: "pre-wrap" }}
@@ -135,6 +161,14 @@ function renderBlocks(content: string, idx: number): React.ReactNode[] {
       </p>
     );
   });
+
+  // Fallback: if media exists but no attribution line was found, append at end
+  // so we never silently drop a verified embed.
+  if (media && !mediaInserted) {
+    out.push(<InsightMediaCard key={`m${idx}-media`} media={media} />);
+  }
+
+  return out;
 }
 
 export function MessageList({
@@ -184,7 +218,7 @@ export function MessageList({
               wordBreak: "break-word",
             }}
           >
-            {isAssistant ? renderBlocks(displayedContent, i) : (
+            {isAssistant ? renderBlocks(displayedContent, i, msg.media) : (
               <span style={{ whiteSpace: "pre-wrap" }}>{msg.content}</span>
             )}
             {isLatestInsight && msg.insight_id && (

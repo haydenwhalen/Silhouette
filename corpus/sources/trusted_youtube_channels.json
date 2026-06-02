@@ -2,75 +2,75 @@
   {
     "_comment": "IMPORTANT: All channel_ids in this registry MUST be verified by a human or via the YouTube Data API before use. Do NOT guess or fabricate 24-character channel IDs. Leave channel_id blank until verified. trust_level 'needs_review' means the channel_id has NOT been confirmed.",
     "name": "Huberman Lab",
-    "channel_id": "",
+    "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
     "channel_url": "https://www.youtube.com/@hubermanlab",
     "source_family": "huberman-lab",
-    "trust_level": "needs_review",
-    "notes": "Andrew Huberman's science-based health and performance podcast. channel_id must be verified via YouTube API or manually before use."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@hubermanlab. Resolved channel title: \"Andrew Huberman\". Prior note: Andrew Huberman's science-based health and performance podcast. channel_id must be verified via YouTube API or manually before use."
   },
   {
     "name": "The School of Greatness",
-    "channel_id": "",
+    "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
     "channel_url": "https://www.youtube.com/@lewishowes",
     "source_family": "school-of-greatness",
-    "trust_level": "needs_review",
-    "notes": "Lewis Howes' interview-based show on peak performance and mindset. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@lewishowes. Resolved channel title: \"Lewis Howes\". Prior note: Lewis Howes' interview-based show on peak performance and mindset. channel_id must be verified."
   },
   {
     "name": "The Tim Ferriss Show",
-    "channel_id": "",
+    "channel_id": "UCznv7Vf9nBdJYvBagFdAHWw",
     "channel_url": "https://www.youtube.com/@timferriss",
     "source_family": "tim-ferriss",
-    "trust_level": "needs_review",
-    "notes": "Tim Ferriss' world-class interviews with performers. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@timferriss. Resolved channel title: \"Tim Ferriss\". Prior note: Tim Ferriss' world-class interviews with performers. channel_id must be verified."
   },
   {
     "name": "Diary Of A CEO",
-    "channel_id": "",
+    "channel_id": "UCGq-a57w-aPwyi3pW7XLiHw",
     "channel_url": "https://www.youtube.com/@TheDiaryOfACEO",
     "source_family": "diary-of-a-ceo",
-    "trust_level": "needs_review",
-    "notes": "Steven Bartlett's long-form interviews. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@TheDiaryOfACEO. Resolved channel title: \"The Diary Of A CEO\". Prior note: Steven Bartlett's long-form interviews. channel_id must be verified."
   },
   {
     "name": "Rich Roll",
-    "channel_id": "",
+    "channel_id": "UCpjlh0e319ksmoOD7bQFSiw",
     "channel_url": "https://www.youtube.com/@richroll",
     "source_family": "rich-roll",
-    "trust_level": "needs_review",
-    "notes": "Rich Roll's podcast covering wellness, plant-based performance, and meaning. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@richroll. Resolved channel title: \"Rich Roll\". Prior note: Rich Roll's podcast covering wellness, plant-based performance, and meaning. channel_id must be verified."
   },
   {
     "name": "Modern Wisdom",
-    "channel_id": "",
+    "channel_id": "UCIaH-gZIVC432YRjNVvnyCA",
     "channel_url": "https://www.youtube.com/@ChrisWillx",
     "source_family": "modern-wisdom",
-    "trust_level": "needs_review",
-    "notes": "Chris Williamson's show on psychology, philosophy, and self-development. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@ChrisWillx. Resolved channel title: \"Chris Williamson\". Prior note: Chris Williamson's show on psychology, philosophy, and self-development. channel_id must be verified."
   },
   {
     "name": "Impact Theory",
-    "channel_id": "",
+    "channel_id": "UCnYMOamNKLGVlJgRUbamveA",
     "channel_url": "https://www.youtube.com/@TomBilyeu",
     "source_family": "impact-theory",
-    "trust_level": "needs_review",
-    "notes": "Tom Bilyeu's mindset and identity-focused interviews. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@TomBilyeu. Resolved channel title: \"Tom Bilyeu\". Prior note: Tom Bilyeu's mindset and identity-focused interviews. channel_id must be verified."
   },
   {
     "name": "TED",
-    "channel_id": "",
+    "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
     "channel_url": "https://www.youtube.com/@TED",
     "source_family": "ted",
-    "trust_level": "needs_review",
-    "notes": "Official TED main channel. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@TED. Resolved channel title: \"TED\". Prior note: Official TED main channel. channel_id must be verified."
   },
   {
     "name": "TEDx Talks",
-    "channel_id": "",
+    "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q",
     "channel_url": "https://www.youtube.com/@TEDx",
     "source_family": "tedx",
-    "trust_level": "needs_review",
-    "notes": "Official TEDx independently-organized events channel. channel_id must be verified."
+    "trust_level": "high",
+    "notes": "Verified 2026-06-02 via YouTube Data API channels.list?forHandle=@TEDx. Resolved channel title: \"TEDx Talks\". Prior note: Official TEDx independently-organized events channel. channel_id must be verified."
   },
   {
     "name": "SAMPLE_TRUSTED_FOR_TESTS_ONLY",

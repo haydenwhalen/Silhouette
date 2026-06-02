@@ -57,6 +57,10 @@ export async function POST(req: NextRequest) {
       toolsUsed: result.toolsUsed,
       last_insight_id: result.last_insight_id ?? null,
       feedback_handled: result.feedbackHandled ?? null,
+      // Structured media for the SIO presented this turn — null for
+      // clarifying questions, feedback acks, etc. The UI uses this to
+      // render the embedded video card.
+      media: result.media ?? null,
     });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Internal server error";

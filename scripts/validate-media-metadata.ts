@@ -38,6 +38,7 @@ import {
   extractYouTubeVideoId,
   buildYouTubeEmbedUrl,
 } from "./lib/youtube";
+import { isAllowedEmbedHost } from "../src/lib/media";
 
 const SIOS_DIR = join(process.cwd(), "corpus", "sios");
 
@@ -52,6 +53,18 @@ const STATUS_VOCAB = new Set([
 ]);
 
 const VIDEO_PROVIDERS = new Set(["ted", "youtube", "vimeo", "spotify"]);
+
+// clip_match_type values describe HOW closely the SIO excerpt matches the
+// source moment, in descending strictness:
+//   - exact_quote_match  : verbatim from a verified transcript
+//   - close_paraphrase   : speaker's documented argument, faithful paraphrase
+//   - talking_point      : the broader idea, attributable but not the exact moment
+// New field — most SIOs won't have it set yet; that's a warn, not a fail.
+const CLIP_MATCH_VOCAB = new Set([
+  "exact_quote_match",
+  "close_paraphrase",
+  "talking_point",
+]);
 
 const YT_ID_RE = /^[A-Za-z0-9_-]{11}$/;
 const TED_EMBED_RE = /^https:\/\/embed\.ted\.com\/talks\/[a-z0-9_]+(\?.*)?$/;
@@ -132,6 +145,13 @@ function validateOne(fm: Fm, file: string): Result {
     } else {
       hard.push(
         `embed_url present but video_provider is "${provider || "(none)"}" — embeds require a video provider`
+      );
+    }
+    // 2b. Render-side allowlist (defense in depth — the renderer will refuse
+    // to mount any iframe whose host is not on this list).
+    if (!isAllowedEmbedHost(embed)) {
+      hard.push(
+        `embed_url host is not on the render-time allowlist (youtube-nocookie.com, embed.ted.com, player.vimeo.com): ${embed}`
       );
     }
   }
@@ -287,6 +307,33 @@ function validateOne(fm: Fm, file: string): Result {
         );
       }
     }
+  }
+
+  // 10. clip_match_type vocabulary + transcript-verification gate.
+  // The strict rule: claiming exact_quote_match requires transcript_verified: true,
+  // because saying "verbatim from the source" without a verified transcript is
+  // a misattribution risk (we already had one demonstrated case — see
+  // ai/guides/retrieval_video_phase_report.md). close_paraphrase and
+  // talking_point have no such requirement — they admit the looser match.
+  const clipMatch = str(fm.clip_match_type);
+  if (clipMatch) {
+    if (!CLIP_MATCH_VOCAB.has(clipMatch)) {
+      hard.push(
+        `clip_match_type "${clipMatch}" not in vocabulary {${[...CLIP_MATCH_VOCAB].join(", ")}}`
+      );
+    }
+    if (clipMatch === "exact_quote_match" && !transcriptVerified) {
+      hard.push(
+        `clip_match_type: exact_quote_match requires transcript_verified: true — ` +
+          `claiming a verbatim moment without a verified transcript is a misattribution risk`
+      );
+    }
+  } else if (provider === "youtube" || provider === "ted") {
+    // Soft nudge — once an SIO has a verified embed, it should declare HOW closely
+    // the excerpt matches that moment. Not a HARD failure during MVP.
+    warn.push(
+      "clip_match_type unset (recommend exact_quote_match | close_paraphrase | talking_point)"
+    );
   }
 
   // ---- soft "missing / incomplete media" classification ----

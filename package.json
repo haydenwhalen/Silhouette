@@ -31,6 +31,10 @@
     "draft-sio-from-candidate": "tsx scripts/draft-sio-from-candidate.ts",
     "discover-sios": "tsx scripts/run-sio-discovery-agent.ts",
     "test-youtube-api": "tsx scripts/test-youtube-api.ts",
+    "verify-youtube-channels": "tsx scripts/verify-youtube-channels.ts",
+    "find-clip-moments": "tsx scripts/find-clip-moments.ts",
+    "test-media-helpers": "tsx scripts/test-media-helpers.ts",
+    "test-media-e2e": "tsx scripts/test-media-e2e.ts",
     "diagnose-magnets": "tsx scripts/diagnose-retrieval-magnets.ts",
     "test-magnet-risk": "tsx scripts/test-magnet-risk.ts"
   },

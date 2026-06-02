@@ -12,7 +12,7 @@ import { calculatorTool } from "../tools/calculator";
 import { webSearchTool } from "../tools/webSearch";
 import { knowledgeBaseTool } from "../tools/knowledgeBase";
 import { presentInsightTool } from "../tools/presentInsight";
-import { loadSIODocuments } from "../rag/sioLoader";
+import { loadSIODocuments, getSIOById } from "../rag/sioLoader";
 import { getOrCreateVectorStore, scoredSearch } from "../rag/vectorStore";
 import { getSessionHistory } from "../memory/conversationMemory";
 import { classifyState, StateClassification } from "./stateClassifier";
@@ -28,7 +28,10 @@ import {
 } from "../memory/sessionState";
 import { appendFeedbackEvent } from "../feedback/feedbackLog";
 import { presentInsight as buildPresentation } from "../presentation/presentInsight";
-import { getSIOById } from "../rag/sioLoader";
+import {
+  normalizeMediaMetadata,
+  type InsightMedia,
+} from "../lib/media";
 import type { MvpState } from "../rag/retrievalConfig";
 
 const tools = [knowledgeBaseTool, presentInsightTool, webSearchTool, calculatorTool];
@@ -81,6 +84,23 @@ export interface AgentResponse {
   // don't surface a new insight (clarifying questions, positive/negative ack,
   // stray feedback). The UI uses this to decide whether to render feedback buttons.
   last_insight_id?: string | null;
+  // Structured media for the SIO presented THIS turn. Derived from the SIO's
+  // frontmatter via normalizeMediaMetadata. Null when no insight was presented
+  // OR when the SIO has no usable media. The UI uses this to render an embedded
+  // video card; it never has to parse the rendered_markdown for embed info.
+  media?: InsightMedia | null;
+}
+
+/**
+ * Looks up the SIO's frontmatter for `insight_id` and returns the normalized
+ * InsightMedia, or null if the SIO isn't loaded (which should not happen on a
+ * just-presented insight, but we don't throw — the UI handles null cleanly).
+ */
+function mediaForInsightId(insightId: string | null | undefined): InsightMedia | null {
+  if (!insightId) return null;
+  const doc = getSIOById(insightId);
+  if (!doc) return null;
+  return normalizeMediaMetadata(doc.metadata as Record<string, unknown>);
 }
 
 function classificationNote(c: StateClassification): SystemMessage {
@@ -392,6 +412,7 @@ async function handleNegativeFeedback(
     classification: retryClassification,
     feedbackHandled: "negative-retry",
     last_insight_id: nextId,
+    media: mediaForInsightId(nextId),
   };
 }
 
@@ -502,6 +523,7 @@ export async function chat(
         toolsUsed,
         classification,
         last_insight_id,
+        media: mediaForInsightId(last_insight_id),
       };
     }
   );

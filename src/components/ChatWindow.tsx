@@ -76,6 +76,7 @@ export function ChatWindow() {
           role: "assistant",
           content: data.reply,
           insight_id: data.last_insight_id ?? null,
+          media: data.media ?? null,
         },
       ]);
     } catch (err) {
