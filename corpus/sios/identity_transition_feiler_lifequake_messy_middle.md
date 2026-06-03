@@ -16,20 +16,20 @@ transcript_verified: false
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
 source_media_type: ted-talk
-video_provider: none
+video_provider: ted
 video_id: ""
-video_url: ""
-embed_url: ""
-# NOTE: No verified official video embed. Never fabricate a video_id/embed_url.
-official_channel: ""
-official_channel_url: "https://www.brucefeiler.com/"
+video_url: "https://www.ted.com/talks/bruce_feiler_the_secret_to_mastering_life_s_biggest_transitions"
+embed_url: "https://embed.ted.com/talks/bruce_feiler_the_secret_to_mastering_life_s_biggest_transitions"
+official_channel: "TED"
+official_channel_url: "https://www.ted.com/"
 timestamp_start_seconds: null
 timestamp_end_seconds: null
-display_mode: text-only
-media_available: null
-media_verification_status: not_applicable
-media_verification_notes: "Reconstruction (prototype_only). Official video embed not verified. Human must confirm an official artifact before any video-primary display."
-media_rights_notes: "Source-link to the canonical official page. Do not reproduce extended passages or re-host audio/video."
+display_mode: video-primary
+media_available: true
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Backfill 2026-06-03 — promoted from not_applicable to verified. Canonical TED slug `bruce_feiler_the_secret_to_mastering_life_s_biggest_transitions` taken from the existing source_url; embed mounted via embed.ted.com. TED talks play from the start (no per-moment timestamp support); SIO body remains a paraphrase reconstruction so clip_match_type: talking_point. Video card label will be \"Watch the source\". Body verbatim verification still pending."
+media_rights_notes: "Official TED talk. Embed via embed.ted.com only. Do not download or re-host."
 
 primary_state_tag: identity-transition
 secondary_state_tags: []

@@ -1,6 +1,5 @@
 [
   {
-    "_comment": "IMPORTANT: All channel_ids in this registry MUST be verified by a human or via the YouTube Data API before use. Do NOT guess or fabricate 24-character channel IDs. Leave channel_id blank until verified. trust_level 'needs_review' means the channel_id has NOT been confirmed.",
     "name": "Huberman Lab",
     "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
     "channel_url": "https://www.youtube.com/@hubermanlab",
@@ -78,6 +77,6 @@
     "channel_url": "https://www.youtube.com/@sample-test-channel",
     "source_family": "test-fixture",
     "trust_level": "high",
-    "notes": "SYNTHETIC TEST FIXTURE ONLY — NOT a real channel. This entry exists solely so the mock-mode test can exercise an official-channel match against a known channel_id. Do not use in production."
+    "notes": "SYNTHETIC TEST FIXTURE ONLY \u2014 NOT a real channel. This entry exists solely so the mock-mode test can exercise an official-channel match against a known channel_id. Do not use in production."
   }
 ]

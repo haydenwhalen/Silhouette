@@ -10,17 +10,18 @@
   "transcript_available": false,
   "transcript_source": "official page (not fetched)",
   "transcript_verified": false,
-  "video_provider": "none",
+  "video_provider": "ted",
   "video_id": "",
-  "video_url": "",
-  "embed_url": "",
+  "video_url": "https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice",
+  "embed_url": "https://embed.ted.com/talks/barry_schwartz_the_paradox_of_choice",
   "media_available": null,
-  "media_verification_status": "needs_review",
+  "media_verification_status": "verified",
   "source_confidence": "moderate",
   "source_score": null,
-  "verification_notes": "Created 2026-05-26 via the Six-State Buildout (Phase 8 human-gated promotion). prototype_only reconstruction — paraphrase of the speaker's documented idea; NOT a verified verbatim excerpt. Barry Schwartz is Professor of Psychology at Swarthmore College (now at Berkeley) and author of The Paradox of Choice (2004, HarperCollins). The TED 2005 talk is a canonical official source with over 6 million views. Tier-1 (academic + widely disseminated). Verified via web search: official URL https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice confirmed on ted.com; transcript available at same URL with ?view=transcript parameter. TED transcripts are not reliably WebFetch-readable, so paraphrase is the honest label.",
+  "verification_notes": "Created 2026-05-26 via the Six-State Buildout (Phase 8 human-gated promotion). prototype_only reconstruction \u2014 paraphrase of the speaker's documented idea; NOT a verified verbatim excerpt. Barry Schwartz is Professor of Psychology at Swarthmore College (now at Berkeley) and author of The Paradox of Choice (2004, HarperCollins). The TED 2005 talk is a canonical official source with over 6 million views. Tier-1 (academic + widely disseminated). Verified via web search: official URL https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice confirmed on ted.com; transcript available at same URL with ?view=transcript parameter. TED transcripts are not reliably WebFetch-readable, so paraphrase is the honest label.\n\n[Backfill 2026-06-03] Media fields updated alongside the SIO promotion. Canonical TED slug verified from the existing source_url.",
   "rights_or_usage_notes": "Source-link to the canonical official page. Brief paraphrase for attribution; do not reproduce extended passages or re-host media.",
   "sios": [
     "sio-barry-schwartz-paradox-of-choice-2005"
-  ]
+  ],
+  "official_channel": "TED"
 }

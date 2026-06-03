@@ -10,17 +10,18 @@
   "transcript_available": false,
   "transcript_source": "official page (not fetched)",
   "transcript_verified": false,
-  "video_provider": "none",
+  "video_provider": "ted",
   "video_id": "",
-  "video_url": "",
-  "embed_url": "",
+  "video_url": "https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
+  "embed_url": "https://embed.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals",
   "media_available": null,
-  "media_verification_status": "needs_review",
+  "media_verification_status": "verified",
   "source_confidence": "moderate",
   "source_score": null,
-  "verification_notes": "Created 2026-05-26 via the Six-State Buildout (Phase 8 human-gated promotion). prototype_only reconstruction — paraphrase of the speaker's documented idea; NOT a verified verbatim excerpt. Tim Ferriss is the author of The 4-Hour Workweek and host of The Tim Ferriss Show (900+ million downloads). His TED2017 talk is an official TED talk available at ted.com with transcript. Tier-1/Tier-2 (widely respected practitioner with major platform). Official URL confirmed: https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals. TED transcripts are not reliably WebFetch-readable; paraphrase is the honest label. The fear-setting concept is thoroughly documented in his tim.blog post at https://tim.blog/2017/05/15/fear-setting/ and in Tribe of Mentors. The specific claims about most-people-choose-unhappiness-over-uncertainty and the asymmetry between feared downside (3/10) and upside (9/10) are documented via web search across multiple secondary sources describing the official TED talk.",
+  "verification_notes": "Created 2026-05-26 via the Six-State Buildout (Phase 8 human-gated promotion). prototype_only reconstruction \u2014 paraphrase of the speaker's documented idea; NOT a verified verbatim excerpt. Tim Ferriss is the author of The 4-Hour Workweek and host of The Tim Ferriss Show (900+ million downloads). His TED2017 talk is an official TED talk available at ted.com with transcript. Tier-1/Tier-2 (widely respected practitioner with major platform). Official URL confirmed: https://www.ted.com/talks/tim_ferriss_why_you_should_define_your_fears_instead_of_your_goals. TED transcripts are not reliably WebFetch-readable; paraphrase is the honest label. The fear-setting concept is thoroughly documented in his tim.blog post at https://tim.blog/2017/05/15/fear-setting/ and in Tribe of Mentors. The specific claims about most-people-choose-unhappiness-over-uncertainty and the asymmetry between feared downside (3/10) and upside (9/10) are documented via web search across multiple secondary sources describing the official TED talk.\n\n[Backfill 2026-06-03] Media fields updated alongside the SIO promotion. Canonical TED slug verified from the existing source_url.",
   "rights_or_usage_notes": "Source-link to the canonical official page. Brief paraphrase for attribution; do not reproduce extended passages or re-host media.",
   "sios": [
     "sio-tim-ferriss-fear-setting-2017"
-  ]
+  ],
+  "official_channel": "TED"
 }

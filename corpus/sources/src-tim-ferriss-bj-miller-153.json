@@ -6,22 +6,25 @@
   "episode_or_content_title": "The Man Who Studied 1,000 Deaths to Learn How to Live",
   "episode_or_content_date": "2016-04-14",
   "source_url": "https://tim.blog/2018/01/01/the-tim-ferriss-show-transcripts-bj-miller/",
-  "video_provider": "none",
-  "video_id": "",
-  "video_url": "",
-  "embed_url": "",
+  "video_provider": "youtube",
+  "video_id": "1eLfGgOjHRU",
+  "video_url": "https://www.youtube.com/watch?v=1eLfGgOjHRU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/1eLfGgOjHRU",
   "official_channel": "The Tim Ferriss Show",
-  "official_channel_url": "https://tim.blog/podcast/",
+  "official_channel_url": "https://www.youtube.com/@timferriss",
   "transcript_url": "https://tim.blog/2018/01/01/the-tim-ferriss-show-transcripts-bj-miller/",
   "transcript_available": true,
   "transcript_source": "official (tim.blog)",
   "transcript_verified": true,
   "timestamp_verified": false,
   "media_available": true,
-  "media_verification_status": "not_applicable",
+  "media_verification_status": "verified",
   "source_confidence": "high",
   "source_score": null,
-  "verification_notes": "Created 2026-05 via the SIO Discovery Agent. SIO excerpt (sio-bj-miller-attend-to-death-2016) is VERBATIM from the official tim.blog transcript for TFS #153 (fetched 2026-05; speaker label 'BJ Miller'). Episode aired 2016-04-14; transcript posted 2018-01-01. Audio episode — no official video; no timestamps.",
+  "verification_notes": "Created 2026-05 via the SIO Discovery Agent. SIO excerpt (sio-bj-miller-attend-to-death-2016) is VERBATIM from the official tim.blog transcript for TFS #153 (fetched 2026-05; speaker label 'BJ Miller'). Episode aired 2016-04-14; transcript posted 2018-01-01. Audio episode \u2014 no official video; no timestamps.\n\n[Backfill 2026-06-03] Media fields updated alongside the SIO promotion. Official Tim Ferriss YouTube channel match confirmed via channels.list?forHandle=@timferriss (channel_id UCznv7Vf9nBdJYvBagFdAHWw). video_id 1eLfGgOjHRU.",
   "rights_or_usage_notes": "Publicly available podcast. Brief verbatim quote for attribution; link to the official episode page. Do not reproduce extended passages or re-host audio.",
-  "sios": ["sio-bj-miller-attend-to-death-2016"]
+  "sios": [
+    "sio-bj-miller-attend-to-death-2016"
+  ],
+  "channel_id": "UCznv7Vf9nBdJYvBagFdAHWw"
 }

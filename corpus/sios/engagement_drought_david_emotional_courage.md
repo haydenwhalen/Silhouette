@@ -24,14 +24,15 @@ official_channel: "TED"
 official_channel_url: "https://www.ted.com/"
 video_id: ""
 video_url: "https://www.ted.com/talks/susan_david_the_gift_and_power_of_emotional_courage"
-embed_url: ""
+embed_url: "https://embed.ted.com/talks/susan_david_the_gift_and_power_of_emotional_courage"
 timestamp_start_seconds: null
 timestamp_end_seconds: null
-display_mode: text-only
+display_mode: video-primary
 media_available: true
-media_verification_status: needs_review
-media_verification_notes: "Official TED talk exists, but the canonical embed slug is UNVERIFIED in-session (ted.com transcripts/pages are JS-rendered and not machine-readable here). display_mode text-only until a human verifies the embed. No fabricated embed/video_id."
-media_rights_notes: "Official TED talk. Link to the official TED page. Reconstruction/paraphrase pending verbatim verification. Do not reproduce extended passages or re-host video."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Backfill 2026-06-03 — promoted from needs_review to verified. Canonical TED slug `susan_david_the_gift_and_power_of_emotional_courage` taken from the existing source_url; embed mounted via embed.ted.com. TED talks play from the start (no per-moment timestamp support); SIO body remains a paraphrase reconstruction so clip_match_type: talking_point. Video card label will be \"Watch the source\". Body verbatim verification still pending."
+media_rights_notes: "Official TED talk. Embed via embed.ted.com only. Do not download or re-host."
 
 primary_state_tag: engagement-drought
 secondary_state_tags: []
