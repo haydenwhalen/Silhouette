@@ -38,7 +38,7 @@ import {
   extractYouTubeVideoId,
   buildYouTubeEmbedUrl,
 } from "./lib/youtube";
-import { isAllowedEmbedHost } from "../src/lib/media";
+import { isAllowedEmbedHost, formatTimestamp } from "../src/lib/media";
 
 const SIOS_DIR = join(process.cwd(), "corpus", "sios");
 
@@ -201,6 +201,56 @@ function validateOne(fm: Fm, file: string): Result {
   ) {
     hard.push("timestamp_end_seconds must be greater than timestamp_start_seconds");
   }
+  // 6a. negative timestamps are never valid
+  if (
+    typeof fm.timestamp_start_seconds === "number" &&
+    fm.timestamp_start_seconds < 0
+  ) {
+    hard.push(
+      `timestamp_start_seconds is negative (${fm.timestamp_start_seconds}) — invalid`
+    );
+  }
+  // 6b. sanity bound — almost no podcast/talk clip lives past 6 hours.
+  // Warn (not fail) because we can't prove the source duration.
+  if (
+    typeof fm.timestamp_start_seconds === "number" &&
+    fm.timestamp_start_seconds > 21600
+  ) {
+    warn.push(
+      `timestamp_start_seconds is ${fm.timestamp_start_seconds}s (~${Math.floor(
+        fm.timestamp_start_seconds / 3600
+      )}h) — confirm this is correct for the source duration`
+    );
+  }
+  // 6c. timestamp_label, if both label and seconds are set, must agree with
+  // formatTimestamp(seconds) — within a 1s tolerance for label-only edits.
+  // The agreement is human-friendly (M:SS or H:MM:SS), not arbitrary text.
+  if (
+    typeof fm.timestamp_start_seconds === "number" &&
+    typeof fm.timestamp_label === "string" &&
+    fm.timestamp_label.trim()
+  ) {
+    const expected = formatTimestamp(fm.timestamp_start_seconds);
+    const got = fm.timestamp_label.trim();
+    if (expected && expected !== got) {
+      // Soft mismatch — warn so the canonical label can be regenerated.
+      warn.push(
+        `timestamp_label "${got}" does not match formatTimestamp(${fm.timestamp_start_seconds}) = "${expected}" — labels are derived from seconds at render time`
+      );
+    }
+  }
+  // 6d. TED + per-moment timestamp: TED's embed.ted.com player does not honor
+  // ?start= or any per-moment param. Setting timestamp_start_seconds on a TED
+  // source mis-implies the embed will start there.
+  if (
+    provider === "ted" &&
+    typeof fm.timestamp_start_seconds === "number" &&
+    fm.timestamp_start_seconds > 0
+  ) {
+    warn.push(
+      "timestamp_start_seconds is set on a TED source — TED embeds do not honor per-moment timestamps and will play from the start"
+    );
+  }
 
   // 7. transcript_verified: true requires notes
   if (transcriptVerified && !transcriptNotes) {
@@ -316,6 +366,7 @@ function validateOne(fm: Fm, file: string): Result {
   // ai/guides/retrieval_video_phase_report.md). close_paraphrase and
   // talking_point have no such requirement — they admit the looser match.
   const clipMatch = str(fm.clip_match_type);
+  const hasStartTs = typeof fm.timestamp_start_seconds === "number";
   if (clipMatch) {
     if (!CLIP_MATCH_VOCAB.has(clipMatch)) {
       hard.push(
@@ -326,6 +377,24 @@ function validateOne(fm: Fm, file: string): Result {
       hard.push(
         `clip_match_type: exact_quote_match requires transcript_verified: true — ` +
           `claiming a verbatim moment without a verified transcript is a misattribution risk`
+      );
+    }
+    // 10a. close_paraphrase + a real timestamp should be backed by notes
+    // describing what the human listened for / verified. Warn (not fail) so
+    // SoG-style prototype SIOs don't break, but flag for the human.
+    if (clipMatch === "close_paraphrase" && hasStartTs && !transcriptNotes) {
+      warn.push(
+        `clip_match_type: close_paraphrase with a timestamp but no media_verification_notes — ` +
+          `add evidence of what was confirmed at this moment`
+      );
+    }
+    // 10b. talking_point + a real timestamp is fine but the UI will use
+    // "Watch near this moment" rather than "Watch the moment". Note in case
+    // the author intended close_paraphrase.
+    if (clipMatch === "talking_point" && hasStartTs && transcriptVerified) {
+      warn.push(
+        `clip_match_type: talking_point with transcript_verified: true — ` +
+          `if the moment is verbatim, consider clip_match_type: close_paraphrase or exact_quote_match`
       );
     }
   } else if (provider === "youtube" || provider === "ted") {
