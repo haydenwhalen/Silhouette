@@ -25,13 +25,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${sourceSerif.variable}`}>
-      {/* Inline body styles preserved verbatim from before Tailwind setup so
-       * the existing UI keeps rendering unchanged. The Tailwind foundation
-       * (tokens, font variables) is layered underneath; the upcoming
-       * redesign will swap these inline styles for Tailwind classes. */}
-      <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#0f0f0f", color: "#e8e8e8" }}>
-        {children}
-      </body>
+      {/* Body bg/color now driven by globals.css @layer base — Tailwind v4
+       * tokens replace the previous inline body styles. */}
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
