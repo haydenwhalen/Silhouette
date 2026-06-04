@@ -36,6 +36,7 @@
     "find-video-moments": "tsx scripts/find-video-moments.ts",
     "extract-video-timestamps": "tsx scripts/extract-video-timestamps.ts",
     "build-media-inventory": "tsx scripts/build-media-inventory.ts",
+    "audit-corpus-media": "tsx scripts/audit-corpus-media.ts",
     "test-media-helpers": "tsx scripts/test-media-helpers.ts",
     "test-media-e2e": "tsx scripts/test-media-e2e.ts",
     "diagnose-magnets": "tsx scripts/diagnose-retrieval-magnets.ts",

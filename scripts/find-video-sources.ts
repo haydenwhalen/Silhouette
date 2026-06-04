@@ -29,6 +29,7 @@
  * Run: tsx scripts/find-video-sources.ts
  */
 
+import "dotenv/config";
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { load as parseYaml } from "js-yaml";
