@@ -30,6 +30,7 @@ timestamp_end_seconds: null
 display_mode: video-primary
 media_available: true
 media_verification_status: verified
+clip_match_type: talking_point  # TED reconstruction; talk can't deep-link, so a per-moment match is N/A
 media_verification_notes: "TED embed VERIFIED (upgraded 2026-05): canonical ted.com slug mel_robbins_how_to_stop_screwing_yourself_over confirmed via web search/fetch — TEDxSF, June 2011, ~34M views; embed.ted.com URL confirmed. Was previously video_provider: none with blank embed. Official TED-channel YouTube video_id NOT playback-verified, left blank. No per-moment timestamp verified."
 media_rights_notes: "Official TEDxSF talk, publicly available on ted.com. Embed via embed.ted.com only. Do not download or re-host. Switch to youtube-nocookie embedding only after verifying the official TED-channel video_id."
 

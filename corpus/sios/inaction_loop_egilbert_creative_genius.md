@@ -32,6 +32,7 @@ timestamp_end_seconds: null
 display_mode: video-primary
 media_available: true
 media_verification_status: verified
+clip_match_type: talking_point  # TED reconstruction; talk can't deep-link, so a per-moment match is N/A
 media_verification_notes: "TED embed VERIFIED: canonical ted.com slug + embed.ted.com URL confirmed via web search (2026-05). TED2009; published 2009-02-09. Official TED-channel YouTube video_id is DEFERRED / needs_review — not playback-verified, left blank rather than guessed. No per-moment timestamp verified; embed plays from talk start."
 media_rights_notes: "Official TED talk, publicly available. Embed via embed.ted.com only. Do not download or re-host. Switch to youtube-nocookie embedding only after verifying the official TED-channel video_id."
 

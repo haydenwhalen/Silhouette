@@ -12,7 +12,8 @@ source_url: "https://tim.blog/2018/01/01/the-tim-ferriss-show-transcripts-bj-mil
 transcript_verified: true
 # ✅ VERIFIED VERBATIM against the official tim.blog transcript for TFS #153 (fetched 2026-05;
 # speaker label "BJ Miller"). Episode aired 2016-04-14; transcript posted 2018-01-01. tim.blog
-# transcripts carry no timestamps → timestamp fields null.
+# transcripts carry no timestamps; the per-moment timestamp was recovered from the official
+# YouTube upload's ASR captions (2026-06-04, via extract-video-timestamps).
 # human_review_status: prototype_only pending a final human word-check, then → approved.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
@@ -30,7 +31,7 @@ display_mode: video-primary
 media_available: true
 media_verification_status: verified
 clip_match_type: exact_quote_match
-media_verification_notes: "Backfill 2026-06-03 — promoted from not_applicable to verified. The Tim Ferriss YouTube channel (UCznv7Vf9nBdJYvBagFdAHWw, verified via channels.list?forHandle=@timferriss) published a video upload of this same episode at video_id 1eLfGgOjHRU (\"BJ Miller Interview (Full Episode) | The Tim Ferriss Show (Podcast)\", 2016-05-09 — matches TFS #153 publication window). Same episode as the tim.blog transcript referenced in source_url; the YouTube upload is the video distribution of the audio episode. transcript_verified: true is honest because the verbatim text was confirmed against the tim.blog transcript. No per-moment timestamp recorded — tim.blog transcripts carry no timestamps. UI label will be \"Watch the source\" until a timestamp is added by listening. TIMESTAMP ADDED 2026-06-04 by extract-video-timestamps: located the verbatim SIO body in the official YouTube upload's auto-caption (ASR) transcript (pulled via yt-dlp android-client path). Matched 20 contiguous words ('sort of secret is that paying attention to the fact that you die can help you live a lot better') -> 21:43–21:50. clip_match_type unchanged (exact_quote_match); ASR timestamps accurate to ~1-2s."
+media_verification_notes: "Backfill 2026-06-03 — promoted from not_applicable to verified. The Tim Ferriss YouTube channel (UCznv7Vf9nBdJYvBagFdAHWw, verified via channels.list?forHandle=@timferriss) published a video upload of this same episode at video_id 1eLfGgOjHRU (\"BJ Miller Interview (Full Episode) | The Tim Ferriss Show (Podcast)\", 2016-05-09 — matches TFS #153 publication window). Same episode as the tim.blog transcript referenced in source_url; the YouTube upload is the video distribution of the audio episode. transcript_verified: true is honest because the verbatim text was confirmed against the tim.blog transcript. No per-moment timestamp was available initially — tim.blog transcripts carry no timestamps. TIMESTAMP ADDED 2026-06-04 by extract-video-timestamps: located the verbatim SIO body in the official YouTube upload's auto-caption (ASR) transcript (pulled via yt-dlp android-client path). Matched 20 contiguous words ('sort of secret is that paying attention to the fact that you die can help you live a lot better') -> 21:43–21:50. clip_match_type unchanged (exact_quote_match); ASR timestamps accurate to ~1-2s."
 media_rights_notes: "Official Tim Ferriss YouTube upload of the same episode published as audio at tim.blog. Embed only via youtube-nocookie.com from the official channel. Brief verbatim quote for attribution. Do not download or re-host."
 
 primary_state_tag: direction-collapse

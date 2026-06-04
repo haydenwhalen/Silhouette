@@ -23,16 +23,16 @@ video_provider: youtube
 official_channel: "The Tim Ferriss Show"
 official_channel_url: "https://www.youtube.com/@timferriss"
 channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
-video_id: "EyopAlh04iA"
-video_url: "https://www.youtube.com/watch?v=EyopAlh04iA"
-embed_url: "https://www.youtube-nocookie.com/embed/EyopAlh04iA"
-timestamp_start_seconds: null
-timestamp_end_seconds: null
+video_id: "Hu-sCM0eXaw"
+video_url: "https://www.youtube.com/watch?v=Hu-sCM0eXaw"
+embed_url: "https://www.youtube-nocookie.com/embed/Hu-sCM0eXaw"
+timestamp_start_seconds: 1451
+timestamp_end_seconds: 1475
 display_mode: video-primary
 media_available: true
 media_verification_status: verified
 clip_match_type: exact_quote_match
-media_verification_notes: "Backfill 2026-06-03 — promoted from not_applicable to verified. The Tim Ferriss YouTube channel (UCznv7Vf9nBdJYvBagFdAHWw, verified via channels.list?forHandle=@timferriss) published a video upload of this same episode at video_id EyopAlh04iA (\"Esther Perel Interview | The Tim Ferriss Show (Podcast)\", 2017-11-10). TFS #241 audio aired 2017-05-21; the November YouTube upload is Tim Ferriss's video distribution of the same audio episode, which is his standard pattern. transcript_verified: true is honest because the verbatim text was confirmed against the tim.blog transcript. No per-moment timestamp recorded — tim.blog transcripts carry no timestamps. UI label will be \"Watch the source\" until a timestamp is added by listening."
+media_verification_notes: "VIDEO CORRECTED 2026-06-04. The previously-mounted video EyopAlh04iA was the WRONG cut (a 2017-11-10, 1:08:54 desire/infidelity edit) and did NOT contain this SIO's quote — caught by the timestamp-extraction integrity pass. The correct video is the official Tim Ferriss full-episode upload of TFS #241: video_id Hu-sCM0eXaw (channel UCznv7Vf9nBdJYvBagFdAHWw, 'Sex, Love, Polyamory, Marriage, and More | Esther Perel', uploaded 2017-06-14, 2:04:11). The SIO body ('There was one group that didn't die, and one group that came back to life.') is confirmed present in this video's auto-captions at ~24:11 ('there was one group that did not die and one group that came back to life' — ASR renders the contraction as 'did not', same spoken line) and was independently confirmed verbatim against the official tim.blog #241 transcript. clip_match_type stays exact_quote_match and transcript_verified stays true — both honest now that the video matches the quote. timestamp_start_seconds 1451 (24:11) is the cue start of the verbatim passage; ASR timestamps are accurate to ~1-2s."
 media_rights_notes: "Official Tim Ferriss YouTube upload of the same episode published as audio at tim.blog. Embed only via youtube-nocookie.com from the official channel. Brief verbatim quote for attribution. Do not download or re-host."
 
 primary_state_tag: engagement-drought
