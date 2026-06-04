@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-mcgonigal-stress-friend-2013",
+  "source_type": "conference talk",
+  "speaker": "Kelly McGonigal",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "How to Make Stress Your Friend | Kelly McGonigal | TED",
+  "episode_or_content_date": "2013-09-04",
+  "source_url": "https://www.youtube.com/watch?v=RcGyVTAoXEU",
+  "video_provider": "youtube",
+  "video_id": "RcGyVTAoXEU",
+  "video_url": "https://www.youtube.com/watch?v=RcGyVTAoXEU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/RcGyVTAoXEU?start=332&end=341",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English captions via yt-dlp (official TED channel, channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at ~5:32–5:41 (lead-in at ~5:13 frames the reappraisal). Non-clinical: everyday challenge/arousal physiology, not an anxiety disorder. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-mcgonigal-pounding-heart-action-2013"
+  ]
+}

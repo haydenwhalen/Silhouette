@@ -1,0 +1,28 @@
+{
+  "source_id": "src-talksatgoogle-eagleman-livewired-2020",
+  "source_type": "author talk",
+  "speaker": "David Eagleman",
+  "show_or_platform": "Talks at Google",
+  "episode_or_content_title": "Livewired: The Inside Story of the Ever-Changing Brain | David Eagleman | Talks at Google",
+  "episode_or_content_date": "2020-09-03",
+  "source_url": "https://www.youtube.com/watch?v=XwtBlh2Om18",
+  "video_provider": "youtube",
+  "video_id": "XwtBlh2Om18",
+  "video_url": "https://www.youtube.com/watch?v=XwtBlh2Om18",
+  "embed_url": "https://www.youtube-nocookie.com/embed/XwtBlh2Om18?start=1483&end=1507",
+  "official_channel": "Talks at Google",
+  "official_channel_url": "https://www.youtube.com/@TalksatGoogle",
+  "channel_id": "UCbmNph6atAoGfqLoCL_duAg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English captions via yt-dlp (official Talks at Google channel, channel_id UCbmNph6atAoGfqLoCL_duAg). Excerpt confirmed verbatim at ~24:43–25:07; conversational ASR disfluencies ('are are', 'when they when we') lightly trimmed while preserving wording. Non-clinical: everyday brain plasticity framed as wonder. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-eagleman-livewired-becoming-2020"
+  ]
+}

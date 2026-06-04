@@ -1,0 +1,28 @@
+{
+  "source_id": "src-huberman-stress-essentials-2025",
+  "source_type": "science education podcast",
+  "speaker": "Andrew Huberman",
+  "show_or_platform": "Huberman Lab",
+  "episode_or_content_title": "Tools for Managing Stress & Anxiety | Huberman Lab Essentials",
+  "episode_or_content_date": "2025-01-16",
+  "source_url": "https://www.youtube.com/watch?v=qUz93CyNIz0",
+  "video_provider": "youtube",
+  "video_id": "qUz93CyNIz0",
+  "video_url": "https://www.youtube.com/watch?v=qUz93CyNIz0",
+  "embed_url": "https://www.youtube-nocookie.com/embed/qUz93CyNIz0?start=1387&end=1396",
+  "official_channel": "Andrew Huberman",
+  "official_channel_url": "https://www.youtube.com/@hubermanlab",
+  "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the episode's English captions via yt-dlp (official Andrew Huberman channel, channel_id UC2D2CMWXMOVWx7giW1n3LIg). Excerpt confirmed verbatim and contiguous at ~23:07–23:16 (the panoramic-vision remedy follows a few seconds later in the episode and is summarized in the body). Non-clinical: everyday perceptual physiology. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-huberman-tunnel-vision-stress-2025"
+  ]
+}

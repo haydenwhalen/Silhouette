@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tedx-barrett-power-of-mood-2018",
+  "source_type": "conference talk",
+  "speaker": "Lisa Feldman Barrett",
+  "show_or_platform": "TEDxCambridge",
+  "episode_or_content_title": "Cultivating Wisdom: The Power Of Mood | Lisa Feldman Barrett | TEDxCambridge",
+  "episode_or_content_date": "2018-05-18",
+  "source_url": "https://www.youtube.com/watch?v=ZYAEh3T5a80",
+  "video_provider": "youtube",
+  "video_id": "ZYAEh3T5a80",
+  "video_url": "https://www.youtube.com/watch?v=ZYAEh3T5a80",
+  "embed_url": "https://www.youtube-nocookie.com/embed/ZYAEh3T5a80?start=788&end=806",
+  "official_channel": "TEDx Talks",
+  "official_channel_url": "https://www.youtube.com/@TEDx",
+  "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English captions via yt-dlp (official TEDx Talks channel, channel_id UCsT0YIqwnpJCM-mx7-gSA4Q). Excerpt confirmed verbatim at ~13:08–13:26. NON-CLINICAL BOUND: keep strictly to this window — the talk contains opioid/violence references (~15:23–16:04) that must NOT be included; this excerpt is the affective-realism mechanism only. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TEDx video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-barrett-affective-realism-2018"
+  ]
+}

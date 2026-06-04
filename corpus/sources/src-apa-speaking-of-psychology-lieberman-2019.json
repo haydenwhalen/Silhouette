@@ -1,0 +1,28 @@
+{
+  "source_id": "src-apa-speaking-of-psychology-lieberman-2019",
+  "source_type": "psychology interview podcast",
+  "speaker": "Daniel Z. Lieberman",
+  "show_or_platform": "Speaking of Psychology (American Psychological Association)",
+  "episode_or_content_title": "Dopamine, with Daniel Z. Lieberman, MD, and Michael E. Long | Speaking of Psychology",
+  "episode_or_content_date": "2019-03-13",
+  "source_url": "https://www.youtube.com/watch?v=lXYpqaxO9oU",
+  "video_provider": "youtube",
+  "video_id": "lXYpqaxO9oU",
+  "video_url": "https://www.youtube.com/watch?v=lXYpqaxO9oU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/lXYpqaxO9oU?start=460&end=481",
+  "official_channel": "American Psychological Association",
+  "official_channel_url": "https://www.youtube.com/@AmericanPsychologicalAssociation",
+  "channel_id": "UC1yk0FVuAQctI6yjRlqc1Eg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the episode's corrected English captions via yt-dlp (official American Psychological Association channel, channel_id UC1yk0FVuAQctI6yjRlqc1Eg). Excerpt confirmed verbatim at ~7:40–8:01; displayed excerpt starts at 'So, for example…' so it stands alone (the lines are Lieberman's). Clip ends by 8:01, before the conversation turns to therapy/relationships. Non-clinical: everyday consumer-anticipation physiology. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-lieberman-dopamine-future-2019"
+  ]
+}

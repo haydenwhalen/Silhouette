@@ -1,0 +1,28 @@
+{
+  "source_id": "src-huberman-habits-essentials-2025",
+  "source_type": "science education podcast",
+  "speaker": "Andrew Huberman",
+  "show_or_platform": "Huberman Lab",
+  "episode_or_content_title": "The Science of Making & Breaking Habits | Huberman Lab Essentials",
+  "episode_or_content_date": "2025-12-04",
+  "source_url": "https://www.youtube.com/watch?v=HXuj7wAt7u8",
+  "video_provider": "youtube",
+  "video_id": "HXuj7wAt7u8",
+  "video_url": "https://www.youtube.com/watch?v=HXuj7wAt7u8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/HXuj7wAt7u8?start=745&end=786",
+  "official_channel": "Andrew Huberman",
+  "official_channel_url": "https://www.youtube.com/@hubermanlab",
+  "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the episode's English captions via yt-dlp (official Andrew Huberman channel, channel_id UC2D2CMWXMOVWx7giW1n3LIg). Excerpt confirmed verbatim at ~12:25–13:06. Non-clinical: behavioral neuroscience (basal ganglia / task bracketing); a 'depressed' reference at ~13:17 is excluded from this window. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-huberman-task-bracketing-2025"
+  ]
+}

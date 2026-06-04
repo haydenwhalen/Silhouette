@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-walker-sleep-superpower-2019",
+  "source_type": "conference talk",
+  "speaker": "Matthew Walker",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Sleep Is Your Superpower | Matt Walker | TED",
+  "episode_or_content_date": "2019-06-03",
+  "source_url": "https://www.youtube.com/watch?v=5MuIMqhT8DM",
+  "video_provider": "youtube",
+  "video_id": "5MuIMqhT8DM",
+  "video_url": "https://www.youtube.com/watch?v=5MuIMqhT8DM",
+  "embed_url": "https://www.youtube-nocookie.com/embed/5MuIMqhT8DM?start=885&end=902",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English captions via yt-dlp (official TED channel, channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at ~14:45–15:02. NON-CLINICAL BOUND: this excerpt is pure behavioral sleep-hygiene (consistent bed/wake times); the talk's dementia/sleep-deprivation-harm passages elsewhere are deliberately excluded. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-walker-regularity-is-king-2019"
+  ]
+}

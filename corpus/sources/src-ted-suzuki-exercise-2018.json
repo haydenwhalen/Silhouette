@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-suzuki-exercise-2018",
+  "source_type": "conference talk",
+  "speaker": "Wendy Suzuki",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "The Brain-Changing Benefits of Exercise | Wendy Suzuki | TED",
+  "episode_or_content_date": "2018-03-21",
+  "source_url": "https://www.youtube.com/watch?v=BHY0FxzoKZE",
+  "video_provider": "youtube",
+  "video_id": "BHY0FxzoKZE",
+  "video_url": "https://www.youtube.com/watch?v=BHY0FxzoKZE",
+  "embed_url": "https://www.youtube-nocookie.com/embed/BHY0FxzoKZE?start=404&end=419",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English captions via yt-dlp (official TED channel, channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at ~6:44–6:59 ('work out' is rendered as two words in ASR). Non-clinical: the immediate mood effect of one workout; 'depression/Alzheimer's/dementia' appear only in the talk's intro (~0:31) and are excluded from this window. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-suzuki-single-workout-mood-2018"
+  ]
+}

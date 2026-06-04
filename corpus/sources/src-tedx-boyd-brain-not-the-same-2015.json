@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tedx-boyd-brain-not-the-same-2015",
+  "source_type": "conference talk",
+  "speaker": "Lara Boyd",
+  "show_or_platform": "TEDxVancouver",
+  "episode_or_content_title": "After watching this, your brain will not be the same | Lara Boyd | TEDxVancouver",
+  "episode_or_content_date": "2015-12-15",
+  "source_url": "https://www.youtube.com/watch?v=LNHBMFCzznE",
+  "video_provider": "youtube",
+  "video_id": "LNHBMFCzznE",
+  "video_url": "https://www.youtube.com/watch?v=LNHBMFCzznE",
+  "embed_url": "https://www.youtube-nocookie.com/embed/LNHBMFCzznE?start=100&end=118",
+  "official_channel": "TEDx Talks",
+  "official_channel_url": "https://www.youtube.com/@TEDx",
+  "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English (en-en) caption track via yt-dlp (official TEDx Talks channel, channel_id UCsT0YIqwnpJCM-mx7-gSA4Q). Excerpt confirmed verbatim at ~1:40–1:58. NON-CLINICAL BOUND: keep strictly to this window — Boyd's broader talk uses stroke-recovery as her research context (clinical) elsewhere; this excerpt is purely about everyday learning. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TEDx video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-boyd-learning-changes-brain-2015"
+  ]
+}

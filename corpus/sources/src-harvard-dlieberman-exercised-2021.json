@@ -1,0 +1,28 @@
+{
+  "source_id": "src-harvard-dlieberman-exercised-2021",
+  "source_type": "university lecture",
+  "speaker": "Daniel E. Lieberman",
+  "show_or_platform": "Harvard Science Book Talks and Research Lectures",
+  "episode_or_content_title": "Dan Lieberman, \"Exercised: Why Something We Never Evolved to Do Is Healthy and Rewarding\"",
+  "episode_or_content_date": "2021-01-08",
+  "source_url": "https://www.youtube.com/watch?v=LbgukiJy6hY",
+  "video_provider": "youtube",
+  "video_id": "LbgukiJy6hY",
+  "video_url": "https://www.youtube.com/watch?v=LbgukiJy6hY",
+  "embed_url": "https://www.youtube-nocookie.com/embed/LbgukiJy6hY?start=1852&end=1871",
+  "official_channel": "Harvard University",
+  "official_channel_url": "https://www.youtube.com/channel/UCg9yl5lrQ9qkt8BdeIDiNtQ",
+  "channel_id": "UCg9yl5lrQ9qkt8BdeIDiNtQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the lecture's English captions via yt-dlp (official Harvard institutional channel, channel_id UCg9yl5lrQ9qkt8BdeIDiNtQ). Excerpt confirmed verbatim at ~30:52–31:11; the conversational ASR contains filler/stutters ('you know', 'to to', 'and and', 'that that') which are lightly trimmed in the displayed excerpt while preserving wording. Non-clinical: evolutionary framing of everyday activity avoidance. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-dlieberman-energy-instinct-2021"
+  ]
+}

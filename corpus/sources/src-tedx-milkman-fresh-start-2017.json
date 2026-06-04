@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tedx-milkman-fresh-start-2017",
+  "source_type": "conference talk",
+  "speaker": "Katy Milkman",
+  "show_or_platform": "TEDxPenn",
+  "episode_or_content_title": "Why we fail and how we stand up afterwards | Katherine Milkman | TEDxPenn",
+  "episode_or_content_date": "2017-08-25",
+  "source_url": "https://www.youtube.com/watch?v=zaf3yQ4OLdw",
+  "video_provider": "youtube",
+  "video_id": "zaf3yQ4OLdw",
+  "video_url": "https://www.youtube.com/watch?v=zaf3yQ4OLdw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/zaf3yQ4OLdw?start=773&end=794",
+  "official_channel": "TEDx Talks",
+  "official_channel_url": "https://www.youtube.com/@TEDx",
+  "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the talk's English captions via yt-dlp (official TEDx Talks channel, channel_id UCsT0YIqwnpJCM-mx7-gSA4Q). Excerpt confirmed verbatim at ~12:53–13:14 (ASR lowercase/no punctuation; punctuation reconstructed). Non-clinical: behavioral-economics field research. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TEDx video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-milkman-fresh-start-effect-2017"
+  ]
+}

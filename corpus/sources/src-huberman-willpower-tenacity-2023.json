@@ -1,0 +1,28 @@
+{
+  "source_id": "src-huberman-willpower-tenacity-2023",
+  "source_type": "science education podcast",
+  "speaker": "Andrew Huberman",
+  "show_or_platform": "Huberman Lab",
+  "episode_or_content_title": "How to Increase Your Willpower & Tenacity | Huberman Lab Podcast",
+  "episode_or_content_date": "2023-10-09",
+  "source_url": "https://www.youtube.com/watch?v=cwakOgHIT0E",
+  "video_provider": "youtube",
+  "video_id": "cwakOgHIT0E",
+  "video_url": "https://www.youtube.com/watch?v=cwakOgHIT0E",
+  "embed_url": "https://www.youtube-nocookie.com/embed/cwakOgHIT0E?start=6332&end=6362",
+  "official_channel": "Andrew Huberman",
+  "official_channel_url": "https://www.youtube.com/@hubermanlab",
+  "channel_id": "UC2D2CMWXMOVWx7giW1n3LIg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the episode's English captions via yt-dlp (official Andrew Huberman channel, channel_id UC2D2CMWXMOVWx7giW1n3LIg). Excerpt confirmed verbatim and contiguous at ~1:45:35–1:46:02. Non-clinical: a behavioral effort practice; eating-disorder/depression asides elsewhere in the long episode are excluded from this window. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-huberman-micro-sucks-2023"
+  ]
+}
