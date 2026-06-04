@@ -34,6 +34,7 @@
     "verify-youtube-channels": "tsx scripts/verify-youtube-channels.ts",
     "find-clip-moments": "tsx scripts/find-clip-moments.ts",
     "find-video-moments": "tsx scripts/find-video-moments.ts",
+    "extract-video-timestamps": "tsx scripts/extract-video-timestamps.ts",
     "build-media-inventory": "tsx scripts/build-media-inventory.ts",
     "test-media-helpers": "tsx scripts/test-media-helpers.ts",
     "test-media-e2e": "tsx scripts/test-media-e2e.ts",

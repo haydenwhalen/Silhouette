@@ -13,8 +13,9 @@ transcript_verified: true
 # ✅ VERIFIED VERBATIM against the official tim.blog transcript for TFS #373
 # (https://tim.blog/2019/06/14/the-tim-ferriss-show-transcripts-jerry-colonna-373/), fetched
 # 2026-05 and cross-confirmed via search of Colonna's signature question. This is the first
-# verbatim, non-reconstructed SIO in the corpus. tim.blog transcripts carry no timestamps, so
-# timestamp fields are intentionally null (see media_verification_notes).
+# verbatim, non-reconstructed SIO in the corpus. tim.blog transcripts carry no timestamps; the
+# per-moment timestamp was recovered separately from the official YouTube upload's ASR caption
+# track (2026-06-03, via yt-dlp) — see media_verification_notes.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
 source_media_type: podcast-video
@@ -25,13 +26,13 @@ channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
 video_id: "cgc0CMRyOws"
 video_url: "https://www.youtube.com/watch?v=cgc0CMRyOws"
 embed_url: "https://www.youtube-nocookie.com/embed/cgc0CMRyOws"
-timestamp_start_seconds: null
-timestamp_end_seconds: null
+timestamp_start_seconds: 1274
+timestamp_end_seconds: 1337
 display_mode: video-primary
 media_available: true
 media_verification_status: verified
 clip_match_type: exact_quote_match
-media_verification_notes: "Backfill 2026-06-03 — promoted from not_applicable to verified. The Tim Ferriss YouTube channel (UCznv7Vf9nBdJYvBagFdAHWw, verified via channels.list?forHandle=@timferriss) published a video upload of this same episode at video_id cgc0CMRyOws (\"Jerry Colonna — The Coach With the Spider Tattoo | The Tim Ferriss Show (Podcast)\", 2019-06-26 — matches TFS #373 publication window). Same episode as the tim.blog transcript referenced in source_url; the YouTube upload is the video distribution of the audio episode. transcript_verified: true is honest because the verbatim text was confirmed against the tim.blog transcript. No per-moment timestamp recorded — tim.blog transcripts carry no timestamps. UI label will be \"Watch the source\" until a timestamp is added by listening."
+media_verification_notes: "Backfill 2026-06-03 — promoted from not_applicable to verified. The Tim Ferriss YouTube channel (UCznv7Vf9nBdJYvBagFdAHWw, verified via channels.list?forHandle=@timferriss) published a video upload of this same episode at video_id cgc0CMRyOws (\"Jerry Colonna — The Coach With the Spider Tattoo | The Tim Ferriss Show (Podcast)\", 2019-06-26 — matches TFS #373 publication window). Same episode as the tim.blog transcript referenced in source_url; the YouTube upload is the video distribution of the audio episode. transcript_verified: true is honest because the verbatim text was confirmed against the tim.blog transcript. No per-moment timestamp recorded — tim.blog transcripts carry no timestamps. TIMESTAMP ADDED 2026-06-03: located the verbatim SIO body in the official YouTube upload's auto-caption (ASR) transcript, pulled via yt-dlp (android-client path; bypasses the poToken wall that blocks plain HTTP caption fetches). The SIO body excerpt — opening 'so I'll unpack the question / the way I usually ask the question' through 'served by the challenges that we're going through' — maps to 21:14–22:17 (1274–1337s). clip_match_type remains exact_quote_match: the YouTube ASR transcript renders the verbatim phrase contiguously and it matches the tim.blog-verified body. ASR timestamps are accurate to ~1–2s; start padded to the cue boundary. UI label is now \"Watch the moment\"."
 media_rights_notes: "Official Tim Ferriss YouTube upload of the same episode published as audio at tim.blog. Embed only via youtube-nocookie.com from the official channel. Brief verbatim quote for attribution. Do not download or re-host."
 
 primary_state_tag: inaction-loop
