@@ -1,0 +1,28 @@
+{
+  "source_id": "src-founders-senra-ek-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Daniel Ek",
+  "show_or_platform": "Founders (David Senra)",
+  "episode_or_content_title": "My Conversation with Daniel Ek: Founder of Spotify",
+  "episode_or_content_date": "2025-09-28",
+  "source_url": "https://www.youtube.com/watch?v=qiXH0y2V3_8",
+  "video_provider": "youtube",
+  "video_id": "qiXH0y2V3_8",
+  "video_url": "https://www.youtube.com/watch?v=qiXH0y2V3_8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/qiXH0y2V3_8?start=689&end=751",
+  "official_channel": "David Senra",
+  "official_channel_url": "https://www.youtube.com/@DavidSenra",
+  "channel_id": "UCy2FPslt0LLPsIV0iukvHpQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official David Senra channel (channel_id UCy2FPslt0LLPsIV0iukvHpQ). Excerpt confirmed verbatim in captions at 11:29–12:31 (yt-dlp). NON-CLINICAL NOTE: the episode is a founder/business conversation; a single 'most depressed I've been' line occurs later (~13:xx) and is DELIBERATELY EXCLUDED from this clip window. tagger_confidence medium (arrival-fallacy fit rather than mastered-day-job). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-ek-content-not-happy-2025"
+  ]
+}

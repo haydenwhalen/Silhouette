@@ -1,0 +1,28 @@
+{
+  "source_id": "src-bigthink-barrett-2023",
+  "source_type": "youtube native",
+  "speaker": "Lisa Feldman Barrett",
+  "show_or_platform": "Big Think",
+  "episode_or_content_title": "Your brain doesn't detect reality. It creates it.",
+  "episode_or_content_date": "2023-07-13",
+  "source_url": "https://www.youtube.com/watch?v=ikvrwOnay3g",
+  "video_provider": "youtube",
+  "video_id": "ikvrwOnay3g",
+  "video_url": "https://www.youtube.com/watch?v=ikvrwOnay3g",
+  "embed_url": "https://www.youtube-nocookie.com/embed/ikvrwOnay3g?start=176&end=196",
+  "official_channel": "Big Think",
+  "official_channel_url": "https://www.youtube.com/@bigthink",
+  "channel_id": "UCvQECJukTDE2i6aCoMnS-Vg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Big Think channel (channel_id UCvQECJukTDE2i6aCoMnS-Vg). Excerpt confirmed verbatim in English captions at ~2:56–3:16 (yt-dlp). The identity-transition application (predictions break when the organizing structure is gone) is framed honestly in the notes as an application of Barrett's stated mechanism, not her literal words. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Big Think video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-barrett-predictive-self-2023"
+  ]
+}

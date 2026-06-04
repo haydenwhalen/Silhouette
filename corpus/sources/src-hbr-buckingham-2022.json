@@ -1,0 +1,28 @@
+{
+  "source_id": "src-hbr-buckingham-2022",
+  "source_type": "youtube native",
+  "speaker": "Marcus Buckingham",
+  "show_or_platform": "Harvard Business Review",
+  "episode_or_content_title": "Marcus Buckingham: Why 'Love' Is the Key to Career Success",
+  "episode_or_content_date": "2022-04-14",
+  "source_url": "https://www.youtube.com/watch?v=rEsuBrdtwCI",
+  "video_provider": "youtube",
+  "video_id": "rEsuBrdtwCI",
+  "video_url": "https://www.youtube.com/watch?v=rEsuBrdtwCI",
+  "embed_url": "https://www.youtube-nocookie.com/embed/rEsuBrdtwCI?start=129&end=138",
+  "official_channel": "Harvard Business Review",
+  "official_channel_url": "https://www.youtube.com/@HarvardBusinessReview",
+  "channel_id": "UCWo4IA01TXzBeGJJKWHOG9g",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Harvard Business Review channel (channel_id UCWo4IA01TXzBeGJJKWHOG9g). Excerpt confirmed verbatim in English captions at 2:09–2:18 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official HBR video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-buckingham-find-love-in-work-2022"
+  ]
+}

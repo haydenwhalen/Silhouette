@@ -1,0 +1,28 @@
+{
+  "source_id": "src-talks-at-google-duke-2018",
+  "source_type": "youtube native",
+  "speaker": "Annie Duke",
+  "show_or_platform": "Talks at Google",
+  "episode_or_content_title": "Thinking in Bets | Annie Duke | Talks at Google",
+  "episode_or_content_date": "2018-06-21",
+  "source_url": "https://www.youtube.com/watch?v=uYNsSeYjkp4",
+  "video_provider": "youtube",
+  "video_id": "uYNsSeYjkp4",
+  "video_url": "https://www.youtube.com/watch?v=uYNsSeYjkp4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/uYNsSeYjkp4?start=1303&end=1311",
+  "official_channel": "Talks at Google",
+  "official_channel_url": "https://www.youtube.com/@TalksAtGoogle",
+  "channel_id": "UCbmNph6atAoGfqLoCL_duAg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Talks at Google channel (channel_id UCbmNph6atAoGfqLoCL_duAg). Excerpt confirmed against inline caption word-timings at 21:43–21:51 (yt-dlp). Embed via youtube-nocookie. tagger_confidence high; recommend a quick human ear-check of the contiguous sentence before production.",
+  "rights_or_usage_notes": "Official Talks at Google video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-duke-future-always-uncertain-2018"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tedx-ibarra-authenticity-2018",
+  "source_type": "ted talk",
+  "speaker": "Herminia Ibarra",
+  "show_or_platform": "TEDxLondonBusinessSchool",
+  "episode_or_content_title": "The Authenticity Paradox",
+  "episode_or_content_date": "2018-06-27",
+  "source_url": "https://www.youtube.com/watch?v=CIjI3TmEzrs",
+  "video_provider": "youtube",
+  "video_id": "CIjI3TmEzrs",
+  "video_url": "https://www.youtube.com/watch?v=CIjI3TmEzrs",
+  "embed_url": "https://www.youtube-nocookie.com/embed/CIjI3TmEzrs?start=538&end=556",
+  "official_channel": "TEDx Talks",
+  "official_channel_url": "https://www.youtube.com/@TEDx",
+  "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TEDx Talks channel (channel_id UCsT0YIqwnpJCM-mx7-gSA4Q). Excerpt confirmed verbatim in English captions at 8:59–9:15 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TEDx talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-ibarra-act-into-clarity-2018"
+  ]
+}

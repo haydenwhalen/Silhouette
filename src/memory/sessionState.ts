@@ -18,6 +18,13 @@ export interface PresentationContext {
   intake_insight_type: string | null;
   intake_voice_register: string | null;
   direction_collapse_variant: string | null;
+  // Tier-1 structural display fields (research report §3). Stashed here so the
+  // agent can surface them to the UI on the same turn (the tool builds the
+  // PresentationObject; the agent assembles the response). Optional — absent on
+  // older records / non-presentation turns; read defensively.
+  confidence_label?: string | null;
+  verification_label?: string | null;
+  credibility_line?: string | null;
 }
 
 interface SessionState {

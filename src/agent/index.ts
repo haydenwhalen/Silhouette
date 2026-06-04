@@ -31,6 +31,7 @@ import { presentInsight as buildPresentation } from "../presentation/presentInsi
 import {
   normalizeMediaMetadata,
   type InsightMedia,
+  type InsightMeta,
 } from "../lib/media";
 import type { MvpState } from "../rag/retrievalConfig";
 
@@ -89,6 +90,33 @@ export interface AgentResponse {
   // OR when the SIO has no usable media. The UI uses this to render an embedded
   // video card; it never has to parse the rendered_markdown for embed info.
   media?: InsightMedia | null;
+  // Tier-1 structural presentation metadata (research report §3) for THIS turn's
+  // SIO — confidence chip + verification label + factual credibility line. Travels
+  // as DATA alongside `media` (not parsed from markdown). Null on non-insight turns.
+  insight_meta?: InsightMeta | null;
+}
+
+/**
+ * Builds InsightMeta from the stashed presentation context (set by the
+ * present_insight tool and by the retry path). Returns null when there is no
+ * presentation this turn or the fields weren't recorded.
+ */
+function metaFromPresentationContext(
+  ctx: { confidence_label?: string | null; verification_label?: string | null; credibility_line?: string | null } | null
+): InsightMeta | null {
+  if (!ctx) return null;
+  if (
+    ctx.confidence_label == null &&
+    ctx.verification_label == null &&
+    ctx.credibility_line == null
+  ) {
+    return null;
+  }
+  return {
+    confidence_label: ctx.confidence_label ?? null,
+    verification_label: ctx.verification_label ?? null,
+    credibility_line: ctx.credibility_line ?? null,
+  };
 }
 
 /**
@@ -380,6 +408,9 @@ async function handleNegativeFeedback(
     intake_insight_type: last.intake_insight_type,
     intake_voice_register: last.intake_voice_register,
     direction_collapse_variant: last.direction_collapse_variant,
+    confidence_label: presentation.presentation.confidence_label,
+    verification_label: presentation.presentation.verification_label,
+    credibility_line: presentation.presentation.credibility_line,
   });
   incrementRetryCount(sessionId);
   appendFeedbackEvent({
@@ -413,6 +444,11 @@ async function handleNegativeFeedback(
     feedbackHandled: "negative-retry",
     last_insight_id: nextId,
     media: mediaForInsightId(nextId),
+    insight_meta: {
+      confidence_label: presentation.presentation.confidence_label,
+      verification_label: presentation.presentation.verification_label,
+      credibility_line: presentation.presentation.credibility_line,
+    },
   };
 }
 
@@ -524,6 +560,7 @@ export async function chat(
         classification,
         last_insight_id,
         media: mediaForInsightId(last_insight_id),
+        insight_meta: metaFromPresentationContext(lastPres),
       };
     }
   );

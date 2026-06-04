@@ -1,0 +1,28 @@
+{
+  "source_id": "src-brainwaves-boss-2021",
+  "source_type": "solo educational",
+  "speaker": "Pauline Boss",
+  "show_or_platform": "The Brainwaves Video Anthology",
+  "episode_or_content_title": "The Myth of Closure: Ambiguous Loss",
+  "episode_or_content_date": "2021-05-04",
+  "source_url": "https://www.youtube.com/watch?v=7HEQZmjMpN4",
+  "video_provider": "youtube",
+  "video_id": "7HEQZmjMpN4",
+  "video_url": "https://www.youtube.com/watch?v=7HEQZmjMpN4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/7HEQZmjMpN4?start=51&end=64",
+  "official_channel": "The Brainwaves Video Anthology",
+  "official_channel_url": "https://www.youtube.com/channel/UCwDSZLwfQvDwmdPbnf30yOw",
+  "channel_id": "UCwDSZLwfQvDwmdPbnf30yOw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: The Brainwaves Video Anthology channel (channel_id UCwDSZLwfQvDwmdPbnf30yOw) — a credible curated educational series; speaker is Pauline Boss (originator of 'ambiguous loss'). Excerpt confirmed verbatim in captions at 0:51–1:04 (yt-dlp). The DEFINITIONAL anchor was deliberately chosen over the later 'complicated grief' passage to keep the excerpt non-clinical and within Silhouette's soft-stuck-state boundary. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Credible educational channel; speaker's own talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-boss-ambiguous-loss-2021"
+  ]
+}

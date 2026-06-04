@@ -1,0 +1,28 @@
+{
+  "source_id": "src-deepdive-pychyl-2022",
+  "source_type": "long-form interview podcast",
+  "speaker": "Tim Pychyl",
+  "show_or_platform": "Deep Dive with Ali Abdaal",
+  "episode_or_content_title": "Dr Tim Pychyl: How to Solve Procrastination",
+  "episode_or_content_date": "2022-08-25",
+  "source_url": "https://www.youtube.com/watch?v=dGIUtVu7w4Y",
+  "video_provider": "youtube",
+  "video_id": "dGIUtVu7w4Y",
+  "video_url": "https://www.youtube.com/watch?v=dGIUtVu7w4Y",
+  "embed_url": "https://www.youtube-nocookie.com/embed/dGIUtVu7w4Y?start=1423&end=1437",
+  "official_channel": "Ali Abdaal",
+  "official_channel_url": "https://www.youtube.com/@LifestyleBusinessAcademy",
+  "channel_id": "UChfo46ZNOV-vtehDc25A1Ug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Ali Abdaal / Deep Dive podcast channel (channel_id UChfo46ZNOV-vtehDc25A1Ug; oembed-confirmed embeddable). Excerpt confirmed verbatim in English auto-captions at 23:43–23:57 (yt-dlp); punctuation normalized, words verbatim. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-pychyl-emotion-focused-coping-2022"
+  ]
+}

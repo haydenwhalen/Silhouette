@@ -6,6 +6,16 @@ import { useEffect, useRef, useState } from "react";
 // Two statement buttons ("This landed" / "Show me something different") —
 // no question, no thumbs-up/down, no rating.
 //
+// TIER-1 PEAK-END NOTE: the styling here is deliberately QUIET (small, low
+// contrast, text-button rather than a prominent pill CTA) so the emotional peak
+// of the card stays the excerpt / source / why-line rather than the rating
+// affordance. This is the *visual-recede* portion of the peak-end change only.
+// The stronger peak-end move — a generated warm close / carry line / "Sit with
+// this" gesture — is a deliberately DEFERRED Tier-2 bet (see
+// ai/guides/insight_presentation_research_options.md). Behavior here (dwell
+// signal, visibility qualification, payloads, feedback marker contract) is
+// UNCHANGED — this is purely styling.
+//
 // Preserves the dwell-tracking behavior from the old FeedbackButtons:
 //   - presentedAt timestamp is set per insight_id
 //   - if the tab becomes hidden between presentation and click, the dwell
@@ -87,31 +97,35 @@ export function FeedbackRow({
 
   const buttonsDisabled = phase !== "ready" || disabled;
 
+  // Quiet, receding styling: small text-buttons (no shouty pill/border), low
+  // contrast at rest, gently surfacing on hover/focus. Tap targets stay ≥ the
+  // accessible minimum via py padding; focus ring preserved for keyboard users.
+  const quietButton =
+    "px-2 py-1.5 -mx-1 rounded-md bg-transparent text-sil-subtle text-xs " +
+    "transition-colors duration-300 " +
+    "hover:text-sil-text " +
+    "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:text-sil-subtle " +
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-sil-accent " +
+    "focus-visible:ring-offset-2 focus-visible:ring-offset-sil-elevated";
+
   return (
-    <div className="pt-5 border-t border-sil-border/50 flex flex-wrap gap-2">
+    <div className="pt-5 border-t border-sil-border/40 flex flex-wrap items-center gap-x-4 gap-y-1">
       <button
         type="button"
         onClick={() => handleClick("yes")}
         disabled={buttonsDisabled}
-        className="px-4 py-2 rounded-full bg-sil-surface text-sil-muted text-sm
-                   border border-sil-border
-                   transition-all duration-300
-                   hover:bg-sil-accent-soft hover:border-sil-border-strong hover:text-sil-text
-                   disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sil-surface
-                   focus:outline-none focus-visible:ring-2 focus-visible:ring-sil-accent focus-visible:ring-offset-2 focus-visible:ring-offset-sil-elevated"
+        className={quietButton}
       >
         This landed
       </button>
+      <span aria-hidden="true" className="text-sil-border text-xs">
+        ·
+      </span>
       <button
         type="button"
         onClick={() => handleClick("show me something different")}
         disabled={buttonsDisabled}
-        className="px-4 py-2 rounded-full bg-sil-surface text-sil-muted text-sm
-                   border border-sil-border
-                   transition-all duration-300
-                   hover:bg-sil-accent-soft hover:border-sil-border-strong hover:text-sil-text
-                   disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sil-surface
-                   focus:outline-none focus-visible:ring-2 focus-visible:ring-sil-accent focus-visible:ring-offset-2 focus-visible:ring-offset-sil-elevated"
+        className={quietButton}
       >
         Show me something different
       </button>

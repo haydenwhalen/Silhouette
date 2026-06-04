@@ -31,6 +31,22 @@ export interface PresentationObject {
   media: PresentationMedia;
   // diagnostic
   source_confidence: "strong" | "acceptable" | "hedged";
+  // ── Tier-1 structural presentation fields (research report §3 shared devices) ──
+  // All three are STRUCTURED-ONLY: they travel as data to the UI and are NOT
+  // written into rendered_markdown (so the brittle markdown parser and any
+  // non-UI consumers/tests are untouched). Each degrades to a calm default when
+  // its source data is missing.
+  //
+  // confidence_label   — derived from source_confidence. Always present.
+  // verification_label — derived from transcript_verified / clip_match_type.
+  //                      Null when those fields are absent/unknown (omit, don't guess).
+  // credibility_line   — a ≤14-word, third-person, FACTUAL clause about who the
+  //                      speaker is / what they navigated. LLM-generated under the
+  //                      same guardrails as why_this_applies; null on any failure,
+  //                      on low confidence, or when it would duplicate the why-line.
+  confidence_label: "Closely matched" | "A nearby match";
+  verification_label: "Verified source" | "Reconstructed — paraphrase" | null;
+  credibility_line: string | null;
   presentation_notes: string[];
   rendered_markdown: string;
 }
@@ -81,6 +97,12 @@ const llmSchema = z.object({
     .describe(
       "One sentence per Component 7 §7. Subject = the speaker or the claim. Reference a specific aspect of the speaker's story or the insight's claim. Do not name the stuck state. Do not begin with 'You' or 'Based on'. Max 35 words."
     ),
+  credibility_line: z
+    .string()
+    .nullable()
+    .describe(
+      "A ≤14-word, third-person, FACTUAL clause about who the speaker is or what they navigated — a credential, not a sentiment. Drawn ONLY from the provided facts (key claim, summary, match notes). Lowercase start, no trailing period, no quotes. Example: 'the actor who walked away from $14.5M to get honest about his work'. STRICT: no 'you'/'your'/'I'/'we', no advice, no motivation, no feelings, no therapy language, no naming any stuck state. Null if you cannot write a purely factual clause from the facts."
+    ),
 });
 
 let llm: ChatOpenAI | null = null;
@@ -100,6 +122,97 @@ function attributionComplete(m: Record<string, unknown>): string | null {
   if (!m.show_or_platform) return "missing show_or_platform";
   if (!m.episode_or_content_title) return "missing episode_or_content_title";
   return null;
+}
+
+// Common ≥5-char words that should not count as a "shared distinctive fact"
+// when de-duplicating the credibility line against the why-sentence.
+const STOPWORDS = new Set([
+  "about", "after", "again", "their", "there", "these", "those", "which",
+  "would", "could", "should", "where", "while", "being", "doesn", "isn",
+  "something", "someone", "navigated", "speaker", "because", "before",
+]);
+
+// ── Tier-1 derived labels (no LLM) ──────────────────────────────────────
+// Source-Confidence chip, per research report §3. Derived deterministically;
+// rendered calm/peripheral by the UI (never a warning banner).
+
+function confidenceLabelFor(
+  c: PresentationObject["source_confidence"]
+): PresentationObject["confidence_label"] {
+  return c === "strong" ? "Closely matched" : "A nearby match";
+}
+
+/**
+ * Derives the verification label from the SIO's own honesty fields. Defensive:
+ * returns null (omit the label) when neither field is present, rather than
+ * guessing. transcript_verified may be a real boolean; clip_match_type a string.
+ */
+function deriveVerificationLabel(
+  m: Record<string, unknown>
+): PresentationObject["verification_label"] {
+  const tv = m.transcript_verified;
+  const clip = typeof m.clip_match_type === "string" ? m.clip_match_type : null;
+  if (tv === true) return "Verified source";
+  if (clip === "exact_quote_match") return "Verified source";
+  if (clip === "close_paraphrase" || clip === "talking_point") {
+    return "Reconstructed — paraphrase";
+  }
+  if (tv === false) return "Reconstructed — paraphrase";
+  return null; // fields absent/unknown → omit, don't guess
+}
+
+// Second-person / first-person guard for the credibility line. The line must be
+// a third-person factual clause about the speaker — never address the user, never
+// speak as the system.
+const CREDIBILITY_PERSON_RE = /\b(you|your|you're|i|i'm|we|us|our|let's)\b/i;
+
+/**
+ * Validates a candidate credibility line against the same discipline as the
+ * why-sentence: no banned fragments, no first/second person, ≤14 words, and a
+ * concrete hook (at least one specificity token). Returns the cleaned line or
+ * null to drop it. Never throws.
+ */
+function cleanCredibilityLine(
+  raw: string | null | undefined,
+  specificityTokens: string[],
+  notes: string[]
+): string | null {
+  if (!raw) return null;
+  let line = raw.trim().replace(/^["'“”]+|["'“”.]+$/g, "").trim();
+  if (!line) return null;
+  const banned = detectGuardrailViolations(line);
+  if (banned.length > 0) {
+    notes.push(`credibility_line dropped (banned: ${banned.join(", ")})`);
+    return null;
+  }
+  if (CREDIBILITY_PERSON_RE.test(line)) {
+    notes.push("credibility_line dropped (first/second person)");
+    return null;
+  }
+  if (line.split(/\s+/).length > 14) {
+    notes.push("credibility_line dropped (>14 words)");
+    return null;
+  }
+  if (!whyContainsSpecificDetail(line, specificityTokens)) {
+    notes.push("credibility_line dropped (no concrete hook)");
+    return null;
+  }
+  return line;
+}
+
+/**
+ * True when the why-sentence already contains the credibility line's distinctive
+ * fact (a shared number or a shared ≥5-char content word), so we don't show the
+ * same fact twice. Stopword-tolerant and case-insensitive.
+ */
+function whyDuplicatesCredibility(why: string, credibility: string): boolean {
+  const w = why.toLowerCase();
+  const credWords = credibility.toLowerCase().match(/[a-z0-9$.]+/g) ?? [];
+  for (const tok of credWords) {
+    if (/\d/.test(tok) && w.includes(tok)) return true; // shared number/$amount
+    if (tok.length >= 5 && !STOPWORDS.has(tok) && w.includes(tok)) return true;
+  }
+  return false;
 }
 
 function pickDisplayMode(
@@ -359,7 +472,12 @@ async function generateLlmParts(
   classification: StateClassification,
   userQuery: string,
   includeBridge: boolean
-): Promise<{ bridge_sentence: string | null; why_this_applies: string; notes: string[] }> {
+): Promise<{
+  bridge_sentence: string | null;
+  why_this_applies: string;
+  credibility_line: string | null;
+  notes: string[];
+}> {
   const m = doc.metadata;
   const insightType = String(m.insight_type ?? "");
   const voiceRegister = String(m.voice_register ?? "");
@@ -434,6 +552,23 @@ Hard rules:
 - reframe: name the specific new frame the speaker offers (e.g., "argues clarity comes from engagement, not introspection", not "a new perspective").
 - permission: name what specifically the speaker named (e.g., "what languishing actually is", not "this is okay").
 
+# Credibility line
+
+Write a ${
+    classification.state_confidence === "moderate"
+      ? "softened "
+      : ""
+  }≤14-word, third-person FACTUAL clause identifying ${speaker} — a credential or what they navigated, drawn ONLY from the facts above. It humanizes the attribution; it is NOT a second sentence of insight.
+- GOOD: "the actor who walked away from $14.5M to get honest about his work"
+- GOOD: "the Stanford neuroscientist who maps the dopamine system behind motivation"
+- BAD (sentiment/advice): "someone who can help you find your way" / "a voice you need right now"
+- Lowercase start, no trailing period, no quotes. No "you"/"your"/"I"/"we". No feelings, no advice, no stuck-state names.${
+    classification.state_confidence === "moderate"
+      ? ' Because the match is approximate, prefer hedged phrasing like "navigated something close to this".'
+      : ""
+  }
+- Set credibility_line to null if you cannot write a purely factual clause.
+
 Output the JSON schema.`;
 
   const structured = getLlm().withStructuredOutput(llmSchema, {
@@ -501,9 +636,17 @@ Output the JSON schema.`;
     notes.push("why_this_applies exceeded 35-word soft cap");
   }
 
+  // ---- credibility line: clean + drop on any guardrail failure ----
+  // Suppress entirely on low confidence (too uncertain to assert a credential).
+  const credibility_line =
+    classification.state_confidence === "low"
+      ? null
+      : cleanCredibilityLine(result.credibility_line, specificityTokens, notes);
+
   return {
     bridge_sentence: bridge,
     why_this_applies: why,
+    credibility_line,
     notes,
   };
 }
@@ -587,6 +730,15 @@ export async function presentInsight(
       ? "acceptable"
       : "hedged";
 
+  // Suppress the credibility line if the why-sentence already carries the same
+  // fact (avoid stacking two interpretive lines). Heuristic: a shared distinctive
+  // token (≥5 chars or a number) between the two lines.
+  let credibilityLine = llmParts.credibility_line;
+  if (credibilityLine && whyDuplicatesCredibility(llmParts.why_this_applies, credibilityLine)) {
+    llmParts.notes.push("credibility_line suppressed (duplicates why_this_applies)");
+    credibilityLine = null;
+  }
+
   const obj: Omit<PresentationObject, "rendered_markdown"> = {
     insight_id: insightId,
     speaker: String(m.speaker ?? ""),
@@ -598,6 +750,9 @@ export async function presentInsight(
     feedback_prompt: "Did this land?",
     media,
     source_confidence: sourceConfidence,
+    confidence_label: confidenceLabelFor(sourceConfidence),
+    verification_label: deriveVerificationLabel(m),
+    credibility_line: credibilityLine,
     presentation_notes: llmParts.notes,
   };
 

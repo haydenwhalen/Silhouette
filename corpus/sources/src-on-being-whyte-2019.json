@@ -1,0 +1,28 @@
+{
+  "source_id": "src-on-being-whyte-2019",
+  "source_type": "long-form interview podcast",
+  "speaker": "David Whyte",
+  "show_or_platform": "On Being with Krista Tippett",
+  "episode_or_content_title": "David Whyte — The Conversational Nature of Reality",
+  "episode_or_content_date": "2019-09-23",
+  "source_url": "https://www.youtube.com/watch?v=M52I4Hv36hI",
+  "video_provider": "youtube",
+  "video_id": "M52I4Hv36hI",
+  "video_url": "https://www.youtube.com/watch?v=M52I4Hv36hI",
+  "embed_url": "https://www.youtube-nocookie.com/embed/M52I4Hv36hI?start=2253&end=2271",
+  "official_channel": "The On Being Project",
+  "official_channel_url": "https://www.youtube.com/@onbeing",
+  "channel_id": "UCDZcnmxyaiunvPdaBwL264A",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official On Being Project channel (channel_id UCDZcnmxyaiunvPdaBwL264A). Excerpt (from Whyte's poem 'Sweet Darkness') confirmed in captions at 37:35–37:50 (yt-dlp); auto-caption drops the published word 'in' from 'made to be free in' — recommend a human ear-check before production. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Poem excerpt under fair-use length (1–3 lines), attributed to David Whyte / Many Rivers Press and On Being. Embed/link only; do not reproduce the full poem.",
+  "sios": [
+    "sio-whyte-give-up-other-worlds-2019"
+  ]
+}

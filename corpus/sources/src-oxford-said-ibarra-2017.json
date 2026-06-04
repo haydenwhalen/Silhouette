@@ -1,0 +1,28 @@
+{
+  "source_id": "src-oxford-said-ibarra-2017",
+  "source_type": "solo educational",
+  "speaker": "Herminia Ibarra",
+  "show_or_platform": "Saïd Business School, University of Oxford",
+  "episode_or_content_title": "Identity and Transition in Professional Careers",
+  "episode_or_content_date": "2017-10-26",
+  "source_url": "https://www.youtube.com/watch?v=hiyWOO3pbn0",
+  "video_provider": "youtube",
+  "video_id": "hiyWOO3pbn0",
+  "video_url": "https://www.youtube.com/watch?v=hiyWOO3pbn0",
+  "embed_url": "https://www.youtube-nocookie.com/embed/hiyWOO3pbn0?start=3173&end=3190",
+  "official_channel": "Saïd Business School, University of Oxford",
+  "official_channel_url": "https://www.youtube.com/channel/UCHIqMEje_NFJ2u24CVaNQvg",
+  "channel_id": "UCHIqMEje_NFJ2u24CVaNQvg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Saïd Business School, University of Oxford channel (channel_id UCHIqMEje_NFJ2u24CVaNQvg). Excerpt confirmed verbatim in English captions at 52:53–53:10 (yt-dlp); the naming claim ('liminality, the threshold between old and new') is verbatim. Excerpt scoped to the naming, before any 'what to do' guidance. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Oxford lecture. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-ibarra-liminality-2017"
+  ]
+}

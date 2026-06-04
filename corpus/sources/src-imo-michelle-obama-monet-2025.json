@@ -1,0 +1,28 @@
+{
+  "source_id": "src-imo-michelle-obama-monet-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Victoria Monét",
+  "show_or_platform": "IMO with Michelle Obama and Craig Robinson",
+  "episode_or_content_title": "Fight For Your Dream Job with Victoria Monét",
+  "episode_or_content_date": "2025-07-23",
+  "source_url": "https://www.youtube.com/watch?v=8hFNgByUZ2w",
+  "video_provider": "youtube",
+  "video_id": "8hFNgByUZ2w",
+  "video_url": "https://www.youtube.com/watch?v=8hFNgByUZ2w",
+  "embed_url": "https://www.youtube-nocookie.com/embed/8hFNgByUZ2w?start=2618&end=2628",
+  "official_channel": "Michelle Obama",
+  "official_channel_url": "https://www.youtube.com/@michelleobama",
+  "channel_id": "UC64L9OK6WkM0STVxysAWBuA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Michelle Obama channel (channel_id UC64L9OK6WkM0STVxysAWBuA). Excerpt confirmed verbatim in captions at 43:38–43:48 (yt-dlp), spoken by guest Victoria Monét in reply to a listener whose dream job had gone flat. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official IMO/Michelle Obama video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-monet-two-things-can-be-true-2025"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-juilliard-commencement-didonato-2014",
+  "source_type": "youtube native",
+  "speaker": "Joyce DiDonato",
+  "show_or_platform": "The Juilliard School Commencement",
+  "episode_or_content_title": "Juilliard Commencement 2014 — Joyce DiDonato",
+  "episode_or_content_date": "2014-05-23",
+  "source_url": "https://www.youtube.com/watch?v=YfDpJkT4kts",
+  "video_provider": "youtube",
+  "video_id": "YfDpJkT4kts",
+  "video_url": "https://www.youtube.com/watch?v=YfDpJkT4kts",
+  "embed_url": "https://www.youtube-nocookie.com/embed/YfDpJkT4kts?start=281&end=316",
+  "official_channel": "The Juilliard School",
+  "official_channel_url": "https://www.youtube.com/@JuilliardSchool",
+  "channel_id": "UCFq_5DjXw0Gtsgx2XeRC-PA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Juilliard School channel (channel_id UCFq_5DjXw0Gtsgx2XeRC-PA). Excerpt confirmed verbatim in English captions at 4:41–5:16 (yt-dlp). Context-aware window opens on the 'you will never make it' setup so the reframe lands. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Juilliard video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-didonato-no-such-thing-as-it-2014"
+  ]
+}

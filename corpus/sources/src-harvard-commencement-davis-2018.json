@@ -1,0 +1,28 @@
+{
+  "source_id": "src-harvard-commencement-davis-2018",
+  "source_type": "youtube native",
+  "speaker": "Pete Davis",
+  "show_or_platform": "Harvard University Commencement",
+  "episode_or_content_title": "Graduate Speaker Pete Davis | Harvard Commencement 2018",
+  "episode_or_content_date": "2018-05-24",
+  "source_url": "https://www.youtube.com/watch?v=qHMHK4i_oLg",
+  "video_provider": "youtube",
+  "video_id": "qHMHK4i_oLg",
+  "video_url": "https://www.youtube.com/watch?v=qHMHK4i_oLg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/qHMHK4i_oLg?start=282&end=314",
+  "official_channel": "Harvard University",
+  "official_channel_url": "https://www.youtube.com/@harvard",
+  "channel_id": "UCLv7Gzc3VTO6ggFlXY0sOyw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Harvard University channel (channel_id UCLv7Gzc3VTO6ggFlXY0sOyw). Excerpt confirmed verbatim against Harvard's manually-authored English subtitle track at 4:42–5:14 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Harvard video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-davis-close-doors-2018"
+  ]
+}

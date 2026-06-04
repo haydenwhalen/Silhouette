@@ -1,0 +1,28 @@
+{
+  "source_id": "src-brown-baccalaureate-felix-2025",
+  "source_type": "youtube native",
+  "speaker": "Allyson Felix",
+  "show_or_platform": "Brown University Baccalaureate",
+  "episode_or_content_title": "2025 Baccalaureate Address: Allyson Felix",
+  "episode_or_content_date": "2025-05-24",
+  "source_url": "https://www.youtube.com/watch?v=rCho4rfip8I",
+  "video_provider": "youtube",
+  "video_id": "rCho4rfip8I",
+  "video_url": "https://www.youtube.com/watch?v=rCho4rfip8I",
+  "embed_url": "https://www.youtube-nocookie.com/embed/rCho4rfip8I?start=800&end=830",
+  "official_channel": "Brown University",
+  "official_channel_url": "https://www.youtube.com/@BrownUniversity",
+  "channel_id": "UCjnWysJh9-r9wo82zlbMT3A",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Brown University channel (channel_id UCjnWysJh9-r9wo82zlbMT3A). Excerpt confirmed verbatim against English captions at 13:20–13:50 (yt-dlp). Context-aware window opens on 'Your race may look nothing like mine.' Note: the broader speech is faith-framed; this excerpt is the secular, broadly resonant passage. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Brown University video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-felix-your-own-race-2025"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tedx-thomas-liminal-2019",
+  "source_type": "ted talk",
+  "speaker": "Sarah Thomas",
+  "show_or_platform": "TEDxLincoln",
+  "episode_or_content_title": "Liminal Spaces",
+  "episode_or_content_date": "2019-08-21",
+  "source_url": "https://www.youtube.com/watch?v=HWlKLhJW_P8",
+  "video_provider": "youtube",
+  "video_id": "HWlKLhJW_P8",
+  "video_url": "https://www.youtube.com/watch?v=HWlKLhJW_P8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/HWlKLhJW_P8?start=42&end=57",
+  "official_channel": "TEDx Talks",
+  "official_channel_url": "https://www.youtube.com/@TEDx",
+  "channel_id": "UCsT0YIqwnpJCM-mx7-gSA4Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TEDx Talks channel (channel_id UCsT0YIqwnpJCM-mx7-gSA4Q). Excerpt confirmed verbatim in captions at 0:42–0:57 (yt-dlp). Conceptual (Persephone-myth) opening, scoped before the talk's later personal medical narrative. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TEDx talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-thomas-liminal-space-2019"
+  ]
+}

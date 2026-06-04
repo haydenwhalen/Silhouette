@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tulane-commencement-rudolph-2015",
+  "source_type": "youtube native",
+  "speaker": "Maya Rudolph",
+  "show_or_platform": "Tulane University Commencement",
+  "episode_or_content_title": "Maya Rudolph Tulane Commencement Address (2015)",
+  "episode_or_content_date": "2015-05-16",
+  "source_url": "https://www.youtube.com/watch?v=GPzL42x0LAg",
+  "video_provider": "youtube",
+  "video_id": "GPzL42x0LAg",
+  "video_url": "https://www.youtube.com/watch?v=GPzL42x0LAg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/GPzL42x0LAg?start=540&end=562",
+  "official_channel": "Tulane University",
+  "official_channel_url": "https://www.youtube.com/@TulaneUniversity",
+  "channel_id": "UCTgvxf0hQ3WgxAi3mAWH64A",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Tulane University channel (channel_id UCTgvxf0hQ3WgxAi3mAWH64A). Excerpt confirmed verbatim in English captions at 9:00–9:22 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Tulane video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-rudolph-i-was-lost-2015"
+  ]
+}

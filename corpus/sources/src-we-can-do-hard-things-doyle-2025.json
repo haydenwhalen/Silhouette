@@ -1,0 +1,28 @@
+{
+  "source_id": "src-we-can-do-hard-things-doyle-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Glennon Doyle",
+  "show_or_platform": "We Can Do Hard Things",
+  "episode_or_content_title": "Jon Batiste + Suleika Jaouad: What Is Enough?",
+  "episode_or_content_date": "2025-12-04",
+  "source_url": "https://www.youtube.com/watch?v=VirG2-Yks9Y",
+  "video_provider": "youtube",
+  "video_id": "VirG2-Yks9Y",
+  "video_url": "https://www.youtube.com/watch?v=VirG2-Yks9Y",
+  "embed_url": "https://www.youtube-nocookie.com/embed/VirG2-Yks9Y?start=2409&end=2432",
+  "official_channel": "We Can Do Hard Things",
+  "official_channel_url": "https://www.youtube.com/@wecandohardthingspod",
+  "channel_id": "UCAixXCcovNKL2wcc-CEt66Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official We Can Do Hard Things channel (channel_id UCAixXCcovNKL2wcc-CEt66Q). Excerpt confirmed verbatim in English captions at 40:09–40:32 (yt-dlp); a duplicated caption-roll artifact was trimmed, wording otherwise exact. Speaker is unambiguously Glennon (she addresses partner Abby in first person). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast channel. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-doyle-am-i-being-perceived-2025"
+  ]
+}

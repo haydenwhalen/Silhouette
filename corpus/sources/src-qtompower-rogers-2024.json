@@ -1,0 +1,28 @@
+{
+  "source_id": "src-qtompower-rogers-2024",
+  "source_type": "long-form interview podcast",
+  "speaker": "Maggie Rogers",
+  "show_or_platform": "Q with Tom Power (CBC)",
+  "episode_or_content_title": "Maggie Rogers on Don't Forget Me, songwriting and Divinity School",
+  "episode_or_content_date": "2024-11-19",
+  "source_url": "https://www.youtube.com/watch?v=T7-ORU76Aj0",
+  "video_provider": "youtube",
+  "video_id": "T7-ORU76Aj0",
+  "video_url": "https://www.youtube.com/watch?v=T7-ORU76Aj0",
+  "embed_url": "https://www.youtube-nocookie.com/embed/T7-ORU76Aj0?start=1257&end=1273",
+  "official_channel": "Q with Tom Power",
+  "official_channel_url": "https://www.youtube.com/@qwithtompower",
+  "channel_id": "UC1nw_szfrEsDWcwD32wHE_w",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official CBC 'Q with Tom Power' channel (channel_id UC1nw_szfrEsDWcwD32wHE_w). Continuous excerpt confirmed verbatim in English auto-captions at 20:57–21:13 (yt-dlp). BOUNDARY NOTE: sits at the direction-collapse / engagement-drought boundary (loss of pull toward a beloved pursuit) — tagged dc primary with engagement-drought secondary. Re-confirm by ear before approving. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official broadcaster video. Brief verbatim quote for attribution; embed/link only. Sits at the dc/engagement-drought boundary; re-confirm verbatim by ear and review state-fit before approving.",
+  "sios": [
+    "sio-maggierogers-structure-not-the-thing-2024"
+  ]
+}

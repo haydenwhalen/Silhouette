@@ -1,0 +1,28 @@
+{
+  "source_id": "src-stanford-commencement-issa-rae-2021",
+  "source_type": "youtube native",
+  "speaker": "Issa Rae",
+  "show_or_platform": "Stanford University Commencement",
+  "episode_or_content_title": "2021 Stanford Commencement Address by Issa Rae",
+  "episode_or_content_date": "2021-06-13",
+  "source_url": "https://www.youtube.com/watch?v=fdn-0Leczx8",
+  "video_provider": "youtube",
+  "video_id": "fdn-0Leczx8",
+  "video_url": "https://www.youtube.com/watch?v=fdn-0Leczx8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/fdn-0Leczx8?start=385&end=418",
+  "official_channel": "Stanford",
+  "official_channel_url": "https://www.youtube.com/@stanford",
+  "channel_id": "UC-EnprmCZ3OXyAoG7vjVNCA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Stanford University channel (channel_id UC-EnprmCZ3OXyAoG7vjVNCA). Excerpt confirmed verbatim in English captions at 6:25–6:58 (yt-dlp). The 'commitment created momentum' payoff is carried by the speech arc (Insecure); the cited block carries the commit-among-options moment and the cost. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Stanford video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-issa-rae-too-scared-to-commit-2021"
+  ]
+}

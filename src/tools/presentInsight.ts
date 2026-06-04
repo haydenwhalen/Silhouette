@@ -63,6 +63,10 @@ export const presentInsightTool = tool(
         intake_insight_type: classification.inferred_resonance_insight_type,
         intake_voice_register: classification.inferred_resonance_voice_register,
         direction_collapse_variant: classification.direction_collapse_variant,
+        // Tier-1 structural display fields → surfaced to the UI by the agent.
+        confidence_label: result.presentation.confidence_label,
+        verification_label: result.presentation.verification_label,
+        credibility_line: result.presentation.credibility_line,
       });
     }
 

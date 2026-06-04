@@ -1,0 +1,28 @@
+{
+  "source_id": "src-richroll-burkeman-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Oliver Burkeman",
+  "show_or_platform": "The Rich Roll Podcast",
+  "episode_or_content_title": "Oliver Burkeman on Productivity, Finitude & Imperfection",
+  "episode_or_content_date": "2025-11-24",
+  "source_url": "https://www.youtube.com/watch?v=UFbVuc4eIvE",
+  "video_provider": "youtube",
+  "video_id": "UFbVuc4eIvE",
+  "video_url": "https://www.youtube.com/watch?v=UFbVuc4eIvE",
+  "embed_url": "https://www.youtube-nocookie.com/embed/UFbVuc4eIvE?start=4112&end=4135",
+  "official_channel": "Rich Roll",
+  "official_channel_url": "https://www.youtube.com/@richroll",
+  "channel_id": "UCpjlh0e319ksmoOD7bQFSiw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Rich Roll channel (channel_id UCpjlh0e319ksmoOD7bQFSiw; matches trusted_youtube_channels.json). Excerpt confirmed verbatim in English auto-captions at 1:08:32–1:08:55 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-burkeman-micro-discomfort-2025"
+  ]
+}

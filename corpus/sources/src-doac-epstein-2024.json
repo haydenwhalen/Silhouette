@@ -1,0 +1,28 @@
+{
+  "source_id": "src-doac-epstein-2024",
+  "source_type": "long-form interview podcast",
+  "speaker": "David Epstein",
+  "show_or_platform": "The Diary Of A CEO",
+  "episode_or_content_title": "David Epstein: 10,000 Hours Is A Lie!",
+  "episode_or_content_date": "2024-09-02",
+  "source_url": "https://www.youtube.com/watch?v=MsERVcx0Qg8",
+  "video_provider": "youtube",
+  "video_id": "MsERVcx0Qg8",
+  "video_url": "https://www.youtube.com/watch?v=MsERVcx0Qg8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/MsERVcx0Qg8?start=435&end=464",
+  "official_channel": "The Diary Of A CEO",
+  "official_channel_url": "https://www.youtube.com/@TheDiaryOfACEO",
+  "channel_id": "UCGq-a57w-aPwyi3pW7XLiHw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Diary Of A CEO channel (channel_id UCGq-a57w-aPwyi3pW7XLiHw). Excerpt confirmed verbatim in English auto-captions at 7:15–7:44 (yt-dlp); caption-roll duplications trimmed, wording exact. Grounded in the Harvard 'Dark Horse Project' / match-quality research. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-epstein-zigzag-match-quality-2024"
+  ]
+}

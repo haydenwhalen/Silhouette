@@ -5,7 +5,7 @@ import { UserRecap } from "./UserRecap";
 import { FeedbackRow } from "./FeedbackRow";
 import { InsightMediaCard } from "../InsightMediaCard";
 import { FEEDBACK_MARKER_TEXT } from "@/presentation/feedbackMarker";
-import type { InsightMedia } from "@/lib/media";
+import type { InsightMedia, InsightMeta } from "@/lib/media";
 
 // ─── Parser ─────────────────────────────────────────────────────────────
 //
@@ -118,6 +118,10 @@ function formatAttribution(attr: string): string {
 interface InsightCardProps {
   reply: string;
   media: InsightMedia | null;
+  // Tier-1 structured presentation metadata (confidence chip, verification
+  // label, factual credibility line). Travels as data — NOT parsed from the
+  // markdown reply. Null/absent → the card renders exactly as before.
+  meta?: InsightMeta | null;
   insightId: string;
   sessionId: string;
   userInput: string;
@@ -125,9 +129,32 @@ interface InsightCardProps {
   disabled?: boolean;
 }
 
+// The honest verb for a NO-EMBED source affordance, derived from structured
+// media (research report §3 "Source-level ladder"). Embedded video/TED keep
+// their own labels inside InsightMediaCard — this is only for the cases that
+// previously rendered as a thin link (text/book/article, audio-only).
+function noEmbedSourceLabel(media: InsightMedia | null, fallback: string): string {
+  if (!media) return fallback || "View the source";
+  if (media.display_mode === "text-only") {
+    return "Read the source";
+  }
+  if (media.display_mode === "audio-primary") {
+    return media.timestamp_label
+      ? `Hear it at ${media.timestamp_label}`
+      : "Listen to the source";
+  }
+  // A declared video that lacks a verified embed — honest "watch" only if there's
+  // genuinely a video target; otherwise fall back to the parsed label.
+  if (media.display_mode === "video-primary" && media.fallback_label === "Watch") {
+    return "Watch the source";
+  }
+  return fallback || "View the source";
+}
+
 export function InsightCard({
   reply,
   media,
+  meta,
   insightId,
   sessionId,
   userInput,
@@ -136,6 +163,25 @@ export function InsightCard({
 }: InsightCardProps) {
   const parsed = parseInsightReply(reply);
   const hasMediaCard = !!(media && media.has_verified_embed);
+
+  // Text-only / book / article sources: the PAGE is the artifact, so the excerpt
+  // is foregrounded (larger, more breathing room) and the source affordance gets
+  // an intentional, equal-weight slot — never "a card missing its video".
+  const isTextOnly = media?.display_mode === "text-only";
+
+  // No-embed source affordance: render an elevated, equal-weight slot (not a thin
+  // link) when there's a source to point at but no verified embed.
+  const noEmbedSourceUrl =
+    !hasMediaCard ? (media?.fallback_url ?? parsed.sourceUrl ?? "") : "";
+  const noEmbedLabel = noEmbedSourceLabel(media, parsed.sourceLabel);
+
+  // Confidence chip text (calm/peripheral): "Closely matched · Verified source".
+  // Verification label is omitted when unknown (never guessed).
+  const chipParts = [meta?.confidence_label, meta?.verification_label].filter(
+    Boolean
+  ) as string[];
+  const confidenceChip = chipParts.join("  ·  ");
+  const credibilityLine = meta?.credibility_line ?? null;
 
   return (
     <div className="flex flex-col gap-8 w-full animate-sil-fade-in">
@@ -187,7 +233,9 @@ export function InsightCard({
           {/* Excerpt — the centerpiece. Serif, generous, with an elegant
            * open-quote glyph positioned to read as a real serif quote mark
            * rather than a decoration. */}
-          <blockquote className="relative pl-6 md:pl-7">
+          <blockquote
+            className={`relative pl-6 md:pl-7 ${isTextOnly ? "py-1" : ""}`}
+          >
             <span
               aria-hidden="true"
               className="absolute -left-1 -top-4 md:-left-2 md:-top-5 text-7xl md:text-8xl
@@ -195,9 +243,14 @@ export function InsightCard({
             >
               &ldquo;
             </span>
+            {/* Text-only / book / article: the page is the artifact, so the
+             * excerpt is foregrounded one step larger with more breathing room. */}
             <p
-              className="font-serif text-sil-text text-lg md:text-xl leading-relaxed
-                         animate-sil-rise-in-slow"
+              className={`font-serif text-sil-text animate-sil-rise-in-slow ${
+                isTextOnly
+                  ? "text-xl md:text-2xl leading-loose"
+                  : "text-lg md:text-xl leading-relaxed"
+              }`}
             >
               {parsed.excerpt}
             </p>
@@ -206,11 +259,29 @@ export function InsightCard({
           {/* Attribution — proof of humanness. Tracked, muted, with a small
            * accent hairline above to give it the "this is a real person"
            * weight rather than reading as metadata. */}
-          <div className="relative flex flex-col gap-2">
+          <div className="relative flex flex-col gap-1.5">
             <div className="h-px w-8 bg-sil-accent/40" aria-hidden="true" />
             <p className="text-sil-muted text-xs tracking-[0.08em] uppercase">
               {formatAttribution(parsed.attribution)}
             </p>
+
+            {/* Factual credibility line — a humanizing, third-person fact about
+             * the speaker. Connected to attribution; peripheral; NOT a second
+             * insight sentence. Renders only when present (drops cleanly). */}
+            {credibilityLine && (
+              <p className="text-sil-subtle text-xs leading-snug max-w-prose">
+                {credibilityLine}
+              </p>
+            )}
+
+            {/* Source-Confidence chip — one glanceable, low-contrast line.
+             * Calm and trustworthy, never a warning banner; must not compete
+             * with the excerpt. Verification label omitted when unknown. */}
+            {confidenceChip && (
+              <p className="text-sil-subtle/80 text-[11px] tracking-wide pt-0.5">
+                {confidenceChip}
+              </p>
+            )}
           </div>
 
           {/* Media card — only when there's a verified embed. */}
@@ -218,6 +289,44 @@ export function InsightCard({
             <div className="pt-2">
               <InsightMediaCard media={media} />
             </div>
+          )}
+
+          {/* No-embed source affordance — an INTENTIONAL, equal-weight slot
+           * (not a thin link) so text-only / audio-only sources read as a
+           * complete result. "Completeness comes from the human, not the player."
+           * Honest verb from the source-level ladder. */}
+          {!hasMediaCard && noEmbedSourceUrl && (
+            <a
+              href={noEmbedSourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group pt-2 flex items-center gap-3 rounded-lg border border-sil-border
+                         bg-sil-surface/60 px-4 py-3 transition-colors
+                         hover:border-sil-border-strong hover:bg-sil-surface
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-sil-accent
+                         focus-visible:ring-offset-2 focus-visible:ring-offset-sil-elevated"
+            >
+              <span
+                aria-hidden="true"
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full
+                           bg-sil-bg/70 ring-1 ring-sil-accent/30 text-sil-accent text-sm"
+              >
+                {media?.display_mode === "audio-primary" ? "♪" : "❝"}
+              </span>
+              <span className="flex flex-col">
+                <span className="text-sil-text text-sm">{noEmbedLabel}</span>
+                <span className="text-sil-subtle text-xs tracking-wide">
+                  {media?.speaker ?? "the source"}
+                  {media?.show_or_platform ? ` · ${media.show_or_platform}` : ""}
+                </span>
+              </span>
+              <span
+                aria-hidden="true"
+                className="ml-auto text-sil-accent group-hover:animate-sil-arrow-nudge"
+              >
+                →
+              </span>
+            </a>
           )}
 
           {/* Why-this-applies — no label, just the muted interpretive line
@@ -231,8 +340,10 @@ export function InsightCard({
             </div>
           )}
 
-          {/* Source link — soft arrow that gently nudges on hover. */}
-          {parsed.sourceUrl && (
+          {/* Source link — soft arrow that gently nudges on hover. Shown for
+           * embed cards as a secondary "deepen" link; for no-embed sources the
+           * elevated slot above already carries the source affordance. */}
+          {hasMediaCard && parsed.sourceUrl && (
             <a
               href={parsed.sourceUrl}
               target="_blank"

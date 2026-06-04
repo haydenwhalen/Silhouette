@@ -1,0 +1,28 @@
+{
+  "source_id": "src-doac-kadakia-2022",
+  "source_type": "long-form interview podcast",
+  "speaker": "Payal Kadakia",
+  "show_or_platform": "The Diary Of A CEO",
+  "episode_or_content_title": "Payal Kadakia: Quitting My 9-5 (E141)",
+  "episode_or_content_date": "2022-05-09",
+  "source_url": "https://www.youtube.com/watch?v=6ZA9pCkc7Qk",
+  "video_provider": "youtube",
+  "video_id": "6ZA9pCkc7Qk",
+  "video_url": "https://www.youtube.com/watch?v=6ZA9pCkc7Qk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/6ZA9pCkc7Qk?start=664&end=731",
+  "official_channel": "The Diary Of A CEO",
+  "official_channel_url": "https://www.youtube.com/@TheDiaryOfACEO",
+  "channel_id": "UCGq-a57w-aPwyi3pW7XLiHw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Diary Of A CEO channel (channel_id UCGq-a57w-aPwyi3pW7XLiHw). Excerpt confirmed verbatim in English auto-captions at 11:04–12:11 (yt-dlp). FIT CAVEAT: only this window is inaction-loop-clean; the surrounding episode is a tactical career-leap (runway, no-plan-B) that would brush IL hard-fails — clip tightly and frame on the identity belief, never the how-to. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only. Keep clip tight to the identity-belief window; do not surface the surrounding tactical career-leap content.",
+  "sios": [
+    "sio-kadakia-stopped-hiding-2022"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-louisiana-adichie-2022",
+  "source_type": "youtube native",
+  "speaker": "Chimamanda Ngozi Adichie",
+  "show_or_platform": "Louisiana Channel",
+  "episode_or_content_title": "Chimamanda Ngozi Adichie: Advice to the Young",
+  "episode_or_content_date": "2022-11-01",
+  "source_url": "https://www.youtube.com/watch?v=Sndh5lIpIQ4",
+  "video_provider": "youtube",
+  "video_id": "Sndh5lIpIQ4",
+  "video_url": "https://www.youtube.com/watch?v=Sndh5lIpIQ4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Sndh5lIpIQ4?start=100&end=110",
+  "official_channel": "Louisiana Channel",
+  "official_channel_url": "https://www.youtube.com/@LouisianaChannel",
+  "channel_id": "UCY2mhw-XNZSxrUynsI5K8Zw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Louisiana Channel (Louisiana Museum of Modern Art, channel_id UCY2mhw-XNZSxrUynsI5K8Zw). Displayed excerpt is the clean CONTIGUOUS 'right path' span (~1:42–1:48), confirmed verbatim in English auto-captions (yt-dlp). Re-confirm by ear before approving (ASR source). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official cultural-institution video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-adichie-its-about-trying-2022"
+  ]
+}

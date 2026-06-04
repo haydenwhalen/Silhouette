@@ -1,0 +1,28 @@
+{
+  "source_id": "src-laurie-santos-comparison-2023",
+  "source_type": "solo educational",
+  "speaker": "Laurie Santos",
+  "show_or_platform": "Dr. Laurie Santos",
+  "episode_or_content_title": "Happiness Problem #2b: Comparing to Other People (Science of Well-Being)",
+  "episode_or_content_date": "2023-04-08",
+  "source_url": "https://www.youtube.com/watch?v=2_GRCpd3F2I",
+  "video_provider": "youtube",
+  "video_id": "2_GRCpd3F2I",
+  "video_url": "https://www.youtube.com/watch?v=2_GRCpd3F2I",
+  "embed_url": "https://www.youtube-nocookie.com/embed/2_GRCpd3F2I?start=33&end=52",
+  "official_channel": "Dr. Laurie Santos",
+  "official_channel_url": "https://www.youtube.com/@DrLaurieSantos",
+  "channel_id": "UCFfUSTVKFCfXl6PVyG08zxg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Dr. Laurie Santos channel (channel_id UCFfUSTVKFCfXl6PVyG08zxg). Excerpt confirmed verbatim in English captions at 0:33–0:52 (yt-dlp). The quoted passage is audience-neutral despite the series' teen framing. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official creator channel. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-santos-upward-comparison-2023"
+  ]
+}

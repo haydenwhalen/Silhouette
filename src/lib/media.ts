@@ -406,6 +406,24 @@ export function normalizeMediaMetadata(
   };
 }
 
+/**
+ * Tier-1 structural presentation metadata (research report §3), co-located with
+ * InsightMedia because it travels through the SAME server→API→UI data channel.
+ * Client- and server-safe (pure data; no fs/langchain). All fields nullable so
+ * the UI degrades to today's behavior when absent.
+ *
+ *   confidence_label   — "Closely matched" | "A nearby match" (calm chip).
+ *   verification_label — "Verified source" | "Reconstructed — paraphrase" | null
+ *                        (null = omit; never guess).
+ *   credibility_line   — ≤14-word factual third-person clause about the speaker,
+ *                        or null (guardrail failure / low confidence / dedup).
+ */
+export interface InsightMeta {
+  confidence_label: string | null;
+  verification_label: string | null;
+  credibility_line: string | null;
+}
+
 export function hasVerifiedEmbed(m: InsightMedia): boolean {
   return m.has_verified_embed && isAllowedEmbedHost(m.embed_url);
 }

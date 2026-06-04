@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-cain-bittersweet-2022",
+  "source_type": "ted talk",
+  "speaker": "Susan Cain",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Why Bittersweet Emotions Underscore Life's Beauty",
+  "episode_or_content_date": "2022-06-23",
+  "source_url": "https://www.ted.com/talks/susan_cain_why_bittersweet_emotions_underscore_life_s_beauty",
+  "video_provider": "youtube",
+  "video_id": "ZTg54BbjJfA",
+  "video_url": "https://www.youtube.com/watch?v=ZTg54BbjJfA",
+  "embed_url": "https://www.youtube-nocookie.com/embed/ZTg54BbjJfA?start=3&end=33",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TED channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim against the video's human-authored English captions at 0:03–0:33 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-cain-bittersweet-impermanence-2022"
+  ]
+}

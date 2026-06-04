@@ -1,0 +1,28 @@
+{
+  "source_id": "src-academy-achievement-bezos-2001",
+  "source_type": "youtube native",
+  "speaker": "Jeff Bezos",
+  "show_or_platform": "Academy of Achievement",
+  "episode_or_content_title": "Jeff Bezos, Academy Class of 2001, Full Interview",
+  "episode_or_content_date": "2001-05-01",
+  "source_url": "https://www.youtube.com/watch?v=s7ZvBy1SROE",
+  "video_provider": "youtube",
+  "video_id": "s7ZvBy1SROE",
+  "video_url": "https://www.youtube.com/watch?v=s7ZvBy1SROE",
+  "embed_url": "https://www.youtube-nocookie.com/embed/s7ZvBy1SROE?start=230&end=281",
+  "official_channel": "Academy of Achievement",
+  "official_channel_url": "https://www.youtube.com/channel/UChe_87uh1H-NIMf3ndTjPFw",
+  "channel_id": "UChe_87uh1H-NIMf3ndTjPFw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Academy of Achievement channel (channel_id UChe_87uh1H-NIMf3ndTjPFw) — the rights-holding institution that conducted the 2001 interview. Excerpt confirmed verbatim in captions; context-aware window 230–281 centers the regret-minimization frame through 'incredibly easy decision'. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Academy of Achievement interview. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-bezos-regret-minimization-2001"
+  ]
+}

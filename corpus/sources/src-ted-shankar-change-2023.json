@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-shankar-change-2023",
+  "source_type": "ted talk",
+  "speaker": "Maya Shankar",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Why change is so scary — and how to unlock its potential",
+  "episode_or_content_date": "2023-07-25",
+  "source_url": "https://www.ted.com/talks/maya_shankar_why_change_is_so_scary_and_how_to_unlock_its_potential",
+  "video_provider": "youtube",
+  "video_id": "Tt0arZN6EBM",
+  "video_url": "https://www.youtube.com/watch?v=Tt0arZN6EBM",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Tt0arZN6EBM?start=601&end=632",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TED talk (TED2023), confirmed via the ted.com transcript and the official TED YouTube upload (channel_id UCAuUUnT6oDeKwE6v1NGQxug, video Tt0arZN6EBM). Excerpt verbatim at 10:01–10:32. Using the YouTube upload (deep-linkable ?start=601) rather than the TED slug so the clip jumps to the moment. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-shankar-identity-paralysis-2023"
+  ]
+}

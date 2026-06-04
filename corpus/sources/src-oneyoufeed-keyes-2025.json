@@ -1,0 +1,28 @@
+{
+  "source_id": "src-oneyoufeed-keyes-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Corey Keyes",
+  "show_or_platform": "The One You Feed",
+  "episode_or_content_title": "Languishing vs. Flourishing: How to Feel Alive Again",
+  "episode_or_content_date": "2025-02-12",
+  "source_url": "https://www.youtube.com/watch?v=7MkOQrB5IU4",
+  "video_provider": "youtube",
+  "video_id": "7MkOQrB5IU4",
+  "video_url": "https://www.youtube.com/watch?v=7MkOQrB5IU4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/7MkOQrB5IU4?start=1186&end=1204",
+  "official_channel": "TheOneYouFeedPod",
+  "official_channel_url": "https://www.youtube.com/@TheOneYouFeedPod",
+  "channel_id": "UCLj9ThNsqJyLasI_XQFslQg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official The One You Feed channel (channel_id UCLj9ThNsqJyLasI_XQFslQg); guest is Corey Keyes, who coined 'languishing'. Excerpt confirmed verbatim in captions at 19:46–20:04 (yt-dlp); bounded to the definitional naming (before the clinical depression-comparison) to stay non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-keyes-languishing-absence-2025"
+  ]
+}

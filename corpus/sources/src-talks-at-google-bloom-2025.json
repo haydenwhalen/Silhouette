@@ -1,0 +1,28 @@
+{
+  "source_id": "src-talks-at-google-bloom-2025",
+  "source_type": "youtube native",
+  "speaker": "Sahil Bloom",
+  "show_or_platform": "Talks at Google",
+  "episode_or_content_title": "Sahil Bloom | The 5 Types of Wealth | Talks at Google",
+  "episode_or_content_date": "2025-04-26",
+  "source_url": "https://www.youtube.com/watch?v=NegTHmVuepk",
+  "video_provider": "youtube",
+  "video_id": "NegTHmVuepk",
+  "video_url": "https://www.youtube.com/watch?v=NegTHmVuepk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/NegTHmVuepk?start=1953&end=1974",
+  "official_channel": "Talks at Google",
+  "official_channel_url": "https://www.youtube.com/@TalksAtGoogle",
+  "channel_id": "UCbmNph6atAoGfqLoCL_duAg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Talks at Google channel (channel_id UCbmNph6atAoGfqLoCL_duAg). Excerpt confirmed verbatim against the video's human-authored English caption track at 32:33–32:54 (yt-dlp). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Talks at Google video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-bloom-someone-elses-map-2025"
+  ]
+}

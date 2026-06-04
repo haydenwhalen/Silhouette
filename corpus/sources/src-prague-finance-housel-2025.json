@@ -1,0 +1,28 @@
+{
+  "source_id": "src-prague-finance-housel-2025",
+  "source_type": "youtube native",
+  "speaker": "Morgan Housel",
+  "show_or_platform": "Prague Finance Institute",
+  "episode_or_content_title": "Morgan Housel: Most people massively overestimate how happy money will make them",
+  "episode_or_content_date": "2025-11-21",
+  "source_url": "https://www.youtube.com/watch?v=c5HG-ehvQdw",
+  "video_provider": "youtube",
+  "video_id": "c5HG-ehvQdw",
+  "video_url": "https://www.youtube.com/watch?v=c5HG-ehvQdw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/c5HG-ehvQdw?start=1816&end=1838",
+  "official_channel": "Prague Finance Institute",
+  "official_channel_url": "https://www.youtube.com/channel/UCB3beLbrhlFR76oDaFNYk8w",
+  "channel_id": "UCB3beLbrhlFR76oDaFNYk8w",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Prague Finance Institute event channel (channel_id UCB3beLbrhlFR76oDaFNYk8w); speaker is Housel. Excerpt confirmed verbatim in English captions at 30:16–30:38 (yt-dlp). (Auto-captions render 'Montesquieu' phonetically as 'Montescu'; the spoken words otherwise match.) Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official event channel. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-housel-overestimate-others-2025"
+  ]
+}

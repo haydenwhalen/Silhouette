@@ -1,0 +1,28 @@
+{
+  "source_id": "src-beingwell-stulberg-2023",
+  "source_type": "long-form interview podcast",
+  "speaker": "Brad Stulberg",
+  "show_or_platform": "Being Well Podcast",
+  "episode_or_content_title": "Brad Stulberg: Make Change Work for You",
+  "episode_or_content_date": "2023-10-30",
+  "source_url": "https://www.youtube.com/watch?v=L_DrXovPT6A",
+  "video_provider": "youtube",
+  "video_id": "L_DrXovPT6A",
+  "video_url": "https://www.youtube.com/watch?v=L_DrXovPT6A",
+  "embed_url": "https://www.youtube-nocookie.com/embed/L_DrXovPT6A?start=1745&end=1762",
+  "official_channel": "Forrest Hanson",
+  "official_channel_url": "https://www.youtube.com/@ForrestHanson",
+  "channel_id": "UCav9FeKrYOP4JYoetd-d8XA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Being Well Podcast channel (Forrest Hanson, channel_id UCav9FeKrYOP4JYoetd-d8XA). Excerpt confirmed verbatim in English auto-captions at 29:05–29:22 (yt-dlp). Present the being/identity clause, not the host's 'motivation follows action' gloss, to stay clear of behavioral-activation framing. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-stulberg-act-into-being-2023"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-fsu-commencement-blakely-2026",
+  "source_type": "youtube native",
+  "speaker": "Sara Blakely",
+  "show_or_platform": "Florida State University Commencement",
+  "episode_or_content_title": "Florida State University 2026 Commencement Address",
+  "episode_or_content_date": "2026-05-01",
+  "source_url": "https://www.youtube.com/watch?v=8vq2H_FpZ04",
+  "video_provider": "youtube",
+  "video_id": "8vq2H_FpZ04",
+  "video_url": "https://www.youtube.com/watch?v=8vq2H_FpZ04",
+  "embed_url": "https://www.youtube-nocookie.com/embed/8vq2H_FpZ04?start=341&end=394",
+  "official_channel": "Florida State University",
+  "official_channel_url": "https://www.youtube.com/@FloridaState",
+  "channel_id": "UCL0Kx6Un-Spf0aK_-nojkLQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Florida State University channel (channel_id UCL0Kx6Un-Spf0aK_-nojkLQ). Displayed excerpt confirmed verbatim against the video's English captions at 5:41–5:56 (yt-dlp). Context-aware clip window 341–394 starts on the peer-comparison line and runs through the 'Two years later, I started Spanx' payoff (~6:16–6:18) so playback delivers the full arc. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official FSU commencement video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-blakely-fax-machines-2026"
+  ]
+}

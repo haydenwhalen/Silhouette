@@ -1,0 +1,28 @@
+{
+  "source_id": "src-bigthink-benshahar-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Tal Ben-Shahar",
+  "show_or_platform": "Big Think",
+  "episode_or_content_title": "Tal Ben-Shahar: Don't chase happiness. Become antifragile (Full Interview)",
+  "episode_or_content_date": "2025-09-12",
+  "source_url": "https://www.youtube.com/watch?v=q6yPcEk93nk",
+  "video_provider": "youtube",
+  "video_id": "q6yPcEk93nk",
+  "video_url": "https://www.youtube.com/watch?v=q6yPcEk93nk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/q6yPcEk93nk?start=125&end=148",
+  "official_channel": "Big Think",
+  "official_channel_url": "https://www.youtube.com/@bigthink",
+  "channel_id": "UCvQECJukTDE2i6aCoMnS-Vg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Big Think channel (channel_id UCvQECJukTDE2i6aCoMnS-Vg). Excerpt confirmed verbatim in English auto-captions at 2:05–2:28 (yt-dlp). The literal phrase 'arrival fallacy' is not spoken in-clip; the mechanism is stated in plain language. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official media-channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-benshahar-arrival-fallacy-2025"
+  ]
+}

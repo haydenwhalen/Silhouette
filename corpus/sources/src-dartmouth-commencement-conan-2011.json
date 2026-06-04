@@ -1,0 +1,28 @@
+{
+  "source_id": "src-dartmouth-commencement-conan-2011",
+  "source_type": "youtube native",
+  "speaker": "Conan O'Brien",
+  "show_or_platform": "Dartmouth College Commencement",
+  "episode_or_content_title": "Conan O'Brien Dartmouth Commencement Address (2011)",
+  "episode_or_content_date": "2011-06-12",
+  "source_url": "https://www.youtube.com/watch?v=ELC_e2QBQMk",
+  "video_provider": "youtube",
+  "video_id": "ELC_e2QBQMk",
+  "video_url": "https://www.youtube.com/watch?v=ELC_e2QBQMk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/ELC_e2QBQMk?start=1051&end=1094",
+  "official_channel": "Dartmouth",
+  "official_channel_url": "https://www.youtube.com/@dartmouth",
+  "channel_id": "UCmzAvLjPYUfY0ELVz-TOPbw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Dartmouth channel (channel_id UCmzAvLjPYUfY0ELVz-TOPbw). Excerpt confirmed verbatim against the published Dartmouth transcript and captions at 17:31–18:14 (yt-dlp; auto-caption mis-renders 'define' as 'toine' — published wording is 'define'). Clip window scoped to the disorientation, BEFORE his later reinvention pivot, so it holds the in-between. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Dartmouth video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-conan-off-the-grid-2011"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-mcinerny-grief-2018",
+  "source_type": "ted talk",
+  "speaker": "Nora McInerny",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "We don't \"move on\" from grief. We move forward with it",
+  "episode_or_content_date": "2019-04-25",
+  "source_url": "https://www.ted.com/talks/nora_mcinerny_we_don_t_move_on_from_grief_we_move_forward_with_it",
+  "video_provider": "youtube",
+  "video_id": "khkJkR-ipfw",
+  "video_url": "https://www.youtube.com/watch?v=khkJkR-ipfw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/khkJkR-ipfw?start=346&end=414",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TED channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim against the official TED manual English captions at 5:46–6:54 (yt-dlp). The portable principle ('move forward with, not on from') generalizes beyond bereavement to any identity-altering ending. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-mcinerny-move-forward-with-2018"
+  ]
+}

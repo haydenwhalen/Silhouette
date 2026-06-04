@@ -1,0 +1,28 @@
+{
+  "source_id": "src-stanford-ecorner-chang-2017",
+  "source_type": "youtube native",
+  "speaker": "Amy Chang",
+  "show_or_platform": "Stanford eCorner",
+  "episode_or_content_title": "Stanford Seminar — Interview with Amy Chang of Accompany",
+  "episode_or_content_date": "2017-11-28",
+  "source_url": "https://www.youtube.com/watch?v=uXc7_TohfYY",
+  "video_provider": "youtube",
+  "video_id": "uXc7_TohfYY",
+  "video_url": "https://www.youtube.com/watch?v=uXc7_TohfYY",
+  "embed_url": "https://www.youtube-nocookie.com/embed/uXc7_TohfYY?start=1332&end=1363",
+  "official_channel": "Stanford Online",
+  "official_channel_url": "https://www.youtube.com/@stanfordonline",
+  "channel_id": "UCBa5G_ESCn8Yd4vw5U-gIcg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Stanford Online channel (channel_id UCBa5G_ESCn8Yd4vw5U-gIcg). Excerpt confirmed verbatim in captions at 22:12–22:43 (yt-dlp); independently corroborated by Stanford eCorner's published clip 'Confront Your Concerns.' Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Stanford video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-chang-am-i-a-lifer-2017"
+  ]
+}

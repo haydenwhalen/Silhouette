@@ -1,0 +1,28 @@
+{
+  "source_id": "src-rationalreminder-hershfield-2023",
+  "source_type": "long-form interview podcast",
+  "speaker": "Hal Hershfield",
+  "show_or_platform": "The Rational Reminder Podcast",
+  "episode_or_content_title": "Prof. Hal Hershfield: Your Future Self (Rational Reminder 256)",
+  "episode_or_content_date": "2023-06-08",
+  "source_url": "https://www.youtube.com/watch?v=4MScdCLUxXI",
+  "video_provider": "youtube",
+  "video_id": "4MScdCLUxXI",
+  "video_url": "https://www.youtube.com/watch?v=4MScdCLUxXI",
+  "embed_url": "https://www.youtube-nocookie.com/embed/4MScdCLUxXI?start=1163&end=1194",
+  "official_channel": "The Rational Reminder Podcast",
+  "official_channel_url": "https://www.youtube.com/@rationalreminder",
+  "channel_id": "UCOErWFfNOQzXsgE7f5S_ULw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Rational Reminder podcast channel (channel_id UCOErWFfNOQzXsgE7f5S_ULw). Excerpt confirmed verbatim in English auto-captions at 19:23–19:54 (yt-dlp). The 'future self as stranger' framing recurs 16:33–20:20. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-hershfield-future-self-stranger-2023"
+  ]
+}

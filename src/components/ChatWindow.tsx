@@ -9,7 +9,7 @@ import { ThinkingState } from "./chat/ThinkingState";
 import { InsightCard } from "./chat/InsightCard";
 import { ClarifyingQuestion } from "./chat/ClarifyingQuestion";
 import { PageAtmosphere } from "./chat/PageAtmosphere";
-import type { InsightMedia } from "@/lib/media";
+import type { InsightMedia, InsightMeta } from "@/lib/media";
 
 // ─── Types ──────────────────────────────────────────────────────────────
 
@@ -22,6 +22,7 @@ interface ChatResponse {
   last_insight_id: string | null;
   feedback_handled: string | null;
   media: InsightMedia | null;
+  insight_meta: InsightMeta | null;
 }
 
 // ─── Helpers (preserved verbatim from the previous ChatWindow) ──────────
@@ -193,6 +194,7 @@ export function ChatWindow() {
               <InsightCard
                 reply={response.reply}
                 media={response.media}
+                meta={response.insight_meta}
                 insightId={response.last_insight_id}
                 sessionId={sessionIdRef.current}
                 userInput={originalInput}

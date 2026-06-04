@@ -1,0 +1,28 @@
+{
+  "source_id": "src-stanford-sapolsky-limbic-2011",
+  "source_type": "solo educational",
+  "speaker": "Robert Sapolsky",
+  "show_or_platform": "Stanford (Human Behavioral Biology)",
+  "episode_or_content_title": "Human Behavioral Biology, Lecture 14: Limbic System",
+  "episode_or_content_date": "2011-02-01",
+  "source_url": "https://www.youtube.com/watch?v=CAOnSbDSaOw",
+  "video_provider": "youtube",
+  "video_id": "CAOnSbDSaOw",
+  "video_url": "https://www.youtube.com/watch?v=CAOnSbDSaOw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/CAOnSbDSaOw?start=4008&end=4039",
+  "official_channel": "Stanford",
+  "official_channel_url": "https://www.youtube.com/@stanford",
+  "channel_id": "UC-EnprmCZ3OXyAoG7vjVNCA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Stanford channel (channel_id UC-EnprmCZ3OXyAoG7vjVNCA). Excerpt confirmed verbatim against the video's manually-authored English captions at 1:06:48–1:07:19 (yt-dlp). The engagement-drought application (routine removes the anticipation gap, so reward flattens) is framed in the notes as applying Sapolsky's stated mechanism. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official Stanford lecture. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-sapolsky-dopamine-anticipation-2011"
+  ]
+}

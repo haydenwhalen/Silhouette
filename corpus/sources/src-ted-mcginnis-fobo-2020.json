@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-mcginnis-fobo-2020",
+  "source_type": "ted talk",
+  "speaker": "Patrick McGinnis",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "How to Make Faster Decisions (The Way We Work)",
+  "episode_or_content_date": "2020-02-10",
+  "source_url": "https://www.ted.com/talks/patrick_mcginnis_how_to_make_faster_decisions",
+  "video_provider": "youtube",
+  "video_id": "cTIUiN6inIQ",
+  "video_url": "https://www.youtube.com/watch?v=cTIUiN6inIQ",
+  "embed_url": "https://www.youtube-nocookie.com/embed/cTIUiN6inIQ?start=60&end=76",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TED channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim in TED's English caption track at 1:00–1:16 (yt-dlp); the FOBO definition is named at 0:15. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-mcginnis-fobo-2020"
+  ]
+}

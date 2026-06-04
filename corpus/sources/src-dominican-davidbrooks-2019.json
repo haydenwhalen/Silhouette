@@ -1,0 +1,28 @@
+{
+  "source_id": "src-dominican-davidbrooks-2019",
+  "source_type": "keynote",
+  "speaker": "David Brooks",
+  "show_or_platform": "Dominican University of California",
+  "episode_or_content_title": "David Brooks on The Second Mountain (Author Talk)",
+  "episode_or_content_date": "2019-05-03",
+  "source_url": "https://www.youtube.com/watch?v=txpEwy-gP9M",
+  "video_provider": "youtube",
+  "video_id": "txpEwy-gP9M",
+  "video_url": "https://www.youtube.com/watch?v=txpEwy-gP9M",
+  "embed_url": "https://www.youtube-nocookie.com/embed/txpEwy-gP9M?start=1436&end=1455",
+  "official_channel": "Dominican University of California",
+  "official_channel_url": "https://www.youtube.com/@dominicanpenguins",
+  "channel_id": "UCAAGHYXyvhYgjowsJpvFQvA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Dominican University of California channel (channel_id UCAAGHYXyvhYgjowsJpvFQvA). Excerpt confirmed verbatim against the video's MANUALLY-PUBLISHED English caption track (not ASR) at 23:56–24:15 (yt-dlp). Non-clinical (no diagnosis/crisis language). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official university video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-davidbrooks-valley-of-detachment-2019"
+  ]
+}

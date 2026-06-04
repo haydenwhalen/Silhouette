@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-iyer-where-is-home-2013",
+  "source_type": "ted talk",
+  "speaker": "Pico Iyer",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Where Is Home?",
+  "episode_or_content_date": "2013-07-17",
+  "source_url": "https://www.ted.com/talks/pico_iyer_where_is_home",
+  "video_provider": "youtube",
+  "video_id": "3m6dV7Xo3Vc",
+  "video_url": "https://www.youtube.com/watch?v=3m6dV7Xo3Vc",
+  "embed_url": "https://www.youtube-nocookie.com/embed/3m6dV7Xo3Vc?start=213&end=247",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/@TED",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official TED channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim in captions at 3:33–4:07 (yt-dlp); clip ends deliberately before his 'terrific liberation' pivot, so it holds the in-between. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official TED talk. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-iyer-carry-home-inside-2013"
+  ]
+}

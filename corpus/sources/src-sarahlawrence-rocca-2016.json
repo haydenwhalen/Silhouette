@@ -1,0 +1,28 @@
+{
+  "source_id": "src-sarahlawrence-rocca-2016",
+  "source_type": "keynote",
+  "speaker": "Mo Rocca",
+  "show_or_platform": "Sarah Lawrence College",
+  "episode_or_content_title": "Mo Rocca: Commencement Keynote to the Class of 2016",
+  "episode_or_content_date": "2016-05-20",
+  "source_url": "https://www.youtube.com/watch?v=FiPjeIrL31k",
+  "video_provider": "youtube",
+  "video_id": "FiPjeIrL31k",
+  "video_url": "https://www.youtube.com/watch?v=FiPjeIrL31k",
+  "embed_url": "https://www.youtube-nocookie.com/embed/FiPjeIrL31k?start=230&end=246",
+  "official_channel": "SarahLawrenceCollege",
+  "official_channel_url": "https://www.youtube.com/@SarahLawrenceCollege",
+  "channel_id": "UCQ1JnXybhjYG8r6c0Xm1mgw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Sarah Lawrence College channel (channel_id UCQ1JnXybhjYG8r6c0Xm1mgw). Excerpt confirmed verbatim in English auto-captions at 3:50–4:06 (yt-dlp); minor caption casing normalized. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official university commencement video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-rocca-no-shame-in-not-knowing-2016"
+  ]
+}

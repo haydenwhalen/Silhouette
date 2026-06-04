@@ -1,0 +1,28 @@
+{
+  "source_id": "src-cbs-mornings-andre3000-2023",
+  "source_type": "youtube native",
+  "speaker": "André 3000",
+  "show_or_platform": "CBS Mornings",
+  "episode_or_content_title": "André 3000 on his new 'no bars' flute album and why he isn't ready to rap again",
+  "episode_or_content_date": "2023-12-08",
+  "source_url": "https://www.youtube.com/watch?v=C2aj1xV6M5w",
+  "video_provider": "youtube",
+  "video_id": "C2aj1xV6M5w",
+  "video_url": "https://www.youtube.com/watch?v=C2aj1xV6M5w",
+  "embed_url": "https://www.youtube-nocookie.com/embed/C2aj1xV6M5w?start=243&end=270",
+  "official_channel": "CBS Mornings",
+  "official_channel_url": "https://www.youtube.com/@CBSMornings",
+  "channel_id": "UC-SJ6nODDmufqBzPBwCvYvQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official CBS Mornings channel (channel_id UC-SJ6nODDmufqBzPBwCvYvQ). André's verbatim lines confirmed in captions at 4:06–4:29 (yt-dlp); window padded to 4:03 for the interviewer's lead-in. Embed via youtube-nocookie. tagger_confidence high; ear-confirm before any change.",
+  "rights_or_usage_notes": "Official CBS Mornings video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-andre3000-really-on-it-2023"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-onpurpose-watson-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "Emma Watson",
+  "show_or_platform": "On Purpose with Jay Shetty",
+  "episode_or_content_title": "Emma Watson: The Story She Has Not Shared Until Now",
+  "episode_or_content_date": "2025-09-24",
+  "source_url": "https://www.youtube.com/watch?v=2caQ4j9oohE",
+  "video_provider": "youtube",
+  "video_id": "2caQ4j9oohE",
+  "video_url": "https://www.youtube.com/watch?v=2caQ4j9oohE",
+  "embed_url": "https://www.youtube-nocookie.com/embed/2caQ4j9oohE?start=6744&end=6780",
+  "official_channel": "Jay Shetty Podcast",
+  "official_channel_url": "https://www.youtube.com/@JayShettyPodcast",
+  "channel_id": "UCbk_QsfaFZG6PdQeCvaYXJQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official Jay Shetty Podcast channel (channel_id UCbk_QsfaFZG6PdQeCvaYXJQ). Excerpt confirmed verbatim in English auto-captions at 1:52:24–1:53:00 (yt-dlp; minor 'and and' caption artifact). NON-CLINICAL BOUNDING: the chosen excerpt deliberately STARTS at 1:52:24 to exclude earlier body/health material (~1:49–1:52) — keep the clip boundaries tight, do not extend earlier. Re-confirm wording by ear before promoting to approved. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only. Keep clip tightly bounded to the non-clinical window; re-confirm verbatim by ear before approving.",
+  "sios": [
+    "sio-watson-listening-for-whispers-2025"
+  ]
+}

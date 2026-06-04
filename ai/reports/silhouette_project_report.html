@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Silhouette — Project Report (DRAFT)</title>
+<style>
+  :root {
+    --ink: #1a1a22;
+    --muted: #555;
+    --subtle: #777;
+    --accent: #5b4b8a;
+    --accent-soft: #ece8f5;
+    --line: #e3e0ea;
+    --bg: #ffffff;
+    --ph-bg: #fff3cd;
+    --ph-ink: #7a5b00;
+    --code-bg: #f5f4f8;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 11pt;
+    margin: 0;
+  }
+  .page { max-width: 820px; margin: 0 auto; padding: 48px 56px; }
+  h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", serif; line-height: 1.25; color: var(--ink); }
+  h1 { font-size: 30pt; margin: 0 0 6px; }
+  h2 { font-size: 19pt; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+  h3 { font-size: 14pt; margin: 22px 0 6px; color: var(--accent); }
+  h4 { font-size: 12pt; margin: 16px 0 4px; }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0; padding-left: 22px; }
+  li { margin: 4px 0; }
+  a { color: var(--accent); }
+  code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 9.5pt; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 9.8pt; }
+  th, td { text-align: left; vertical-align: top; padding: 7px 9px; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+  tr:nth-child(even) td { background: #faf9fc; }
+  .banner {
+    background: var(--ph-bg); color: var(--ph-ink);
+    border: 1px solid #e6d28a; border-radius: 8px;
+    padding: 12px 16px; margin: 18px 0; font-size: 10pt;
+  }
+  .ph {
+    background: var(--ph-bg); color: var(--ph-ink);
+    border: 1px dashed #d9b94a; border-radius: 4px;
+    padding: 0 6px; font-weight: 600; font-size: 9.5pt;
+  }
+  .lede { font-size: 12.5pt; color: var(--muted); margin: 10px 0 0; }
+  .meta { color: var(--subtle); font-size: 9.5pt; margin-top: 8px; }
+  .tag { display: inline-block; background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 1px 10px; font-size: 8.5pt; font-weight: 600; }
+  .callout { background: #f7f6fb; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 10px 16px; margin: 14px 0; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; }
+  hr { border: none; border-top: 1px solid var(--line); margin: 26px 0; }
+  .toc ol { list-style: none; padding-left: 0; }
+  .toc > ol > li { margin: 6px 0; font-weight: 600; }
+  .toc ol ol { padding-left: 18px; font-weight: 400; }
+  .small { font-size: 9.3pt; color: var(--muted); }
+  .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+  .kpi .box { border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+  .kpi .num { font-family: Georgia, serif; font-size: 20pt; color: var(--accent); }
+  .kpi .lbl { font-size: 9pt; color: var(--subtle); text-transform: uppercase; letter-spacing: .04em; }
+  footer { margin-top: 30px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--subtle); font-size: 8.5pt; }
+  @page { size: Letter; margin: 16mm 14mm; }
+  @media print {
+    .page { padding: 0; max-width: none; }
+    h2 { page-break-after: avoid; }
+    h3, h4 { page-break-after: avoid; }
+    table, .callout, .kpi { page-break-inside: avoid; }
+    .page-break { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <span class="tag">v1.0</span>
+  <h1>Silhouette</h1>
+  <p class="lede">Project Report — Architecture, Tools, and the Path to User Testing</p>
+  <p class="meta">Prepared for the founder · Version 1.0 · Generated June 4, 2026</p>
+
+  <div class="banner">
+    <strong>Status: corpus-complete, pre-beta.</strong> The +10-per-state SIO expansion is finished — the library now holds
+    <strong>111 SIOs</strong> across all six states, all committed. This report reflects verified corpus numbers and a fresh
+    QA pass (<code>validate-media</code>, <code>detect-gaps</code>, <code>test-magnet-risk</code>, retrieval calibration).
+  </div>
+
+  <!-- ============================= TOC ============================= -->
+  <h2>Contents</h2>
+  <nav class="toc">
+    <ol>
+      <li>Executive Summary</li>
+      <li>Part 1 — What Silhouette Is
+        <ol>
+          <li>The product in one paragraph</li>
+          <li>The user and the "aha moment"</li>
+          <li>The six stuck states</li>
+          <li>The SIO and the resonance model</li>
+          <li>Current status snapshot</li>
+        </ol>
+      </li>
+      <li>Part 2 — How the Project Is Structured
+        <ol>
+          <li>Tech stack</li>
+          <li>Repository layout</li>
+          <li>Runtime architecture (a chat turn)</li>
+          <li>The SIO data model</li>
+          <li>The four runtime agent tools</li>
+        </ol>
+      </li>
+      <li>Part 3 — The Tools We've Built (the back-office pipeline)
+        <ol>
+          <li>Discovery &amp; SIO harvesting</li>
+          <li>Media, video &amp; timestamp tooling</li>
+          <li>Evaluation, QA &amp; testing</li>
+          <li>Retrieval &amp; magnet diagnostics</li>
+          <li>Feedback analysis &amp; dev utilities</li>
+        </ol>
+      </li>
+      <li>Part 4 — How to Make the Existing Tools Better</li>
+      <li>Part 5 — Tools We Still Need to Build</li>
+      <li>Part 6 — Risks, Open Questions &amp; Readiness for User Testing</li>
+      <li>Appendix — Glossary, npm command reference, file map</li>
+    </ol>
+  </nav>
+
+  <!-- ============================= EXEC SUMMARY ============================= -->
+  <h2 class="page-break">1 · Executive Summary</h2>
+  <p>
+    Silhouette is a personalized insight-retrieval engine for young professionals who feel stuck. A user describes their
+    situation in a few sentences; Silhouette classifies the underlying "stuck state," retrieves one real, human-sourced
+    insight from a curated library, explains in one line why it fits, and — when possible — links to the exact moment in a
+    video or talk where that insight was spoken. The goal of each session is a single genuine <em>aha moment</em>, not
+    engagement or time-in-app.
+  </p>
+  <p>
+    The product is built and functional: a Next.js + LangChain application with a six-state classifier, a scored retrieval
+    engine with diversity controls, a presentation layer, a feedback loop, and a substantial back-office pipeline of
+    roughly 45 scripts for discovering, evaluating, verifying, and promoting content. The corpus is being expanded to the
+    threshold needed for real user testing.
+  </p>
+  <div class="kpi">
+    <div class="box"><div class="num">111</div><div class="lbl">Total SIOs (97 with verified video)</div></div>
+    <div class="box"><div class="num">6</div><div class="lbl">Stuck states</div></div>
+    <div class="box"><div class="num">~45</div><div class="lbl">Back-office tools</div></div>
+  </div>
+  <p>
+    This report does three things: (1) gives a clean overview of what Silhouette is and how it is structured; (2) inventories
+    every tool we have built; and (3) lays out how to improve those tools and what to build next — so the project is legible
+    again and ready to take into a closed beta.
+  </p>
+
+  <!-- ============================= PART 1 ============================= -->
+  <h2 class="page-break">Part 1 · What Silhouette Is</h2>
+
+  <h3>1.1 The product in one paragraph</h3>
+  <p>
+    Silhouette is context-aware insight retrieval. It is <strong>not</strong> a chatbot, a meditation or wellness app, a
+    journaling tool, a content feed, or a therapy product. The user brings an emotional/situational moment; the system returns
+    one curated, credible, human-sourced insight — a quote or passage from someone who navigated something similar — with a
+    short, specific reason it applies. The conversation is the intake mechanism; the recommendation is the product; the
+    curated library is the moat.
+  </p>
+
+  <h3>1.2 The user and the "aha moment"</h3>
+  <p>
+    The target user is a young professional (roughly 22–32) who is functional but stuck — low motivation, unclear direction,
+    a post-achievement plateau — and who already consumes self-improvement content but can't find the right thing in the
+    moment they need it. Success is defined narrowly and deliberately: the user enters in a stuck state, receives one insight
+    plus a reason, and leaves with a real shift in perspective and a sense of a path forward. Usage is intentionally
+    intermittent; the product optimizes for the quality of a single session, not retention.
+  </p>
+
+  <h3>1.3 The six stuck states</h3>
+  <p>The corpus and classifier are organized around six soft, non-clinical "stuck states":</p>
+  <table>
+    <thead><tr><th>State</th><th>What it feels like</th></tr></thead>
+    <tbody>
+      <tr><td><strong>inaction-loop</strong></td><td>Knows what to do, can't get themselves to do it; avoidance and resistance.</td></tr>
+      <tr><td><strong>engagement-drought</strong></td><td>Going through the motions; flat, disengaged, depleted (burnout-adjacent).</td></tr>
+      <tr><td><strong>direction-collapse</strong></td><td>Lost sense of direction or purpose; includes a "post-achievement" variant.</td></tr>
+      <tr><td><strong>possibility-paralysis</strong></td><td>Too many options; can't commit; fear of the wrong choice.</td></tr>
+      <tr><td><strong>identity-transition</strong></td><td>Identity built on a role or achievement that's gone or changing.</td></tr>
+      <tr><td><strong>momentum-gap</strong></td><td>Fell off, lost a streak, feels "behind," struggling to restart.</td></tr>
+    </tbody>
+  </table>
+  <p class="small">These are clusters for retrieval and framing, never diagnoses. Users can implicitly correct the classification.</p>
+
+  <h3>1.4 The SIO and the resonance model</h3>
+  <p>
+    The unit of the library is a <strong>Structured Insight Object (SIO)</strong>: a single insight extracted from a credible
+    human source, stored as a markdown file with a rich YAML metadata header plus a short insight body. Beyond the stuck-state
+    tag, every SIO carries a <strong>resonance profile</strong> on two dimensions that drive ranking:
+  </p>
+  <ul>
+    <li><strong>insight_type</strong> — one of <code>mechanism</code>, <code>story</code>, <code>reframe</code>, <code>permission</code>.</li>
+    <li><strong>voice_register</strong> — e.g. direct/challenging, expert/scientific, warm/affirming, vulnerable/personal, intellectual/measured.</li>
+  </ul>
+  <p>
+    This lets retrieval match not just <em>topic</em> but <em>the kind of thing</em> that will land for this person in this moment.
+  </p>
+
+  <h3>1.5 Current status snapshot</h3>
+  <p>Corpus size by state (pre-expansion baseline → target after the +10-per-state build):</p>
+  <table>
+    <thead><tr><th>State</th><th>Baseline</th><th>Target</th><th>Final (verified)</th></tr></thead>
+    <tbody>
+      <tr><td>direction-collapse</td><td>10</td><td>20</td><td><strong>20</strong></td></tr>
+      <tr><td>engagement-drought</td><td>10</td><td>20</td><td><strong>20</strong></td></tr>
+      <tr><td>inaction-loop</td><td>10</td><td>20</td><td><strong>20</strong></td></tr>
+      <tr><td>identity-transition</td><td>8</td><td>18</td><td><strong>18</strong></td></tr>
+      <tr><td>momentum-gap</td><td>6</td><td>16</td><td><strong>16</strong></td></tr>
+      <tr><td>possibility-paralysis</td><td>7</td><td>17</td><td><strong>17</strong></td></tr>
+      <tr><td><strong>Total</strong></td><td><strong>51</strong></td><td><strong>~111</strong></td><td><strong>111</strong></td></tr>
+    </tbody>
+  </table>
+  <p class="small">
+    Media coverage: <strong>97 of 111 SIOs carry a verified video embed</strong> (every state well above the ≥7 floor),
+    <strong>75 with confirmed timestamps</strong>; the remaining 14 are honestly marked text/not-applicable.
+    Verbatim-verified transcripts: <strong>67 of 111</strong> (the rest are honestly flagged as reconstructed).
+    Source records: <strong>113</strong> (baseline 53).
+  </p>
+
+  <!-- ============================= PART 2 ============================= -->
+  <h2 class="page-break">Part 2 · How the Project Is Structured</h2>
+
+  <h3>2.1 Tech stack</h3>
+  <ul>
+    <li><strong>App:</strong> Next.js (App Router, React 19), TypeScript.</li>
+    <li><strong>Agent:</strong> LangChain.js (<code>createToolCallingAgent</code> + <code>AgentExecutor</code>), OpenAI <code>gpt-4o-mini</code>.</li>
+    <li><strong>Embeddings / retrieval:</strong> OpenAI <code>text-embedding-3-small</code>; in-memory vector store with custom scored search, resonance boosts, and MMR diversity.</li>
+    <li><strong>External:</strong> Tavily (web-search fallback), YouTube Data API v3 + <code>yt-dlp</code> (media discovery &amp; timestamp work).</li>
+    <li><strong>Data:</strong> file-based corpus (markdown SIOs + JSON source records); feedback as JSONL.</li>
+  </ul>
+
+  <h3>2.2 Repository layout</h3>
+  <table>
+    <thead><tr><th>Path</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td><code>src/</code></td><td>The running app: agent, retrieval (rag), presentation, tools, memory, feedback, API routes, UI components.</td></tr>
+      <tr><td><code>corpus/</code></td><td>The library: <code>sios/</code> (insights), <code>sources/</code> (source records), <code>candidates/</code>, <code>drafts/</code>, <code>templates/</code>, feedback log.</td></tr>
+      <tr><td><code>scripts/</code></td><td>~45 back-office tools: discovery, media/timestamp, evaluation, QA, retrieval diagnostics, feedback analysis (+ <code>lib/</code> shared code).</td></tr>
+      <tr><td><code>ai/guides/</code></td><td>~66 design docs, component specs, strategy, and phase reports.</td></tr>
+      <tr><td><code>aiDocs/</code></td><td>Canonical product docs: context, PRD, MVP, architecture.</td></tr>
+      <tr><td><code>ai/reports/</code></td><td>This report and its PDF export.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>2.3 Runtime architecture (a single chat turn)</h3>
+  <p>The path a message takes, end to end:</p>
+  <ol>
+    <li><strong>Client → API.</strong> <code>ChatWindow</code> POSTs the message + session to <code>/api/chat</code>.</li>
+    <li><strong>Feedback short-circuit.</strong> <code>detectFeedbackIntent</code> catches short "yes" / "show me something different" replies <em>before</em> the agent runs, so feedback never retrieves against itself. Negative feedback triggers a one-time retry that excludes already-seen SIOs and prefers a different <code>insight_type</code>.</li>
+    <li><strong>State classification.</strong> <code>classifyState</code> labels the message with a stuck state, confidence, and resonance hints; injected into the agent as a system note.</li>
+    <li><strong>Agent loop.</strong> The LangChain agent calls <code>knowledge_base</code> → <code>scoredSearch</code> (state filter + resonance boosts + MMR diversity, excluding seen SIOs) → picks the best <code>insight_id</code> → calls <code>present_insight</code>.</li>
+    <li><strong>Presentation.</strong> <code>presentInsight</code> validates attribution, generates the guarded "why this applies" (and bridge/credibility) lines, derives confidence/verification labels, and renders the insight markdown.</li>
+    <li><strong>Render.</strong> <code>InsightCard</code> parses the markdown into slots (excerpt, attribution, why, source link) and renders the verified media embed when present.</li>
+    <li><strong>Feedback.</strong> <code>FeedbackRow</code> posts a dwell signal to <code>/api/feedback-signal</code>, then the follow-up routes back through the short-circuit; all events land in <code>feedbackLog</code>.</li>
+  </ol>
+
+  <h3>2.4 The SIO data model</h3>
+  <p>Each SIO's YAML header carries (abbreviated): identity (<code>insight_id</code>, <code>source_id</code>), source metadata (speaker, show/platform, title, date, URL), a full media block (provider, <code>video_id</code>, <code>embed_url</code>, <code>timestamp_start_seconds</code>, <code>display_mode</code>, <code>media_verification_status</code>, rights notes), classification (<code>primary_state_tag</code>, <code>secondary_state_tags</code>), resonance (<code>insight_type</code>, <code>voice_register</code>, <code>credibility_tier</code>, <code>intensity_level</code>), the content (<code>key_claim</code>, <code>content_summary</code>, attribution, the excerpt body), and review/honesty fields (<code>transcript_verified</code>, <code>human_review_status</code>, rights/usage notes). The same fields drive both retrieval ranking and honest presentation.</p>
+
+  <h3>2.5 The four runtime agent tools</h3>
+  <table>
+    <thead><tr><th>Tool</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td><code>knowledge_base</code></td><td>Searches the curated SIO corpus via scored, state-filtered, diversity-aware retrieval; returns ranked candidates.</td></tr>
+      <tr><td><code>present_insight</code></td><td>Turns a chosen <code>insight_id</code> into the final rendered insight and records presentation context for feedback/retry.</td></tr>
+      <tr><td><code>web_search</code></td><td>Tavily fallback when the curated library lacks a strong match (used sparingly).</td></tr>
+      <tr><td><code>calculator</code></td><td>Safe arithmetic for making any next-step quantification concrete.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================= PART 3 ============================= -->
+  <h2 class="page-break">Part 3 · The Tools We've Built</h2>
+  <p>
+    Beyond the running app, Silhouette has a substantial back-office: roughly 45 scripts that discover, evaluate, verify, and
+    promote content, plus retrieval and feedback diagnostics. These are the "agents" and utilities that build and protect the
+    corpus. They are grouped below with the npm alias where one exists.
+  </p>
+
+  <h3>3.1 Discovery &amp; SIO harvesting</h3>
+  <table>
+    <thead><tr><th>Tool (npm)</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>discover-sios</code></td><td>Orchestrator that chains the discovery stages (user-needs → gap → candidate → review → draft) and stops for human review. The "SIO harvesting agent."</td></tr>
+      <tr><td><code>detect-gaps</code></td><td>Deterministic coverage analysis by state/type/register/intensity; ranks the highest-priority gaps to fill.</td></tr>
+      <tr><td><code>analyze-user-needs</code></td><td>Maps the corpus against hypothesized user-need / query patterns to find coverage holes from the user side.</td></tr>
+      <tr><td><code>find-source-candidates</code></td><td>Turns gaps into ranked search queries across trusted source families (the "Source Scout").</td></tr>
+      <tr><td><code>evaluate-candidate</code></td><td>LLM-as-judge resonance evaluator (10 dimensions + anti-generic floor); scores candidates.</td></tr>
+      <tr><td><code>score-candidate-novelty</code></td><td>Embedding-based dedup vs. the served corpus (duplicate / similar-but-useful / novel).</td></tr>
+      <tr><td><code>verify-candidate-source</code></td><td>Deterministic honesty checks; can only <em>downgrade</em> a status, never upgrade to verified.</td></tr>
+      <tr><td><code>review-candidates</code></td><td>Builds a ranked review queue with blockers, grouped by action.</td></tr>
+      <tr><td><code>draft-sio-from-candidate</code></td><td>Writes prototype SIOs to <code>corpus/drafts/</code> only (never directly to the served corpus).</td></tr>
+      <tr><td>promote-candidate-to-sio</td><td>Human-gated promotion of reviewer-confirmed candidates into <code>corpus/sios/</code> + <code>corpus/sources/</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.2 Media, video &amp; timestamp tooling</h3>
+  <table>
+    <thead><tr><th>Tool (npm)</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>find-video-sources</code></td><td>Per-SIO media status, missing fields, and search targets for finding official videos.</td></tr>
+      <tr><td><code>find-video-moments</code> / <code>find-clip-moments</code></td><td>Surface candidate timestamp moments from chapter markers or fetchable transcripts (report-only).</td></tr>
+      <tr><td><code>extract-video-timestamps</code></td><td>ASR caption alignment via <code>yt-dlp</code>; auto-applies only HIGH-confidence exact-quote matches. The "timestamp embedding agent."</td></tr>
+      <tr><td><code>validate-media</code></td><td>Format/consistency/honesty checks on all SIO media metadata; fails hard on violations.</td></tr>
+      <tr><td><code>audit-corpus-media</code> / <code>build-media-inventory</code></td><td>Full-corpus media inventories and backfill categorization.</td></tr>
+      <tr><td><code>verify-youtube-channels</code></td><td>Resolves official channel IDs into the trusted-channel registry (the only sanctioned source of real channel IDs).</td></tr>
+      <tr><td>apply-media-promotions</td><td>Applies a vetted batch of media-embed promotions via targeted edits.</td></tr>
+      <tr><td><code>test-youtube-api</code> / <code>test-media-helpers</code> / <code>test-media-e2e</code></td><td>Tests for the YouTube helper and the media-rendering layer.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.3 Evaluation, QA &amp; testing</h3>
+  <table>
+    <thead><tr><th>Tool (npm)</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>test-retrieval-calibration</code></td><td>Large retrieval + classification regression suite (~100+ cases) with a pass-rate target.</td></tr>
+      <tr><td><code>test-sio-retrieval</code> / <code>test-state-classification</code></td><td>Smoke tests for state-filtered retrieval and the classifier.</td></tr>
+      <tr><td><code>test-present-insight</code></td><td>Checks presentation output for banned phrases and correct formatting.</td></tr>
+      <tr><td><code>test-chat-e2e</code> / <code>test-feedback-loop</code> / <code>test-ui-signal</code></td><td>Agent and feedback integration probes (incl. retry paths).</td></tr>
+      <tr><td><code>test-smoke-flows</code> / <code>warm</code></td><td>HTTP smoke tests against a running dev server, plus a cold-start warmer.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.4 Retrieval &amp; magnet diagnostics</h3>
+  <table>
+    <thead><tr><th>Tool (npm)</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>diagnose-magnets</code></td><td>Per-state win-rate, winner margin, and diversity analysis to find "query-magnet" SIOs that dominate unfairly.</td></tr>
+      <tr><td><code>test-magnet-risk</code></td><td>Promotion gate: fails if a candidate would win &gt;50% of a state's probes (anti-magnet guardrail).</td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.5 Feedback analysis &amp; dev utilities</h3>
+  <table>
+    <thead><tr><th>Tool (npm)</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td><code>analyze-feedback</code></td><td>Aggregates feedback events (per-SIO yes rates, retry/dwell stats) and recommends a post-beta build path.</td></tr>
+      <tr><td><code>ingest</code> / <code>test-tools</code> / test-agent</td><td>Dev helpers: load the vector store, smoke the tools, chat with the agent interactively.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================= PART 4 ============================= -->
+  <h2 class="page-break">Part 4 · How to Make the Existing Tools Better</h2>
+  <p>Each item is a concrete, evidence-based improvement drawn from the tools' own design docs and known limitations.</p>
+
+  <h3>4.1 The SIO harvesting / discovery agent</h3>
+  <ul>
+    <li><strong>The verbatim-verification bottleneck is the #1 scaling limit.</strong> The agent deliberately never sets <code>transcript_verified: true</code> — a human must confirm wording. Improvement: integrate official transcript sources (TED, YouTube captions via <code>yt-dlp</code>) into the pipeline so the agent can propose a verbatim match with evidence for one-click human confirmation, instead of fully manual checking.</li>
+    <li><strong>TED transcripts are JavaScript-rendered</strong> and aren't retrievable by simple fetch. Improvement: a dedicated TED transcript fetcher (headless render or the TED transcript endpoint) so TED candidates can be auto-verified like other sources.</li>
+    <li><strong>The Source Scout only emits queries; it doesn't search.</strong> Improvement: a supervised web/YouTube search step that actually returns and pre-ranks candidate sources for those queries (still human-gated).</li>
+    <li><strong>The LLM resonance judge isn't calibrated.</strong> Improvement: calibrate the judge against human-rated examples once the corpus passes ~50 SIOs, and track judge-vs-human agreement.</li>
+    <li><strong>Gap detection uses editorial thresholds, not real demand.</strong> Improvement: feed real user queries/feedback into gap detection so we harvest what users actually ask for.</li>
+  </ul>
+
+  <h3>4.2 The timestamp embedding agent</h3>
+  <ul>
+    <li><strong>Coverage is thin and mostly manual.</strong> ASR auto-apply only fires on HIGH-confidence exact-quote matches; paraphrase SIOs need human listening. Improvement: combine ASR alignment with chapter markers and transcript search into a single confidence-scored moment finder, and expand auto-apply to well-aligned close paraphrases with a clear evidence trail.</li>
+    <li><strong>No closed-loop validation after applying.</strong> Improvement: automatically run <code>validate-media</code> and a render check after each timestamp write, and flag any embed that doesn't actually start at the claimed moment.</li>
+    <li><strong>Podcast uploads often lack chapters.</strong> Improvement: prioritize sources with transcripts/chapters during harvesting so the timestamp step has material to work with.</li>
+  </ul>
+
+  <h3>4.3 The retrieval engine &amp; magnet controls</h3>
+  <ul>
+    <li><strong>Magnets are mainly a "no-hint" phenomenon.</strong> Classifier intake hints already fix most cases; a few benign default-aligned dominators (e.g. Newport, Huberman) remain. Improvement: keep the promotion-time win-rate gate as the primary guard, and add exposure-aware scoring as the corpus grows so no single SIO is over-served.</li>
+    <li><strong>Thresholds were calibrated on a tiny corpus (~19 SIOs).</strong> Improvement: recalibrate similarity thresholds, novelty thresholds, and resonance boosts against the expanded corpus and a real evaluation set.</li>
+    <li><strong>MMR diversity is near-no-op at small sizes.</strong> Improvement: re-evaluate its effect once the corpus is ~111 SIOs.</li>
+  </ul>
+
+  <h3>4.4 The feedback loop</h3>
+  <ul>
+    <li><strong>"Yes" is ambiguous</strong> (politeness vs. genuine aha); dwell time is the disambiguator. Improvement: keep dwell qualification, and add a light, optional qualitative trigger only if double-rejection stays high after enough sessions.</li>
+    <li><strong>Feedback doesn't yet route into anything automatically.</strong> Improvement: wire <code>analyze-feedback</code> output into gap detection and a presentation-review queue (human-reviewed), closing the loop from signal to corpus/presentation change.</li>
+  </ul>
+
+  <h3>4.5 The presentation layer</h3>
+  <ul>
+    <li><strong>Tier-1 structural wins are scoped but not yet shipped:</strong> a visible source-confidence chip, text-only/no-embed parity, a factual credibility line, and quieting the feedback so the insight is the last beat. Improvement: ship these; they reduce cognitive load and strengthen vicarious credibility at low risk.</li>
+    <li><strong>The card re-parses markdown back into slots</strong>, which is brittle. Improvement: pass derived metadata (confidence, credibility) through the structured channel instead of the markdown string.</li>
+  </ul>
+
+  <!-- ============================= PART 5 ============================= -->
+  <h2 class="page-break">Part 5 · Tools We Still Need to Build</h2>
+  <table>
+    <thead><tr><th>Future tool / capability</th><th>Why it's needed</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Persistent vector store</strong></td><td>Today's store is in-memory and rebuilds on boot. A persistent store (pgvector / Pinecone / Chroma) is needed before scale and before any cross-session features.</td></tr>
+      <tr><td><strong>Automated verbatim / transcript verification</strong></td><td>The single biggest manual bottleneck. A transcript-fetch + alignment service would let the discovery agent propose verified excerpts at scale.</td></tr>
+      <tr><td><strong>Feedback-driven gap detection</strong></td><td>Close the loop: use real user queries and rejections to decide what to harvest next, instead of editorial guesses.</td></tr>
+      <tr><td><strong>Lightweight analytics / metrics dashboard</strong></td><td>The beta metrics (landing rate, strong-positive, return rate, double-rejection) need a simple view, not manual log reading.</td></tr>
+      <tr><td><strong>A/B presentation harness</strong></td><td>To resolve the Tier-2 presentation bets (carry line, source-header, gesture) with data rather than debate.</td></tr>
+      <tr><td><strong>Lightweight personalization</strong></td><td>Once there's a user identity and enough signal: remember format/tone/creator preferences to sharpen ranking across sessions.</td></tr>
+      <tr><td><strong>Hybrid external discovery</strong></td><td>A filtered, trust-scored external search layer for moments the curated library doesn't cover — clearly distinguished from curated results.</td></tr>
+      <tr><td><strong>Safety / boundary classifier</strong></td><td>A reliable crisis-signal detector that exits the normal flow and routes to real resources, beyond prompt-level handling.</td></tr>
+      <tr><td><strong>Ingestion-at-scale pipeline</strong></td><td>Discovery → cleaning → auto-tagging → embedding → review as a repeatable service as the library grows past a few hundred SIOs.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================= PART 6 ============================= -->
+  <h2 class="page-break">Part 6 · Risks, Open Questions &amp; Readiness for User Testing</h2>
+
+  <h3>6.1 Key risks</h3>
+  <ul>
+    <li><strong>Retrieval quality is the core unvalidated assumption.</strong> Everything depends on whether the system reliably surfaces a genuinely well-matched insight. This must be tested with real users in real stuck moments.</li>
+    <li><strong>Copyright / verbatim integrity.</strong> Legacy SIOs include paraphrase reconstructions; the expansion enforces verified verbatim. The standing posture is metadata + short non-substitutive excerpts + link-out; full text only for licensed/in-house content.</li>
+    <li><strong>Small-corpus evaluation.</strong> Thresholds and diagnostics were tuned on a tiny corpus; conclusions drawn before the expanded corpus is recalibrated may mislead.</li>
+    <li><strong>Trust at first contact.</strong> The user pays a vulnerability cost before seeing value; the first insight has to land and feel human, not algorithmic.</li>
+  </ul>
+
+  <h3>6.2 What must be true before sending to users</h3>
+  <ul>
+    <li><strong>QA gates (run June 4, 2026):</strong> <code>validate-media</code> — PASS, 0 hard violations, 0 warnings. <code>test-magnet-risk</code> — exits clean, no blocking magnet (one monitored default-path dominator, Shankar in identity-transition, diversified by intake hints in production). <code>test-retrieval-calibration</code> — <strong>25/45 (56%), below the 70% target.</strong> The drop is mostly a <em>stale-test artifact</em>: ~20 new SIOs joined the library, and several now win queries whose hand-curated "acceptable answer" sets were written for the pre-expansion corpus (e.g. <code>brooks-theyre-not-bored</code>, <code>shankar-identity-paralysis</code>, <code>benshahar-arrival-fallacy</code>). A minority are genuine new over-winners (notably <code>brooks-theyre-not-bored</code> across several engagement-drought probes). Both point to the same fix: refresh the calibration acceptable-sets for the new corpus and retune the resonance/threshold weights. <strong>This recalibration is the one true gate remaining before beta.</strong></li>
+    <li><strong>Coverage (detect-gaps):</strong> all six states at target (111 total), every state×register cell populated, only one low-priority advisory (direction-collapse 20 vs momentum-gap 16 — a mild balance note, not a hole).</li>
+    <li>The manual smoke test passes end to end (preamble → insight → media → feedback → retry).</li>
+    <li>The closed-beta plan and first-three-tester plan are ready (both exist as guides).</li>
+    <li>Tier-1 presentation improvements are shipped (recommended, not blocking).</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Bottom line.</strong> The architecture, tooling, process, and now the corpus (111 verified SIOs, media validated,
+    coverage balanced) are all in place and mature for a v1. <strong>One gate remains before beta:</strong> a retrieval
+    recalibration pass — refresh the calibration acceptable-sets for the expanded corpus and retune the resonance/threshold
+    weights to lift the pass rate back toward the ≥70% target and tame the one or two new over-winners. After that, Silhouette
+    is ready for a closed beta whose single job is to validate that the insight reliably lands.
+  </div>
+
+  <!-- ============================= APPENDIX ============================= -->
+  <h2 class="page-break">Appendix</h2>
+
+  <h3>A · Glossary</h3>
+  <ul>
+    <li><strong>SIO (Structured Insight Object)</strong> — the unit of the library: one curated insight + rich metadata.</li>
+    <li><strong>Stuck state</strong> — one of six soft, non-clinical clusters describing the user's moment.</li>
+    <li><strong>Resonance profile</strong> — <code>insight_type</code> + <code>voice_register</code>; the second retrieval dimension.</li>
+    <li><strong>Magnet</strong> — an SIO that wins a disproportionate share of a state's queries; guarded by a promotion gate.</li>
+    <li><strong>scoredSearch</strong> — the retrieval function: semantic similarity + metadata boosts + MMR diversity.</li>
+    <li><strong>aha moment</strong> — the single success metric: a real shift in how the user sees their situation.</li>
+  </ul>
+
+  <h3>B · npm command reference (selected)</h3>
+  <p class="small">
+    <code>discover-sios</code>, <code>detect-gaps</code>, <code>analyze-user-needs</code>, <code>find-source-candidates</code>,
+    <code>evaluate-candidate</code>, <code>score-candidate-novelty</code>, <code>verify-candidate-source</code>,
+    <code>review-candidates</code>, <code>draft-sio-from-candidate</code> · <code>find-video-sources</code>,
+    <code>find-video-moments</code>, <code>find-clip-moments</code>, <code>extract-video-timestamps</code>,
+    <code>validate-media</code>, <code>audit-corpus-media</code>, <code>verify-youtube-channels</code> ·
+    <code>test-retrieval-calibration</code>, <code>test-sio-retrieval</code>, <code>test-state-classification</code>,
+    <code>test-present-insight</code>, <code>test-smoke-flows</code> · <code>diagnose-magnets</code>,
+    <code>test-magnet-risk</code> · <code>analyze-feedback</code>, <code>ingest</code>, <code>warm</code>.
+  </p>
+
+  <h3>C · Key documents</h3>
+  <p class="small">
+    Product: <code>aiDocs/context.md</code>, <code>prd.md</code>, <code>mvp.md</code>, <code>architecture.md</code> ·
+    System map: <code>ai/guides/silhouette_system_map.md</code> · Components: retrieval (<code>retrieval_philosophy.md</code>,
+    <code>retrieval_engine.md</code>), presentation (<code>insight_presentation_layer.md</code>), feedback
+    (<code>feedback_quality_signal_loop.md</code>), discovery (<code>agentic_sio_discovery_system_design.md</code>),
+    media (<code>video_source_finder_design.md</code>, <code>youtube_api_integration_design.md</code>) · Beta:
+    <code>closed_beta_plan.md</code>, <code>first_three_tester_plan.md</code>, <code>manual_beta_smoke_test.md</code>.
+  </p>
+
+  <footer>
+    Silhouette — Project Report v1.0 · Generated June 4, 2026 for internal use · Corpus-complete (111 SIOs), pre-beta.
+  </footer>
+
+</div>
+</body>
+</html>

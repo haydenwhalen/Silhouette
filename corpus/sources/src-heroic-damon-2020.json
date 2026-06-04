@@ -1,0 +1,28 @@
+{
+  "source_id": "src-heroic-damon-2020",
+  "source_type": "long-form interview podcast",
+  "speaker": "William Damon",
+  "show_or_platform": "Heroic (Brian Johnson)",
+  "episode_or_content_title": "The Power of Purpose and Ideals with William Damon",
+  "episode_or_content_date": "2020-03-13",
+  "source_url": "https://www.youtube.com/watch?v=RtxgykMwMJk",
+  "video_provider": "youtube",
+  "video_id": "RtxgykMwMJk",
+  "video_url": "https://www.youtube.com/watch?v=RtxgykMwMJk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/RtxgykMwMJk?start=2041&end=2070",
+  "official_channel": "Brian Johnson",
+  "official_channel_url": "https://www.youtube.com/@HeroicWithBrianJohnson",
+  "channel_id": "UCRhEwzsFYLGcMa4m2AbTAoA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: original-upload interview channel (Brian Johnson / Heroic, channel_id UCRhEwzsFYLGcMa4m2AbTAoA). Excerpt confirmed verbatim in English auto-captions at 34:01–34:30 (yt-dlp). CHANNEL CAVEAT: host is a brand/founder channel rather than an academic institution (an institutional Stanford Alumni alternative with the same speaker exists, video _v0jyKOCOIQ) — kept here for the cleaner 'built-not-found timeline' verbatim and warm register; attribute the speaker, not the channel, as authority. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Original-upload interview channel; attribute the speaker (Stanford developmental psychologist), not the host channel, as authority. Brief verbatim quote for attribution; embed/link only. Swap to the Stanford Alumni upload (_v0jyKOCOIQ) if a brand channel is disqualifying.",
+  "sios": [
+    "sio-damon-purpose-built-late-2020"
+  ]
+}

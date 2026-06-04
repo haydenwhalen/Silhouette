@@ -61,6 +61,9 @@ export async function POST(req: NextRequest) {
       // clarifying questions, feedback acks, etc. The UI uses this to
       // render the embedded video card.
       media: result.media ?? null,
+      // Tier-1 structural presentation metadata (confidence chip, verification
+      // label, factual credibility line) — travels as data, not parsed from markdown.
+      insight_meta: result.insight_meta ?? null,
     });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Internal server error";

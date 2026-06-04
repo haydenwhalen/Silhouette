@@ -1,0 +1,28 @@
+{
+  "source_id": "src-highperformance-wilkinson-2020",
+  "source_type": "long-form interview podcast",
+  "speaker": "Jonny Wilkinson",
+  "show_or_platform": "The High Performance Podcast",
+  "episode_or_content_title": "Jonny Wilkinson on How He Survived His Career",
+  "episode_or_content_date": "2020-09-26",
+  "source_url": "https://www.youtube.com/watch?v=O80qs9OEadw",
+  "video_provider": "youtube",
+  "video_id": "O80qs9OEadw",
+  "video_url": "https://www.youtube.com/watch?v=O80qs9OEadw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/O80qs9OEadw?start=1757&end=1784",
+  "official_channel": "High Performance",
+  "official_channel_url": "https://www.youtube.com/@HighPerformance",
+  "channel_id": "UCT4hFq01krOatjiSG7z3iag",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official High Performance Podcast channel (channel_id UCT4hFq01krOatjiSG7z3iag). Excerpt confirmed verbatim in English auto-captions at 29:17–29:44 (yt-dlp); sentence casing/punctuation normalized, words unchanged. Injury/struggle material is a separate later part of the episode and is excluded. Re-confirm by ear before approving. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-wilkinson-no-arrival-2020"
+  ]
+}

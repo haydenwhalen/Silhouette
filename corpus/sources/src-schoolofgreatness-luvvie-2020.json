@@ -1,0 +1,28 @@
+{
+  "source_id": "src-schoolofgreatness-luvvie-2020",
+  "source_type": "long-form interview podcast",
+  "speaker": "Luvvie Ajayi Jones",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "Luvvie Ajayi Jones: Get Comfortable Being Uncomfortable (Ep. 977)",
+  "episode_or_content_date": "2020-07-08",
+  "source_url": "https://www.youtube.com/watch?v=TgFr8qkzKMg",
+  "video_provider": "youtube",
+  "video_id": "TgFr8qkzKMg",
+  "video_url": "https://www.youtube.com/watch?v=TgFr8qkzKMg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/TgFr8qkzKMg?start=1062&end=1099",
+  "official_channel": "Lewis Howes",
+  "official_channel_url": "https://www.youtube.com/lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04: official School of Greatness / Lewis Howes channel (channel_id UCKsP3v2JeT2hWI_HzkxWiMA; family already in corpus). Excerpt confirmed verbatim in English auto-captions at 17:42–18:19 (yt-dlp ASR); recommend a quick human listen-check on punctuation before relying on exact wording. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official podcast video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-luvvie-claim-the-title-2020"
+  ]
+}
