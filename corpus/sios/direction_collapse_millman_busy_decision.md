@@ -17,19 +17,21 @@ transcript_verified: true
 # human_review_status: prototype_only pending a final human word-check, then → approved.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: podcast-audio
-video_provider: none
+source_media_type: podcast-video
+video_provider: youtube
 official_channel: "The Tim Ferriss Show"
-official_channel_url: "https://tim.blog/podcast/"
-video_id: ""
-video_url: ""
-embed_url: ""
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: audio-primary
+official_channel_url: "https://www.youtube.com/channel/UCznv7Vf9nBdJYvBagFdAHWw"
+channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
+video_id: "ZoF55SXO6ik"
+video_url: "https://www.youtube.com/watch?v=ZoF55SXO6ik"
+embed_url: "https://www.youtube-nocookie.com/embed/ZoF55SXO6ik"
+timestamp_start_seconds: 847
+timestamp_end_seconds: 855
+display_mode: video-primary
 media_available: true
-media_verification_status: not_applicable
-media_verification_notes: "Audio podcast (#304); no official video embed. Quote VERIFIED verbatim from the official tim.blog transcript (fetched 2026-05). No timestamps → timestamp fields null. media_verification_status not_applicable (no embeddable video; audio source verified)."
+media_verification_status: verified
+clip_match_type: exact_quote_match
+media_verification_notes: "Official Tim Ferriss YouTube upload of the full episode #304 (video_id ZoF55SXO6ik, channel UCznv7Vf9nBdJYvBagFdAHWw). The SIO body ('Busy is a decision. We do the things we want to do, period.') is confirmed verbatim in the video's auto-captions at ~14:08 and in the official tim.blog transcript — exact_quote_match honest (transcript_verified: true). Promoted from audio-only 2026-06-04 after per-SIO agent verification (captions pulled via yt-dlp). An unofficial re-upload was removed by Tim Ferriss copyright claim, confirming this is the authoritative source. Timestamp pinned separately by extract-video-timestamps. TIMESTAMP ADDED 2026-06-04 by extract-video-timestamps: located the verbatim SIO body in the official YouTube upload's auto-caption (ASR) transcript (pulled via yt-dlp android-client path). Matched 13 contiguous words ('busy is a decision we do the things we want to do period') -> 14:07–14:15. clip_match_type unchanged (exact_quote_match); ASR timestamps accurate to ~1-2s."
 media_rights_notes: "Publicly available podcast. Brief verbatim quote for attribution; link to the official episode page. Do not reproduce extended passages or re-host audio."
 
 primary_state_tag: direction-collapse

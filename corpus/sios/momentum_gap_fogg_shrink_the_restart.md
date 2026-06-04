@@ -15,20 +15,22 @@ transcript_verified: false
 # Replace with a verified verbatim excerpt before marking approved.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: ted-talk
-video_provider: none
-video_id: ""
-video_url: ""
-embed_url: ""
+source_media_type: youtube-video
+video_provider: youtube
+video_id: "AdKUJxjn-R8"
+video_url: "https://www.youtube.com/watch?v=AdKUJxjn-R8"
+embed_url: "https://www.youtube-nocookie.com/embed/AdKUJxjn-R8"
 # NOTE: No verified official video embed. Never fabricate a video_id/embed_url.
 official_channel: ""
-official_channel_url: "https://tinyhabits.com"
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: text-only
+official_channel_url: "https://www.youtube.com/channel/UCsT0YIqwnpJCM-mx7-gSA4Q"
+channel_id: "UCsT0YIqwnpJCM-mx7-gSA4Q"
+timestamp_start_seconds: 390
+timestamp_end_seconds: 425
+display_mode: video-primary
 media_available: null
-media_verification_status: not_applicable
-media_verification_notes: "Reconstruction (prototype_only). Official video embed not verified. Human must confirm an official artifact before any video-primary display."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Official TEDx Talks YouTube upload 'Forget big change, start with a tiny habit: BJ Fogg at TEDxFremont' (video_id AdKUJxjn-R8, channel UCsT0YIqwnpJCM-mx7-gSA4Q, 2012). The talk expresses the SIO's automaticity mechanism (confirmed in captions at ~06:42: 'You already know how to floss all your teeth... what you're lacking is the automaticity'). SIO body is a prototype_only reconstruction → talking_point, transcript_verified false. METADATA FLAG: the SIO's title/date/source_url currently point at the 2019 'Tiny Habits' book, not the 2012 talk — reconcile in a later pass. Promoted 2026-06-04 after agent verification via yt-dlp."
 media_rights_notes: "Source-link to the canonical official page. Do not reproduce extended passages or re-host audio/video."
 
 primary_state_tag: momentum-gap

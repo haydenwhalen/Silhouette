@@ -24,37 +24,32 @@ source_media_type: podcast-video
 
 video_provider: youtube
 official_channel: "Huberman Lab"
-official_channel_url: "https://www.youtube.com/@hubermanlab"
+official_channel_url: "https://www.youtube.com/channel/UC2D2CMWXMOVWx7giW1n3LIg"
+channel_id: "UC2D2CMWXMOVWx7giW1n3LIg"
 
-video_id: ""
-# ⚠️ HELD BLANK BY DESIGN — candidate IDs conflict (see notes). The official
-# hubermanlab.com episode page links youtu.be/nDLb8_wgX50; a web search instead surfaced
-# pTB51K96vFs as the "Huberman Lab w/ Andrew Huberman" upload. The conflict + an
-# inconsistent date on the official page mean neither is machine-confirmed. No video_id
-# is written.
+video_id: "nDLb8_wgX50"
+# ✅ CONFLICT RESOLVED 2026-06-04. nDLb8_wgX50 is the official Huberman Lab full episode
+# (2:37:35, channel_id matches trusted_youtube_channels.json), confirmed via yt-dlp. The
+# rival pTB51K96vFs is an UNOFFICIAL 9:16 clip on third-party "Podcast Summaries" — rejected.
 
-video_url: ""
-# No single watch URL confirmed (candidate conflict). Candidates recorded in notes only.
+video_url: "https://www.youtube.com/watch?v=nDLb8_wgX50"
 
-embed_url: ""
-# Leave blank until video_id is playback-verified on the official channel. Then:
-# https://www.youtube-nocookie.com/embed/{video_id}?start=4800&end=5040
+embed_url: "https://www.youtube-nocookie.com/embed/nDLb8_wgX50"
 
-timestamp_start_seconds: 4800
-# Approx. Derived from 01:20:00  (1×3600 + 20×60). Verify against actual video.
+timestamp_start_seconds: 4735
+# 1:18:55 — start of the identity-of-inaction passage ("we know what to do... why aren't
+# you doing it"). Nudged 2026-06-04 from 4800 (1:20:00) to open on the thematic peak.
 
 timestamp_end_seconds: 5040
-# Approx. Derived from 01:24:00  (1×3600 + 24×60). Verify against actual video.
+# 1:24:00 — through Goggins' "I gotta start now / repetition" follow-through.
 
 display_mode: video-primary
-# Huberman Lab has full official video. Until the video_id is verified, presentation
-# falls back to the source-link (hubermanlab.com episode page) gracefully.
 
 media_available: true
-# Official episode page + channel are publicly maintained and accessible.
 
-media_verification_status: needs_review
-media_verification_notes: "Official channel (Huberman Lab, https://www.youtube.com/@hubermanlab) and official episode page (hubermanlab.com) CONFIRMED via web search/fetch (2026-05). CANDIDATE CONFLICT: the official episode page links youtu.be/nDLb8_wgX50, while a web search surfaced pTB51K96vFs as the full-episode upload — and the official page showed an inconsistent date (Jan 1 2024 vs the SIO's 2023-01-09). Because the candidates conflict and neither could be machine-confirmed as the canonical official-channel video, video_id and video_url are left blank. MEDIUM confidence. Timestamps (1:20:00–1:24:00) are approximate, not transcript-verified."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Official Huberman Lab YouTube full episode (video_id nDLb8_wgX50, 2:37:35, channel UC2D2CMWXMOVWx7giW1n3LIg). CANDIDATE CONFLICT RESOLVED 2026-06-04 via yt-dlp: nDLb8_wgX50 (the id linked from the official hubermanlab.com page) is the canonical full episode; the web-surfaced pTB51K96vFs is an unofficial 9:16 clip on the third-party 'Podcast Summaries' channel and was rejected. The inaction-loop content is confirmed in the captions at ~1:18:55–1:21:00 (Goggins: 'we know what to do... you know what to do — why aren't you doing it'). The SIO body is an acknowledged reconstruction (Goggins' actual phrasing differs), so clip_match_type is talking_point and transcript_verified stays false. The official page's 'Jan 1 2024' is a re-publish artifact; the episode aired 2023-01-09. Timestamp nudged from 4800 to 4735 to open on the thematic peak."
 
 media_rights_notes: "Huberman Lab episodes are publicly available on YouTube under standard license. Embed only from the official channel. Do not download or re-host clips."
 

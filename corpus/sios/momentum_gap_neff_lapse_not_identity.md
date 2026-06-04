@@ -15,20 +15,22 @@ transcript_verified: false
 # Replace with a verified verbatim excerpt before marking approved.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: ted-talk
-video_provider: none
-video_id: ""
-video_url: ""
-embed_url: ""
+source_media_type: youtube-video
+video_provider: youtube
+video_id: "IvtZBUSplr4"
+video_url: "https://www.youtube.com/watch?v=IvtZBUSplr4"
+embed_url: "https://www.youtube-nocookie.com/embed/IvtZBUSplr4"
 # NOTE: No verified official video embed. Never fabricate a video_id/embed_url.
 official_channel: ""
-official_channel_url: "https://self-compassion.org"
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: text-only
+official_channel_url: "https://www.youtube.com/channel/UCsT0YIqwnpJCM-mx7-gSA4Q"
+channel_id: "UCsT0YIqwnpJCM-mx7-gSA4Q"
+timestamp_start_seconds: 906
+timestamp_end_seconds: 935
+display_mode: video-primary
 media_available: null
-media_verification_status: not_applicable
-media_verification_notes: "Reconstruction (prototype_only). Official video embed not verified. Human must confirm an official artifact before any video-primary display."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Official TEDx Talks YouTube upload 'The Space Between Self-Esteem and Self-Compassion: Kristin Neff at TEDxCentennialParkWomen' (video_id IvtZBUSplr4, channel UCsT0YIqwnpJCM-mx7-gSA4Q, 2013). The talk expresses the SIO's permission (confirmed in the official manual captions at ~15:06: 'it's there for you precisely when you fail. Just when self-esteem deserts you, self-compassion steps in'). The SIO's specific 'falling off a habit' framing is the author's application; the underlying idea is present → talking_point, transcript_verified false. METADATA FLAG: actual talk date is 2013-02-07 (SIO records 2020). Avoid the non-official re-uploads pKEtknqHTjo / wh8ffxvM1eg. Promoted 2026-06-04 after agent verification via yt-dlp."
 media_rights_notes: "Source-link to the canonical official page. Do not reproduce extended passages or re-host audio/video."
 
 primary_state_tag: momentum-gap

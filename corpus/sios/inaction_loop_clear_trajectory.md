@@ -16,19 +16,21 @@ transcript_verified: true
 # deliberately NOT used. tim.blog transcripts carry no timestamps → timestamp fields null.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: podcast-audio
-video_provider: none
+source_media_type: podcast-video
+video_provider: youtube
 official_channel: "The Tim Ferriss Show"
-official_channel_url: "https://tim.blog/podcast/"
-video_id: ""
-video_url: ""
-embed_url: ""
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: audio-primary
+official_channel_url: "https://www.youtube.com/channel/UCznv7Vf9nBdJYvBagFdAHWw"
+channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
+video_id: "T2r1jyhT2vg"
+video_url: "https://www.youtube.com/watch?v=T2r1jyhT2vg"
+embed_url: "https://www.youtube-nocookie.com/embed/T2r1jyhT2vg"
+timestamp_start_seconds: 434
+timestamp_end_seconds: 443
+display_mode: video-primary
 media_available: true
-media_verification_status: not_applicable
-media_verification_notes: "Audio podcast (#648); no official video embed. Quote VERIFIED verbatim from the official tim.blog transcript (fetched 2026-05). No timestamps → timestamp fields null. media_verification_status not_applicable (no embeddable video; audio source verified)."
+media_verification_status: verified
+clip_match_type: exact_quote_match
+media_verification_notes: "Official Tim Ferriss YouTube upload of the full episode #648 (video_id T2r1jyhT2vg, channel UCznv7Vf9nBdJYvBagFdAHWw). The SIO body ('Can my current habits carry me to my desired future...') is confirmed verbatim in the auto-captions at ~07:10 and in the official tim.blog transcript, spoken by James Clear — exact_quote_match honest (transcript_verified: true). Promoted 2026-06-04 after per-SIO agent verification via yt-dlp captions. Timestamp pinned separately by extract-video-timestamps. TIMESTAMP ADDED 2026-06-04 by extract-video-timestamps: located the verbatim SIO body in the official YouTube upload's auto-caption (ASR) transcript (pulled via yt-dlp android-client path). Matched 19 contiguous words ('if they can then maybe all you need is patience but if they can't something needs to change you') -> 7:14–7:23. clip_match_type unchanged (exact_quote_match); ASR timestamps accurate to ~1-2s."
 media_rights_notes: "Publicly available podcast. Brief verbatim quote for attribution; link to the official episode page. Do not reproduce extended passages or re-host audio."
 
 primary_state_tag: inaction-loop

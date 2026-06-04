@@ -15,20 +15,22 @@ transcript_verified: false
 # Replace with a verified verbatim excerpt before marking approved.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: podcast
-video_provider: none
-video_id: ""
-video_url: ""
-embed_url: ""
+source_media_type: podcast-video
+video_provider: youtube
+video_id: "Wcs2PFz5q6g"
+video_url: "https://www.youtube.com/watch?v=Wcs2PFz5q6g"
+embed_url: "https://www.youtube-nocookie.com/embed/Wcs2PFz5q6g"
 # NOTE: No verified official video embed. Never fabricate a video_id/embed_url.
 official_channel: ""
-official_channel_url: "https://www.hubermanlab.com"
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: text-only
+official_channel_url: "https://www.youtube.com/channel/UC2D2CMWXMOVWx7giW1n3LIg"
+channel_id: "UC2D2CMWXMOVWx7giW1n3LIg"
+timestamp_start_seconds: 837
+timestamp_end_seconds: 905
+display_mode: video-primary
 media_available: null
-media_verification_status: not_applicable
-media_verification_notes: "Reconstruction (prototype_only). Official video embed not verified. Human must confirm an official artifact before any video-primary display."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Official Huberman Lab YouTube upload, full episode #53 (video_id Wcs2PFz5q6g, channel UC2D2CMWXMOVWx7giW1n3LIg), linked from the official hubermanlab.com episode page. This IS the cited episode; the 'limbic friction' mechanism is confirmed in the captions (definition at ~13:57; no-compensation/restart guidance ~1:21:26). SIO body is a reconstruction → talking_point, transcript_verified false. METADATA FLAG: actual publication 2022-01-03 (SIO records approximate 2020). Promoted 2026-06-04 after agent verification via yt-dlp. Timestamp = confirmed concept moment."
 media_rights_notes: "Source-link to the canonical official page. Do not reproduce extended passages or re-host audio/video."
 
 primary_state_tag: momentum-gap

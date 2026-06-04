@@ -16,19 +16,21 @@ transcript_verified: true
 # tim.blog transcripts carry no timestamps → timestamp fields null. Recommend a final human word-check.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: podcast-audio
-video_provider: none
+source_media_type: podcast-video
+video_provider: youtube
 official_channel: "The Tim Ferriss Show"
-official_channel_url: "https://tim.blog/podcast/"
-video_id: ""
-video_url: ""
-embed_url: ""
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: audio-primary
+official_channel_url: "https://www.youtube.com/channel/UCznv7Vf9nBdJYvBagFdAHWw"
+channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
+video_id: "PQvTQebCqxQ"
+video_url: "https://www.youtube.com/watch?v=PQvTQebCqxQ"
+embed_url: "https://www.youtube-nocookie.com/embed/PQvTQebCqxQ"
+timestamp_start_seconds: 3341
+timestamp_end_seconds: 3353
+display_mode: video-primary
 media_available: true
-media_verification_status: not_applicable
-media_verification_notes: "Audio podcast (#187); no official video embed. Quote VERIFIED verbatim from the official tim.blog transcript (fetched 2026-05, continuous block). No timestamps in tim.blog transcripts → timestamp fields null. media_verification_status not_applicable (no embeddable video; audio source verified). Episode date 2016-09-21 per the episode page; transcript published 2018-06-04."
+media_verification_status: verified
+clip_match_type: exact_quote_match
+media_verification_notes: "Official Tim Ferriss YouTube upload of the full episode #187 (video_id PQvTQebCqxQ, channel UCznv7Vf9nBdJYvBagFdAHWw). The SIO body ('Motivation is fickle... don't count on motivation. Count on discipline.') is confirmed near-verbatim in the auto-captions at ~55:32 and in the official tim.blog transcript — exact_quote_match honest (transcript_verified: true). NOTE: YouTube upload_date 2016-10-25 lags the SIO's stated episode date 2016-09-21 (same episode #187, confirmed by the verbatim listener-Q&A quote match). Promoted 2026-06-04 after agent verification via yt-dlp. Timestamp pinned separately. TIMESTAMP ADDED 2026-06-04 by extract-video-timestamps: located the verbatim SIO body in the official YouTube upload's auto-caption (ASR) transcript (pulled via yt-dlp android-client path). Matched 24 contiguous words ('as being hungry can sap your motivation right that's ridiculous you can't rely on that you have oh my blood sugar went down i'm') -> 55:41–55:53. clip_match_type unchanged (exact_quote_match); ASR timestamps accurate to ~1-2s."
 media_rights_notes: "Publicly available podcast. Brief verbatim quote for attribution; link to the official episode page. Do not reproduce extended passages or re-host audio."
 
 primary_state_tag: inaction-loop

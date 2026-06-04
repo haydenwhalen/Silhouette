@@ -15,20 +15,22 @@ transcript_verified: false
 # Replace with a verified verbatim excerpt before marking approved.
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
-source_media_type: podcast
-video_provider: none
-video_id: ""
-video_url: ""
-embed_url: ""
+source_media_type: podcast-video
+video_provider: youtube
+video_id: "bR6JHIZKJdI"
+video_url: "https://www.youtube.com/watch?v=bR6JHIZKJdI"
+embed_url: "https://www.youtube-nocookie.com/embed/bR6JHIZKJdI"
 # NOTE: No verified official video embed. Never fabricate a video_id/embed_url.
 official_channel: ""
-official_channel_url: "https://tim.blog/podcast/"
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: text-only
+official_channel_url: "https://www.youtube.com/channel/UCznv7Vf9nBdJYvBagFdAHWw"
+channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
+timestamp_start_seconds: 2972
+timestamp_end_seconds: 3025
+display_mode: video-primary
 media_available: null
-media_verification_status: not_applicable
-media_verification_notes: "Reconstruction (prototype_only). Official video embed not verified. Human must confirm an official artifact before any video-primary display."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Official Tim Ferriss YouTube upload of the full episode #561 (video_id bR6JHIZKJdI, channel UCznv7Vf9nBdJYvBagFdAHWw). This IS the source episode and the core claim is confirmed in the captions at ~49:36, but the SIO body is a prototype_only reconstruction (not verbatim), so clip_match_type is talking_point and transcript_verified stays false until the body is replaced with the verbatim passage. Promoted 2026-06-04 after agent verification via yt-dlp. Timestamp = context start of the confirmed moment."
 media_rights_notes: "Source-link to the canonical official page. Do not reproduce extended passages or re-host audio/video."
 
 primary_state_tag: identity-transition

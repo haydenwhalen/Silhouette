@@ -24,36 +24,32 @@ source_media_type: podcast-video
 
 video_provider: youtube
 official_channel: "Huberman Lab"
-official_channel_url: "https://www.youtube.com/@hubermanlab"
+official_channel_url: "https://www.youtube.com/channel/UC2D2CMWXMOVWx7giW1n3LIg"
+channel_id: "UC2D2CMWXMOVWx7giW1n3LIg"
 
-video_id: ""
-# ⚠️ HELD BLANK BY DESIGN. The official hubermanlab.com episode page links a candidate
-# YouTube id (QmOF0crdyRU, https://youtu.be/QmOF0crdyRU) — HIGH-confidence candidate — but
-# official-channel playback was NOT confirmed without the YouTube Data API, so no video_id
-# is written. See media_verification_notes. Do not embed until playback-verified.
+video_id: "QmOF0crdyRU"
+# ✅ PLAYBACK-VERIFIED 2026-06-04. Official Huberman Lab channel (channel_id matches
+# trusted_youtube_channels.json) confirmed via yt-dlp metadata; full episode 2:16:31.
 
 video_url: "https://www.youtube.com/watch?v=QmOF0crdyRU"
-# Candidate watch URL (from the official episode page). Verify before treating as official.
 
-embed_url: ""
-# Leave blank until video_id is playback-verified on the official channel. Then:
-# https://www.youtube-nocookie.com/embed/{video_id}?start=2700&end=3000
+embed_url: "https://www.youtube-nocookie.com/embed/QmOF0crdyRU"
 
-timestamp_start_seconds: 2700
-# Approx. Derived from 00:45:00  (45×60). Verify against actual video.
+timestamp_start_seconds: 3180
+# 53:00 — start of the baseline-depletion mechanism (every peak drops baseline below its
+# prior level). CORRECTED 2026-06-04 from 2700 (45:00), which landed on the adjacent
+# substances-vs-baseline list, not the SIO's specific depletion claim.
 
-timestamp_end_seconds: 3000
-# Approx. Derived from 00:50:00  (50×60). Verify against actual video.
+timestamp_end_seconds: 3460
+# 57:40 — through the peak-drop + chronic-depletion arc.
 
 display_mode: video-primary
-# Huberman Lab has full official video. Until the video_id is verified, presentation
-# falls back to the source-link (hubermanlab.com episode page) gracefully.
 
 media_available: true
-# Official episode page + channel are publicly maintained and accessible.
 
-media_verification_status: needs_review
-media_verification_notes: "Official channel (Huberman Lab, https://www.youtube.com/@hubermanlab) and official episode page (hubermanlab.com) CONFIRMED via web search/fetch (2026-05). The official episode page links candidate YouTube id QmOF0crdyRU (youtu.be/QmOF0crdyRU) — recorded as a HIGH-confidence candidate in video_url. video_id deliberately left blank because official-channel playback could not be machine-confirmed without the YouTube Data API (search-result titles are not sufficient). Timestamps (45:00–50:00) are approximate, derived from documentation, not transcript-verified."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "Official Huberman Lab YouTube upload, full episode (video_id QmOF0crdyRU, channel UC2D2CMWXMOVWx7giW1n3LIg, linked from the official hubermanlab.com episode page). PLAYBACK-VERIFIED 2026-06-04 via yt-dlp: the baseline-depletion mechanism is confirmed in the auto-captions at ~53:00–57:40 ('it doesn't just go back down to the level it was before — it goes down to a level below what it was before you went out seeking that thing'). The SIO body is a reconstruction/paraphrase (not verbatim), so clip_match_type is talking_point and transcript_verified stays false. Timestamp corrected from 2700 (45:00, wrong content) to 3180 (53:00). METADATA NOTE: YouTube publish date 2021-09-27 vs SIO episode_or_content_date 2021-04-26 — original podcast release may predate the upload; reconcile in a later pass."
 
 media_rights_notes: "Huberman Lab episodes are publicly available on YouTube under standard license. Embed only from the official channel. Do not download or re-host clips."
 

@@ -16,19 +16,21 @@ transcript_verified: false
 
 # ── MEDIA (PRESENTATION LAYER ONLY) ───────────────────────────────
 # See ai/guides/video_source_finder_design.md for the media schema + status vocabulary.
-source_media_type: podcast-audio
-video_provider: none
+source_media_type: podcast-video
+video_provider: youtube
 official_channel: "The Tim Ferriss Show"
-official_channel_url: "https://tim.blog/podcast/"
-video_id: ""
-video_url: ""
-embed_url: ""
-timestamp_start_seconds: null
-timestamp_end_seconds: null
-display_mode: audio-primary
+official_channel_url: "https://www.youtube.com/channel/UCznv7Vf9nBdJYvBagFdAHWw"
+channel_id: "UCznv7Vf9nBdJYvBagFdAHWw"
+video_id: "tC44dTV0kKo"
+video_url: "https://www.youtube.com/watch?v=tC44dTV0kKo"
+embed_url: "https://www.youtube-nocookie.com/embed/tC44dTV0kKo"
+timestamp_start_seconds: 4109
+timestamp_end_seconds: 4170
+display_mode: video-primary
 media_available: true
-media_verification_status: not_applicable
-media_verification_notes: "Audio-only Tim Ferriss Show episode (ep. 84); no official video to embed. Source-link only to the official episode page. Not_applicable for video."
+media_verification_status: verified
+clip_match_type: talking_point
+media_verification_notes: "OFFICIAL SECONDARY video. Tim Ferriss YouTube upload of episode #501 (video_id tC44dTV0kKo, channel UCznv7Vf9nBdJYvBagFdAHWw), where Pressfield defines 'Resistance with a capital R' / 'the force of self-sabotage' in his own voice (confirmed in captions at ~58:22 and ~1:08:29). This is NOT the SIO's cited 2015 source episode #84 (audio-only; its tim.blog page now 404s), so it is a same-speaker secondary on the same idea → talking_point, transcript_verified false. Promoted 2026-06-04 after agent verification via yt-dlp. Timestamp = confirmed moment."
 media_rights_notes: "Publicly available podcast. Tim Ferriss episode 84. Link to the official episode page; do not download or re-host."
 
 primary_state_tag: inaction-loop
