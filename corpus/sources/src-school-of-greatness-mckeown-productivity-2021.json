@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-mckeown-productivity-2021",
+  "source_type": "long-form interview podcast",
+  "speaker": "Greg McKeown",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "This PRODUCTIVITY SYSTEM Will Completely CHANGE YOUR LIFE! | Greg Mckeown & Lewis Howes",
+  "episode_or_content_date": "2021-05-03",
+  "source_url": "https://www.youtube.com/watch?v=Y3I5IawG5P8",
+  "video_provider": "youtube",
+  "video_id": "Y3I5IawG5P8",
+  "video_url": "https://www.youtube.com/watch?v=Y3I5IawG5P8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Y3I5IawG5P8?start=4142&end=4163",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~69:02–69:21 (a 'and I do think you' disfluency trimmed). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-mckeown-every-yes-is-a-no-sog-2021"
+  ]
+}

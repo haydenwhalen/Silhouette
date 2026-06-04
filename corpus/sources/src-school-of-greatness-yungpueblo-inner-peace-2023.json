@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-yungpueblo-inner-peace-2023",
+  "source_type": "long-form interview podcast",
+  "speaker": "Yung Pueblo",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "Unlock Inner PEACE & Master Your Thoughts | Yung Pueblo",
+  "episode_or_content_date": "2023-10-09",
+  "source_url": "https://www.youtube.com/watch?v=eYLGw9ciNs8",
+  "video_provider": "youtube",
+  "video_id": "eYLGw9ciNs8",
+  "video_url": "https://www.youtube.com/watch?v=eYLGw9ciNs8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/eYLGw9ciNs8?start=1160&end=1180",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~19:20–19:38; the ASR renders 'because' as 'CU' (restored) and a leading disfluency ('you you') is trimmed. 'Going through the motion' is the spoken phrasing (singular). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-yungpueblo-going-through-motions-sog-2023"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-robbins-masterclass-2021",
+  "source_type": "long-form interview podcast",
+  "speaker": "Tony Robbins",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "Tony Robbins MASTERCLASS On How To CHANGE YOUR LIFE Today! | Lewis Howes",
+  "episode_or_content_date": "2021-05-09",
+  "source_url": "https://www.youtube.com/watch?v=c-ylElsiKQQ",
+  "video_provider": "youtube",
+  "video_id": "c-ylElsiKQQ",
+  "video_url": "https://www.youtube.com/watch?v=c-ylElsiKQQ",
+  "embed_url": "https://www.youtube-nocookie.com/embed/c-ylElsiKQQ?start=8189&end=8199",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the episode's English auto-captions via yt-dlp (official Lewis Howes / School of Greatness channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~2:16:29–2:16:39; the standalone clause was lifted from a short story Robbins tells, dropping the vague 'have this nearby' object-reference tail so the excerpt reads cleanly. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-robbins-miracle-to-expectation-sog-2021"
+  ]
+}

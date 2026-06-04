@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-sharma-heart-mind-2019",
+  "source_type": "long-form interview podcast",
+  "speaker": "Robin Sharma",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "Master Your Heart and Mind with Robin Sharma and Lewis Howes",
+  "episode_or_content_date": "2019-02-04",
+  "source_url": "https://www.youtube.com/watch?v=Jj5gf47UxhI",
+  "video_provider": "youtube",
+  "video_id": "Jj5gf47UxhI",
+  "video_url": "https://www.youtube.com/watch?v=Jj5gf47UxhI",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Jj5gf47UxhI?start=130&end=145",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against this episode's punctuated English captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~2:10–2:25; a leading 'um' filler is dropped and the excerpt ends at 'I was very empty,' before Sharma pivots to quoting Jim Carrey, so the displayed words are entirely his own. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-sharma-mirror-empty-sog-2019"
+  ]
+}

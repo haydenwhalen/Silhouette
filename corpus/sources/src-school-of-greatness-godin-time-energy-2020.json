@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-godin-time-energy-2020",
+  "source_type": "long-form interview podcast",
+  "speaker": "Seth Godin",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "\"Why SPENDING MORE Time & Energy WON'T Make You SUCCESSFUL!\" | Seth Godin & Lewis Howes",
+  "episode_or_content_date": "2020-11-04",
+  "source_url": "https://www.youtube.com/watch?v=EffIjcVOUbg",
+  "video_provider": "youtube",
+  "video_id": "EffIjcVOUbg",
+  "video_url": "https://www.youtube.com/watch?v=EffIjcVOUbg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/EffIjcVOUbg?start=222&end=258",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~3:42–4:18; the single ellipsis marks an omitted illustrative aside (a 'helicopter pilot / jet helicopters' example) between 'ordained to do' and 'well then you're always going to be dissatisfied' — the rest is contiguous. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-godin-no-ordained-path-sog-2020"
+  ]
+}

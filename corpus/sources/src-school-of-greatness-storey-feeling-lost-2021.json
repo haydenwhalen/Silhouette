@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-storey-feeling-lost-2021",
+  "source_type": "long-form interview podcast",
+  "speaker": "Tim Storey",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "\"If You're FEELING LOST In Life, Use These SECRETS TO FIND YOURSELF!\" | Tim Storey & Lewis Howes",
+  "episode_or_content_date": "2021-03-08",
+  "source_url": "https://www.youtube.com/watch?v=5i-BWDl2ttk",
+  "video_provider": "youtube",
+  "video_id": "5i-BWDl2ttk",
+  "video_url": "https://www.youtube.com/watch?v=5i-BWDl2ttk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/5i-BWDl2ttk?start=201&end=237",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~3:21–3:55; the single ellipsis marks an omitted aside ('even coming into your studios today I had it all figured out'). ASR ARTIFACT: the captioner renders 'some things in life you discover' as 'some things you life you discover' (a mis-segmentation, parallel to the prior 'in life'); displayed excerpt restores 'in life'. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-storey-decide-vs-discover-sog-2021"
+  ]
+}

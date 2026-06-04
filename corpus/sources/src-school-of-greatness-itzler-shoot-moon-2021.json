@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-itzler-shoot-moon-2021",
+  "source_type": "long-form interview podcast",
+  "speaker": "Jesse Itzler",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "WHY YOU NEED To Stop Being REALISTIC & SHOOT For The MOON TODAY! | Jesse Itzler & Lewis Howes",
+  "episode_or_content_date": "2021-04-18",
+  "source_url": "https://www.youtube.com/watch?v=BGyExLRxPZo",
+  "video_provider": "youtube",
+  "video_id": "BGyExLRxPZo",
+  "video_url": "https://www.youtube.com/watch?v=BGyExLRxPZo",
+  "embed_url": "https://www.youtube-nocookie.com/embed/BGyExLRxPZo?start=4463&end=4480",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~74:23–74:40. The displayed excerpt is the over-ambitious-restart-then-stall setup; his resolution ('we've surrendered that... small wins every day,' ~74:46) follows within ~6s but is interleaved with host backchannel, so it is summarized in the SIO body rather than spliced into the quote. NOTE: an ad/subscribe bumper begins ~74:48 — clip ends before it. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-itzler-small-wins-restart-sog-2021"
+  ]
+}

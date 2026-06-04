@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-white-manifest-2021",
+  "source_type": "long-form interview podcast",
+  "speaker": "Shaun White",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "If You Want To MANIFEST Any Goal You Have, WATCH THIS! | Shaun White & Lewis Howes",
+  "episode_or_content_date": "2021-12-20",
+  "source_url": "https://www.youtube.com/watch?v=kRL__k2h-Wc",
+  "video_provider": "youtube",
+  "video_id": "kRL__k2h-Wc",
+  "video_url": "https://www.youtube.com/watch?v=kRL__k2h-Wc",
+  "embed_url": "https://www.youtube-nocookie.com/embed/kRL__k2h-Wc?start=4250&end=4267",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~70:55–71:05 (doubled-word ASR artifacts like 'it's it's' smoothed). The 'seeing the same instrument but playing it your way / finding your sound' lead-in (~70:15) is summarized, not quoted. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-white-find-your-sound-sog-2021"
+  ]
+}

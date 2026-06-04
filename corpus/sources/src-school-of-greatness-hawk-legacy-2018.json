@@ -1,0 +1,28 @@
+{
+  "source_id": "src-school-of-greatness-hawk-legacy-2018",
+  "source_type": "long-form interview podcast",
+  "speaker": "Tony Hawk",
+  "show_or_platform": "The School of Greatness",
+  "episode_or_content_title": "Tony Hawk: Breaking Limitations and Creating a Legacy",
+  "episode_or_content_date": "2018-08-01",
+  "source_url": "https://www.youtube.com/watch?v=UuntNsL6u48",
+  "video_provider": "youtube",
+  "video_id": "UuntNsL6u48",
+  "video_url": "https://www.youtube.com/watch?v=UuntNsL6u48",
+  "embed_url": "https://www.youtube-nocookie.com/embed/UuntNsL6u48?start=1398&end=1428",
+  "official_channel": "The School of Greatness",
+  "official_channel_url": "https://www.youtube.com/@lewishowes",
+  "channel_id": "UCKsP3v2JeT2hWI_HzkxWiMA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against English auto-captions via yt-dlp (official Lewis Howes channel, channel_id UCKsP3v2JeT2hWI_HzkxWiMA). Excerpt confirmed verbatim at ~23:18–23:48 (stutters like 'I'm not I' and 'I had to I had to' smoothed to the intended words). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-hawk-sense-of-value-sog-2018"
+  ]
+}
