@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T20:53:03.142Z",
+  "generated_at": "2026-06-05T01:25:05.840Z",
   "status": "hypothesis",
   "note": "User-need-driven harvesting targets. Hypothesis layer — not observed demand. corpus_gap → harvest; retrieval_gap → tune retrieval first.",
   "targets": [
@@ -31,68 +31,7 @@
         "\"Rich Roll Podcast\" wont ship unless perfect so freezes vulnerable official",
         "\"Rich Roll Podcast\" fear shame permission"
       ],
-      "coverage_evidence": "Hinted probe: 1/2 land, 1 EXCLUDED-register served. Static: strong — 4 SIO(s) match recommended register (vulnerable/personal) + type. Gap kind: retrieval_gap."
-    },
-    {
-      "need_id": "pp-too-many-options-none-chosen",
-      "gap_kind": "retrieval_gap",
-      "priority": 37,
-      "coverage_strength": "weak",
-      "target_state": "possibility-paralysis",
-      "recommended_insight_type": [
-        "reframe"
-      ],
-      "recommended_voice_register": "intellectual/measured",
-      "excluded_voice_registers": [
-        "warm/affirming"
-      ],
-      "recommended_intensity": "moderate",
-      "user_situation": "Which of these is the real one — and how do I pick without being sure?",
-      "missing_source_profile": "Someone who faced a genuine multi-option commitment with real cost to foreclosing the others and can describe what committing actually felt like (Ruth Chang / Dan Martell register).",
-      "anti_pattern_notes": "Do NOT offer a decision matrix or \"just pick one\", and do NOT validate the stalling warmly. The reframe is that commitment generates clarity rather than requiring it — from someone who chose among real options at real cost.",
-      "suggested_source_families": [
-        "The Tim Ferriss Show",
-        "Modern Wisdom",
-        "TED / TEDx"
-      ],
-      "suggested_queries": [
-        "\"The Tim Ferriss Show\" list of options doing none intellectual official",
-        "\"The Tim Ferriss Show\" anxiety crowdedness reframe",
-        "\"Modern Wisdom\" list of options doing none intellectual official",
-        "\"Modern Wisdom\" anxiety crowdedness reframe"
-      ],
-      "coverage_evidence": "Hinted probe: 0/2 land, 1 buried (retrievable, mis-ranked), 1 wrong-register. Static: strong — 3 SIO(s) match recommended register (intellectual/measured) + type. Gap kind: retrieval_gap."
-    },
-    {
-      "need_id": "dc-post-achievement-hollow",
-      "gap_kind": "retrieval_gap",
-      "priority": 36,
-      "coverage_strength": "weak",
-      "target_state": "direction-collapse",
-      "recommended_insight_type": [
-        "story",
-        "reframe"
-      ],
-      "recommended_voice_register": "vulnerable/personal",
-      "excluded_voice_registers": [
-        "expert/scientific"
-      ],
-      "recommended_intensity": "mild",
-      "user_situation": "I reached it and felt nothing — was it the wrong target, or is it me?",
-      "missing_source_profile": "A credible person who reached a milestone they worked years for and felt empty on arrival, who can say from the inside that the emptiness was signal, not failure. Vulnerable register.",
-      "anti_pattern_notes": "Do NOT open with advice, a values exercise, or the word \"passion\". A clinical/expert mechanism reads as cold here — the user needs the hollow-on-arrival experience named as coherent (data about a wrong target), not explained neurochemically.",
-      "suggested_source_families": [
-        "The School of Greatness",
-        "Diary of a CEO",
-        "Rich Roll Podcast"
-      ],
-      "suggested_queries": [
-        "\"The School of Greatness\" hit the goal felt nothing vulnerable official",
-        "\"The School of Greatness\" numbness confusion story",
-        "\"Diary of a CEO\" hit the goal felt nothing vulnerable official",
-        "\"Diary of a CEO\" numbness confusion story"
-      ],
-      "coverage_evidence": "Hinted probe: 0/3 land, 2 buried (retrievable, mis-ranked), 1 wrong-register. Static: strong — 3 SIO(s) match recommended register (vulnerable/personal) + type. Gap kind: retrieval_gap."
+      "coverage_evidence": "Hinted probe: 1/2 land, 1 EXCLUDED-register served. Static: strong — 6 SIO(s) match recommended register (vulnerable/personal) + type. Gap kind: retrieval_gap."
     }
   ]
 }
