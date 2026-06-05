@@ -1,0 +1,28 @@
+{
+  "source_id": "src-rich-roll-langer-decision-2024",
+  "source_type": "long-form interview podcast",
+  "speaker": "Ellen Langer",
+  "show_or_platform": "The Rich Roll Podcast",
+  "episode_or_content_title": "Making a hard decision? WATCH THIS | Dr. Ellen Langer",
+  "episode_or_content_date": "2024-02-13",
+  "source_url": "https://www.youtube.com/watch?v=_bctmXiPsSU",
+  "video_provider": "youtube",
+  "video_id": "_bctmXiPsSU",
+  "video_url": "https://www.youtube.com/watch?v=_bctmXiPsSU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/_bctmXiPsSU?start=0&end=9",
+  "official_channel": "Rich Roll",
+  "official_channel_url": "https://www.youtube.com/channel/UCpjlh0e319ksmoOD7bQFSiw",
+  "channel_id": "UCpjlh0e319ksmoOD7bQFSiw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against the clip's English auto-captions via yt-dlp (official Rich Roll channel, channel_id UCpjlh0e319ksmoOD7bQFSiw). Excerpt confirmed verbatim at the clip open (0:00–0:08). This is a short clip the Rich Roll channel published from its Ellen Langer episode; the line is Langer's documented signature reframe (\"make the decision right\"). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-langer-make-decision-right-2024"
+  ]
+}

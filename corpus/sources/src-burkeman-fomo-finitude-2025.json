@@ -1,0 +1,28 @@
+{
+  "source_id": "src-burkeman-fomo-finitude-2025",
+  "source_type": "short-form video essay",
+  "speaker": "Oliver Burkeman",
+  "show_or_platform": "Oliver Burkeman (official channel)",
+  "episode_or_content_title": "The solution to FOMO that no one will tell you | Oliver Burkeman Explains",
+  "episode_or_content_date": "2025-07-29",
+  "source_url": "https://www.youtube.com/watch?v=h9lZnT4o9Z8",
+  "video_provider": "youtube",
+  "video_id": "h9lZnT4o9Z8",
+  "video_url": "https://www.youtube.com/watch?v=h9lZnT4o9Z8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/h9lZnT4o9Z8?start=20&end=43",
+  "official_channel": "Oliver Burkeman",
+  "official_channel_url": "https://www.youtube.com/channel/UCbItfSnuUEj6IP8qDiEYN_w",
+  "channel_id": "UCbItfSnuUEj6IP8qDiEYN_w",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against the video's English captions via yt-dlp (Oliver Burkeman's official channel, channel_id UCbItfSnuUEj6IP8qDiEYN_w; captions are cleanly punctuated, not raw ASR). Excerpt confirmed verbatim and continuous at 0:20–0:43. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-burkeman-finite-missing-out-2025"
+  ]
+}

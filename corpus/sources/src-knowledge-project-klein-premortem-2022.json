@@ -1,0 +1,28 @@
+{
+  "source_id": "src-knowledge-project-klein-premortem-2022",
+  "source_type": "long-form interview podcast",
+  "speaker": "Gary Klein",
+  "show_or_platform": "The Knowledge Project",
+  "episode_or_content_title": "Insights for Making Better Decisions | Gary Klein | Knowledge Project 144",
+  "episode_or_content_date": "2022-08-09",
+  "source_url": "https://www.youtube.com/watch?v=UbXIugEQQsI",
+  "video_provider": "youtube",
+  "video_id": "UbXIugEQQsI",
+  "video_url": "https://www.youtube.com/watch?v=UbXIugEQQsI",
+  "embed_url": "https://www.youtube-nocookie.com/embed/UbXIugEQQsI?start=3182&end=3224",
+  "official_channel": "The Knowledge Project Podcast",
+  "official_channel_url": "https://www.youtube.com/channel/UCLtTf_uKt0Itd0NG7txrwXA",
+  "channel_id": "UCLtTf_uKt0Itd0NG7txrwXA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (The Knowledge Project / Farnam Street official channel, channel_id UCLtTf_uKt0Itd0NG7txrwXA). Excerpt confirmed verbatim at 53:02–53:44; a single ellipsis omits a brief aside ('Could be six months, could be a year — pick your time frame'). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-klein-premortem-2022"
+  ]
+}

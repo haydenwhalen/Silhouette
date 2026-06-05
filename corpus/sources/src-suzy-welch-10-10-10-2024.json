@@ -1,0 +1,28 @@
+{
+  "source_id": "src-suzy-welch-10-10-10-2024",
+  "source_type": "short-form video essay",
+  "speaker": "Suzy Welch",
+  "show_or_platform": "Suzy Welch (official channel)",
+  "episode_or_content_title": "A Fast and Powerful Way to Get Unstuck (The '10-10-10' Method)",
+  "episode_or_content_date": "2024-04-08",
+  "source_url": "https://www.youtube.com/watch?v=RfTBW4BYDOw",
+  "video_provider": "youtube",
+  "video_id": "RfTBW4BYDOw",
+  "video_url": "https://www.youtube.com/watch?v=RfTBW4BYDOw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/RfTBW4BYDOw?start=9&end=27",
+  "official_channel": "Suzy Welch",
+  "official_channel_url": "https://www.youtube.com/channel/UC8BUnD4gGK6tiyffzVjspVw",
+  "channel_id": "UC8BUnD4gGK6tiyffzVjspVw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (Suzy Welch's official channel, channel_id UC8BUnD4gGK6tiyffzVjspVw). Excerpt confirmed verbatim at 0:09–0:27. ASR ARTIFACT: the captioner renders the method name as '101010'; displayed excerpt restores Welch's spoken/published form '10-10-10'. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-welch-10-10-10-2024"
+  ]
+}

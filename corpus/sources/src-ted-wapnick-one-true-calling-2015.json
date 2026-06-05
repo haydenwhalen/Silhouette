@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-wapnick-one-true-calling-2015",
+  "source_type": "conference talk",
+  "speaker": "Emilie Wapnick",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Why Some of Us Don't Have One True Calling | Emilie Wapnick | TED",
+  "episode_or_content_date": "2015-10-26",
+  "source_url": "https://www.youtube.com/watch?v=4sZdcB6bjI8",
+  "video_provider": "youtube",
+  "video_id": "4sZdcB6bjI8",
+  "video_url": "https://www.youtube.com/watch?v=4sZdcB6bjI8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/4sZdcB6bjI8?start=304&end=326",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 5:04–5:26. Sourced from the TED YouTube upload (not embed.ted.com) specifically so the youtube-nocookie embed honors the per-moment timestamp. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-wapnick-one-true-calling-2015"
+  ]
+}
