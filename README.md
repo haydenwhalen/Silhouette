@@ -1,145 +1,160 @@
 # Silhouette
 
-A guided micro-reset agent for young adults who feel stuck. Silhouette uses a multi-tool LangChain.js ReAct-style agent to help users move from overwhelmed and avoidant to slightly hopeful and slightly moving.
+**An insight-retrieval engine that answers "I feel stuck" with one precise, real human moment — not generic advice.**
 
-Built for the BYU agentic development course.
+A young professional types how they feel in plain language. Instead of generating a motivational paragraph, Silhouette classifies the underlying "stuck state," retrieves the single best-matched **Structured Insight Object (SIO)** from a hand-curated corpus, and presents it as a short verbatim excerpt backed by an embeddable, timestamp-verified video clip — chosen to make the person feel *seen* and capable of a small next move. The product is deliberately **non-clinical** (no therapy, diagnosis, or crisis content).
 
-## What This Demonstrates
+> Personal R&D project exploring retrieval quality, source honesty, and a corpus-as-product. Built with TypeScript + Next.js + LangChain.js.
 
-- **Multi-tool agent** that autonomously selects between three tools based on user input
-- **RAG over real documents** with source attribution (5 curated articles from Greater Good Science Center)
-- **Conversation memory** that preserves context across turns within a session
-- **Guided clarifying questions** when user input is vague
-- **Structured logging** of every request, tool call, and response
-- **Web UI** for chatting with the agent in a browser
+---
 
-## Tools
+## Demo
 
-| Tool | Purpose | When Used |
-|---|---|---|
-| `knowledge_base` | RAG search over curated hope-building articles | User describes feeling stuck, overwhelmed, avoidant, lonely, or low-confidence |
-| `web_search` | Tavily web search for current information | Knowledge base has no relevant match, or user asks for external info |
-| `calculator` | Evaluates math expressions | User needs to quantify a next step or break time into chunks |
+> _UI screenshot / demo GIF placeholder — run locally with `npm run dev` and open http://localhost:3000_
+>
+> `docs/demo.png` _(add a screenshot here before sharing)_
 
-## Tech Stack
+---
 
-- **Agent framework**: LangChain.js with `createToolCallingAgent` and `AgentExecutor`
-- **LLM**: OpenAI GPT-4o-mini
-- **Embeddings**: OpenAI text-embedding-3-small
-- **Vector store**: In-memory MemoryVectorStore
-- **Web search**: Tavily API
-- **Frontend**: Next.js 15, React 19
-- **Language**: TypeScript
+## The problem it solves
 
-## Setup
+Most "self-help" surfaces flood you with generic encouragement. Silhouette does the opposite: it returns **exactly one** insight, matched to your specific emotional situation, sourced from a real person in a real interview/talk — and it can show you the moment on video. The bet is that *one precise human moment* shifts someone more than a wall of advice.
+
+It is organized around **six "stuck states"** drawn from a user-problem model:
+
+| State | The felt experience |
+|---|---|
+| `direction-collapse` | Got what I wanted / lost faith in the path — now I feel empty and directionless |
+| `engagement-drought` | Functioning fine but flat, numb, going through the motions |
+| `inaction-loop` | I know exactly what to do and I keep not doing it |
+| `identity-transition` | An old role/identity ended and the new one hasn't formed |
+| `possibility-paralysis` | Too many options / fear of choosing wrong / keeping all doors open |
+| `momentum-gap` | Had momentum, lost it, can't get going again |
+
+## Key features
+
+- **Intake + diagnostic classifier** — maps one free-text prompt (plus an optional clarifying question) to a stuck state and a structured retrieval query, with a multi-tier safety check that keeps the experience non-clinical.
+- **3-stage retrieval engine** (see below) — state filter → semantic similarity → resonance re-rank, returning a single insight rather than a list.
+- **Video-forward presentation** — every promotable insight links to a real, embeddable clip (YouTube via `youtube-nocookie`) with a per-moment start/end timestamp; **173 of 187** SIOs are video-backed and timestamped.
+- **Source-honesty invariants** — displayed quotes are short, **verbatim**, and confirmed against the source's own captions/transcript; a clip's timestamp and `transcript_verified` flag are only set when actually confirmed (enforced by a media validator).
+- **Feedback / quality-signal loop** — captures dwell-adjusted feedback signals and routes weak matches for review.
+- **An agentic, human-gated corpus pipeline** — ~37 CLI tools to discover, score, verify, gap-analyze, and validate SIO candidates before a human approves them (see _Tooling_).
+- **Next.js chat UI** with conversation/session memory and structured request logging.
+
+## How it works — the 3-stage retrieval engine
+
+The core of the project is `scoredSearch()` in [`src/rag/vectorStore.ts`](src/rag/vectorStore.ts), which composes three stages:
+
+1. **State filter.** The classifier picks the stuck state; the corpus is filtered to SIOs whose primary (or secondary) state tag matches. This keeps results inside the right emotional problem space before any semantic ranking.
+2. **Semantic similarity.** The user's query is lightly re-framed (a HyDE-style prefix to reduce query↔document asymmetry) and run against an in-memory vector store (LangChain `MemoryVectorStore`, OpenAI `text-embedding-3-small` embeddings) over a candidate pool (~`k×4`).
+3. **Resonance re-rank.** Candidates are re-scored with a **resonance model**: each state has a default _resonance profile_ (`insight_type` + `voice_register`), and the intake classifier may infer a per-query tone _hint_. Matching profiles get a bounded boost (capped to avoid over-weighting); a diverging user hint suppresses the default boost. A final MMR diversity pass guards against any single insight becoming a "retrieval magnet." Scoring weights are externalized in [`src/rag/retrievalConfig.ts`](src/rag/retrievalConfig.ts) so they can be tuned without code changes.
+
+The retrieval health of every change is checked by an automated suite (state-classification, retrieval, magnet-risk, calibration).
+
+## The corpus
+
+The corpus *is* the product. Each SIO is a markdown file with rich YAML frontmatter linked to a source record:
+
+- `corpus/sios/*.md` — **187** Structured Insight Objects across the 6 states (state tags, `insight_type`, `voice_register`, credibility tier, verbatim excerpt, full media + timestamp metadata, resonance/match notes).
+- `corpus/sources/*.json` — **185** linked source records (speaker, show, official channel, verified video + embed URL, transcript-verification status).
+- **173 / 187** SIOs are backed by a verified, timestamped video embed.
+
+Speakers span athletes, founders, scientists, writers, poets, artists, and public figures, sourced across many families (TED, Huberman Lab, Louisiana Channel, Players' Tribune, On Being, NPR, commencements, and more) with deliberate diversity and anti-concentration checks.
+
+## Tech stack
+
+- **Language / runtime:** TypeScript, Node.js, `tsx`
+- **Web:** Next.js 15 (App Router), React 19, Tailwind CSS v4
+- **AI / retrieval:** LangChain.js (`@langchain/*` v1), OpenAI (`gpt-4o-mini` for classification, `text-embedding-3-small` for embeddings), LangChain `MemoryVectorStore`
+- **Web search tool:** Tavily
+- **Media verification:** YouTube Data API v3 + `yt-dlp` (caption mining for verbatim + timestamp confirmation)
+- **Config:** `dotenv`
+
+## Project structure
+
+```
+src/
+  agent/         # intake classifier, system prompt, request context
+  rag/           # vector store + 3-stage retrieval, retrievalConfig, SIO loader
+  presentation/  # turns a chosen SIO into the user-facing answer
+  feedback/      # quality-signal capture
+  memory/        # conversation / session state
+  lib/           # config (env), media helpers
+  tools/         # knowledge base, web search, calculator, presentInsight
+  components/    # React chat UI + InsightMediaCard
+  app/           # Next.js app + /api/chat, /api/feedback-signal
+corpus/
+  sios/          # 187 Structured Insight Objects (markdown + frontmatter)
+  sources/       # 185 linked source records (JSON)
+  templates/     # SIO + candidate templates
+scripts/         # ~37 CLI tools: discovery, evaluation, verification, gap analysis, QA tests
+ai/guides/       # design docs + phase reports for each component
+```
+
+## Getting started
+
+**Prerequisites:** Node.js 20+, an OpenAI API key. A Tavily key (web-search tool) and a YouTube Data API key (corpus media tooling) are optional for running the app but needed for those features.
 
 ```bash
-# 1. Install dependencies
+# 1. Install
 npm install
 
-# 2. Create your .env file from the example
+# 2. Configure environment
 cp .env.example .env
+#    then edit .env and add your keys (OPENAI_API_KEY required)
 
-# 3. Add your real API keys to .env
-#    OPENAI_API_KEY=sk-...
-#    TAVILY_API_KEY=tvly-...
-```
-
-### Environment Variables
-
-| Variable | Required | Source |
-|---|---|---|
-| `OPENAI_API_KEY` | Yes | [platform.openai.com](https://platform.openai.com/api-keys) |
-| `TAVILY_API_KEY` | Yes | [app.tavily.com](https://app.tavily.com/) |
-
-## Running Locally
-
-```bash
-# Start the development server
+# 3. Run the dev server
 npm run dev
-
-# Open http://localhost:3000
+#    open http://localhost:3000
 ```
 
-The first message takes a few extra seconds while the RAG vector store initializes. Subsequent messages are faster.
-
-## Testing
-
-### Browser testing
-
-Open `http://localhost:3000` and try these prompts:
-
-1. **RAG tool**: "I feel overwhelmed and I'm avoiding what matters"
-2. **Clarifying questions**: "I feel off"
-3. **Memory**: Follow up with "That didn't help, give me something more practical"
-4. **Calculator**: "Help me break 4 hours into 3 manageable chunks"
-5. **Web search**: "Find me a recent TED talk about overcoming procrastination"
-
-### CLI testing
+Production build:
 
 ```bash
-# Interactive agent CLI
-npx tsx scripts/test-agent.ts
-
-# Test individual tools
-npx tsx scripts/test-tools.ts calculator
-npx tsx scripts/test-tools.ts web-search
-npx tsx scripts/test-tools.ts knowledge-base
+npm run build && npm run start
 ```
 
-## RAG Source Documents
+### Environment variables
 
-Five curated articles live in `docs/sources/`. Each file includes metadata (title, author, URL, publisher, tags) and cleaned article content:
+Copy `.env.example` → `.env` and fill in:
 
-1. **Overwhelmed by Suffering? Here's How to Act Anyway** — Greater Good Science Center
-2. **Four Ways We Avoid Our Feelings—and What to Do Instead** — Greater Good Science Center
-3. **Five Ways to Feel Like You're Doing Enough** — Greater Good Science Center
-4. **11 Things to Do When You Feel Lonely** — Greater Good Science Center
-5. **Five Science-Backed Strategies for More Self-Compassion** — Greater Good Science Center
+| Variable | Required | Purpose |
+|---|---|---|
+| `OPENAI_API_KEY` | ✅ | Classification + embeddings (core app) |
+| `TAVILY_API_KEY` | optional | Web-search tool |
+| `YOUTUBE_API_KEY` | optional | Corpus media-verification tooling |
 
-Documents are chunked (800 chars, 150 overlap) and embedded at startup using OpenAI's `text-embedding-3-small` model.
+`.env` is gitignored and never committed. Keys are read via `process.env` (`dotenv` + Next.js auto-load) — none are hardcoded.
 
-## Project Structure
+## Tooling (the corpus pipeline)
 
-```
-Silhouette/
-  aiDocs/              — context.md, prd.md, mvp.md, architecture.md
-  ai/roadmaps/         — planning and implementation roadmaps
-  docs/sources/        — curated RAG source documents (5 articles)
-  scripts/             — test-agent.ts, test-tools.ts, ingest-docs.ts
-  src/
-    agent/             — agent entry point (index.ts) and system prompt
-    tools/             — calculator, web search, knowledge base tools
-    rag/               — document loader, chunker, vector store
-    memory/            — session-scoped conversation memory
-    logging/           — structured JSON logging
-    lib/               — config and environment variable validation
-    app/               — Next.js pages and /api/chat route
-    components/        — ChatWindow, MessageList, ChatInput
+The repo ships ~37 `npm` scripts that build and guard the corpus. A few highlights:
+
+```bash
+npm run ingest                    # build the vector store from the corpus
+npm run validate-media            # enforce media/timestamp/verbatim invariants
+npm run detect-gaps               # find under-served state × register × type cells
+npm run analyze-user-needs        # which real user moments retrieve weakly
+npm run test-magnet-risk          # detect any insight dominating a state's results
+npm run test-sio-retrieval        # retrieval regression suite
+npm run test-state-classification # classifier regression suite
+npm run extract-video-timestamps  # yt-dlp caption mining (honesty-gated)
 ```
 
-## Structured Logging
+(See `package.json` for the full list.)
 
-All agent activity is logged as JSON to stdout. Each log entry includes a timestamp and event type:
+## Project status & roadmap
 
-- `api_request` — incoming HTTP request with session ID and message
-- `user_input` — message passed to the agent
-- `rag_init_start` / `rag_init_complete` — RAG vector store initialization
-- `tool_call` — individual tool execution with input and output
-- `tool_used` — tool selected by the agent (from intermediate steps)
-- `agent_response` — final response with tools used, clarifying question flag, output preview
-- `api_response` — HTTP response with duration
-- `api_error` — error details if request failed
+**Status:** working prototype with a 187-SIO corpus and a green QA suite (media validation, state classification, retrieval, magnet-risk). Each subsystem — user-problem model, retrieval philosophy, intake flow, ingestion pipeline, retrieval engine, presentation, trust/credibility, feedback loop, and business model — has a design doc and phase report under `ai/guides/`.
 
-View logs in the terminal running `npm run dev`.
+**Roadmap:**
+- Closed beta with instrumentation; a feedback-driven retrieval-tuning loop on real usage signals.
+- Per-user resonance profiles (cold-start → personalized re-rank).
+- Corpus growth toward broader cross-source and cross-cultural diversity; an evaluation harness + human-review playbook for promotion-to-production.
+- B2C (freemium + curated insight packs) and B2B (insight tooling for coaches) experiments, gated behind defined validation milestones.
 
-## Project Documents
+## A note on integrity
 
-| Document | Path |
-|---|---|
-| Project context | `aiDocs/context.md` |
-| Product requirements | `aiDocs/prd.md` |
-| MVP definition | `aiDocs/mvp.md` |
-| Architecture | `aiDocs/architecture.md` |
-| Implementation plan | `ai/roadmaps/2026-03-23-ideation-and-mvp-plan.md` |
-| Implementation roadmap | `ai/roadmaps/2026-03-23-ideation-and-mvp-roadmap.md` |
+Two principles are enforced in code and process, because they're the whole point:
+- **Non-clinical:** everyday physiology/psychology framed as supportive levers — never diagnosis, therapy, or crisis content; clips are bounded to exclude adjacent clinical material.
+- **Source honesty:** no fabricated quotes, timestamps, or channel verification. Excerpts are short and verbatim, confirmed against the source's captions; `transcript_verified` is set only when truly confirmed.
