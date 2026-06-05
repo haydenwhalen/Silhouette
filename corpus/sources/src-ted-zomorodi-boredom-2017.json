@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-zomorodi-boredom-2017",
+  "source_type": "conference talk",
+  "speaker": "Manoush Zomorodi",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "How Boredom Can Lead to Your Most Brilliant Ideas | Manoush Zomorodi | TED",
+  "episode_or_content_date": "2017-08-29",
+  "source_url": "https://www.youtube.com/watch?v=c73Q8oQmwzo",
+  "video_provider": "youtube",
+  "video_id": "c73Q8oQmwzo",
+  "video_url": "https://www.youtube.com/watch?v=c73Q8oQmwzo",
+  "embed_url": "https://www.youtube-nocookie.com/embed/c73Q8oQmwzo?start=195&end=211",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 3:15–3:31; a 'so' and an 'it' disfluency elided. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-zomorodi-boredom-default-mode-2017"
+  ]
+}

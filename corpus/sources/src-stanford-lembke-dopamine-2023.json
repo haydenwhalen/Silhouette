@@ -1,0 +1,28 @@
+{
+  "source_id": "src-stanford-lembke-dopamine-2023",
+  "source_type": "lecture",
+  "speaker": "Anna Lembke",
+  "show_or_platform": "Stanford Alumni",
+  "episode_or_content_title": "Dopamine Nation: Finding Balance in the Age of Indulgence with Anna Lembke",
+  "episode_or_content_date": "2023-03-30",
+  "source_url": "https://www.youtube.com/watch?v=n2u8Z1HeKD8",
+  "video_provider": "youtube",
+  "video_id": "n2u8Z1HeKD8",
+  "video_url": "https://www.youtube.com/watch?v=n2u8Z1HeKD8",
+  "embed_url": "https://www.youtube-nocookie.com/embed/n2u8Z1HeKD8?start=261&end=277",
+  "official_channel": "Stanford Alumni",
+  "official_channel_url": "https://www.youtube.com/channel/UCNoz7zRzEcHhp3TBU6spaXA",
+  "channel_id": "UCNoz7zRzEcHhp3TBU6spaXA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Stanford Alumni channel, channel_id UCNoz7zRzEcHhp3TBU6spaXA). Excerpt confirmed verbatim at 4:21–4:37. NON-CLINICAL BOUNDARY: the excerpt deliberately ENDS at 'chronic dopamine deficit state', before the speaker's next clause naming addiction, so the SIO stays on the everyday over-stimulation → flatness mechanism rather than clinical addiction. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-lembke-dopamine-deficit-2023"
+  ]
+}

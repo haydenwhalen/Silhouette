@@ -1,0 +1,28 @@
+{
+  "source_id": "src-talks-at-google-turkle-2011",
+  "source_type": "conference talk",
+  "speaker": "Sherry Turkle",
+  "show_or_platform": "Talks at Google",
+  "episode_or_content_title": "Alone Together | Sherry Turkle | Talks at Google",
+  "episode_or_content_date": "2011-04-08",
+  "source_url": "https://www.youtube.com/watch?v=Us1t4f0PKCc",
+  "video_provider": "youtube",
+  "video_id": "Us1t4f0PKCc",
+  "video_url": "https://www.youtube.com/watch?v=Us1t4f0PKCc",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Us1t4f0PKCc?start=488&end=497",
+  "official_channel": "Talks at Google",
+  "official_channel_url": "https://www.youtube.com/channel/UCbmNph6atAoGfqLoCL_duAg",
+  "channel_id": "UCbmNph6atAoGfqLoCL_duAg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Talks at Google channel, channel_id UCbmNph6atAoGfqLoCL_duAg). Excerpt confirmed verbatim at 24:08–24:17. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-turkle-i-share-therefore-2011"
+  ]
+}

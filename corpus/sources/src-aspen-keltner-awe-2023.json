@@ -1,0 +1,28 @@
+{
+  "source_id": "src-aspen-keltner-awe-2023",
+  "source_type": "conference talk",
+  "speaker": "Dacher Keltner",
+  "show_or_platform": "The Aspen Institute",
+  "episode_or_content_title": "Awe: The New Science of Everyday Wonder and How It Can Transform Your Life",
+  "episode_or_content_date": "2023-08-18",
+  "source_url": "https://www.youtube.com/watch?v=SzkBzCjcO8Q",
+  "video_provider": "youtube",
+  "video_id": "SzkBzCjcO8Q",
+  "video_url": "https://www.youtube.com/watch?v=SzkBzCjcO8Q",
+  "embed_url": "https://www.youtube-nocookie.com/embed/SzkBzCjcO8Q?start=60&end=77",
+  "official_channel": "The Aspen Institute",
+  "official_channel_url": "https://www.youtube.com/channel/UCoiTVuiMdqBRMSBGMEcmxCw",
+  "channel_id": "UCoiTVuiMdqBRMSBGMEcmxCw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Aspen Institute channel, channel_id UCoiTVuiMdqBRMSBGMEcmxCw). Excerpt confirmed verbatim at 1:00–1:17; the lead-in 'in this more recent scientific tradition' and a 'right' filler are elided. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-keltner-awe-vast-2023"
+  ]
+}

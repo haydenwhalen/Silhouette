@@ -91,6 +91,38 @@ behind Tony Hawk), control athlete-retirement probe unaffected.
 
 **Spot-check first:** de Botton (confirm IT vs status-comparison) and Sacks (excerpt held inside non-clinical boundary).
 
-## engagement-drought — pending  (lead: Lembke @ Stanford Alumni for ED-8 over-stimulation)
+## engagement-drought — DONE (5/5)  · commit: <filled at commit>
+
+**Selected slots:** ED-1 (awe), ED-3 (generative boredom), ED-9 (play), ED-2 (relational flatness),
+ED-8 (over-stimulation) — five distinct white-space areas the corpus (saturated with languishing-naming +
+dopamine/movement science + mastery-boredom) did not cover.
+
+**New SIOs (5)**
+
+| filename | speaker | source (family) | video @ ts | type/register | slot |
+|---|---|---|---|---|---|
+| engagement_drought_keltner_awe | Dacher Keltner | The Aspen Institute | 1:00–1:17 | mechanism · expert | ED-1 |
+| engagement_drought_zomorodi_boredom_default_mode | Manoush Zomorodi | TED | 3:15–3:31 | reframe · intellectual | ED-3 |
+| engagement_drought_brown_designed_to_play | Stuart Brown | TED | 13:38–13:48 | permission · warm | ED-9 |
+| engagement_drought_turkle_alone_together | Sherry Turkle | Talks at Google | 24:08–24:17 | reframe · intellectual | ED-2 |
+| engagement_drought_lembke_dopamine_deficit | Anna Lembke | Stanford Alumni | 4:21–4:37 | mechanism · expert | ED-8 |
+
+**Source diversity:** 5 new speakers, all new to the corpus; families Aspen Institute, TED (×2, at cap),
+Talks at Google, Stanford Alumni; 5/5 video-backed + timestamped. Type/register intentionally balanced
+(2 mechanism/expert, 2 reframe/intellectual, 1 permission/warm) to avoid worsening ED's already-large
+expert cell. Two excerpts held inside the non-clinical boundary (Brown's 'opposite of play is depression'
+line excluded; Lembke's excerpt ends before the 'addiction' clause).
+
+**QA:** validate-media PASS (0 hard); ingest 206; magnet — NO new magnet (each new SIO ≤1/10 on the default
+probes); the pre-existing Brooks dominator (7/10) is the monitored state default, unchanged in nature, and
+Zomorodi now gives the retriever a boredom alternative; classification 8/8; retrieval 6/6; target-question
+closure — ALL 5 new SIOs are the #1 hit for their query; control 'numb at a job I'm good at' still returns
+existing flatness SIOs (Brooks/Brené/Irving).
+
+**Rejected/held:** Crawford (FORA/TEDx clips didn't contain the craft-attention moment); O'Donohue-style
+craft/contribution voices unfound cleanly. Lembke's excerpt is slightly technical (flagged).
+
+**Spot-check first:** Lembke (technical excerpt — confirm it reads for a lay user) and Turkle (confirm relational-ED fit).
+
 ## inaction-loop — pending
 ## direction-collapse — pending
