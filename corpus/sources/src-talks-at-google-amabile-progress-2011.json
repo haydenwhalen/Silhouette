@@ -1,0 +1,28 @@
+{
+  "source_id": "src-talks-at-google-amabile-progress-2011",
+  "source_type": "conference talk",
+  "speaker": "Teresa Amabile",
+  "show_or_platform": "Talks at Google",
+  "episode_or_content_title": "The Progress Principle | Teresa Amabile | Talks at Google",
+  "episode_or_content_date": "2011-09-20",
+  "source_url": "https://www.youtube.com/watch?v=f_KxrFGhV5E",
+  "video_provider": "youtube",
+  "video_id": "f_KxrFGhV5E",
+  "video_url": "https://www.youtube.com/watch?v=f_KxrFGhV5E",
+  "embed_url": "https://www.youtube-nocookie.com/embed/f_KxrFGhV5E?start=1202&end=1221",
+  "official_channel": "Talks at Google",
+  "official_channel_url": "https://www.youtube.com/channel/UCbmNph6atAoGfqLoCL_duAg",
+  "channel_id": "UCbmNph6atAoGfqLoCL_duAg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Talks at Google channel, channel_id UCbmNph6atAoGfqLoCL_duAg). Excerpt confirmed verbatim at 20:02–20:21. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-amabile-progress-principle-2011"
+  ]
+}

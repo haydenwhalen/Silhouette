@@ -1,0 +1,28 @@
+{
+  "source_id": "src-big-think-wood-habits-2022",
+  "source_type": "short-form video essay",
+  "speaker": "Wendy Wood",
+  "show_or_platform": "Big Think",
+  "episode_or_content_title": "The secret habits that control your life | Wendy Wood",
+  "episode_or_content_date": "2022-05-26",
+  "source_url": "https://www.youtube.com/watch?v=Ywec1MbeQDk",
+  "video_provider": "youtube",
+  "video_id": "Ywec1MbeQDk",
+  "video_url": "https://www.youtube.com/watch?v=Ywec1MbeQDk",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Ywec1MbeQDk?start=172&end=194",
+  "official_channel": "Big Think",
+  "official_channel_url": "https://www.youtube.com/channel/UCvQECJukTDE2i6aCoMnS-Vg",
+  "channel_id": "UCvQECJukTDE2i6aCoMnS-Vg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Big Think channel, channel_id UCvQECJukTDE2i6aCoMnS-Vg). Excerpt confirmed verbatim at 2:52–3:14. ASR ARTIFACT: the captioner doubles 'willpower' as 'willpower power'; displayed excerpt restores the single word 'willpower'. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-wendy-wood-willpower-context-2022"
+  ]
+}
