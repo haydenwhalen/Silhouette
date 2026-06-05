@@ -124,5 +124,34 @@ craft/contribution voices unfound cleanly. Lembke's excerpt is slightly technica
 
 **Spot-check first:** Lembke (technical excerpt — confirm it reads for a lay user) and Turkle (confirm relational-ED fit).
 
-## inaction-loop — pending
+## inaction-loop — DONE (5/5)  · commit: <filled at commit>
+
+**Selected slots (the subtle gaps in the corpus's richest state):** IL-8 (productive procrastination),
+IL-10 (distraction/avoidance), IL-7 (accountability), IL-1 (overwhelm-freeze), plus a concrete
+do-worst-first tactic. All chosen for novelty against the corpus's heavy procrastination-science coverage.
+
+**New SIOs (5)** — note: **zero TED**, saving the cap.
+
+| filename | speaker | source (family) | video @ ts | type/register | slot |
+|---|---|---|---|---|---|
+| inaction_loop_perry_structured_procrastination | John Perry | Penny Zenker (interview) | 5:07–5:18 | reframe · intellectual | IL-8 |
+| inaction_loop_eyal_distraction_internal | Nir Eyal | Big Think | 0:06–0:22 | story · vulnerable | IL-10 |
+| inaction_loop_rubin_outer_accountability | Gretchen Rubin | own channel | 0:09–0:34 | reframe · warm | IL-7 |
+| inaction_loop_tracy_eat_the_frog | Brian Tracy | own channel | 0:28–0:41 | mechanism · direct | (tactic) |
+| inaction_loop_allen_mind_for_ideas | David Allen | DO Lectures | 8:41–8:53 | mechanism · intellectual | IL-1 |
+
+**Source diversity:** 5 new speakers, all new to the corpus; 5 distinct families; 5/5 video-backed + timestamped;
+**0 TED/TEDx**. Excellent type/register spread (2 reframe, 2 mechanism, 1 story; intellectual/vulnerable/warm/direct).
+
+**QA:** validate-media PASS (0 hard); ingest 211; magnet — no dominant magnet (top 2/10, well distributed; new
+SIOs ≤1/10); classification 8/8; retrieval 6/6; target-question closure — ALL 5 new SIOs are the #1 hit for
+their query; control 'I know what to do and keep not doing it' still returns existing IL SIOs (Mel Robbins/
+Goggins/Burkeman).
+
+**Rejected/held:** Marie Forleo ('figureoutable' not in captions), Dan Ariely (TED content didn't match the
+friction angle), Sendhil Mullainathan / overwhelm & self-forgiveness voices (only clinical/ADHD-coaching or
+repost channels — non-clinical boundary). Tracy is tier-3 popular productivity (flagged).
+
+**Spot-check first:** Perry (host-channel attribution) and Tracy (confirm it clears the 'not generic' bar).
+
 ## direction-collapse — pending

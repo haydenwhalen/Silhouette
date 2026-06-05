@@ -1,0 +1,28 @@
+{
+  "source_id": "src-zenker-perry-procrastination-2025",
+  "source_type": "long-form interview podcast",
+  "speaker": "John Perry",
+  "show_or_platform": "Penny Zenker (interview)",
+  "episode_or_content_title": "How To Procrastinate And Still Be Productive with Dr. John Perry",
+  "episode_or_content_date": "2025-07-11",
+  "source_url": "https://www.youtube.com/watch?v=OAVMCME67lY",
+  "video_provider": "youtube",
+  "video_id": "OAVMCME67lY",
+  "video_url": "https://www.youtube.com/watch?v=OAVMCME67lY",
+  "embed_url": "https://www.youtube-nocookie.com/embed/OAVMCME67lY?start=307&end=318",
+  "official_channel": "Penny Zenker",
+  "official_channel_url": "https://www.youtube.com/channel/UCpabrTq2Rg0oHoddcqYjqwA",
+  "channel_id": "UCpabrTq2Rg0oHoddcqYjqwA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (Penny Zenker channel, channel_id UCpabrTq2Rg0oHoddcqYjqwA; the speaker is Stanford emeritus philosopher John Perry, articulating his own coined concept). Excerpt confirmed verbatim at 5:07–5:18; a stuttered 'this this' and a stray 'by' elided. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-perry-structured-procrastination-2025"
+  ]
+}

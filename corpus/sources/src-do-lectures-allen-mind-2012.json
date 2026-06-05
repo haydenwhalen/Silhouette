@@ -1,0 +1,28 @@
+{
+  "source_id": "src-do-lectures-allen-mind-2012",
+  "source_type": "conference talk",
+  "speaker": "David Allen",
+  "show_or_platform": "The DO Lectures",
+  "episode_or_content_title": "David Allen | The Mind Is For Having Ideas, Not Holding Them",
+  "episode_or_content_date": "2012-06-24",
+  "source_url": "https://www.youtube.com/watch?v=nCHd24Gi-G4",
+  "video_provider": "youtube",
+  "video_id": "nCHd24Gi-G4",
+  "video_url": "https://www.youtube.com/watch?v=nCHd24Gi-G4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/nCHd24Gi-G4?start=521&end=533",
+  "official_channel": "DO Lectures",
+  "official_channel_url": "https://www.youtube.com/channel/UCT6ALN8pMqNN3f5pG5GuEGg",
+  "channel_id": "UCT6ALN8pMqNN3f5pG5GuEGg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official DO Lectures channel, channel_id UCT6ALN8pMqNN3f5pG5GuEGg). The aphorism is confirmed verbatim at 8:41–8:47; the clip runs to 8:53 to include the lead into the capture step. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-allen-mind-for-ideas-2012"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-big-think-eyal-distraction-2020",
+  "source_type": "short-form video essay",
+  "speaker": "Nir Eyal",
+  "show_or_platform": "Big Think",
+  "episode_or_content_title": "Don't blame tech for your distracted brain. Take control. | Nir Eyal | Big Think",
+  "episode_or_content_date": "2020-03-10",
+  "source_url": "https://www.youtube.com/watch?v=j__gupDTH5s",
+  "video_provider": "youtube",
+  "video_id": "j__gupDTH5s",
+  "video_url": "https://www.youtube.com/watch?v=j__gupDTH5s",
+  "embed_url": "https://www.youtube-nocookie.com/embed/j__gupDTH5s?start=6&end=22",
+  "official_channel": "Big Think",
+  "official_channel_url": "https://www.youtube.com/channel/UCvQECJukTDE2i6aCoMnS-Vg",
+  "channel_id": "UCvQECJukTDE2i6aCoMnS-Vg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Big Think channel, channel_id UCvQECJukTDE2i6aCoMnS-Vg). Excerpt confirmed verbatim at 0:06–0:22; an ASR artifact ('in book') and 'of focus'→'and focus' normalized. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-eyal-distraction-internal-2020"
+  ]
+}

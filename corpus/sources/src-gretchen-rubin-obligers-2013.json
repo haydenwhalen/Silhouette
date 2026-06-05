@@ -1,0 +1,28 @@
+{
+  "source_id": "src-gretchen-rubin-obligers-2013",
+  "source_type": "short-form video essay",
+  "speaker": "Gretchen Rubin",
+  "show_or_platform": "Gretchen Rubin (official channel)",
+  "episode_or_content_title": "Gretchen Rubin discussing \"Obligers\"",
+  "episode_or_content_date": "2013-10-02",
+  "source_url": "https://www.youtube.com/watch?v=CUU99WhRu5Q",
+  "video_provider": "youtube",
+  "video_id": "CUU99WhRu5Q",
+  "video_url": "https://www.youtube.com/watch?v=CUU99WhRu5Q",
+  "embed_url": "https://www.youtube-nocookie.com/embed/CUU99WhRu5Q?start=9&end=34",
+  "official_channel": "Gretchen Rubin",
+  "official_channel_url": "https://www.youtube.com/channel/UCxi4ZHo3mdK3RLWngmygDUw",
+  "channel_id": "UCxi4ZHo3mdK3RLWngmygDUw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Gretchen Rubin channel, channel_id UCxi4ZHo3mdK3RLWngmygDUw). Excerpt confirmed verbatim at 0:09–0:34 (an 'um' filler elided). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-rubin-obliger-accountability-2013"
+  ]
+}

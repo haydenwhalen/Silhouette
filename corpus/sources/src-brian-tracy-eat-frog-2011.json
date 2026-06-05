@@ -1,0 +1,28 @@
+{
+  "source_id": "src-brian-tracy-eat-frog-2011",
+  "source_type": "short-form video essay",
+  "speaker": "Brian Tracy",
+  "show_or_platform": "Brian Tracy (official channel)",
+  "episode_or_content_title": "Eat That Frog & The ABCDE Method",
+  "episode_or_content_date": "2011-08-17",
+  "source_url": "https://www.youtube.com/watch?v=FKOMTZ7PPLg",
+  "video_provider": "youtube",
+  "video_id": "FKOMTZ7PPLg",
+  "video_url": "https://www.youtube.com/watch?v=FKOMTZ7PPLg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/FKOMTZ7PPLg?start=28&end=41",
+  "official_channel": "Brian Tracy",
+  "official_channel_url": "https://www.youtube.com/channel/UCc11676iKpKrJMYqNYHqNig",
+  "channel_id": "UCc11676iKpKrJMYqNYHqNig",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Brian Tracy channel, channel_id UCc11676iKpKrJMYqNYHqNig). Excerpt confirmed verbatim at 0:28–0:41. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-tracy-eat-the-frog-2011"
+  ]
+}
