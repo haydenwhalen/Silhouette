@@ -1,0 +1,28 @@
+{
+  "source_id": "src-louisiana-kiki-smith-process-2025",
+  "source_type": "artist interview",
+  "speaker": "Kiki Smith",
+  "show_or_platform": "Louisiana Channel",
+  "episode_or_content_title": "Artist Kiki Smith on Being Afraid of the Process of Making Art",
+  "episode_or_content_date": "2025-04-06",
+  "source_url": "https://www.youtube.com/watch?v=e4PmUiMPW08",
+  "video_provider": "youtube",
+  "video_id": "e4PmUiMPW08",
+  "video_url": "https://www.youtube.com/watch?v=e4PmUiMPW08",
+  "embed_url": "https://www.youtube-nocookie.com/embed/e4PmUiMPW08?start=0&end=16",
+  "official_channel": "Louisiana Channel",
+  "official_channel_url": "https://www.youtube.com/@LouisianaChannel",
+  "channel_id": "UCY2mhw-XNZSxrUynsI5K8Zw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against official Louisiana Channel captions via yt-dlp (channel_id UCY2mhw-XNZSxrUynsI5K8Zw). Cold-open, contiguous, ~0:00–0:16. Non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-kiki-smith-afraid-of-making-2025"
+  ]
+}

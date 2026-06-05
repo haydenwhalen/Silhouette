@@ -1,0 +1,28 @@
+{
+  "source_id": "src-louisiana-mitchell-blank-page-2015",
+  "source_type": "author interview",
+  "speaker": "David Mitchell",
+  "show_or_platform": "Louisiana Channel",
+  "episode_or_content_title": "David Mitchell Interview: On Facing the Blank Page",
+  "episode_or_content_date": "2015-09-01",
+  "source_url": "https://www.youtube.com/watch?v=bKa9Bg9CTu4",
+  "video_provider": "youtube",
+  "video_id": "bKa9Bg9CTu4",
+  "video_url": "https://www.youtube.com/watch?v=bKa9Bg9CTu4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/bKa9Bg9CTu4?start=82&end=110",
+  "official_channel": "Louisiana Channel",
+  "official_channel_url": "https://www.youtube.com/@LouisianaChannel",
+  "channel_id": "UCY2mhw-XNZSxrUynsI5K8Zw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against official Louisiana Channel captions via yt-dlp (channel_id UCY2mhw-XNZSxrUynsI5K8Zw). Excerpt confirmed verbatim and contiguous at ~1:22–1:50. ASR artifacts corrected: 'bold' → 'bald', 'a right of AR' → 'a writer', 'fat ass' → 'fat arse' (British). Non-clinical: ordinary creative resistance, not procrastination-as-pathology. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-mitchell-get-to-work-2015"
+  ]
+}

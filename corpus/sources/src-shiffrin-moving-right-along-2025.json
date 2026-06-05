@@ -1,0 +1,28 @@
+{
+  "source_id": "src-shiffrin-moving-right-along-2025",
+  "source_type": "athlete docu-series",
+  "speaker": "Mikaela Shiffrin",
+  "show_or_platform": "Mikaela Shiffrin (official channel)",
+  "episode_or_content_title": "Moving Right Along — Turning Again",
+  "episode_or_content_date": "2025-02-14",
+  "source_url": "https://www.youtube.com/watch?v=iuvasjwDw0c",
+  "video_provider": "youtube",
+  "video_id": "iuvasjwDw0c",
+  "video_url": "https://www.youtube.com/watch?v=iuvasjwDw0c",
+  "embed_url": "https://www.youtube-nocookie.com/embed/iuvasjwDw0c?start=117&end=137",
+  "official_channel": "Mikaela Shiffrin",
+  "official_channel_url": "https://www.youtube.com/channel/UCT0OUzuJabKyFcFHPPskGeQ",
+  "channel_id": "UCT0OUzuJabKyFcFHPPskGeQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against captions on Shiffrin's own official channel via yt-dlp (channel_id UCT0OUzuJabKyFcFHPPskGeQ). Excerpt confirmed verbatim at ~1:57–2:17. Non-clinical: the immediate context is returning after a crash; 'mentally' is colloquial. A sport-psychologist is mentioned elsewhere in the episode but NOT in this excerpt. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-shiffrin-take-it-on-mentally-2025"
+  ]
+}

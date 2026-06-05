@@ -1,0 +1,28 @@
+{
+  "source_id": "src-louisiana-hadley-stories-2024",
+  "source_type": "author interview",
+  "speaker": "Tessa Hadley",
+  "show_or_platform": "Louisiana Channel",
+  "episode_or_content_title": "The Desire to Tell Stories | Writer Tessa Hadley",
+  "episode_or_content_date": "2024-03-20",
+  "source_url": "https://www.youtube.com/watch?v=9mFZMR1-144",
+  "video_provider": "youtube",
+  "video_id": "9mFZMR1-144",
+  "video_url": "https://www.youtube.com/watch?v=9mFZMR1-144",
+  "embed_url": "https://www.youtube-nocookie.com/embed/9mFZMR1-144?start=565&end=589",
+  "official_channel": "Louisiana Channel",
+  "official_channel_url": "https://www.youtube.com/@LouisianaChannel",
+  "channel_id": "UCY2mhw-XNZSxrUynsI5K8Zw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against official Louisiana Channel captions via yt-dlp (channel_id UCY2mhw-XNZSxrUynsI5K8Zw). Excerpt confirmed verbatim at ~9:25–9:49 (an ASR stutter 'I was having a I was having a' trimmed to one). Non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-hadley-nothing-good-enough-2024"
+  ]
+}
