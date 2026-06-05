@@ -1,0 +1,28 @@
+{
+  "source_id": "src-cbssundaymorning-garmus-2023",
+  "source_type": "news magazine interview",
+  "speaker": "Bonnie Garmus",
+  "show_or_platform": "CBS Sunday Morning",
+  "episode_or_content_title": "Extended interview: Bonnie Garmus on her debut novel and more",
+  "episode_or_content_date": "2023-08-30",
+  "source_url": "https://www.youtube.com/watch?v=U5qGpTscHNs",
+  "video_provider": "youtube",
+  "video_id": "U5qGpTscHNs",
+  "video_url": "https://www.youtube.com/watch?v=U5qGpTscHNs",
+  "embed_url": "https://www.youtube-nocookie.com/embed/U5qGpTscHNs?start=986&end=1000",
+  "official_channel": "CBS Sunday Morning",
+  "official_channel_url": "https://www.youtube.com/@CBSSundayMorning",
+  "channel_id": "UCVT1tPkR-fUVlO652EcO3ow",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official CBS Sunday Morning channel captions via yt-dlp (channel_id UCVT1tPkR-fUVlO652EcO3ow). Excerpt confirmed verbatim and contiguous at ~16:26–16:40. Non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-garmus-wasnt-over-2023"
+  ]
+}

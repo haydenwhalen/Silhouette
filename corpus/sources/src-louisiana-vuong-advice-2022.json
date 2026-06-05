@@ -1,0 +1,28 @@
+{
+  "source_id": "src-louisiana-vuong-advice-2022",
+  "source_type": "author interview",
+  "speaker": "Ocean Vuong",
+  "show_or_platform": "Louisiana Channel",
+  "episode_or_content_title": "Ocean Vuong Shares His Advice for Aspiring Writers | Louisiana Channel",
+  "episode_or_content_date": "2022-11-29",
+  "source_url": "https://www.youtube.com/watch?v=mG7JpAg1mrw",
+  "video_provider": "youtube",
+  "video_id": "mG7JpAg1mrw",
+  "video_url": "https://www.youtube.com/watch?v=mG7JpAg1mrw",
+  "embed_url": "https://www.youtube-nocookie.com/embed/mG7JpAg1mrw?start=67&end=104",
+  "official_channel": "Louisiana Channel",
+  "official_channel_url": "https://www.youtube.com/@LouisianaChannel",
+  "channel_id": "UCY2mhw-XNZSxrUynsI5K8Zw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official Louisiana Channel captions via yt-dlp (channel_id UCY2mhw-XNZSxrUynsI5K8Zw). Excerpt confirmed verbatim and contiguous at ~1:07–1:44 (a single 'um' filler dropped). Non-clinical: 'lost/terrified' are geographic-metaphor, no diagnosis. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-vuong-wandering-discovery-2022"
+  ]
+}

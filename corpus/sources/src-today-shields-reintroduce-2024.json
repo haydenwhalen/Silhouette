@@ -1,0 +1,28 @@
+{
+  "source_id": "src-today-shields-reintroduce-2024",
+  "source_type": "morning show interview",
+  "speaker": "Brooke Shields",
+  "show_or_platform": "TODAY",
+  "episode_or_content_title": "Brooke Shields: I have to 'reintroduce' myself to who I am now",
+  "episode_or_content_date": "2024-06-04",
+  "source_url": "https://www.youtube.com/watch?v=waYSqq88X3w",
+  "video_provider": "youtube",
+  "video_id": "waYSqq88X3w",
+  "video_url": "https://www.youtube.com/watch?v=waYSqq88X3w",
+  "embed_url": "https://www.youtube-nocookie.com/embed/waYSqq88X3w?start=98&end=106",
+  "official_channel": "TODAY with Jenna & Sheinelle",
+  "official_channel_url": "https://www.youtube.com/@TODAY",
+  "channel_id": "UCwukDJWDHn4JW2aHps1ZCvA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official TODAY franchise channel captions via yt-dlp (channel_id UCwukDJWDHn4JW2aHps1ZCvA). Excerpt confirmed verbatim at ~1:38–1:46. Non-clinical: ordinary parenting reflection. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-shields-meet-you-now-2024"
+  ]
+}

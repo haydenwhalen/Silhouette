@@ -1,0 +1,28 @@
+{
+  "source_id": "src-talksport-green-life-after-sport-2025",
+  "source_type": "sports documentary",
+  "speaker": "Jack Green",
+  "show_or_platform": "talkSPORT",
+  "episode_or_content_title": "Why Athletes Struggle With Life After Sport | talkSPORT Documentary",
+  "episode_or_content_date": "2025-03-01",
+  "source_url": "https://www.youtube.com/watch?v=Z0TxInkq8fo",
+  "video_provider": "youtube",
+  "video_id": "Z0TxInkq8fo",
+  "video_url": "https://www.youtube.com/watch?v=Z0TxInkq8fo",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Z0TxInkq8fo?start=346&end=358",
+  "official_channel": "talkSPORT",
+  "official_channel_url": "https://www.youtube.com/@talkSPORT",
+  "channel_id": "UCWw6scNyopJ0yjMu1SyOEyw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against talkSPORT's captions via yt-dlp (channel_id UCWw6scNyopJ0yjMu1SyOEyw). Excerpt confirmed verbatim at 5:46–5:58. NON-CLINICAL BOUND: the clip is hard-bounded to 346–358s, which contains only the identity-narrowness reflection; the documentary's surrounding mental-health framing is excluded. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-green-more-than-that-2025"
+  ]
+}

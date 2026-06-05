@@ -1,0 +1,28 @@
+{
+  "source_id": "src-barnard-wambach-commencement-2018",
+  "source_type": "commencement address",
+  "speaker": "Abby Wambach",
+  "show_or_platform": "Barnard College Commencement",
+  "episode_or_content_title": "Abby Wambach: Barnard Commencement 2018",
+  "episode_or_content_date": "2018-05-18",
+  "source_url": "https://www.youtube.com/watch?v=wJe40l2waxs",
+  "video_provider": "youtube",
+  "video_id": "wJe40l2waxs",
+  "video_url": "https://www.youtube.com/watch?v=wJe40l2waxs",
+  "embed_url": "https://www.youtube-nocookie.com/embed/wJe40l2waxs?start=1388&end=1407",
+  "official_channel": "Barnard College",
+  "official_channel_url": "https://www.youtube.com/@BarnardCollege",
+  "channel_id": "UCk_-X1scHrnYhklUVF7_-4w",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against Barnard College's manual captions (Kind: captions, full punctuation) via yt-dlp (channel_id UCk_-X1scHrnYhklUVF7_-4w). Excerpt confirmed verbatim at 23:08–23:27; clip ends at the bare question 'Without soccer who would I be?' (before her reframe), so it sits in the vacuum. (Verification corrected an end-timestamp error in research notes: the quote ends at ~1407s, not 1391.) Non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-wambach-without-soccer-2018"
+  ]
+}
