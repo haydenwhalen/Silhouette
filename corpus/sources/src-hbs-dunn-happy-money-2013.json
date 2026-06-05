@@ -1,0 +1,28 @@
+{
+  "source_id": "src-hbs-dunn-happy-money-2013",
+  "source_type": "lecture",
+  "speaker": "Elizabeth Dunn",
+  "show_or_platform": "Harvard Business School",
+  "episode_or_content_title": "Happy Money: The Science of Smarter Spending - Investing in Others",
+  "episode_or_content_date": "2013-08-19",
+  "source_url": "https://www.youtube.com/watch?v=c39wUIKUSk0",
+  "video_provider": "youtube",
+  "video_id": "c39wUIKUSk0",
+  "video_url": "https://www.youtube.com/watch?v=c39wUIKUSk0",
+  "embed_url": "https://www.youtube-nocookie.com/embed/c39wUIKUSk0?start=4&end=22",
+  "official_channel": "Harvard Business School",
+  "official_channel_url": "https://www.youtube.com/channel/UCk8n46m74K5XWfdeBzOXDfA",
+  "channel_id": "UCk8n46m74K5XWfdeBzOXDfA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Harvard Business School channel, channel_id UCk8n46m74K5XWfdeBzOXDfA). Excerpt confirmed verbatim at 0:04–0:22; one ellipsis omits the aside 'for once, maybe once a day, once a week, once a year'. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-dunn-spend-on-others-2013"
+  ]
+}

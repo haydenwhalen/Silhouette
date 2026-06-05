@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-steindl-rast-grateful-2013",
+  "source_type": "conference talk",
+  "speaker": "David Steindl-Rast",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Want to be happy? Be grateful | David Steindl-Rast",
+  "episode_or_content_date": "2013-11-27",
+  "source_url": "https://www.youtube.com/watch?v=UtBsl3j0YRQ",
+  "video_provider": "youtube",
+  "video_id": "UtBsl3j0YRQ",
+  "video_url": "https://www.youtube.com/watch?v=UtBsl3j0YRQ",
+  "embed_url": "https://www.youtube-nocookie.com/embed/UtBsl3j0YRQ?start=129&end=145",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 2:09–2:25. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-steindl-rast-gratefulness-2013"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-solomon-forge-meaning-2014",
+  "source_type": "conference talk",
+  "speaker": "Andrew Solomon",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "How the worst moments in our lives make us who we are | Andrew Solomon",
+  "episode_or_content_date": "2014-05-21",
+  "source_url": "https://www.youtube.com/watch?v=RiM5a-vaNkg",
+  "video_provider": "youtube",
+  "video_id": "RiM5a-vaNkg",
+  "video_url": "https://www.youtube.com/watch?v=RiM5a-vaNkg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/RiM5a-vaNkg?start=296&end=315",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 4:56–5:15. Clip starts at 'Stories are the foundation of identity', deliberately after an adjacent illness reference, to keep the SIO non-clinical and on the forge-meaning point. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-solomon-forge-meaning-2014"
+  ]
+}

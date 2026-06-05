@@ -154,4 +154,59 @@ repost channels — non-clinical boundary). Tracy is tier-3 popular productivity
 
 **Spot-check first:** Perry (host-channel attribution) and Tracy (confirm it clears the 'not generic' bar).
 
-## direction-collapse — pending
+## direction-collapse — DONE (3/5 — honest shortfall)  · commit: <filled at commit>
+
+**Selected slots:** DC reorientation gaps — gratefulness, the "money didn't deliver → here's what does"
+research follow-through, and meaning-is-forged-not-found. (DC-1 ordinary emptiness, DC-2 disillusionment,
+DC-3 grief attempted but unfilled — see below.)
+
+**New SIOs (3)**
+
+| filename | speaker | source (family) | video @ ts | type/register |
+|---|---|---|---|---|
+| direction_collapse_steindl_rast_gratefulness | David Steindl-Rast | TED | 2:09–2:25 | reframe · warm |
+| direction_collapse_dunn_give_to_others | Elizabeth Dunn | Harvard Business School | 0:04–0:22 | reframe · expert |
+| direction_collapse_solomon_forge_meaning | Andrew Solomon | TED | 4:56–5:15 | reframe · intellectual |
+
+**Honest shortfall — 3 of 5.** direction-collapse is the corpus's most saturated state (33 existing SIOs
+covering peak-emptiness, hedonic-adaptation science, follow-passion, purpose-develops, it's-ok-not-to-know).
+The genuinely novel gaps (the *ordinary* professional who feels empty with no dramatic peak; disillusionment
+with a cause/field; grief-driven directionlessness) surface almost entirely on clinical/therapy/coaching
+channels, which the non-clinical + credible-source rules exclude. The three found are also all reframe-type.
+Mid-state, the YouTube Data API quota was exhausted (persistent api_error), blocking further candidate
+discovery this session — a hard external limit. Rather than pad the already-rich DC science/peak-emptiness
+cluster, I authored only the genuinely-novel verified fills. (Note: yt-dlp metadata + captions remained
+available, so verification was unaffected — only API-based *search* was blocked.)
+
+**QA:** validate-media PASS (0 hard); ingest 214; magnet — no dominant magnet (top 2/10; new SIOs ≤1/10);
+classification 8/8; retrieval 6/6; target-question closure — Dunn #1 for its query, Steindl-Rast and Solomon
+land #2 (behind strong existing DC entries, as expected in a saturated state); control 'top of my sport, felt
+nothing' still returns peak-emptiness SIOs (Wilkinson/Brady/Ohashi).
+
+**Spot-check first:** Solomon (excerpt held inside non-clinical boundary) and Dunn (confirm DC vs general happiness).
+
+---
+
+# Batch summary (all five remaining states)
+
+| State | Added | Target | Notes |
+|---|---|---|---|
+| momentum-gap | 5 | 5 | ✅ |
+| identity-transition | 4 | 5 | shortfall: lived/health/career-beginner slots unfound cleanly |
+| engagement-drought | 5 | 5 | ✅ |
+| inaction-loop | 5 | 5 | ✅ (zero TED) |
+| direction-collapse | 3 | 5 | shortfall: saturated state + API quota exhausted |
+| **Total** | **22** | **25** | corpus 192 → 214 |
+
+(possibility-paralysis +5 was completed in the prior pass; not part of this 25.)
+
+**Source diversity across the 22:** every speaker is new to the corpus; ~20 distinct source families; only
+1 speaker repeat across the whole batch (Burkeman, prior pass). TED/TEDx kept to ≤2 per state. ~21 of 22 are
+video-backed with verified timestamps. Deliberate widening into Big Think, Talks at Google, BBC Radio 1,
+Aspen Institute, Stanford Alumni, DO Lectures, Harvard Business School, own-channels, and credible podcasts —
+away from the School-of-Greatness/Huberman-Lab concentration.
+
+**Two honest shortfalls (IT 4/5, DC 3/5)** are in the two most saturated states, where the remaining gaps
+live on clinical/coaching sources the rules exclude. Per the working standard, these were reported rather
+than padded. A future pass with fresh API quota could target: ordinary-professional emptiness, disillusionment,
+grief, immigration/health identity shifts — likely via reputable long-form interviews rather than talks.
