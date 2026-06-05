@@ -1,0 +1,28 @@
+{
+  "source_id": "src-npr-wildcard-harjo-2025",
+  "source_type": "interview podcast (video)",
+  "speaker": "Joy Harjo",
+  "show_or_platform": "Wild Card with Rachel Martin (NPR)",
+  "episode_or_content_title": "Joy Harjo on writing to release regret and what dreams taught her about poetry | Wild Card",
+  "episode_or_content_date": "2025-04-24",
+  "source_url": "https://www.youtube.com/watch?v=Hifv1fsw9hU",
+  "video_provider": "youtube",
+  "video_id": "Hifv1fsw9hU",
+  "video_url": "https://www.youtube.com/watch?v=Hifv1fsw9hU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/Hifv1fsw9hU?start=1186&end=1198",
+  "official_channel": "Wild Card with Rachel Martin",
+  "official_channel_url": "https://www.youtube.com/@wildcardpodcast",
+  "channel_id": "UC_ncz289VSm0C3kDigNaUZA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official NPR Wild Card channel captions via yt-dlp (channel_id UC_ncz289VSm0C3kDigNaUZA; ASR, interviewer backchannels removed). Excerpt confirmed verbatim at ~19:46–19:58 (answering 'biggest risk you've taken' — sitting in to play sax at the Blue Note). HARD-BOUND 1186–1198: the broader episode carries a domestic-violence content warning and childhood-abuse material elsewhere — the clip must NEVER auto-extend. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-harjo-no-should-haves-2025"
+  ]
+}

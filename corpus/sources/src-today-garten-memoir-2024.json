@@ -1,0 +1,28 @@
+{
+  "source_id": "src-today-garten-memoir-2024",
+  "source_type": "morning show interview",
+  "speaker": "Ina Garten",
+  "show_or_platform": "TODAY",
+  "episode_or_content_title": "Ina Garten opens up about parents, career, more in new memoir",
+  "episode_or_content_date": "2024-10-01",
+  "source_url": "https://www.youtube.com/watch?v=A-MKcWCtwT0",
+  "video_provider": "youtube",
+  "video_id": "A-MKcWCtwT0",
+  "video_url": "https://www.youtube.com/watch?v=A-MKcWCtwT0",
+  "embed_url": "https://www.youtube-nocookie.com/embed/A-MKcWCtwT0?start=444&end=458",
+  "official_channel": "TODAY",
+  "official_channel_url": "https://www.youtube.com/@TODAY",
+  "channel_id": "UChDKyKQ59fYz3JO2fl0Z6sg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official TODAY/NBC channel captions via yt-dlp (channel_id UChDKyKQ59fYz3JO2fl0Z6sg; ASR — punctuation normalized). Excerpt confirmed verbatim and contiguous at ~7:24–7:38; the host's setup (buying the store without a roadmap, ~7:07) frames it. Non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-garten-something-scary-2024"
+  ]
+}

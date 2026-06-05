@@ -1,0 +1,28 @@
+{
+  "source_id": "src-uwa-minchin-9-lessons-2013",
+  "source_type": "commencement address",
+  "speaker": "Tim Minchin",
+  "show_or_platform": "University of Western Australia",
+  "episode_or_content_title": "9 Life Lessons - Tim Minchin UWA Address",
+  "episode_or_content_date": "2013-10-08",
+  "source_url": "https://www.youtube.com/watch?v=yoEezZD71sc",
+  "video_provider": "youtube",
+  "video_id": "yoEezZD71sc",
+  "video_url": "https://www.youtube.com/watch?v=yoEezZD71sc",
+  "embed_url": "https://www.youtube-nocookie.com/embed/yoEezZD71sc?start=196&end=220",
+  "official_channel": "The University of Western Australia",
+  "official_channel_url": "https://www.youtube.com/@uwa",
+  "channel_id": "UCp8k4RG604aRzNh1H0U6UlA",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official UWA channel manual captions via yt-dlp (channel_id UCp8k4RG604aRzNh1H0U6UlA). Excerpt confirmed verbatim and contiguous at ~3:16–3:40. Non-clinical. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-minchin-micro-ambitious-2013"
+  ]
+}

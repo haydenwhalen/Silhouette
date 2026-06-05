@@ -1,0 +1,28 @@
+{
+  "source_id": "src-own-westover-supersoul-2019",
+  "source_type": "interview (video)",
+  "speaker": "Tara Westover",
+  "show_or_platform": "SuperSoul Sunday (OWN)",
+  "episode_or_content_title": "Tara Westover: \"You Can Love Someone & Still Choose to Say Goodbye\" | SuperSoul Sunday | OWN",
+  "episode_or_content_date": "2019-05-05",
+  "source_url": "https://www.youtube.com/watch?v=BS0P1ovIRos",
+  "video_provider": "youtube",
+  "video_id": "BS0P1ovIRos",
+  "video_url": "https://www.youtube.com/watch?v=BS0P1ovIRos",
+  "embed_url": "https://www.youtube-nocookie.com/embed/BS0P1ovIRos?start=66&end=83",
+  "official_channel": "OWN",
+  "official_channel_url": "https://www.youtube.com/@OWN",
+  "channel_id": "UCKBnlTTgEnhIXv_c4LvvyMQ",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against OWN's official captions (manual subs) via yt-dlp (channel_id UCKBnlTTgEnhIXv_c4LvvyMQ). Excerpt confirmed verbatim at 1:06–1:23. NON-CLINICAL BOUND: the clip is bounded to the decision-doubt beat; the broader interview touches family estrangement and is excluded. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-westover-love-is-love-2019"
+  ]
+}
