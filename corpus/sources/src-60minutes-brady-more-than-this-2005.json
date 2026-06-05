@@ -1,0 +1,28 @@
+{
+  "source_id": "src-60minutes-brady-more-than-this-2005",
+  "source_type": "news magazine interview",
+  "speaker": "Tom Brady",
+  "show_or_platform": "60 Minutes",
+  "episode_or_content_title": "Tom Brady on winning: There's \"got to be more than this\"",
+  "episode_or_content_date": "2005-11-06",
+  "source_url": "https://www.youtube.com/watch?v=-TA4_fVkv3c",
+  "video_provider": "youtube",
+  "video_id": "-TA4_fVkv3c",
+  "video_url": "https://www.youtube.com/watch?v=-TA4_fVkv3c",
+  "embed_url": "https://www.youtube-nocookie.com/embed/-TA4_fVkv3c?start=9&end=32",
+  "official_channel": "60 Minutes",
+  "official_channel_url": "https://www.youtube.com/@60minutes",
+  "channel_id": "UCsN32BtMd0IoByjJRNF12cw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official 60 Minutes/CBS channel captions via yt-dlp (channel_id UCsN32BtMd0IoByjJRNF12cw); wording matches the published 2005 60 Minutes transcript. Excerpt confirmed verbatim and contiguous at ~0:09–0:32. ASR artifacts normalized: 'I thank God' → 'I think, God'; 'done it in 27' → 'done it, I'm 27'. Non-clinical: a reflective 'is this all there is?' beat, no diagnosis/crisis. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-brady-more-than-this-2005"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-dartmouth-federer-commencement-2024",
+  "source_type": "commencement address",
+  "speaker": "Roger Federer",
+  "show_or_platform": "Dartmouth Commencement",
+  "episode_or_content_title": "2024 Commencement Address by Roger Federer at Dartmouth",
+  "episode_or_content_date": "2024-06-09",
+  "source_url": "https://www.youtube.com/watch?v=pqWUuYTcG-o",
+  "video_provider": "youtube",
+  "video_id": "pqWUuYTcG-o",
+  "video_url": "https://www.youtube.com/watch?v=pqWUuYTcG-o",
+  "embed_url": "https://www.youtube-nocookie.com/embed/pqWUuYTcG-o?start=302&end=326",
+  "official_channel": "Dartmouth",
+  "official_channel_url": "https://www.youtube.com/@dartmouth",
+  "channel_id": "UCmzAvLjPYUfY0ELVz-TOPbw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official Dartmouth channel captions via yt-dlp (channel_id UCmzAvLjPYUfY0ELVz-TOPbw); wording matches the published Dartmouth transcript. Excerpt confirmed verbatim and contiguous at ~5:02–5:26 (ASR casing/punctuation normalized). Non-clinical, warm. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-federer-okay-not-to-know-2024"
+  ]
+}

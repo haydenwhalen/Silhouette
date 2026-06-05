@@ -1,0 +1,28 @@
+{
+  "source_id": "src-olympics-burroughs-champion-2019",
+  "source_type": "interview podcast (video)",
+  "speaker": "Jordan Burroughs",
+  "show_or_platform": "Olympic Channel Podcast",
+  "episode_or_content_title": "Jordan Burroughs - \"Who am I if I am not the champion?\"",
+  "episode_or_content_date": "2019-09-17",
+  "source_url": "https://www.youtube.com/watch?v=YpsM0CA0eTA",
+  "video_provider": "youtube",
+  "video_id": "YpsM0CA0eTA",
+  "video_url": "https://www.youtube.com/watch?v=YpsM0CA0eTA",
+  "embed_url": "https://www.youtube-nocookie.com/embed/YpsM0CA0eTA?start=74&end=96",
+  "official_channel": "Olympics",
+  "official_channel_url": "https://www.youtube.com/@Olympics",
+  "channel_id": "UCTl3QQTvqHFjurroKxexy2Q",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official Olympics/IOC channel captions via yt-dlp (channel_id UCTl3QQTvqHFjurroKxexy2Q). Excerpt confirmed verbatim and contiguous at ~1:14–1:36, his single unbroken speaking block about the post-2016-loss collapse. Non-clinical: 'mentally, psychologically' is colloquial self-talk, no diagnosis. Clip bounded to 74–96s; the full 4:44 video later resolves into a comeback arc (excluded). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-burroughs-now-im-nothing-2019"
+  ]
+}

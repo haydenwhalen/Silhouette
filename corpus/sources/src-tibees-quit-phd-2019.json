@@ -1,0 +1,28 @@
+{
+  "source_id": "src-tibees-quit-phd-2019",
+  "source_type": "personal video essay",
+  "speaker": "Toby Hendy",
+  "show_or_platform": "Tibees",
+  "episode_or_content_title": "I quit my PhD",
+  "episode_or_content_date": "2019-02-08",
+  "source_url": "https://www.youtube.com/watch?v=e3Heip-2jYQ",
+  "video_provider": "youtube",
+  "video_id": "e3Heip-2jYQ",
+  "video_url": "https://www.youtube.com/watch?v=e3Heip-2jYQ",
+  "embed_url": "https://www.youtube-nocookie.com/embed/e3Heip-2jYQ?start=88&end=110",
+  "official_channel": "Tibees",
+  "official_channel_url": "https://www.youtube.com/@Tibees",
+  "channel_id": "UC52kszkc08-acFOuogFl5jw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the creator's caption track via yt-dlp (her own channel, channel_id UC52kszkc08-acFOuogFl5jw). Excerpt confirmed verbatim and contiguous at ~1:28–1:50. Non-clinical: 'emotional strain' is plain language; no diagnosis/crisis. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-hendy-same-destination-2019"
+  ]
+}
