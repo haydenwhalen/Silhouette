@@ -1,0 +1,28 @@
+{
+  "source_id": "src-rich-roll-conley-chrysalis-2024",
+  "source_type": "long-form interview podcast",
+  "speaker": "Chip Conley",
+  "show_or_platform": "The Rich Roll Podcast",
+  "episode_or_content_title": "Midlife Is Not A Crisis | Chip Conley",
+  "episode_or_content_date": "2024-01-11",
+  "source_url": "https://www.youtube.com/watch?v=oxWYFpdVX_g",
+  "video_provider": "youtube",
+  "video_id": "oxWYFpdVX_g",
+  "video_url": "https://www.youtube.com/watch?v=oxWYFpdVX_g",
+  "embed_url": "https://www.youtube-nocookie.com/embed/oxWYFpdVX_g?start=0&end=18",
+  "official_channel": "Rich Roll",
+  "official_channel_url": "https://www.youtube.com/channel/UCpjlh0e319ksmoOD7bQFSiw",
+  "channel_id": "UCpjlh0e319ksmoOD7bQFSiw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Rich Roll channel, channel_id UCpjlh0e319ksmoOD7bQFSiw). Excerpt confirmed verbatim at the cold open, 0:00–0:18 (ends before the host's voiceover begins). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-conley-midlife-chrysalis-2024"
+  ]
+}

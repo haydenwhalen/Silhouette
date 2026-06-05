@@ -58,7 +58,39 @@ official channel, can't honestly embed); Astro Teller (org-framed); Gigerenzer (
 
 ---
 
-## identity-transition — pending
+## identity-transition — DONE (4/5 — honest shortfall)  · commit: <filled at commit>
+
+**Selected slots:** IT-2 (matrescence/new parenthood), IT-3 (cultural/immigration), IT-4 (generative
+reinvention), IT-1 (ordinary work-identity loss), IT-6/IT-10 (health / career-beginner — attempted, unfilled).
+
+**New SIOs (4)**
+
+| filename | speaker | source (family) | video @ ts | type/register | slot |
+|---|---|---|---|---|---|
+| identity_transition_sacks_matrescence | Alexandra Sacks | TED | 2:49–3:11 | mechanism · warm | IT-2 |
+| identity_transition_conley_chrysalis | Chip Conley | Rich Roll | 0:00–0:18 | reframe · warm | IT-4 |
+| identity_transition_selasi_multilocal | Taiye Selasi | TED | 4:58–5:09 | reframe · intellectual | IT-3 |
+| identity_transition_debotton_job_snobbery | Alain de Botton | Big Think | 0:37–0:51 | reframe · intellectual | IT-1 |
+
+**Source diversity:** 4 new speakers, all new to the corpus; families TED (×2, at cap), Rich Roll, Big Think;
+4/4 video-backed + timestamped. Adds a reproductive psychiatrist, a midlife-reinvention founder, a
+multicultural writer (Ghanaian-Nigerian-British-American), and a philosopher. Both TED clips use the TED
+YouTube channel so the timestamp embeds honor per-moment start.
+
+**Honest shortfall — 4 of 5.** The lived-story / health-driven / career-beginner slots (IT-1 lived, IT-6,
+IT-10) did not yield a clean, verbatim, non-overused moment from an official channel within budget; and the
+four found are type-clustered (3 reframe + 1 mechanism), nudging IT's already-largest type. Rejected/held:
+Selasi's abstract passages (ASR-mangled proper nouns — only one clean narrated line was usable); Ira Glass /
+Will Smith / Tom Vanderbilt / Maya Angelou / Michelle Obama (fan reposts or third-party summaries only — no
+official channel); John O'Donohue (only small church channels); Suleika Jaouad (cancer-memoir, clinical risk +
+no clean video); Ethan Hawke / Pico Iyer (would be TED #3 / corpus repeat); Herminia Ibarra (corpus repeat).
+
+**QA:** validate-media PASS (0 hard); ingest 201; magnet — no new magnet, pre-existing Shankar 4/8 unchanged;
+classification 8/8; retrieval 6/6; target-question closure — 3/4 new SIOs are #1 for their query (de Botton #2,
+behind Tony Hawk), control athlete-retirement probe unaffected.
+
+**Spot-check first:** de Botton (confirm IT vs status-comparison) and Sacks (excerpt held inside non-clinical boundary).
+
 ## engagement-drought — pending  (lead: Lembke @ Stanford Alumni for ED-8 over-stimulation)
 ## inaction-loop — pending
 ## direction-collapse — pending

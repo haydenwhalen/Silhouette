@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-sacks-matrescence-2018",
+  "source_type": "conference talk",
+  "speaker": "Alexandra Sacks",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "A new way to think about the transition to motherhood | Alexandra Sacks",
+  "episode_or_content_date": "2018-09-20",
+  "source_url": "https://www.youtube.com/watch?v=jOsX_HnJtHU",
+  "video_provider": "youtube",
+  "video_id": "jOsX_HnJtHU",
+  "video_url": "https://www.youtube.com/watch?v=jOsX_HnJtHU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/jOsX_HnJtHU?start=169&end=191",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 2:49–3:11. ASR ARTIFACT: the captioner mangles 'matrescence' (rendered 'mattre sense' / 'matter essence' / 'Metra sense'); displayed excerpt restores 'matrescence'. The excerpt deliberately ENDS at 'is not a disease', before the talk's mention of postpartum depression, to stay within the non-clinical boundary. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-sacks-matrescence-2018"
+  ]
+}

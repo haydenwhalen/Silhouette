@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-selasi-local-2015",
+  "source_type": "conference talk",
+  "speaker": "Taiye Selasi",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "Taiye Selasi: Don't ask where I'm from, ask where I'm a local | TED",
+  "episode_or_content_date": "2015-10-20",
+  "source_url": "https://www.youtube.com/watch?v=LYCKzpXEW6E",
+  "video_provider": "youtube",
+  "video_id": "LYCKzpXEW6E",
+  "video_url": "https://www.youtube.com/watch?v=LYCKzpXEW6E",
+  "embed_url": "https://www.youtube-nocookie.com/embed/LYCKzpXEW6E?start=298&end=309",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt (a short narrated passage) confirmed verbatim at 4:58–5:09. Other parts of the talk have ASR-mangled proper nouns, but this excerpt is clean. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-selasi-multilocal-2015"
+  ]
+}

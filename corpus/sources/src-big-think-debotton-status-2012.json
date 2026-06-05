@@ -1,0 +1,28 @@
+{
+  "source_id": "src-big-think-debotton-status-2012",
+  "source_type": "short-form video essay",
+  "speaker": "Alain de Botton",
+  "show_or_platform": "Big Think",
+  "episode_or_content_title": "What Are You Worth? Getting Past Status Anxiety. | Alain De Botton | Big Think",
+  "episode_or_content_date": "2012-08-03",
+  "source_url": "https://www.youtube.com/watch?v=XhpdWDyB0UY",
+  "video_provider": "youtube",
+  "video_id": "XhpdWDyB0UY",
+  "video_url": "https://www.youtube.com/watch?v=XhpdWDyB0UY",
+  "embed_url": "https://www.youtube-nocookie.com/embed/XhpdWDyB0UY?start=37&end=51",
+  "official_channel": "Big Think",
+  "official_channel_url": "https://www.youtube.com/channel/UCvQECJukTDE2i6aCoMnS-Vg",
+  "channel_id": "UCvQECJukTDE2i6aCoMnS-Vg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-05 against English auto-captions via yt-dlp (official Big Think channel, channel_id UCvQECJukTDE2i6aCoMnS-Vg). Excerpt confirmed verbatim at 0:37–0:51 (one verbal 'um' elided). Clip start at 0:37 deliberately skips de Botton's opening framing of status anxiety as a 'disease' (metaphorical) to keep the SIO non-clinical and on the identity point. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-debotton-job-snobbery-2012"
+  ]
+}
