@@ -1,0 +1,28 @@
+{
+  "source_id": "src-louisiana-zadiesmith-midlife-2013",
+  "source_type": "author interview",
+  "speaker": "Zadie Smith",
+  "show_or_platform": "Louisiana Channel",
+  "episode_or_content_title": "Zadie Smith Interview: On Bad Girls, Good Guys and the Complicated Midlife",
+  "episode_or_content_date": "2013-10-02",
+  "source_url": "https://www.youtube.com/watch?v=SIh3swyGYX4",
+  "video_provider": "youtube",
+  "video_id": "SIh3swyGYX4",
+  "video_url": "https://www.youtube.com/watch?v=SIh3swyGYX4",
+  "embed_url": "https://www.youtube-nocookie.com/embed/SIh3swyGYX4?start=281&end=296",
+  "official_channel": "Louisiana Channel",
+  "official_channel_url": "https://www.youtube.com/@LouisianaChannel",
+  "channel_id": "UCY2mhw-XNZSxrUynsI5K8Zw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against official Louisiana Channel captions via yt-dlp (channel_id UCY2mhw-XNZSxrUynsI5K8Zw; ASR — minor artifacts 'Lon' for loneliness, 'no' for 'you know', normalized). Excerpt confirmed verbatim at ~4:41–4:56. Non-clinical: 'disconnection/isolation/loneliness/boredom' as plain-language modern feelings. The clause is bounded tight to the universal-feelings line (the preceding sentence is about race/civil rights). Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-zadie-smith-feelings-everybody-feels-2013"
+  ]
+}

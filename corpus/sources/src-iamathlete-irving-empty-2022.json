@@ -1,0 +1,28 @@
+{
+  "source_id": "src-iamathlete-irving-empty-2022",
+  "source_type": "athlete podcast (video clip)",
+  "speaker": "Kyrie Irving",
+  "show_or_platform": "I AM ATHLETE",
+  "episode_or_content_title": "Kyrie Irving Felt empty at the TOP",
+  "episode_or_content_date": "2022-11-09",
+  "source_url": "https://www.youtube.com/watch?v=LatjycAekQU",
+  "video_provider": "youtube",
+  "video_id": "LatjycAekQU",
+  "video_url": "https://www.youtube.com/watch?v=LatjycAekQU",
+  "embed_url": "https://www.youtube-nocookie.com/embed/LatjycAekQU?start=5&end=25",
+  "official_channel": "I AM ATHLETE",
+  "official_channel_url": "https://www.youtube.com/@IAMATHLETE",
+  "channel_id": "UC4qMMCxdNfU6cwpaXZOyUSg",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-04 against the official I AM ATHLETE channel captions via yt-dlp (channel_id UC4qMMCxdNfU6cwpaXZOyUSg; ASR). 42-second standalone clip, naturally bounded; excerpt at ~0:05–0:25. Non-clinical: a reflective 'felt empty at the top' beat, no diagnosis/crisis. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-irving-empty-at-the-top-2022"
+  ]
+}
