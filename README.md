@@ -35,7 +35,7 @@ It is organized around **six "stuck states"** drawn from a user-problem model:
 
 - **Intake + diagnostic classifier** — maps one free-text prompt (plus an optional clarifying question) to a stuck state and a structured retrieval query, with a multi-tier safety check that keeps the experience non-clinical.
 - **3-stage retrieval engine** (see below) — state filter → semantic similarity → resonance re-rank, returning a single insight rather than a list.
-- **Video-forward presentation** — every promotable insight links to a real, embeddable clip (YouTube via `youtube-nocookie`) with a per-moment start/end timestamp; **173 of 187** SIOs are video-backed and timestamped.
+- **Video-forward presentation** — every promotable insight links to a real, embeddable clip (YouTube via `youtube-nocookie`) with a per-moment start/end timestamp; the large majority of SIOs are video-backed and timestamped.
 - **Source-honesty invariants** — displayed quotes are short, **verbatim**, and confirmed against the source's own captions/transcript; a clip's timestamp and `transcript_verified` flag are only set when actually confirmed (enforced by a media validator).
 - **Feedback / quality-signal loop** — captures dwell-adjusted feedback signals and routes weak matches for review.
 - **An agentic, human-gated corpus pipeline** — ~37 CLI tools to discover, score, verify, gap-analyze, and validate SIO candidates before a human approves them (see _Tooling_).
@@ -55,9 +55,9 @@ The retrieval health of every change is checked by an automated suite (state-cla
 
 The corpus *is* the product. Each SIO is a markdown file with rich YAML frontmatter linked to a source record:
 
-- `corpus/sios/*.md` — **187** Structured Insight Objects across the 6 states (state tags, `insight_type`, `voice_register`, credibility tier, verbatim excerpt, full media + timestamp metadata, resonance/match notes).
-- `corpus/sources/*.json` — **185** linked source records (speaker, show, official channel, verified video + embed URL, transcript-verification status).
-- **173 / 187** SIOs are backed by a verified, timestamped video embed.
+- `corpus/sios/*.md` — **~250** Structured Insight Objects across the 6 states (state tags, `insight_type`, `voice_register`, credibility tier, verbatim excerpt, full media + timestamp metadata, resonance/match notes).
+- `corpus/sources/*.json` — a linked source record per insight (speaker, show, official channel, verified video + embed URL, transcript-verification status).
+- The large majority of SIOs are backed by a verified, timestamped video embed.
 
 Speakers span athletes, founders, scientists, writers, poets, artists, and public figures, sourced across many families (TED, Huberman Lab, Louisiana Channel, Players' Tribune, On Being, NPR, commencements, and more) with deliberate diversity and anti-concentration checks.
 
@@ -84,8 +84,8 @@ src/
   components/    # React chat UI + InsightMediaCard
   app/           # Next.js app + /api/chat, /api/feedback-signal
 corpus/
-  sios/          # 187 Structured Insight Objects (markdown + frontmatter)
-  sources/       # 185 linked source records (JSON)
+  sios/          # ~250 Structured Insight Objects (markdown + frontmatter)
+  sources/       # linked source records (JSON)
   templates/     # SIO + candidate templates
 scripts/         # ~37 CLI tools: discovery, evaluation, verification, gap analysis, QA tests
 ai/guides/       # design docs + phase reports for each component
@@ -145,7 +145,7 @@ npm run extract-video-timestamps  # yt-dlp caption mining (honesty-gated)
 
 ## Project status & roadmap
 
-**Status:** working prototype with a 187-SIO corpus and a green QA suite (media validation, state classification, retrieval, magnet-risk). Each subsystem — user-problem model, retrieval philosophy, intake flow, ingestion pipeline, retrieval engine, presentation, trust/credibility, feedback loop, and business model — has a design doc and phase report under `ai/guides/`.
+**Status:** working prototype with a ~250-SIO corpus and a green QA suite (media validation, state classification, retrieval, magnet-risk). Each subsystem — user-problem model, retrieval philosophy, intake flow, ingestion pipeline, retrieval engine, presentation, trust/credibility, feedback loop, and business model — has a design doc and phase report under `ai/guides/`.
 
 **Roadmap:**
 - Closed beta with instrumentation; a feedback-driven retrieval-tuning loop on real usage signals.
