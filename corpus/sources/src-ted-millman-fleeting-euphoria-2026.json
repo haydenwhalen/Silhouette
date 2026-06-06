@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-millman-fleeting-euphoria-2026",
+  "source_type": "conference talk",
+  "speaker": "Debbie Millman",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "The Fleeting Euphoria of Success | Debbie Millman | TED",
+  "episode_or_content_date": "2026-05-29",
+  "source_url": "https://www.youtube.com/watch?v=xjmUzxEPJeM",
+  "video_provider": "youtube",
+  "video_id": "xjmUzxEPJeM",
+  "video_url": "https://www.youtube.com/watch?v=xjmUzxEPJeM",
+  "embed_url": "https://www.youtube-nocookie.com/embed/xjmUzxEPJeM?start=163&end=189",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-06 against English captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 2:43–3:09. Clip is Millman's first-person confession of the emptiness after achievement; bounded to the lived account and held to the non-clinical boundary. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-millman-fleeting-accomplishment-2026"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "source_id": "src-yt-school-of-life-ordinary-life-2018",
+  "source_type": "explainer video",
+  "speaker": "The School of Life",
+  "show_or_platform": "The School of Life",
+  "episode_or_content_title": "Why an Ordinary Life Can Be a Good Life",
+  "episode_or_content_date": "2018-03-22",
+  "source_url": "https://www.youtube.com/watch?v=uHVZVCbicTg",
+  "video_provider": "youtube",
+  "video_id": "uHVZVCbicTg",
+  "video_url": "https://www.youtube.com/watch?v=uHVZVCbicTg",
+  "embed_url": "https://www.youtube-nocookie.com/embed/uHVZVCbicTg?start=207&end=223",
+  "official_channel": "The School of Life",
+  "official_channel_url": "https://www.youtube.com/channel/UC7IcJI8PUf5Z3zKxnZvTBog",
+  "channel_id": "UC7IcJI8PUf5Z3zKxnZvTBog",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-06 against the channel's English (en-GB) subtitles via yt-dlp on The School of Life official YouTube channel (channel_id UC7IcJI8PUf5Z3zKxnZvTBog). Excerpt confirmed verbatim at 3:27–3:43. Animated essay (institutional narration, anonymous narrator); attributed to The School of Life. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-school-of-life-ordinary-life-2018"
+  ]
+}

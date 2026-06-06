@@ -55,7 +55,7 @@ The retrieval health of every change is checked by an automated suite (state-cla
 
 The corpus *is* the product. Each SIO is a markdown file with rich YAML frontmatter linked to a source record:
 
-- `corpus/sios/*.md` — **~250** Structured Insight Objects across the 6 states (state tags, `insight_type`, `voice_register`, credibility tier, verbatim excerpt, full media + timestamp metadata, resonance/match notes).
+- `corpus/sios/*.md` — **220+** source-backed Structured Insight Objects across the 6 states (state tags, `insight_type`, `voice_register`, credibility tier, verbatim excerpt, full media + timestamp metadata, resonance/match notes).
 - `corpus/sources/*.json` — a linked source record per insight (speaker, show, official channel, verified video + embed URL, transcript-verification status).
 - The large majority of SIOs are backed by a verified, timestamped video embed.
 
@@ -84,7 +84,7 @@ src/
   components/    # React chat UI + InsightMediaCard
   app/           # Next.js app + /api/chat, /api/feedback-signal
 corpus/
-  sios/          # ~250 Structured Insight Objects (markdown + frontmatter)
+  sios/          # 220+ Structured Insight Objects (markdown + frontmatter)
   sources/       # linked source records (JSON)
   templates/     # SIO + candidate templates
 scripts/         # ~37 CLI tools: discovery, evaluation, verification, gap analysis, QA tests
@@ -145,7 +145,7 @@ npm run extract-video-timestamps  # yt-dlp caption mining (honesty-gated)
 
 ## Project status & roadmap
 
-**Status:** working prototype with a ~250-SIO corpus and a green QA suite (media validation, state classification, retrieval, magnet-risk). Each subsystem — user-problem model, retrieval philosophy, intake flow, ingestion pipeline, retrieval engine, presentation, trust/credibility, feedback loop, and business model — has a design doc and phase report under `ai/guides/`.
+**Status:** working prototype with a 220+ SIO corpus and a green QA suite (media validation, state classification, retrieval, magnet-risk). Each subsystem — user-problem model, retrieval philosophy, intake flow, ingestion pipeline, retrieval engine, presentation, trust/credibility, feedback loop, and business model — has a design doc and phase report under `ai/guides/`.
 
 **Roadmap:**
 - Closed beta with instrumentation; a feedback-driven retrieval-tuning loop on real usage signals.
