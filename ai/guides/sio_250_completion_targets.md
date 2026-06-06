@@ -1,14 +1,23 @@
 # 250-Completion Target Slots (the contract)
 
-> **STATUS (2026-06-05): PAUSED — awaiting YouTube Data API quota reset.** Corpus is at **214/250**; **no
-> SIOs were authored in this pass** (only this contract was written). The YouTube **Search Queries per day**
-> quota was exhausted (`429 rateLimitExceeded`), which throttles candidate discovery; to keep this final
-> push **video-forward** (high verified-video ratio, minimal non-video filler), sourcing is deferred until
-> the quota resets (daily, ~midnight Pacific). **Resume order: direction-collapse → identity-transition →
-> momentum-gap → possibility-paralysis → engagement-drought → inaction-loop.** Same rules: quality over
-> padding · prefer verified video + timestamp · non-video only when clearly stronger · no fabricated
-> quotes/timestamps/URLs/IDs/transcript-verification · commit one state at a time · stop rather than fill to
-> 250. (yt-dlp captions + the `videos` metadata endpoint remained available; only API *search* was blocked.)
+> **STATUS (2026-06-06): RESUME PASS COMPLETE — corpus 214 → 224 (+10 verified, video-forward).** Ran the
+> full resume order on fresh YouTube quota: **DC +3, IT +2, MG +2, PP +1, ED +2, IL +0.** Every addition is
+> caption-verified verbatim (yt-dlp, `exact_quote_match`, `transcript_verified`), passed validate-media (0
+> hard), ingest, classification 8/8, retrieval 6/6, and ranked **#1** for its slot question. Per-state totals
+> now: DC 39 · IT 37 · MG 36 · PP 35 · ED 39 · IL 38 (balanced). **NOT pushed.**
+>
+> **Why +10 and not +36 (the honest quality wall):** the four most-saturated states (DC, IT, PP, IL) had few
+> *real* gaps left — their strong, credible, non-clinical video voices are already in the corpus. The
+> remaining slots overwhelmingly surfaced only: faceless AI-narration/repost channels; clinical/therapy
+> channels (excluded by the non-clinical rule); audio-only podcasts; or already-covered themes/voices. Per the
+> "stop rather than pad" mandate, those were left as honest shortfalls rather than filled with marginal
+> sources. See per-state shortfall notes in each commit message. **Filled:** DC-A (Millman), DC-C (Kessler),
+> DC-F (School of Life); IT-A (Stacey), IT-F (Bailey); MG-A (Lewinsky), MG-F (Furness); PP-C (Pearson); ED-E
+> (Hersey), ED-F (Csikszentmihalyi). **Unfilled walls:** DC-B/D/E; IT-B/C/D/E; MG-B/C/D/E; PP-A (flagged
+> top gap — only frameworks exist, e.g. Ruth Chang already in corpus, not lived stories) / B (served by Chang)
+> / D / E / F; ED-A/B/C/D; all of IL (initiation voices already saturated). To go further toward 250 would
+> require relaxing a constraint (allow audio-only, allow clinical-adjacent voices, or accept lower-credibility
+> channels) — a product decision for the owner, not a sourcing fix.
 
 
 _Final MVP pass: +6/state (36 total) to take the corpus 214 → 250. Built from the unfilled/thin gaps in
