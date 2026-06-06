@@ -1,0 +1,28 @@
+{
+  "source_id": "src-yt-pearson-rich-roll-intuition-2024",
+  "source_type": "podcast",
+  "speaker": "Joel Pearson",
+  "show_or_platform": "The Rich Roll Podcast",
+  "episode_or_content_title": "Learn How To Trust Your Intuition | Joel Pearson X Rich Roll",
+  "episode_or_content_date": "2024-06-24",
+  "source_url": "https://www.youtube.com/watch?v=P6gurM1MBdY",
+  "video_provider": "youtube",
+  "video_id": "P6gurM1MBdY",
+  "video_url": "https://www.youtube.com/watch?v=P6gurM1MBdY",
+  "embed_url": "https://www.youtube-nocookie.com/embed/P6gurM1MBdY?start=36&end=54",
+  "official_channel": "Rich Roll",
+  "official_channel_url": "https://www.youtube.com/channel/UCpjlh0e319ksmoOD7bQFSiw",
+  "channel_id": "UCpjlh0e319ksmoOD7bQFSiw",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-06 against the clip's English auto-captions (en-orig) via yt-dlp on the official Rich Roll YouTube channel (channel_id UCpjlh0e319ksmoOD7bQFSiw). Excerpt confirmed verbatim at 0:36–0:54; punctuation/capitalization restored for presentation ('tapping in to'->'tapping into'), wording unchanged. Speaker is neuroscientist Joel Pearson (intuition researcher). Auto-caption source (no manual track); words clearly intelligible. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video clip. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-pearson-intuition-as-data-2024"
+  ]
+}
