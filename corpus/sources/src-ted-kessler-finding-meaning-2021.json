@@ -1,0 +1,28 @@
+{
+  "source_id": "src-ted-kessler-finding-meaning-2021",
+  "source_type": "conference talk",
+  "speaker": "David Kessler",
+  "show_or_platform": "TED",
+  "episode_or_content_title": "David Kessler: How to find meaning after loss | TED",
+  "episode_or_content_date": "2021-09-01",
+  "source_url": "https://www.youtube.com/watch?v=D3azoUEEy3E",
+  "video_provider": "youtube",
+  "video_id": "D3azoUEEy3E",
+  "video_url": "https://www.youtube.com/watch?v=D3azoUEEy3E",
+  "embed_url": "https://www.youtube-nocookie.com/embed/D3azoUEEy3E?start=104&end=122",
+  "official_channel": "TED",
+  "official_channel_url": "https://www.youtube.com/channel/UCAuUUnT6oDeKwE6v1NGQxug",
+  "channel_id": "UCAuUUnT6oDeKwE6v1NGQxug",
+  "transcript_url": "",
+  "transcript_available": true,
+  "transcript_verified": true,
+  "timestamp_verified": true,
+  "media_available": true,
+  "media_verification_status": "verified",
+  "source_confidence": "high",
+  "verification_notes": "Verified 2026-06-06 against English captions via yt-dlp on TED's official YouTube channel (channel_id UCAuUUnT6oDeKwE6v1NGQxug). Excerpt confirmed verbatim at 1:43–2:02. Clip deliberately starts at 'And when we talk about meaning' — after Kessler's personal reference to his son's death (around 1:25) — to keep the SIO non-crisis and on the meaning-is-made point. Kessler explicitly extends the loss to 'a job being lost' / 'a dream died', so the moment generalizes beyond bereavement to direction-collapse. Embed via youtube-nocookie.",
+  "rights_or_usage_notes": "Official channel video. Brief verbatim quote for attribution; embed/link only.",
+  "sios": [
+    "sio-kessler-meaning-is-in-us-2021"
+  ]
+}
